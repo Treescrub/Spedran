@@ -1,0 +1,75 @@
+package treescrub.spedran.api;
+
+import treescrub.spedran.data.*;
+
+import java.util.List;
+import java.util.concurrent.CompletableFuture;
+
+public class SpeedrunApi {
+    private static final int MAX_ITEMS = 200;
+    private static final int MAX_ITEMS_BULK = 1000;
+
+    public Game getGame(String id) {
+        return null;
+    }
+
+    public List<Game> getGames() {
+        return getGames(MAX_ITEMS);
+    }
+
+    public List<Game> getGames(boolean isBulk) {
+        return getGames(isBulk ? MAX_ITEMS_BULK : MAX_ITEMS);
+    }
+
+    public List<Game> getGames(int size) {
+        return getGames(size, false);
+    }
+
+    public List<Game> getGames(int size, boolean isBulk) {
+        return null;
+    }
+
+    public List<Category> getCategories(String gameId) {
+        return null;
+    }
+
+    public List<Level> getLevels(String gameId) {
+        return null;
+    }
+
+    public Variables getVariable(String id) {
+        return null;
+    }
+
+    public User getUser(String id) {
+        return getUserAsync(id).join();
+    }
+
+    public CompletableFuture<User> getUserAsync(String id) {
+        return null;
+    }
+
+    public List<Run> getLeaderboards() {
+        return null;
+    }
+
+    public Guest getGuest(String name) {
+        return null;
+    }
+
+    public Genre getGenre(String id) {
+        return null;
+    }
+
+    public Gametype getGametype(String id) {
+        return null;
+    }
+
+    public Engine getEngine(String id) {
+        return null;
+    }
+
+    public Developer getDeveloper(String id) {
+        return null;
+    }
+}
