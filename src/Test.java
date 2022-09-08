@@ -1,3 +1,4 @@
+import kong.unirest.json.JSONObject;
 import treescrub.spedran.data.Game;
 import treescrub.spedran.requests.Requests;
 import kong.unirest.HttpResponse;
@@ -15,6 +16,14 @@ public class Test {
         System.out.println(game);
         System.out.println(game.getReleaseDate().get());
         System.out.println(game.getDiscordLink().orElse(null));
+
+        response = Unirest.get("/{resource}/{id}")
+                .routeParam("resource", "runs")
+                .routeParam("id", "yvrk7voz")
+                .queryString("embed", "gam")
+                .asJsonAsync().join();
+
+        System.out.println(response.getBody().getObject().getJSONObject("data").get("game") instanceof String);
 
         Unirest.shutDown();
     }

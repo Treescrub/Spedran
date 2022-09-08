@@ -15,7 +15,7 @@ class CategoryPlayers {
     }
 }
 
-public class Category extends IdentifiableResource {
+public class Category extends Resource {
     private String name;
     private URL weblink;
     private Boolean isPerLevel;
@@ -23,12 +23,7 @@ public class Category extends IdentifiableResource {
     private CategoryPlayers players;
     private Boolean miscellaneous;
 
-    Category(String id) {
-        super(id);
-    }
-
-    @Override
-    protected void populate(JSONObject data) {
+    public Category(JSONObject data) {
         name = data.getString("name");
         try {
             weblink = new URL(data.getString("weblink"));

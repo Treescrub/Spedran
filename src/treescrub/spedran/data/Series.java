@@ -1,5 +1,7 @@
 package treescrub.spedran.data;
 
+import kong.unirest.json.JSONObject;
+
 import java.util.Map;
 
 public class Series {
@@ -10,4 +12,8 @@ public class Series {
     private String discord;
     private Map<String, String> moderators;
     private String created;
+
+    public Series(JSONObject data) {
+        id = data.getString("id");
+    }
 }

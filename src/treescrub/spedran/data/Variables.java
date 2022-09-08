@@ -1,5 +1,7 @@
 package treescrub.spedran.data;
 
+import kong.unirest.json.JSONObject;
+
 class VariablesScope {
 
 }
@@ -18,4 +20,8 @@ public class Variables {
     private boolean obsoletes;
     private VariablesValues values;
     private boolean isSubcategory;
+
+    public Variables(JSONObject data) {
+
+    }
 }

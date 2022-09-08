@@ -5,17 +5,12 @@ import kong.unirest.json.JSONObject;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-public class Level extends IdentifiableResource {
+public class Level extends Resource {
     private String name;
     private URL weblink;
     private String rules;
 
-    Level(String id) {
-        super(id);
-    }
-
-    @Override
-    protected void populate(JSONObject data) {
+    public Level(JSONObject data) {
         name = data.getString("name");
         try {
             weblink = new URL(data.getString("weblink"));

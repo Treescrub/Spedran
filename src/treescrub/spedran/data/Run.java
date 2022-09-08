@@ -25,10 +25,10 @@ class RunSystem {
 
 }
 
-public class Run extends IdentifiableResource {
+public class Run extends Resource {
     private URL weblink;
-    private Game game;
-    private Level level;
+    private String game;
+    private String level;
     private Category category;
     private List<Link> videos;
     private String comment;
@@ -42,16 +42,12 @@ public class Run extends IdentifiableResource {
     private Map<String, String> values;
 
     public Run(JSONObject data) {
-        super(data.getString("id"), false);
-    }
-
-    @Override
-    protected void populate(JSONObject data) {
         try {
             weblink = new URL(data.getString("weblink"));
         } catch (MalformedURLException e) {
             e.printStackTrace();
         }
-        game = new Game();
+        game = data.getString("game");
+        level = data.getString("level");
     }
 }

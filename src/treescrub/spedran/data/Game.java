@@ -40,7 +40,8 @@ class GameModerators {
     }
 }
 
-public class Game extends IdentifiableResource {
+public class Game extends Resource {
+    private String id;
     private Names names;
     private Integer boostReceived;
     private Integer boostDistinctDonors;
@@ -60,7 +61,6 @@ public class Game extends IdentifiableResource {
     private Instant created;
 
     public Game(JSONObject data) {
-        super(data.getString("id"), false);
         gametypes = new ArrayList<>();
         platforms = new ArrayList<>();
         regions = new ArrayList<>();
@@ -70,15 +70,7 @@ public class Game extends IdentifiableResource {
         publishers = new ArrayList<>();
         moderators = new HashMap<>();
 
-        populate(data);
-    }
-
-    public Game(String id) {
-        super(id);
-    }
-
-    @Override
-    protected void populate(JSONObject data) {
+        id = data.getString("id");
         names = new Names(data.getJSONObject("names"));
         boostReceived = data.getInt("boostReceived");
         boostDistinctDonors = data.getInt("boostDistinctDonors");

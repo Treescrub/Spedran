@@ -4,7 +4,7 @@ import kong.unirest.json.JSONObject;
 
 import java.util.Optional;
 
-public class Engine {
+public class Engine extends Resource {
     private String id;
     private String name;
 

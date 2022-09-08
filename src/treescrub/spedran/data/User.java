@@ -18,7 +18,7 @@ class UserLocation {
     }
 }
 
-public class User extends IdentifiableResource {
+public class User extends Resource {
     private Names names;
     private Boolean supporterAnimation;
     private String pronouns;
@@ -33,12 +33,7 @@ public class User extends IdentifiableResource {
     private Link twitter;
     private Link speedrunsLive;
 
-    User(String id) {
-        super(id);
-    }
-
-    @Override
-    protected void populate(JSONObject data) {
+    public User(JSONObject data) {
         names = new Names(data.getJSONObject("names"));
         supporterAnimation = data.getBoolean("supporterAnimation");
         pronouns = data.getString("pronouns");
