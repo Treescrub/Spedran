@@ -1,5 +1,7 @@
 package treescrub.spedran.data;
 
+import kong.unirest.HttpResponse;
+import kong.unirest.JsonNode;
 import kong.unirest.json.JSONObject;
 
 import java.net.MalformedURLException;
@@ -40,6 +42,10 @@ public class Run extends Resource {
     private RunSystem system;
     private Link splits;
     private Map<String, String> values;
+
+    public Run(HttpResponse<JsonNode> data) {
+        this(data.getBody().getObject().getJSONObject("data"));
+    }
 
     public Run(JSONObject data) {
         try {

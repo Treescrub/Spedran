@@ -1,5 +1,7 @@
 package treescrub.spedran.data;
 
+import kong.unirest.HttpResponse;
+import kong.unirest.JsonNode;
 import kong.unirest.json.JSONObject;
 
 import java.net.MalformedURLException;
@@ -32,6 +34,10 @@ public class User extends Resource {
     private Link youtube;
     private Link twitter;
     private Link speedrunsLive;
+
+    public User(HttpResponse<JsonNode> data) {
+        this(data.getBody().getObject().getJSONObject("data"));
+    }
 
     public User(JSONObject data) {
         names = new Names(data.getJSONObject("names"));

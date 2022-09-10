@@ -1,5 +1,7 @@
 package treescrub.spedran.data;
 
+import kong.unirest.HttpResponse;
+import kong.unirest.JsonNode;
 import kong.unirest.json.JSONObject;
 
 import java.net.MalformedURLException;
@@ -59,6 +61,10 @@ public class Game extends Resource {
     private List<Publisher> publishers;
     private Map<String, String> moderators;
     private Instant created;
+
+    public Game(HttpResponse<JsonNode> data) {
+        this(data.getBody().getObject().getJSONObject("data"));
+    }
 
     public Game(JSONObject data) {
         gametypes = new ArrayList<>();

@@ -1,9 +1,9 @@
-import kong.unirest.json.JSONObject;
-import treescrub.spedran.data.Game;
-import treescrub.spedran.requests.Requests;
 import kong.unirest.HttpResponse;
 import kong.unirest.JsonNode;
 import kong.unirest.Unirest;
+import treescrub.spedran.api.Spedran;
+import treescrub.spedran.data.Game;
+import treescrub.spedran.requests.Requests;
 
 public class Test {
     public static void main(String[] args) {
@@ -24,6 +24,8 @@ public class Test {
                 .asJsonAsync().join();
 
         System.out.println(response.getBody().getObject().getJSONObject("data").get("game") instanceof String);
+
+        System.out.println(Spedran.getLevel("5d77z5dy").getWeblink());
 
         Unirest.shutDown();
     }

@@ -1,5 +1,7 @@
 package treescrub.spedran.data;
 
+import kong.unirest.HttpResponse;
+import kong.unirest.JsonNode;
 import kong.unirest.json.JSONObject;
 
 import java.util.Optional;
@@ -8,6 +10,10 @@ public class Names {
     private String international;
     private String japanese;
     private String twitch;
+
+    public Names(HttpResponse<JsonNode> data) {
+        this(data.getBody().getObject().getJSONObject("data"));
+    }
 
     public Names(JSONObject data) {
         international = data.getString("international");

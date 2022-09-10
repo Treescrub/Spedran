@@ -1,16 +1,17 @@
 package treescrub.spedran.api;
 
 import treescrub.spedran.data.*;
+import treescrub.spedran.requests.Requests;
 
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
 
-public class SpeedrunApi {
+public class Spedran {
     private static final int MAX_ITEMS = 200;
     private static final int MAX_ITEMS_BULK = 1000;
 
-    public Game getGame(String id) {
-        return null;
+    public static Game getGame(String id) {
+        return new Game(Requests.getGame(id).join());
     }
 
     public List<Game> getGames() {
@@ -29,8 +30,16 @@ public class SpeedrunApi {
         return null;
     }
 
+    public static Category getCategory(String id) {
+        return new Category(Requests.getCategory(id).join());
+    }
+
     public List<Category> getCategories(String gameId) {
         return null;
+    }
+
+    public static Level getLevel(String id) {
+        return new Level(Requests.getLevel(id).join());
     }
 
     public List<Level> getLevels(String gameId) {
