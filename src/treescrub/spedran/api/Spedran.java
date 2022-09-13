@@ -46,8 +46,8 @@ public class Spedran {
         return null;
     }
 
-    public Variables getVariable(String id) {
-        return null;
+    public static Variables getVariable(String id) {
+        return new Variables(Requests.getVariable(id).join());
     }
 
     public User getUser(String id) {
