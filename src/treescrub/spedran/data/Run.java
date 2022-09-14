@@ -6,20 +6,14 @@ import kong.unirest.json.JSONObject;
 
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.time.Duration;
 import java.time.Instant;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Map;
-
-class RunStatus {
-
-}
+import java.util.Optional;
 
 class RunPlayer {
-
-}
-
-class RunTimes {
 
 }
 
@@ -28,10 +22,11 @@ class RunSystem {
 }
 
 public class Run extends Resource {
-    private URL weblink;
+    private String id;
+    private String weblink;
     private String game;
     private String level;
-    private Category category;
+    private String category;
     private List<Link> videos;
     private String comment;
     private RunStatus status;
@@ -48,12 +43,15 @@ public class Run extends Resource {
     }
 
     public Run(JSONObject data) {
-        try {
-            weblink = new URL(data.getString("weblink"));
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
-        }
+        id = data.getString("id");
+        weblink = data.getString("weblink");
         game = data.getString("game");
-        level = data.getString("level");
+        level = data.optString("level", null);
+        category = data.getString("category");
+        status = new RunStatus(data.getJSONObject("status"));
+    }
+
+    public RunStatus getStatus() {
+        return status;
     }
 }

@@ -4,22 +4,9 @@ import kong.unirest.HttpResponse;
 import kong.unirest.JsonNode;
 import kong.unirest.json.JSONObject;
 
-import java.net.MalformedURLException;
-import java.net.URL;
-
-class CategoryPlayers {
-    private boolean isExact;
-    private int playerCount;
-
-    CategoryPlayers(JSONObject data) {
-        isExact = data.getString("type").equals("exactly");
-        playerCount = data.getInt("value");
-    }
-}
-
 public class Category extends Resource {
     private String name;
-    private URL weblink;
+    private String weblink;
     private Boolean isPerLevel;
     private String rules;
     private CategoryPlayers players;
@@ -31,11 +18,7 @@ public class Category extends Resource {
 
     public Category(JSONObject data) {
         name = data.getString("name");
-        try {
-            weblink = new URL(data.getString("weblink"));
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
-        }
+        weblink = data.getString("weblink");
         isPerLevel = data.getString("type").equals("per-level");
         rules = data.getString("rules");
         players = new CategoryPlayers(data.getJSONObject("players"));
@@ -46,7 +29,7 @@ public class Category extends Resource {
         return name;
     }
 
-    public URL getWeblink() {
+    public String getWeblink() {
         return weblink;
     }
 

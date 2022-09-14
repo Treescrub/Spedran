@@ -14,4 +14,8 @@ public class Guest extends Resource {
     public Guest(JSONObject data) {
         name = data.getString("name");
     }
+
+    public String getName() {
+        return name;
+    }
 }

@@ -30,6 +30,10 @@ public class Spedran {
         return null;
     }
 
+    public static Run getRun(String id) {
+        return new Run(Requests.getRun(id).join());
+    }
+
     public static Category getCategory(String id) {
         return new Category(Requests.getCategory(id).join());
     }

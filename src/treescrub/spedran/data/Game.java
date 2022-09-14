@@ -29,16 +29,29 @@ class GameRuleset {
         defaultTime = data.getString("default-time");
         emulatorsAllowed = data.getBoolean("emulators-allowed");
     }
-}
 
-class GameModerators {
-    private Map<String, String> moderators;
+    public boolean isShowMilliseconds() {
+        return showMilliseconds;
+    }
 
-    public GameModerators(JSONObject data) {
-        moderators = new HashMap<>();
-        for(String key : data.keySet()) {
-            moderators.put(key, data.getString(key));
-        }
+    public boolean isRequireVerification() {
+        return requireVerification;
+    }
+
+    public boolean isRequireVideo() {
+        return requireVideo;
+    }
+
+    public List<String> getRunTimes() {
+        return Collections.unmodifiableList(runTimes);
+    }
+
+    public String getDefaultTime() {
+        return defaultTime;
+    }
+
+    public boolean isEmulatorsAllowed() {
+        return emulatorsAllowed;
     }
 }
 
@@ -48,17 +61,17 @@ public class Game extends Resource {
     private Integer boostReceived;
     private Integer boostDistinctDonors;
     private String abbreviation;
-    private URL weblink;
-    private URL discord;
+    private String weblink;
+    private String discord;
     private LocalDate releaseDate;
     private GameRuleset ruleset;
-    private List<Gametype> gametypes;
-    private List<Platform> platforms;
-    private List<Region> regions;
-    private List<Genre> genres;
-    private List<Engine> engines;
-    private List<Developer> developers;
-    private List<Publisher> publishers;
+    private List<String> gametypes;
+    private List<String> platforms;
+    private List<String> regions;
+    private List<String> genres;
+    private List<String> engines;
+    private List<String> developers;
+    private List<String> publishers;
     private Map<String, String> moderators;
     private Instant created;
 
@@ -67,74 +80,120 @@ public class Game extends Resource {
     }
 
     public Game(JSONObject data) {
-        gametypes = new ArrayList<>();
-        platforms = new ArrayList<>();
-        regions = new ArrayList<>();
-        genres = new ArrayList<>();
-        engines = new ArrayList<>();
-        developers = new ArrayList<>();
-        publishers = new ArrayList<>();
-        moderators = new HashMap<>();
-
         id = data.getString("id");
         names = new Names(data.getJSONObject("names"));
         boostReceived = data.getInt("boostReceived");
         boostDistinctDonors = data.getInt("boostDistinctDonors");
         abbreviation = data.getString("abbreviation");
-        try {
-            weblink = new URL(data.getString("weblink"));
-            discord = data.getString("discord").isEmpty() ? null : new URL(data.getString("discord"));
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
-        }
+        weblink = data.getString("weblink");
+        discord = data.getString("discord").isEmpty() ? null : data.getString("discord");
         releaseDate = LocalDate.parse(data.getString("release-date"));
         ruleset = new GameRuleset(data.getJSONObject("ruleset"));
-        // TODO: gametypes
-        // TODO: platforms
-        // TODO: regions
-        // TODO: genres
-        // TODO: engines
-        // TODO: developers
-        // TODO: publishers
+        gametypes = new ArrayList<>();
+        for(int i = 0; i < data.getJSONArray("gametypes").length(); i++) {
+            gametypes.add(data.getJSONArray("gametypes").getString(i));
+        }
+        platforms = new ArrayList<>();
+        for(int i = 0; i < data.getJSONArray("platforms").length(); i++) {
+            platforms.add(data.getJSONArray("platforms").getString(i));
+        }
+        regions = new ArrayList<>();
+        for(int i = 0; i < data.getJSONArray("regions").length(); i++) {
+            regions.add(data.getJSONArray("regions").getString(i));
+        }
+        genres = new ArrayList<>();
+        for(int i = 0; i < data.getJSONArray("genres").length(); i++) {
+            genres.add(data.getJSONArray("genres").getString(i));
+        }
+        engines = new ArrayList<>();
+        for(int i = 0; i < data.getJSONArray("engines").length(); i++) {
+            engines.add(data.getJSONArray("engines").getString(i));
+        }
+        developers = new ArrayList<>();
+        for(int i = 0; i < data.getJSONArray("developers").length(); i++) {
+            developers.add(data.getJSONArray("developers").getString(i));
+        }
+        publishers = new ArrayList<>();
+        for(int i = 0; i < data.getJSONArray("publishers").length(); i++) {
+            publishers.add(data.getJSONArray("publishers").getString(i));
+        }
+        moderators = new HashMap<>();
         for(String key : data.getJSONObject("moderators").keySet()) {
             moderators.put(key, data.getJSONObject("moderators").getString(key));
         }
-        created = data.isNull("created") ? null : Instant.parse(data.getString("created"));
+        if(!data.isNull("created"))
+            created = Instant.parse(data.getString("created"));
     }
 
     public String getId() {
         return id;
     }
 
-    public Optional<Names> getNames() {
-        return Optional.ofNullable(names);
+    public Names getNames() {
+        return names;
     }
 
-    public Optional<Integer> getBoostsReceived() {
-        return Optional.ofNullable(boostReceived);
+    public Integer getBoostsReceived() {
+        return boostReceived;
     }
 
-    public Optional<Integer> getDistinctBoosters() {
-        return Optional.ofNullable(boostDistinctDonors);
+    public Integer getDistinctBoosters() {
+        return boostDistinctDonors;
     }
 
-    public Optional<String> getAbbreviation() {
-        return Optional.ofNullable(abbreviation);
+    public String getAbbreviation() {
+        return abbreviation;
     }
 
-    public Optional<URL> getWebLink() {
-        return Optional.ofNullable(weblink);
+    public String getWebLink() {
+        return weblink;
     }
 
-    public Optional<URL> getDiscordLink() {
+    public Optional<String> getDiscordLink() {
         return Optional.ofNullable(discord);
     }
 
-    public Optional<LocalDate> getReleaseDate() {
-        return Optional.ofNullable(releaseDate);
+    public LocalDate getReleaseDate() {
+        return releaseDate;
     }
 
     public Optional<GameRuleset> getRuleset() {
         return Optional.ofNullable(ruleset);
+    }
+
+    public List<String> getGametypes() {
+        return Collections.unmodifiableList(gametypes);
+    }
+
+    public List<String> getPlatforms() {
+        return Collections.unmodifiableList(platforms);
+    }
+
+    public List<String> getRegions() {
+        return Collections.unmodifiableList(regions);
+    }
+
+    public List<String> getGenres() {
+        return Collections.unmodifiableList(genres);
+    }
+
+    public List<String> getEngines() {
+        return Collections.unmodifiableList(engines);
+    }
+
+    public List<String> getDevelopers() {
+        return Collections.unmodifiableList(developers);
+    }
+
+    public List<String> getPublishers() {
+        return Collections.unmodifiableList(publishers);
+    }
+
+    public Map<String, String> getModerators() {
+        return Collections.unmodifiableMap(moderators);
+    }
+
+    public Instant getCreationTime() {
+        return created;
     }
 }

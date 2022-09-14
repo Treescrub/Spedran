@@ -4,13 +4,12 @@ import kong.unirest.HttpResponse;
 import kong.unirest.JsonNode;
 import kong.unirest.json.JSONObject;
 
-import java.net.MalformedURLException;
-import java.net.URL;
 import java.util.Optional;
 
 public class Level extends Resource {
+    private String id;
     private String name;
-    private URL weblink;
+    private String weblink;
     private String rules;
 
     public Level(HttpResponse<JsonNode> data) {
@@ -18,20 +17,21 @@ public class Level extends Resource {
     }
 
     public Level(JSONObject data) {
+        id = data.getString("id");
         name = data.getString("name");
-        try {
-            weblink = new URL(data.getString("weblink"));
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
-        }
+        weblink = data.getString("weblink");
         rules = data.optString("rules", null);
+    }
+
+    public String getId() {
+        return id;
     }
 
     public String getName() {
         return name;
     }
 
-    public URL getWeblink() {
+    public String getWeblink() {
         return weblink;
     }
 

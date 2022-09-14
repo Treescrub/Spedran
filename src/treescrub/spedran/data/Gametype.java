@@ -4,8 +4,6 @@ import kong.unirest.HttpResponse;
 import kong.unirest.JsonNode;
 import kong.unirest.json.JSONObject;
 
-import java.util.Optional;
-
 public class Gametype extends Resource {
     private String id;
     private String name;
@@ -23,7 +21,7 @@ public class Gametype extends Resource {
         return id;
     }
 
-    public Optional<String> getName() {
-        return Optional.ofNullable(name);
+    public String getName() {
+        return name;
     }
 }

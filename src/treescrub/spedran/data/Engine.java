@@ -23,7 +23,7 @@ public class Engine extends Resource {
         return id;
     }
 
-    public Optional<String> getName() {
-        return Optional.ofNullable(name);
+    public String getName() {
+        return name;
     }
 }

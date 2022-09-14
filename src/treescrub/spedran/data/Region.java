@@ -3,7 +3,6 @@ package treescrub.spedran.data;
 import kong.unirest.HttpResponse;
 import kong.unirest.JsonNode;
 import kong.unirest.json.JSONObject;
-import java.util.Optional;
 
 public class Region extends Resource {
     private String id;
@@ -22,7 +21,7 @@ public class Region extends Resource {
         return id;
     }
 
-    public Optional<String> getName() {
-        return Optional.ofNullable(name);
+    public String getName() {
+        return name;
     }
 }
