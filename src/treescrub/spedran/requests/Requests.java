@@ -36,6 +36,22 @@ public class Requests {
         return getSingleSimpleObject("platforms", id);
     }
 
+    public static CompletableFuture<HttpResponse<JsonNode>> getGenre(String id) {
+        return getSingleSimpleObject("genres", id);
+    }
+
+    public static CompletableFuture<HttpResponse<JsonNode>> getEngine(String id) {
+        return getSingleSimpleObject("engines", id);
+    }
+
+    public static CompletableFuture<HttpResponse<JsonNode>> getGametype(String id) {
+        return getSingleSimpleObject("gametypes", id);
+    }
+
+    public static CompletableFuture<HttpResponse<JsonNode>> getDeveloper(String id) {
+        return getSingleSimpleObject("developers", id);
+    }
+
     public static CompletableFuture<HttpResponse<JsonNode>> getRegion(String id) {
         return getSingleSimpleObject("regions", id);
     }
@@ -50,6 +66,10 @@ public class Requests {
 
     public static CompletableFuture<HttpResponse<JsonNode>> getUser(String id) {
         return getSingleSimpleObject("users", id);
+    }
+
+    public static CompletableFuture<HttpResponse<JsonNode>> getGuest(String id) {
+        return getSingleSimpleObject("guests", id);
     }
 
     public static CompletableFuture<HttpResponse<JsonNode>> getVariable(String id) {
