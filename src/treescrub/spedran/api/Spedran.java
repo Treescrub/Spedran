@@ -14,22 +14,6 @@ public class Spedran {
         return new Game(Requests.getGame(id).join());
     }
 
-    public List<Game> getGames() {
-        return getGames(MAX_ITEMS);
-    }
-
-    public List<Game> getGames(boolean isBulk) {
-        return getGames(isBulk ? MAX_ITEMS_BULK : MAX_ITEMS);
-    }
-
-    public List<Game> getGames(int size) {
-        return getGames(size, false);
-    }
-
-    public List<Game> getGames(int size, boolean isBulk) {
-        return null;
-    }
-
     public static Run getRun(String id) {
         return new Run(Requests.getRun(id).join());
     }
@@ -38,51 +22,47 @@ public class Spedran {
         return new Category(Requests.getCategory(id).join());
     }
 
-    public List<Category> getCategories(String gameId) {
-        return null;
-    }
-
     public static Level getLevel(String id) {
         return new Level(Requests.getLevel(id).join());
-    }
-
-    public List<Level> getLevels(String gameId) {
-        return null;
     }
 
     public static Variables getVariable(String id) {
         return new Variables(Requests.getVariable(id).join());
     }
 
-    public User getUser(String id) {
-        return getUserAsync(id).join();
+    public static User getUser(String id) {
+        return new User(Requests.getUser(id).join());
     }
 
-    public CompletableFuture<User> getUserAsync(String id) {
-        return null;
+    public static Guest getGuest(String name) {
+        return new Guest(Requests.getGuest(name).join());
     }
 
-    public List<Run> getLeaderboards() {
-        return null;
+    public static Genre getGenre(String id) {
+        return new Genre(Requests.getGenre(id).join());
     }
 
-    public Guest getGuest(String name) {
-        return null;
+    public static Engine getEngine(String id) {
+        return new Engine(Requests.getEngine(id).join());
     }
 
-    public Genre getGenre(String id) {
-        return null;
+    public static Gametype getGametype(String id) {
+        return new Gametype(Requests.getGametype(id).join());
     }
 
-    public Gametype getGametype(String id) {
-        return null;
+    public static Developer getDeveloper(String id) {
+        return new Developer(Requests.getDeveloper(id).join());
     }
 
-    public Engine getEngine(String id) {
-        return null;
+    public static Region getRegion(String id) {
+        return new Region(Requests.getRegion(id).join());
     }
 
-    public Developer getDeveloper(String id) {
-        return null;
+    public static Series getSeries(String id) {
+        return new Series(Requests.getSeries(id).join());
+    }
+
+    public static Platform getPlatform(String id) {
+        return new Platform(Requests.getPlatform(id).join());
     }
 }
