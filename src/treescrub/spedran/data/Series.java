@@ -1,5 +1,7 @@
 package treescrub.spedran.data;
 
+import kong.unirest.HttpResponse;
+import kong.unirest.JsonNode;
 import kong.unirest.json.JSONObject;
 
 import java.time.Instant;
@@ -15,6 +17,10 @@ public class Series {
     private String discord;
     private Map<String, String> moderators;
     private Instant created;
+
+    public Series(HttpResponse<JsonNode> data) {
+        this(data.getBody().getObject().getJSONObject("data"));
+    }
 
     public Series(JSONObject data) {
         id = data.getString("id");
