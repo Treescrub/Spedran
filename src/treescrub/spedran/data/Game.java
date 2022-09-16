@@ -3,6 +3,7 @@ package treescrub.spedran.data;
 import kong.unirest.HttpResponse;
 import kong.unirest.JsonNode;
 import kong.unirest.json.JSONObject;
+import treescrub.spedran.api.Utils;
 
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -89,34 +90,13 @@ public class Game extends Resource {
         discord = data.getString("discord").isEmpty() ? null : data.getString("discord");
         releaseDate = LocalDate.parse(data.getString("release-date"));
         ruleset = new GameRuleset(data.getJSONObject("ruleset"));
-        gametypes = new ArrayList<>();
-        for(int i = 0; i < data.getJSONArray("gametypes").length(); i++) {
-            gametypes.add(data.getJSONArray("gametypes").getString(i));
-        }
-        platforms = new ArrayList<>();
-        for(int i = 0; i < data.getJSONArray("platforms").length(); i++) {
-            platforms.add(data.getJSONArray("platforms").getString(i));
-        }
-        regions = new ArrayList<>();
-        for(int i = 0; i < data.getJSONArray("regions").length(); i++) {
-            regions.add(data.getJSONArray("regions").getString(i));
-        }
-        genres = new ArrayList<>();
-        for(int i = 0; i < data.getJSONArray("genres").length(); i++) {
-            genres.add(data.getJSONArray("genres").getString(i));
-        }
-        engines = new ArrayList<>();
-        for(int i = 0; i < data.getJSONArray("engines").length(); i++) {
-            engines.add(data.getJSONArray("engines").getString(i));
-        }
-        developers = new ArrayList<>();
-        for(int i = 0; i < data.getJSONArray("developers").length(); i++) {
-            developers.add(data.getJSONArray("developers").getString(i));
-        }
-        publishers = new ArrayList<>();
-        for(int i = 0; i < data.getJSONArray("publishers").length(); i++) {
-            publishers.add(data.getJSONArray("publishers").getString(i));
-        }
+        gametypes = Utils.getStringList(data.getJSONArray("gametypes"));
+        platforms = Utils.getStringList(data.getJSONArray("platforms"));
+        regions = Utils.getStringList(data.getJSONArray("regions"));
+        genres = Utils.getStringList(data.getJSONArray("genres"));
+        engines = Utils.getStringList(data.getJSONArray("engines"));
+        developers = Utils.getStringList(data.getJSONArray("developers"));
+        publishers = Utils.getStringList(data.getJSONArray("publishers"));
         moderators = new HashMap<>();
         for(String key : data.getJSONObject("moderators").keySet()) {
             moderators.put(key, data.getJSONObject("moderators").getString(key));
