@@ -4,15 +4,13 @@ import kong.unirest.HttpResponse;
 import kong.unirest.JsonNode;
 import kong.unirest.json.JSONObject;
 
-import java.net.MalformedURLException;
-import java.net.URL;
 import java.time.Instant;
 import java.util.Optional;
 
 public class User extends Resource {
     private String id;
     private Names names;
-    private Boolean supporterAnimation;
+    private boolean supporterAnimation;
     private String pronouns;
     private String weblink;
     private NameStyle nameStyle;
@@ -54,7 +52,7 @@ public class User extends Resource {
         return names;
     }
 
-    public Boolean getSupporterAnimation() {
+    public boolean hasSupporterAnimation() {
         return supporterAnimation;
     }
 
@@ -62,7 +60,7 @@ public class User extends Resource {
         return Optional.ofNullable(pronouns);
     }
 
-    public String getWeblink() {
+    public String getLink() {
         return weblink;
     }
 
@@ -74,7 +72,7 @@ public class User extends Resource {
         return role;
     }
 
-    public Optional<Instant> getSignup() {
+    public Optional<Instant> getSignupTime() {
         return Optional.ofNullable(signup);
     }
 
@@ -82,23 +80,23 @@ public class User extends Resource {
         return Optional.ofNullable(location);
     }
 
-    public Optional<Link> getTwitch() {
+    public Optional<Link> getTwitchLink() {
         return Optional.ofNullable(twitch);
     }
 
-    public Optional<Link> getHitbox() {
+    public Optional<Link> getHitboxLink() {
         return Optional.ofNullable(hitbox);
     }
 
-    public Optional<Link> getYoutube() {
+    public Optional<Link> getYoutubeLink() {
         return Optional.ofNullable(youtube);
     }
 
-    public Optional<Link> getTwitter() {
+    public Optional<Link> getTwitterLink() {
         return Optional.ofNullable(twitter);
     }
 
-    public Optional<Link> getSpeedrunsLive() {
+    public Optional<Link> getSpeedrunsLiveLink() {
         return Optional.ofNullable(speedrunsLive);
     }
 }
