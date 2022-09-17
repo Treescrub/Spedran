@@ -5,56 +5,9 @@ import kong.unirest.JsonNode;
 import kong.unirest.json.JSONObject;
 import treescrub.spedran.api.Utils;
 
-import java.net.MalformedURLException;
-import java.net.URL;
 import java.time.Instant;
 import java.time.LocalDate;
 import java.util.*;
-
-class GameRuleset {
-    private boolean showMilliseconds;
-    private boolean requireVerification;
-    private boolean requireVideo;
-    private List<String> runTimes;
-    private String defaultTime;
-    private boolean emulatorsAllowed;
-
-    public GameRuleset(JSONObject data) {
-        showMilliseconds = data.getBoolean("show-milliseconds");
-        requireVerification = data.getBoolean("require-verification");
-        requireVideo = data.getBoolean("require-video");
-        runTimes = new ArrayList<>();
-        for(int i = 0; i < data.getJSONArray("run-times").length(); i++) {
-            runTimes.add(data.getJSONArray("run-times").getString(i));
-        }
-        defaultTime = data.getString("default-time");
-        emulatorsAllowed = data.getBoolean("emulators-allowed");
-    }
-
-    public boolean isShowMilliseconds() {
-        return showMilliseconds;
-    }
-
-    public boolean isRequireVerification() {
-        return requireVerification;
-    }
-
-    public boolean isRequireVideo() {
-        return requireVideo;
-    }
-
-    public List<String> getRunTimes() {
-        return Collections.unmodifiableList(runTimes);
-    }
-
-    public String getDefaultTime() {
-        return defaultTime;
-    }
-
-    public boolean isEmulatorsAllowed() {
-        return emulatorsAllowed;
-    }
-}
 
 public class Game extends Resource {
     private String id;
