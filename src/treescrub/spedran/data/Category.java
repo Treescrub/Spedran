@@ -7,10 +7,10 @@ import kong.unirest.json.JSONObject;
 public class Category extends Resource {
     private String name;
     private String weblink;
-    private Boolean isPerLevel;
+    private boolean isPerLevel;
     private String rules;
     private CategoryPlayers players;
-    private Boolean miscellaneous;
+    private boolean miscellaneous;
 
     public Category(HttpResponse<JsonNode> data) {
         this(data.getBody().getObject().getJSONObject("data"));
@@ -45,7 +45,7 @@ public class Category extends Resource {
         return players;
     }
 
-    public Boolean getMiscellaneous() {
+    public boolean isMiscellaneous() {
         return miscellaneous;
     }
 }
