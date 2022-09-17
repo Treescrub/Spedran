@@ -60,7 +60,7 @@ public class Series {
         return moderators;
     }
 
-    public Optional<Instant> getCreated() {
+    public Optional<Instant> getCreationTime() {
         return Optional.ofNullable(created);
     }
 }
