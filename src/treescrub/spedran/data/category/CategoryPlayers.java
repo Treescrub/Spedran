@@ -1,4 +1,4 @@
-package treescrub.spedran.data;
+package treescrub.spedran.data.category;
 
 import kong.unirest.json.JSONObject;
 

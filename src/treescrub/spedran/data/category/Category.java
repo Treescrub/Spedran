@@ -1,8 +1,9 @@
-package treescrub.spedran.data;
+package treescrub.spedran.data.category;
 
 import kong.unirest.HttpResponse;
 import kong.unirest.JsonNode;
 import kong.unirest.json.JSONObject;
+import treescrub.spedran.data.Resource;
 
 public class Category extends Resource {
     private String name;

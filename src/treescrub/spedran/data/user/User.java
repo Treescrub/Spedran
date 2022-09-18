@@ -1,8 +1,11 @@
-package treescrub.spedran.data;
+package treescrub.spedran.data.user;
 
 import kong.unirest.HttpResponse;
 import kong.unirest.JsonNode;
 import kong.unirest.json.JSONObject;
+import treescrub.spedran.data.Link;
+import treescrub.spedran.data.Names;
+import treescrub.spedran.data.Resource;
 
 import java.time.Instant;
 import java.util.Optional;

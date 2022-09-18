@@ -1,6 +1,7 @@
-package treescrub.spedran.data;
+package treescrub.spedran.data.run;
 
 import kong.unirest.json.JSONObject;
+import treescrub.spedran.data.Link;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,4 +1,4 @@
-package treescrub.spedran.data;
+package treescrub.spedran.data.game;
 
 import kong.unirest.json.JSONObject;
 import treescrub.spedran.api.Utils;

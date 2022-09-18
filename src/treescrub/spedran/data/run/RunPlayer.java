@@ -1,6 +1,7 @@
-package treescrub.spedran.data;
+package treescrub.spedran.data.run;
 
 import kong.unirest.json.JSONObject;
+import treescrub.spedran.data.Link;
 
 public class RunPlayer extends Link {
     private String id;

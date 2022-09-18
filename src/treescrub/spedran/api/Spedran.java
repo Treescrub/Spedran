@@ -1,10 +1,11 @@
 package treescrub.spedran.api;
 
 import treescrub.spedran.data.*;
+import treescrub.spedran.data.category.Category;
+import treescrub.spedran.data.game.Game;
+import treescrub.spedran.data.run.Run;
+import treescrub.spedran.data.user.User;
 import treescrub.spedran.requests.Requests;
-
-import java.util.List;
-import java.util.concurrent.CompletableFuture;
 
 public class Spedran {
     private static final int MAX_ITEMS = 200;

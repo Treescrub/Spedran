@@ -1,6 +1,7 @@
-package treescrub.spedran.data;
+package treescrub.spedran.data.user;
 
 import kong.unirest.json.JSONObject;
+import treescrub.spedran.data.user.NameColor;
 
 import java.util.Optional;
 
