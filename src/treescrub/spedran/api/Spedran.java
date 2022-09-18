@@ -5,6 +5,7 @@ import treescrub.spedran.data.category.Category;
 import treescrub.spedran.data.game.Game;
 import treescrub.spedran.data.run.Run;
 import treescrub.spedran.data.user.User;
+import treescrub.spedran.data.variables.Variables;
 import treescrub.spedran.requests.Requests;
 
 public class Spedran {

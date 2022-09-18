@@ -1,4 +1,4 @@
-package treescrub.spedran.data;
+package treescrub.spedran.data.variables;
 
 import kong.unirest.HttpResponse;
 import kong.unirest.JsonNode;
