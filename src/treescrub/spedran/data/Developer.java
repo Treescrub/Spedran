@@ -4,8 +4,6 @@ import kong.unirest.HttpResponse;
 import kong.unirest.JsonNode;
 import kong.unirest.json.JSONObject;
 
-import java.util.Optional;
-
 public class Developer extends Resource {
     private String id;
     private String name;
