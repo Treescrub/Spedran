@@ -6,6 +6,7 @@ import kong.unirest.json.JSONObject;
 import treescrub.spedran.data.Resource;
 
 public class Category extends Resource {
+    private String id;
     private String name;
     private String weblink;
     private boolean isPerLevel;
@@ -18,12 +19,17 @@ public class Category extends Resource {
     }
 
     public Category(JSONObject data) {
+        id = data.getString("id");
         name = data.getString("name");
         weblink = data.getString("weblink");
         isPerLevel = data.getString("type").equals("per-level");
         rules = data.getString("rules");
         players = new CategoryPlayers(data.getJSONObject("players"));
         miscellaneous = data.getBoolean("miscellaneous");
+    }
+
+    public String getId() {
+        return id;
     }
 
     public String getName() {
