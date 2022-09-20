@@ -7,6 +7,7 @@ import kong.unirest.json.JSONObject;
 import java.time.Instant;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 import java.util.Optional;
 
 public class Series {
@@ -62,5 +63,18 @@ public class Series {
 
     public Optional<Instant> getCreationTime() {
         return Optional.ofNullable(created);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Series series = (Series) o;
+        return id.equals(series.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
     }
 }

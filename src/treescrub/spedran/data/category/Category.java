@@ -5,6 +5,8 @@ import kong.unirest.JsonNode;
 import kong.unirest.json.JSONObject;
 import treescrub.spedran.data.Resource;
 
+import java.util.Objects;
+
 public class Category extends Resource {
     private String id;
     private String name;
@@ -54,5 +56,18 @@ public class Category extends Resource {
 
     public boolean isMiscellaneous() {
         return miscellaneous;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Category category = (Category) o;
+        return id.equals(category.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
     }
 }

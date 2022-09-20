@@ -6,8 +6,9 @@ import kong.unirest.json.JSONObject;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 
-public class Variables {
+public class Variable {
     private String id;
     private String name;
     private String category;
@@ -19,11 +20,11 @@ public class Variables {
     private String defaultValue;
     private boolean isSubcategory;
 
-    public Variables(HttpResponse<JsonNode> data) {
+    public Variable(HttpResponse<JsonNode> data) {
         this(data.getBody().getObject().getJSONObject("data"));
     }
 
-    public Variables(JSONObject data) {
+    public Variable(JSONObject data) {
         id = data.getString("id");
         name = data.getString("name");
         category = data.optString("category", null);
@@ -77,5 +78,18 @@ public class Variables {
 
     public boolean isSubcategory() {
         return isSubcategory;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Variable variable = (Variable) o;
+        return id.equals(variable.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
     }
 }

@@ -114,4 +114,17 @@ public class Run extends Resource {
     public Map<String, String> getVariableValues() {
         return values;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Run run = (Run) o;
+        return id.equals(run.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
+    }
 }

@@ -5,7 +5,7 @@ import treescrub.spedran.data.category.Category;
 import treescrub.spedran.data.game.Game;
 import treescrub.spedran.data.run.Run;
 import treescrub.spedran.data.user.User;
-import treescrub.spedran.data.variables.Variables;
+import treescrub.spedran.data.variables.Variable;
 import treescrub.spedran.requests.Requests;
 
 public class Spedran {
@@ -28,8 +28,8 @@ public class Spedran {
         return new Level(Requests.getLevel(id).join());
     }
 
-    public static Variables getVariable(String id) {
-        return new Variables(Requests.getVariable(id).join());
+    public static Variable getVariable(String id) {
+        return new Variable(Requests.getVariable(id).join());
     }
 
     public static User getUser(String id) {
