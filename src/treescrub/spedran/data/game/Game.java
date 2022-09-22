@@ -36,6 +36,10 @@ public class Game extends Resource {
     }
 
     public Game(JSONObject data) {
+        parseFromJson(data);
+    }
+
+    private void parseFromJson(JSONObject data) {
         id = data.getString("id");
         names = new Names(data.getJSONObject("names"));
         boostReceived = data.getInt("boostReceived");

@@ -12,6 +12,10 @@ public class RunVideos {
     private List<Link> links;
 
     public RunVideos(JSONObject data) {
+        parseFromJson(data);
+    }
+
+    private void parseFromJson(JSONObject data) {
         text = data.isNull("text") ? null : data.getString("text");
         links = new ArrayList<>();
         for (int i = 0; i < data.getJSONArray("links").length(); i++) {

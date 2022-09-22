@@ -10,6 +10,10 @@ public class LocationInfo {
     private Names names;
 
     public LocationInfo(JSONObject data) {
+        parseFromJson(data);
+    }
+
+    private void parseFromJson(JSONObject data) {
         code = data.getString("code");
         names = new Names(data.getJSONObject("names"));
     }

@@ -6,7 +6,11 @@ public class CategoryPlayers {
     private boolean isExact;
     private int players;
 
-    CategoryPlayers(JSONObject data) {
+    public CategoryPlayers(JSONObject data) {
+        parseFromJson(data);
+    }
+
+    private void parseFromJson(JSONObject data) {
         isExact = data.getString("type").equals("exactly");
         players = data.getInt("value");
     }

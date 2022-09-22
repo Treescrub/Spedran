@@ -25,6 +25,10 @@ public class Variable {
     }
 
     public Variable(JSONObject data) {
+        parseFromJson(data);
+    }
+
+    private void parseFromJson(JSONObject data) {
         id = data.getString("id");
         name = data.getString("name");
         category = data.optString("category", null);

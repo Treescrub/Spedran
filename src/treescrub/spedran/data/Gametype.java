@@ -15,6 +15,10 @@ public class Gametype extends Resource {
     }
 
     public Gametype(JSONObject data) {
+        parseFromJson(data);
+    }
+
+    private void parseFromJson(JSONObject data) {
         id = data.getString("id");
         name = data.getString("name");
     }

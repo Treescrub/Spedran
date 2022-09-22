@@ -15,6 +15,10 @@ public class Link {
     }
 
     public Link(JSONObject data) {
+        parseFromJson(data);
+    }
+
+    private void parseFromJson(JSONObject data) {
         uri = data.getString("uri");
         if(data.has("rel"))
             rel = data.getString("rel");

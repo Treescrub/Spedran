@@ -18,6 +18,10 @@ public class Level extends Resource {
     }
 
     public Level(JSONObject data) {
+        parseFromJson(data);
+    }
+
+    private void parseFromJson(JSONObject data) {
         id = data.getString("id");
         name = data.getString("name");
         weblink = data.getString("weblink");

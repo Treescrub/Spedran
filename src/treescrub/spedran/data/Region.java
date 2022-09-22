@@ -15,6 +15,10 @@ public class Region extends Resource {
     }
 
     public Region(JSONObject data) {
+        parseFromJson(data);
+    }
+
+    private void parseFromJson(JSONObject data) {
         id = data.getString("id");
         name = data.getString("name");
     }

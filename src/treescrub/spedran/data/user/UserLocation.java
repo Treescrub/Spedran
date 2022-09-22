@@ -7,6 +7,10 @@ public class UserLocation {
     private LocationInfo region;
 
     public UserLocation(JSONObject data) {
+        parseFromJson(data);
+    }
+
+    private void parseFromJson(JSONObject data) {
         country = new LocationInfo(data.getJSONObject("country"));
         region = data.isNull("region") ? null : new LocationInfo(data.getJSONObject("region"));
     }

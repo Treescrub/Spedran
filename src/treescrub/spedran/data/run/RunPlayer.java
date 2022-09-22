@@ -8,6 +8,10 @@ public class RunPlayer extends Link {
 
     public RunPlayer(JSONObject data) {
         super(data);
+        parseFromJson(data);
+    }
+
+    private void parseFromJson(JSONObject data) {
         if (!data.isNull("id"))
             id = data.getString("id");
         if (!data.isNull("name"))

@@ -14,6 +14,10 @@ public class Guest extends Resource {
     }
 
     public Guest(JSONObject data) {
+        parseFromJson(data);
+    }
+
+    private void parseFromJson(JSONObject data) {
         name = data.getString("name");
     }
 

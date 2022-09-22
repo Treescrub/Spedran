@@ -32,6 +32,10 @@ public class Run extends Resource {
     }
 
     public Run(JSONObject data) {
+        parseFromJson(data);
+    }
+
+    private void parseFromJson(JSONObject data) {
         id = data.getString("id");
         weblink = data.getString("weblink");
         game = data.getString("game");

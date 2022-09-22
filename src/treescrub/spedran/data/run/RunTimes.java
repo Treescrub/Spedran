@@ -11,6 +11,10 @@ public class RunTimes {
     private Duration ingameTime;
 
     public RunTimes(JSONObject data) {
+        parseFromJson(data);
+    }
+
+    private void parseFromJson(JSONObject data) {
         primaryTime = Duration.parse(data.getString("primary"));
         if (!data.isNull("realtime"))
             realTime = Duration.parse(data.getString("realtime"));

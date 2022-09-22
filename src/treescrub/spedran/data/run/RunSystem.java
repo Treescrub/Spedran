@@ -10,6 +10,10 @@ public class RunSystem {
     private String region;
 
     public RunSystem(JSONObject data) {
+        parseFromJson(data);
+    }
+
+    private void parseFromJson(JSONObject data) {
         platform = data.getString("platform");
         emulated = data.getBoolean("emulated");
         region = data.optString("region", null);

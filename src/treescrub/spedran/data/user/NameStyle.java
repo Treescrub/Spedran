@@ -17,6 +17,10 @@ public class NameStyle {
     private NameColor endColor;
 
     public NameStyle(JSONObject data) {
+        parseFromJson(data);
+    }
+
+    private void parseFromJson(JSONObject data) {
         style = Style.valueOf(data.getString("style").toUpperCase());
         if (style == Style.SOLID) {
             color = new NameColor(data.getJSONObject("color"));

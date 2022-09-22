@@ -17,6 +17,10 @@ public class RunStatus {
     private Instant verifyDate;
 
     public RunStatus(JSONObject data) {
+        parseFromJson(data);
+    }
+
+    private void parseFromJson(JSONObject data) {
         status = Status.valueOf(data.getString("status").toUpperCase());
         examiner = data.optString("examiner", null);
         if (!data.isNull("verify-date"))

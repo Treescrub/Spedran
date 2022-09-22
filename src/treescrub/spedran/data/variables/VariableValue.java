@@ -12,6 +12,10 @@ public class VariableValue {
     private Map<String, Boolean> flags;
 
     public VariableValue(JSONObject data) {
+        parseFromJson(data);
+    }
+
+    private void parseFromJson(JSONObject data) {
         label = data.getString("label");
         rules = data.optString("rules", null);
         flags = new HashMap<>();

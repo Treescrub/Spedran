@@ -15,6 +15,10 @@ public class GameRuleset {
     private boolean emulatorsAllowed;
 
     public GameRuleset(JSONObject data) {
+        parseFromJson(data);
+    }
+
+    private void parseFromJson(JSONObject data) {
         showMilliseconds = data.getBoolean("show-milliseconds");
         requireVerification = data.getBoolean("require-verification");
         requireVideo = data.getBoolean("require-video");

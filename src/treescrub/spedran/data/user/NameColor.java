@@ -7,6 +7,10 @@ public class NameColor {
     private String dark;
 
     public NameColor(JSONObject data) {
+        parseFromJson(data);
+    }
+
+    private void parseFromJson(JSONObject data) {
         light = data.getString("light");
         dark = data.getString("dark");
     }

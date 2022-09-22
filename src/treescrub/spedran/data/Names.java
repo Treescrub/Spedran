@@ -16,6 +16,10 @@ public class Names {
     }
 
     public Names(JSONObject data) {
+        parseFromJson(data);
+    }
+
+    private void parseFromJson(JSONObject data) {
         international = data.getString("international");
         japanese = data.optString("japanese", null);
         twitch = data.optString("twitch", null);

@@ -32,6 +32,10 @@ public class User extends Resource {
     }
 
     public User(JSONObject data) {
+        parseFromJson(data);
+    }
+
+    private void parseFromJson(JSONObject data) {
         id = data.getString("id");
         names = new Names(data.getJSONObject("names"));
         supporterAnimation = data.getBoolean("supporterAnimation");
