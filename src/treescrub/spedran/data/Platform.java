@@ -4,10 +4,7 @@ import kong.unirest.HttpResponse;
 import kong.unirest.JsonNode;
 import kong.unirest.json.JSONObject;
 
-import java.util.Objects;
-
-public class Platform {
-    private String id;
+public class Platform extends IdentifiableResource {
     private String name;
     private int released;
 
@@ -16,17 +13,13 @@ public class Platform {
     }
 
     public Platform(JSONObject data) {
+        super(data);
         parseFromJson(data);
     }
 
     private void parseFromJson(JSONObject data) {
-        id = data.getString("id");
         name = data.getString("name");
         released = data.getInt("released");
-    }
-
-    public String getId() {
-        return id;
     }
 
     public String getName() {
@@ -35,18 +28,5 @@ public class Platform {
 
     public int getReleaseYear() {
         return released;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Platform platform = (Platform) o;
-        return id.equals(platform.id);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id);
     }
 }

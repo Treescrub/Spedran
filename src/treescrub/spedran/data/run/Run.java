@@ -3,15 +3,14 @@ package treescrub.spedran.data.run;
 import kong.unirest.HttpResponse;
 import kong.unirest.JsonNode;
 import kong.unirest.json.JSONObject;
+import treescrub.spedran.data.IdentifiableResource;
 import treescrub.spedran.data.Link;
-import treescrub.spedran.data.Resource;
 
 import java.time.Instant;
 import java.time.LocalDate;
 import java.util.*;
 
-public class Run extends Resource {
-    private String id;
+public class Run extends IdentifiableResource {
     private String weblink;
     private String game;
     private String level;
@@ -32,11 +31,11 @@ public class Run extends Resource {
     }
 
     public Run(JSONObject data) {
+        super(data);
         parseFromJson(data);
     }
 
     private void parseFromJson(JSONObject data) {
-        id = data.getString("id");
         weblink = data.getString("weblink");
         game = data.getString("game");
         level = data.optString("level", null);
@@ -57,10 +56,6 @@ public class Run extends Resource {
         for(String key : data.getJSONObject("values").keySet()) {
             values.put(key, data.getJSONObject("values").getString(key));
         }
-    }
-
-    public String getId() {
-        return id;
     }
 
     public String getWeblink() {
@@ -117,18 +112,5 @@ public class Run extends Resource {
 
     public Map<String, String> getVariableValues() {
         return values;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Run run = (Run) o;
-        return id.equals(run.id);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id);
     }
 }

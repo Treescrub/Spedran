@@ -4,15 +4,14 @@ import kong.unirest.HttpResponse;
 import kong.unirest.JsonNode;
 import kong.unirest.json.JSONObject;
 import treescrub.spedran.api.Utils;
+import treescrub.spedran.data.IdentifiableResource;
 import treescrub.spedran.data.Names;
-import treescrub.spedran.data.Resource;
 
 import java.time.Instant;
 import java.time.LocalDate;
 import java.util.*;
 
-public class Game extends Resource {
-    private String id;
+public class Game extends IdentifiableResource {
     private Names names;
     private Integer boostReceived;
     private Integer boostDistinctDonors;
@@ -36,11 +35,11 @@ public class Game extends Resource {
     }
 
     public Game(JSONObject data) {
+        super(data);
         parseFromJson(data);
     }
 
     private void parseFromJson(JSONObject data) {
-        id = data.getString("id");
         names = new Names(data.getJSONObject("names"));
         boostReceived = data.getInt("boostReceived");
         boostDistinctDonors = data.getInt("boostDistinctDonors");
@@ -62,10 +61,6 @@ public class Game extends Resource {
         }
         if(!data.isNull("created"))
             created = Instant.parse(data.getString("created"));
-    }
-
-    public String getId() {
-        return id;
     }
 
     public Names getNames() {
@@ -134,18 +129,5 @@ public class Game extends Resource {
 
     public Instant getCreationTime() {
         return created;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Game game = (Game) o;
-        return id.equals(game.id);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id);
     }
 }

@@ -3,12 +3,9 @@ package treescrub.spedran.data.category;
 import kong.unirest.HttpResponse;
 import kong.unirest.JsonNode;
 import kong.unirest.json.JSONObject;
-import treescrub.spedran.data.Resource;
+import treescrub.spedran.data.IdentifiableResource;
 
-import java.util.Objects;
-
-public class Category extends Resource {
-    private String id;
+public class Category extends IdentifiableResource {
     private String name;
     private String weblink;
     private boolean isPerLevel;
@@ -21,21 +18,17 @@ public class Category extends Resource {
     }
 
     public Category(JSONObject data) {
+        super(data);
         parseFromJson(data);
     }
 
     private void parseFromJson(JSONObject data) {
-        id = data.getString("id");
         name = data.getString("name");
         weblink = data.getString("weblink");
         isPerLevel = data.getString("type").equals("per-level");
         rules = data.getString("rules");
         players = new CategoryPlayers(data.getJSONObject("players"));
         miscellaneous = data.getBoolean("miscellaneous");
-    }
-
-    public String getId() {
-        return id;
     }
 
     public String getName() {
@@ -60,18 +53,5 @@ public class Category extends Resource {
 
     public boolean isMiscellaneous() {
         return miscellaneous;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Category category = (Category) o;
-        return id.equals(category.id);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id);
     }
 }

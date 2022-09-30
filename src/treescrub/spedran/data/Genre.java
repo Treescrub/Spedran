@@ -4,10 +4,7 @@ import kong.unirest.HttpResponse;
 import kong.unirest.JsonNode;
 import kong.unirest.json.JSONObject;
 
-import java.util.Objects;
-
-public class Genre extends Resource {
-    private String id;
+public class Genre extends IdentifiableResource {
     private String name;
 
     public Genre(HttpResponse<JsonNode> data) {
@@ -15,32 +12,15 @@ public class Genre extends Resource {
     }
 
     public Genre(JSONObject data) {
+        super(data);
         parseFromJson(data);
     }
 
     private void parseFromJson(JSONObject data) {
-        id = data.getString("id");
         name = data.getString("name");
-    }
-
-    public String getId() {
-        return id;
     }
 
     public String getName() {
         return name;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Genre genre = (Genre) o;
-        return id.equals(genre.id);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id);
     }
 }

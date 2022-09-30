@@ -4,11 +4,9 @@ import kong.unirest.HttpResponse;
 import kong.unirest.JsonNode;
 import kong.unirest.json.JSONObject;
 
-import java.util.Objects;
 import java.util.Optional;
 
-public class Level extends Resource {
-    private String id;
+public class Level extends IdentifiableResource {
     private String name;
     private String weblink;
     private String rules;
@@ -18,18 +16,14 @@ public class Level extends Resource {
     }
 
     public Level(JSONObject data) {
+        super(data);
         parseFromJson(data);
     }
 
     private void parseFromJson(JSONObject data) {
-        id = data.getString("id");
         name = data.getString("name");
         weblink = data.getString("weblink");
         rules = data.optString("rules", null);
-    }
-
-    public String getId() {
-        return id;
     }
 
     public String getName() {
@@ -42,18 +36,5 @@ public class Level extends Resource {
 
     public Optional<String> getRules() {
         return Optional.ofNullable(rules);
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Level level = (Level) o;
-        return id.equals(level.id);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id);
     }
 }

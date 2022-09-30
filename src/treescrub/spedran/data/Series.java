@@ -7,11 +7,9 @@ import kong.unirest.json.JSONObject;
 import java.time.Instant;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Objects;
 import java.util.Optional;
 
-public class Series {
-    private String id;
+public class Series extends IdentifiableResource {
     private Names names;
     private String abbreviation;
     private String weblink;
@@ -24,11 +22,11 @@ public class Series {
     }
 
     public Series(JSONObject data) {
+        super(data);
         parseFromJson(data);
     }
 
     private void parseFromJson(JSONObject data) {
-        id = data.getString("id");
         names = new Names(data.getJSONObject("names"));
         abbreviation = data.getString("abbreviation");
         weblink = data.getString("weblink");
@@ -39,10 +37,6 @@ public class Series {
         }
         if(!data.isNull("created"))
             created = Instant.parse(data.getString("created"));
-    }
-
-    public String getId() {
-        return id;
     }
 
     public Names getNames() {
@@ -67,18 +61,5 @@ public class Series {
 
     public Optional<Instant> getCreationTime() {
         return Optional.ofNullable(created);
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Series series = (Series) o;
-        return id.equals(series.id);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id);
     }
 }
