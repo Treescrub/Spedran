@@ -6,8 +6,7 @@ import kong.unirest.json.JSONObject;
 
 import java.util.Optional;
 
-public class Level extends IdentifiableResource {
-    private String name;
+public class Level extends IdentifiableNamedResource {
     private String weblink;
     private String rules;
 
@@ -21,13 +20,8 @@ public class Level extends IdentifiableResource {
     }
 
     private void parseFromJson(JSONObject data) {
-        name = data.getString("name");
         weblink = data.getString("weblink");
         rules = data.optString("rules", null);
-    }
-
-    public String getName() {
-        return name;
     }
 
     public String getWeblink() {

@@ -4,8 +4,7 @@ import kong.unirest.HttpResponse;
 import kong.unirest.JsonNode;
 import kong.unirest.json.JSONObject;
 
-public class Platform extends IdentifiableResource {
-    private String name;
+public class Platform extends IdentifiableNamedResource {
     private int released;
 
     public Platform(HttpResponse<JsonNode> data) {
@@ -18,12 +17,7 @@ public class Platform extends IdentifiableResource {
     }
 
     private void parseFromJson(JSONObject data) {
-        name = data.getString("name");
         released = data.getInt("released");
-    }
-
-    public String getName() {
-        return name;
     }
 
     public int getReleaseYear() {

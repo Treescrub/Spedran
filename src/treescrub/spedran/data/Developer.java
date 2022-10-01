@@ -6,8 +6,7 @@ import kong.unirest.json.JSONObject;
 
 import java.util.Objects;
 
-public class Developer extends IdentifiableResource {
-    private String name;
+public class Developer extends IdentifiableNamedResource {
 
     public Developer(HttpResponse<JsonNode> data) {
         this(data.getBody().getObject().getJSONObject("data"));
@@ -15,14 +14,5 @@ public class Developer extends IdentifiableResource {
 
     public Developer(JSONObject data) {
         super(data);
-        parseFromJson(data);
-    }
-
-    private void parseFromJson(JSONObject data) {
-        name = data.getString("name");
-    }
-
-    public String getName() {
-        return name;
     }
 }

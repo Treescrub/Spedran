@@ -4,8 +4,7 @@ import kong.unirest.HttpResponse;
 import kong.unirest.JsonNode;
 import kong.unirest.json.JSONObject;
 
-public class Genre extends IdentifiableResource {
-    private String name;
+public class Genre extends IdentifiableNamedResource {
 
     public Genre(HttpResponse<JsonNode> data) {
         this(data.getBody().getObject().getJSONObject("data"));
@@ -13,14 +12,5 @@ public class Genre extends IdentifiableResource {
 
     public Genre(JSONObject data) {
         super(data);
-        parseFromJson(data);
-    }
-
-    private void parseFromJson(JSONObject data) {
-        name = data.getString("name");
-    }
-
-    public String getName() {
-        return name;
     }
 }

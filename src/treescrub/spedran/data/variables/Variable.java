@@ -3,13 +3,12 @@ package treescrub.spedran.data.variables;
 import kong.unirest.HttpResponse;
 import kong.unirest.JsonNode;
 import kong.unirest.json.JSONObject;
-import treescrub.spedran.data.IdentifiableResource;
+import treescrub.spedran.data.IdentifiableNamedResource;
 
 import java.util.HashMap;
 import java.util.Map;
 
-public class Variable extends IdentifiableResource {
-    private String name;
+public class Variable extends IdentifiableNamedResource {
     private String category;
     private String scope;
     private boolean mandatory;
@@ -29,7 +28,6 @@ public class Variable extends IdentifiableResource {
     }
 
     private void parseFromJson(JSONObject data) {
-        name = data.getString("name");
         category = data.optString("category", null);
         scope = data.getJSONObject("scope").getString("type");
         mandatory = data.getBoolean("mandatory");
@@ -41,10 +39,6 @@ public class Variable extends IdentifiableResource {
             values.put(valueId, new VariableValue(data.getJSONObject("values").getJSONObject("values").getJSONObject(valueId)));
         }
         isSubcategory = data.getBoolean("is-subcategory");
-    }
-
-    public String getName() {
-        return name;
     }
 
     public String getCategory() {
