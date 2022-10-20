@@ -7,10 +7,6 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class SeriesTest {
 
-    private static JSONObject getJsonBase() {
-        return new JSONObject("{\"id\":\"id\",\"weblink\":\"weblink\"}");
-    }
-
     @Test
     void getNames() {
 

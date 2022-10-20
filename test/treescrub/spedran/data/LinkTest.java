@@ -9,7 +9,7 @@ class LinkTest {
 
     @Test
     void getURI() {
-        JSONObject json = new JSONObject("{\"uri\":\"uri\"}");
+        JSONObject json = JSONLoader.getJsonTestFile("Link/uri_only");
         Link link = new Link(json);
 
         assertEquals("uri", link.getURI());

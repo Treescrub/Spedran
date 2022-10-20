@@ -7,10 +7,9 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class IdentifiableResourceTest {
 
-    private static final JSONObject json = new JSONObject("{\"id\":\"id\"}");
-
     @Test
     void getId() {
+        JSONObject json = JSONLoader.getJsonTestFile("IdentifiableResource/id");
         IdentifiableResource resource = new IdentifiableResource(json);
 
         assertEquals("id", resource.getId());

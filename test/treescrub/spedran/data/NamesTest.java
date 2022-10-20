@@ -10,7 +10,7 @@ class NamesTest {
 
     @Test
     void getInternationalName() {
-        JSONObject json = JSONLoader.getJsonTestFile("names/international_only");
+        JSONObject json = JSONLoader.getJsonTestFile("Names/international_only");
         Names names = new Names(json);
 
         assertEquals("international", names.getInternationalName());
@@ -18,7 +18,7 @@ class NamesTest {
 
     @Test
     void getJapaneseNamePresent() {
-        JSONObject json = JSONLoader.getJsonTestFile("names/japanese");
+        JSONObject json = JSONLoader.getJsonTestFile("Names/japanese");
         Names names = new Names(json);
 
         assertTrue(names.getJapaneseName().isPresent());
@@ -27,7 +27,7 @@ class NamesTest {
 
     @Test
     void getJapaneseNameMissing() {
-        JSONObject json = JSONLoader.getJsonTestFile("names/international_only");
+        JSONObject json = JSONLoader.getJsonTestFile("Names/international_only");
         Names names = new Names(json);
 
         assertTrue(names.getJapaneseName().isEmpty());
@@ -35,7 +35,7 @@ class NamesTest {
 
     @Test
     void getTwitchNamePresent() {
-        JSONObject json = JSONLoader.getJsonTestFile("names/twitch");
+        JSONObject json = JSONLoader.getJsonTestFile("Names/twitch");
         Names names = new Names(json);
 
         assertTrue(names.getTwitchName().isPresent());
@@ -44,7 +44,7 @@ class NamesTest {
 
     @Test
     void getTwitchNameMissing() {
-        JSONObject json = JSONLoader.getJsonTestFile("names/international_only");
+        JSONObject json = JSONLoader.getJsonTestFile("Names/international_only");
         Names names = new Names(json);
 
         assertTrue(names.getTwitchName().isEmpty());

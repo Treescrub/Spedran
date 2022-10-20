@@ -6,13 +6,9 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 class LevelTest {
-    private static JSONObject getJsonBase() {
-        return new JSONObject("{\"id\":\"id\",\"name\":\"name\",\"weblink\":\"weblink\"}");
-    }
-
     @Test
     void getWeblink() {
-        JSONObject json = getJsonBase();
+        JSONObject json = JSONLoader.getJsonTestFile("Level/weblink_only");
         Level level = new Level(json);
 
         assertEquals("weblink", level.getWeblink());
@@ -20,7 +16,7 @@ class LevelTest {
 
     @Test
     void getRulesEmpty() {
-        JSONObject json = getJsonBase().putOnce("rules", null);
+        JSONObject json = JSONLoader.getJsonTestFile("Level/empty_rules");
         Level level = new Level(json);
 
         assertTrue(level.getRules().isEmpty());
@@ -28,7 +24,7 @@ class LevelTest {
 
     @Test
     void getRulesPresent() {
-        JSONObject json = getJsonBase().put("rules", "rules");
+        JSONObject json = JSONLoader.getJsonTestFile("Level/rules");
         Level level = new Level(json);
 
         assertTrue(level.getRules().isPresent());

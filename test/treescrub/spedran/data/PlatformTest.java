@@ -9,7 +9,7 @@ class PlatformTest {
 
     @Test
     void getReleaseYear() {
-        JSONObject json = new JSONObject("{\"id\":\"id\",\"name\":\"name\",\"released\":2005}");
+        JSONObject json = JSONLoader.getJsonTestFile("Platform/released_2005");
         Platform platform = new Platform(json);
 
         assertEquals(2005, platform.getReleaseYear());
