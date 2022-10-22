@@ -127,7 +127,7 @@ public class Game extends IdentifiableResource {
         return Collections.unmodifiableMap(moderators);
     }
 
-    public Instant getCreationTime() {
-        return created;
+    public Optional<Instant> getCreationTime() {
+        return Optional.ofNullable(created);
     }
 }
