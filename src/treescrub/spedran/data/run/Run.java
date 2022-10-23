@@ -106,8 +106,8 @@ public class Run extends IdentifiableResource {
         return system;
     }
 
-    public Link getSplits() {
-        return splits;
+    public Optional<Link> getSplits() {
+        return Optional.ofNullable(splits);
     }
 
     public Map<String, String> getVariableValues() {
