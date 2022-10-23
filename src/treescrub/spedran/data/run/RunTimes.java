@@ -3,6 +3,7 @@ package treescrub.spedran.data.run;
 import kong.unirest.json.JSONObject;
 
 import java.time.Duration;
+import java.util.Optional;
 
 public class RunTimes {
     private Duration primaryTime;
@@ -28,15 +29,15 @@ public class RunTimes {
         return primaryTime;
     }
 
-    public Duration getRealTime() {
-        return realTime;
+    public Optional<Duration> getRealTime() {
+        return Optional.ofNullable(realTime);
     }
 
-    public Duration getRealNoLoadsTime() {
-        return realNoLoadsTime;
+    public Optional<Duration> getRealNoLoadsTime() {
+        return Optional.ofNullable(realNoLoadsTime);
     }
 
-    public Duration getIngameTime() {
-        return ingameTime;
+    public Optional<Duration> getIngameTime() {
+        return Optional.ofNullable(ingameTime);
     }
 }
