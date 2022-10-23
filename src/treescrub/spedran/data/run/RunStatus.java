@@ -5,14 +5,14 @@ import kong.unirest.json.JSONObject;
 import java.time.Instant;
 import java.util.Optional;
 
-enum Status {
+enum SubmissionStatus {
     NEW,
     REJECTED,
     VERIFIED,
 }
 
 public class RunStatus {
-    private Status status;
+    private SubmissionStatus submissionStatus;
     private String examiner;
     private Instant verifyDate;
 
@@ -21,14 +21,14 @@ public class RunStatus {
     }
 
     private void parseFromJson(JSONObject data) {
-        status = Status.valueOf(data.getString("status").toUpperCase());
+        submissionStatus = SubmissionStatus.valueOf(data.getString("status").toUpperCase());
         examiner = data.optString("examiner", null);
         if (!data.isNull("verify-date"))
             verifyDate = Instant.parse(data.getString("verify-date"));
     }
 
-    public Status getStatus() {
-        return status;
+    public SubmissionStatus getStatus() {
+        return submissionStatus;
     }
 
     public Optional<String> getExaminer() {
