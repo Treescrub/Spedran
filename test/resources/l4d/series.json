@@ -1,0 +1,64 @@
+{
+  "id": "r4x8pxn8",
+  "names": {
+    "international": "Left 4 Dead",
+    "japanese": null
+  },
+  "abbreviation": "left_4_dead",
+  "weblink": "https://www.speedrun.com/left_4_dead",
+  "discord": "https://discordapp.com/invite/ugEWwa5",
+  "moderators": {
+    "68wk1gl8": "super-moderator",
+    "v8l434rj": "super-moderator",
+    "j4r0d0w8": "super-moderator"
+  },
+  "created": "2014-12-19T20:28:43Z",
+  "assets": {
+    "logo": {
+      "uri": "https://www.speedrun.com/themeasset/9wp91283/logo?v=3793a1c"
+    },
+    "cover-tiny": {
+      "uri": "https://www.speedrun.com/gameasset/j1n8wx1p/cover?v=ed1ae34"
+    },
+    "cover-small": {
+      "uri": "https://www.speedrun.com/gameasset/j1n8wx1p/cover?v=ed1ae34"
+    },
+    "cover-medium": {
+      "uri": "https://www.speedrun.com/gameasset/j1n8wx1p/cover?v=ed1ae34"
+    },
+    "cover-large": {
+      "uri": "https://www.speedrun.com/gameasset/j1n8wx1p/cover?v=ed1ae34"
+    },
+    "icon": {
+      "uri": "https://www.speedrun.com/themeasset/9wp91283/favicon?v=c9673b2"
+    },
+    "trophy-1st": {
+      "uri": "https://www.speedrun.com/themeasset/9wp91283/1st?v=99c5d3e"
+    },
+    "trophy-2nd": {
+      "uri": "https://www.speedrun.com/themeasset/9wp91283/2nd?v=2155b44"
+    },
+    "trophy-3rd": {
+      "uri": "https://www.speedrun.com/themeasset/9wp91283/3rd?v=022c69f"
+    },
+    "trophy-4th": {
+      "uri": null
+    },
+    "background": {
+      "uri": "https://www.speedrun.com/themeasset/9wp91283/background?v=9334c77"
+    },
+    "foreground": {
+      "uri": null
+    }
+  },
+  "links": [
+    {
+      "rel": "self",
+      "uri": "https://www.speedrun.com/api/v1/series/r4x8pxn8"
+    },
+    {
+      "rel": "games",
+      "uri": "https://www.speedrun.com/api/v1/series/r4x8pxn8/games"
+    }
+  ]
+}

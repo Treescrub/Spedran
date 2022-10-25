@@ -1,0 +1,68 @@
+{
+  "id": "xz749vej",
+  "names": {
+    "international": "matthew_1919",
+    "japanese": null
+  },
+  "supporterAnimation": false,
+  "pronouns": "He/Him",
+  "weblink": "https://www.speedrun.com/user/matthew_1919",
+  "name-style": {
+    "style": "gradient",
+    "color-from": {
+      "light": "#000000",
+      "dark": "#FFFFFF"
+    },
+    "color-to": {
+      "light": "#000000",
+      "dark": "#FFFFFF"
+    }
+  },
+  "role": "user",
+  "signup": "2021-03-09T01:31:51Z",
+  "location": {
+    "country": {
+      "code": "gb/sct",
+      "names": {
+        "international": "Scotland",
+        "japanese": null
+      }
+    }
+  },
+  "twitch": {
+    "uri": "https://www.twitch.tv/matthew_1919"
+  },
+  "hitbox": null,
+  "youtube": {
+    "uri": "https://www.youtube.com/channel/UCHbtvpaSFLPg3AgwE9Rh-zQ"
+  },
+  "twitter": null,
+  "speedrunslive": null,
+  "assets": {
+    "icon": {
+      "uri": null
+    },
+    "supporterIcon": null,
+    "image": {
+      "uri": "https://www.speedrun.com/userasset/xz749vej/image?v=5ceb6a9"
+    }
+  },
+  "links": [
+    {
+      "rel": "self",
+      "uri": "https://www.speedrun.com/api/v1/users/xz749vej"
+    },
+    {
+      "rel": "runs",
+      "uri": "https://www.speedrun.com/api/v1/runs?user=xz749vej"
+    },
+    {
+      "rel": "games",
+      "uri": "https://www.speedrun.com/api/v1/games?moderator=xz749vej"
+    },
+    {
+      "rel": "personal-bests",
+      "uri": "https://www.speedrun.com/api/v1/users/xz749vej/personal-bests"
+    }
+  ]
+}

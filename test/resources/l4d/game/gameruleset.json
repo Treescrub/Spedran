@@ -1,0 +1,10 @@
+{
+  "show-milliseconds": true,
+  "require-verification": true,
+  "require-video": true,
+  "run-times": [
+    "realtime"
+  ],
+  "default-time": "realtime",
+  "emulators-allowed": false
+}

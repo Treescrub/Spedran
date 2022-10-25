@@ -1,0 +1,75 @@
+{
+  "id": "yvrk7voz",
+  "weblink": "https://www.speedrun.com/l4d2/run/yvrk7voz",
+  "game": "9dowpe1p",
+  "level": "5d77z5dy",
+  "category": "824m5e25",
+  "videos": {
+    "links": [
+      {
+        "uri": "https://youtu.be/EirY_G0b0Zg"
+      }
+    ]
+  },
+  "comment": "mall was really bad. waiting for someone to do sub 7:30\r\n\r\nPrecise time: 7:31.950\r\nDemos: https://drive.google.com/file/d/1znZMeta7kLlODT9UV_3bVdkKfz6eo8rt/view?usp=sharing\r\n\r\nIN CARTI WE TRUST",
+  "status": {
+    "status": "verified",
+    "examiner": "zxzevrrx",
+    "verify-date": "2022-07-27T18:40:36Z"
+  },
+  "players": [
+    {
+      "rel": "user",
+      "id": "xz749vej",
+      "uri": "https://www.speedrun.com/api/v1/users/xz749vej"
+    }
+  ],
+  "date": "2022-07-21",
+  "submitted": "2022-07-21T00:56:22Z",
+  "times": {
+    "primary": "PT7M31S",
+    "primary_t": 451,
+    "realtime": "PT7M31S",
+    "realtime_t": 451,
+    "realtime_noloads": null,
+    "realtime_noloads_t": 0,
+    "ingame": null,
+    "ingame_t": 0
+  },
+  "system": {
+    "platform": "8gej2n93",
+    "emulated": false,
+    "region": null
+  },
+  "splits": null,
+  "values": {
+    "wl30jvl1": "klrjykmq",
+    "2lgdrqlp": "013xpkk1"
+  },
+  "links": [
+    {
+      "rel": "self",
+      "uri": "https://www.speedrun.com/api/v1/runs/yvrk7voz"
+    },
+    {
+      "rel": "game",
+      "uri": "https://www.speedrun.com/api/v1/games/9dowpe1p"
+    },
+    {
+      "rel": "category",
+      "uri": "https://www.speedrun.com/api/v1/categories/824m5e25"
+    },
+    {
+      "rel": "level",
+      "uri": "https://www.speedrun.com/api/v1/levels/5d77z5dy"
+    },
+    {
+      "rel": "platform",
+      "uri": "https://www.speedrun.com/api/v1/platforms/8gej2n93"
+    },
+    {
+      "rel": "examiner",
+      "uri": "https://www.speedrun.com/api/v1/users/zxzevrrx"
+    }
+  ]
+}

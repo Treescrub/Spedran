@@ -1,0 +1,11 @@
+{
+  "style": "gradient",
+  "color-from": {
+    "light": "#000000",
+    "dark": "#FFFFFF"
+  },
+  "color-to": {
+    "light": "#000000",
+    "dark": "#FFFFFF"
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "id": "5dwyr5kg",
+  "name": "Main Campaigns Solo",
+  "weblink": "https://www.speedrun.com/l4d2#Main_Campaigns_Solo",
+  "type": "per-game",
+  "rules": "Unless specified otherwise or added to below, all \u0022Game Rules\u0022 from the other tab apply here.\r\n\r\nComplete all campaigns the game was released with in one go:  \r\n- Dead Center  \r\n- Dark Carnival  \r\n- Swamp Fever  \r\n- Hard Rain  \r\n- The Parish",
+  "players": {
+    "type": "exactly",
+    "value": 1
+  },
+  "miscellaneous": false,
+  "links": [
+    {
+      "rel": "self",
+      "uri": "https://www.speedrun.com/api/v1/categories/5dwyr5kg"
+    },
+    {
+      "rel": "game",
+      "uri": "https://www.speedrun.com/api/v1/games/9dowpe1p"
+    },
+    {
+      "rel": "variables",
+      "uri": "https://www.speedrun.com/api/v1/categories/5dwyr5kg/variables"
+    },
+    {
+      "rel": "records",
+      "uri": "https://www.speedrun.com/api/v1/categories/5dwyr5kg/records"
+    },
+    {
+      "rel": "runs",
+      "uri": "https://www.speedrun.com/api/v1/runs?category=5dwyr5kg"
+    },
+    {
+      "rel": "leaderboard",
+      "uri": "https://www.speedrun.com/api/v1/leaderboards/9dowpe1p/category/5dwyr5kg"
+    }
+  ]
+}

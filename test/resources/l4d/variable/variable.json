@@ -1,0 +1,70 @@
+{
+  "id": "wl30jvl1",
+  "name": "Version",
+  "category": null,
+  "scope": {
+    "type": "global"
+  },
+  "mandatory": true,
+  "user-defined": false,
+  "obsoletes": true,
+  "values": {
+    "_note": "`choices` is deprecated, please use `values` instead",
+    "choices": {
+      "4qyo7wdl": "Newest",
+      "21d608jq": "2.0.0.0",
+      "8143e0qd": "2.0.0.8",
+      "0q5438vl": "2.0.1.2",
+      "4qymw3q7": "2.0.2.7",
+      "klrjykmq": "2.0.4.5",
+      "5q822xgq": "2.0.7.5",
+      "21gymo1z": "2.0.9.1",
+      "4lx3w2l2": "2.1.4.7",
+      "81wz5g51": "2.2.0.3"
+    },
+    "values": {
+      "4qyo7wdl": {
+        "label": "Newest"
+      },
+      "21d608jq": {
+        "label": "2.0.0.0"
+      },
+      "8143e0qd": {
+        "label": "2.0.0.8"
+      },
+      "0q5438vl": {
+        "label": "2.0.1.2"
+      },
+      "4qymw3q7": {
+        "label": "2.0.2.7"
+      },
+      "klrjykmq": {
+        "label": "2.0.4.5"
+      },
+      "5q822xgq": {
+        "label": "2.0.7.5"
+      },
+      "21gymo1z": {
+        "label": "2.0.9.1"
+      },
+      "4lx3w2l2": {
+        "label": "2.1.4.7"
+      },
+      "81wz5g51": {
+        "label": "2.2.0.3"
+      }
+    },
+    "default": null
+  },
+  "is-subcategory": false,
+  "links": [
+    {
+      "rel": "self",
+      "uri": "https://www.speedrun.com/api/v1/variables/wl30jvl1"
+    },
+    {
+      "rel": "game",
+      "uri": "https://www.speedrun.com/api/v1/games/9dowpe1p"
+    }
+  ]
+}
