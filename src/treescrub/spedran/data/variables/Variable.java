@@ -7,10 +7,11 @@ import treescrub.spedran.data.IdentifiableNamedResource;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Optional;
 
 public class Variable extends IdentifiableNamedResource {
     private String category;
-    private String scope;
+    private VariableScope scope;
     private boolean mandatory;
     private boolean userDefined;
     private boolean obsoletes;
@@ -29,7 +30,7 @@ public class Variable extends IdentifiableNamedResource {
 
     private void parseFromJson(JSONObject data) {
         category = data.optString("category", null);
-        scope = data.getJSONObject("scope").getString("type");
+        scope = new VariableScope(data.getJSONObject("scope"));
         mandatory = data.getBoolean("mandatory");
         userDefined = data.getBoolean("user-defined");
         obsoletes = data.getBoolean("obsoletes");
@@ -41,11 +42,11 @@ public class Variable extends IdentifiableNamedResource {
         isSubcategory = data.getBoolean("is-subcategory");
     }
 
-    public String getCategory() {
-        return category;
+    public Optional<String> getCategory() {
+        return Optional.ofNullable(category);
     }
 
-    public String getScope() {
+    public VariableScope getScope() {
         return scope;
     }
 
