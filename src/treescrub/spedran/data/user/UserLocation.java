@@ -2,6 +2,8 @@ package treescrub.spedran.data.user;
 
 import kong.unirest.json.JSONObject;
 
+import java.util.Optional;
+
 public class UserLocation {
     private LocationInfo country;
     private LocationInfo region;
@@ -19,7 +21,7 @@ public class UserLocation {
         return country;
     }
 
-    public LocationInfo getRegion() {
-        return region;
+    public Optional<LocationInfo> getRegion() {
+        return Optional.ofNullable(region);
     }
 }
