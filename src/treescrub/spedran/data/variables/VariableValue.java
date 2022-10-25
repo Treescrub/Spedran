@@ -19,8 +19,10 @@ public class VariableValue {
         label = data.getString("label");
         rules = data.optString("rules", null);
         flags = new HashMap<>();
-        for (String key : data.getJSONObject("flags").keySet()) {
-            flags.put(key, data.getJSONObject("flags").getBoolean(key));
+        if(data.has("flags")) {
+            for (String key : data.getJSONObject("flags").keySet()) {
+                flags.put(key, data.getJSONObject("flags").getBoolean(key));
+            }
         }
     }
 
