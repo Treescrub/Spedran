@@ -66,8 +66,8 @@ public class Variable extends IdentifiableNamedResource {
         return values;
     }
 
-    public String getDefaultValue() {
-        return defaultValue;
+    public Optional<String> getDefaultValue() {
+        return Optional.ofNullable(defaultValue);
     }
 
     public boolean isSubcategory() {
