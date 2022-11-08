@@ -3,7 +3,7 @@ package treescrub.spedran.data.game;
 import kong.unirest.HttpResponse;
 import kong.unirest.JsonNode;
 import kong.unirest.json.JSONObject;
-import treescrub.spedran.data.ParseUtils;
+import treescrub.spedran.api.Utils;
 import treescrub.spedran.data.IdentifiableResource;
 import treescrub.spedran.data.Names;
 
@@ -48,13 +48,13 @@ public class Game extends IdentifiableResource {
         discord = data.getString("discord").isEmpty() ? null : data.getString("discord");
         releaseDate = LocalDate.parse(data.getString("release-date"));
         ruleset = new GameRuleset(data.getJSONObject("ruleset"));
-        gametypes = ParseUtils.getStringList(data.getJSONArray("gametypes"));
-        platforms = ParseUtils.getStringList(data.getJSONArray("platforms"));
-        regions = ParseUtils.getStringList(data.getJSONArray("regions"));
-        genres = ParseUtils.getStringList(data.getJSONArray("genres"));
-        engines = ParseUtils.getStringList(data.getJSONArray("engines"));
-        developers = ParseUtils.getStringList(data.getJSONArray("developers"));
-        publishers = ParseUtils.getStringList(data.getJSONArray("publishers"));
+        gametypes = Utils.getStringList(data.getJSONArray("gametypes"));
+        platforms = Utils.getStringList(data.getJSONArray("platforms"));
+        regions = Utils.getStringList(data.getJSONArray("regions"));
+        genres = Utils.getStringList(data.getJSONArray("genres"));
+        engines = Utils.getStringList(data.getJSONArray("engines"));
+        developers = Utils.getStringList(data.getJSONArray("developers"));
+        publishers = Utils.getStringList(data.getJSONArray("publishers"));
         moderators = new HashMap<>();
         for(String key : data.getJSONObject("moderators").keySet()) {
             moderators.put(key, data.getJSONObject("moderators").getString(key));
