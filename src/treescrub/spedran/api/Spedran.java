@@ -8,63 +8,62 @@ import treescrub.spedran.data.user.User;
 import treescrub.spedran.data.variables.Variable;
 import treescrub.spedran.requests.Requests;
 
+import java.util.concurrent.CompletableFuture;
+
 public class Spedran {
-    private static final int MAX_ITEMS = 200;
-    private static final int MAX_ITEMS_BULK = 1000;
-
-    public static Game getGame(String id) {
-        return new Game(Requests.getGame(id).join());
+    public static CompletableFuture<Game> getGame(String id) {
+        return Requests.getGame(id).thenCompose(data -> CompletableFuture.completedFuture(new Game(data)));
     }
 
-    public static Run getRun(String id) {
-        return new Run(Requests.getRun(id).join());
+    public static CompletableFuture<Run> getRun(String id) {
+        return Requests.getRun(id).thenCompose(data -> CompletableFuture.completedFuture(new Run(data)));
     }
 
-    public static Category getCategory(String id) {
-        return new Category(Requests.getCategory(id).join());
+    public static CompletableFuture<Category> getCategory(String id) {
+        return Requests.getCategory(id).thenCompose(data -> CompletableFuture.completedFuture(new Category(data)));
     }
 
-    public static Level getLevel(String id) {
-        return new Level(Requests.getLevel(id).join());
+    public static CompletableFuture<Level> getLevel(String id) {
+        return Requests.getLevel(id).thenCompose(data -> CompletableFuture.completedFuture(new Level(data)));
     }
 
-    public static Variable getVariable(String id) {
-        return new Variable(Requests.getVariable(id).join());
+    public static CompletableFuture<Variable> getVariable(String id) {
+        return Requests.getVariable(id).thenCompose(data -> CompletableFuture.completedFuture(new Variable(data)));
     }
 
-    public static User getUser(String id) {
-        return new User(Requests.getUser(id).join());
+    public static CompletableFuture<User> getUser(String id) {
+        return Requests.getUser(id).thenCompose(data -> CompletableFuture.completedFuture(new User(data)));
     }
 
-    public static Guest getGuest(String name) {
-        return new Guest(Requests.getGuest(name).join());
+    public static CompletableFuture<Guest> getGuest(String name) {
+        return Requests.getGuest(name).thenCompose(data -> CompletableFuture.completedFuture(new Guest(data)));
     }
 
-    public static Genre getGenre(String id) {
-        return new Genre(Requests.getGenre(id).join());
+    public static CompletableFuture<Genre> getGenre(String id) {
+        return Requests.getGenre(id).thenCompose(data -> CompletableFuture.completedFuture(new Genre(data)));
     }
 
-    public static Engine getEngine(String id) {
-        return new Engine(Requests.getEngine(id).join());
+    public static CompletableFuture<Engine> getEngine(String id) {
+        return Requests.getEngine(id).thenCompose(data -> CompletableFuture.completedFuture(new Engine(data)));
     }
 
-    public static Gametype getGametype(String id) {
-        return new Gametype(Requests.getGametype(id).join());
+    public static CompletableFuture<Gametype> getGametype(String id) {
+        return Requests.getGametype(id).thenCompose(data -> CompletableFuture.completedFuture(new Gametype(data)));
     }
 
-    public static Developer getDeveloper(String id) {
-        return new Developer(Requests.getDeveloper(id).join());
+    public static CompletableFuture<Developer> getDeveloper(String id) {
+        return Requests.getDeveloper(id).thenCompose(data -> CompletableFuture.completedFuture(new Developer(data)));
     }
 
-    public static Region getRegion(String id) {
-        return new Region(Requests.getRegion(id).join());
+    public static CompletableFuture<Region> getRegion(String id) {
+        return Requests.getRegion(id).thenCompose(data -> CompletableFuture.completedFuture(new Region(data)));
     }
 
-    public static Series getSeries(String id) {
-        return new Series(Requests.getSeries(id).join());
+    public static CompletableFuture<Series> getSeries(String id) {
+        return Requests.getSeries(id).thenCompose(data -> CompletableFuture.completedFuture(new Series(data)));
     }
 
-    public static Platform getPlatform(String id) {
-        return new Platform(Requests.getPlatform(id).join());
+    public static CompletableFuture<Platform> getPlatform(String id) {
+        return Requests.getPlatform(id).thenCompose(data -> CompletableFuture.completedFuture(new Platform(data)));
     }
 }
