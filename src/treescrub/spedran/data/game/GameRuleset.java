@@ -1,7 +1,7 @@
 package treescrub.spedran.data.game;
 
 import kong.unirest.json.JSONObject;
-import treescrub.spedran.api.Utils;
+import treescrub.spedran.data.ParseUtils;
 
 import java.util.Collections;
 import java.util.List;
@@ -22,7 +22,7 @@ public class GameRuleset {
         showMilliseconds = data.getBoolean("show-milliseconds");
         requireVerification = data.getBoolean("require-verification");
         requireVideo = data.getBoolean("require-video");
-        runTimes = Utils.getStringList(data.getJSONArray("run-times"));
+        runTimes = ParseUtils.getStringList(data.getJSONArray("run-times"));
         defaultTime = data.getString("default-time");
         emulatorsAllowed = data.getBoolean("emulators-allowed");
     }
