@@ -1,11 +1,11 @@
-package treescrub.spedran.api;
+package treescrub.spedran.data;
 
 import kong.unirest.json.JSONArray;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class Utils {
+public class ParseUtils {
     public static List<String> getStringList(JSONArray array) {
         List<String> list = new ArrayList<>();
         for(int i = 0; i < array.length(); i++) {
