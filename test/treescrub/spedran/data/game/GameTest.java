@@ -114,7 +114,7 @@ class GameTest {
         JSONObject json = JSONLoader.getJsonTestFile("l4d/game/game");
         Game game = new Game(json);
 
-        assertFalse(game.getGenres().isEmpty());
+        assertFalse(game.getEngines().isEmpty());
     }
 
     @Test
