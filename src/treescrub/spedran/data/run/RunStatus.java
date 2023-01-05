@@ -5,12 +5,6 @@ import kong.unirest.json.JSONObject;
 import java.time.Instant;
 import java.util.Optional;
 
-enum SubmissionStatus {
-    NEW,
-    REJECTED,
-    VERIFIED,
-}
-
 public class RunStatus {
     private SubmissionStatus submissionStatus;
     private String examiner;
