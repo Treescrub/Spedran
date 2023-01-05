@@ -14,7 +14,7 @@ public class RunSystem {
     }
 
     private void parseFromJson(JSONObject data) {
-        platform = data.getString("platform");
+        platform = data.optString("platform", null);
         emulated = data.getBoolean("emulated");
         region = data.optString("region", null);
     }

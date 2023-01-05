@@ -18,8 +18,10 @@ public class RunVideos {
     private void parseFromJson(JSONObject data) {
         text = data.isNull("text") ? null : data.getString("text");
         links = new ArrayList<>();
-        for (int i = 0; i < data.getJSONArray("links").length(); i++) {
-            links.add(new Link(data.getJSONArray("links").getJSONObject(i)));
+        if(data.has("links")) {
+            for (int i = 0; i < data.getJSONArray("links").length(); i++) {
+                links.add(new Link(data.getJSONArray("links").getJSONObject(i)));
+            }
         }
     }
 
