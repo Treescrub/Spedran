@@ -31,4 +31,12 @@ public class Link {
     public Optional<String> getRelation() {
         return Optional.ofNullable(rel);
     }
+
+    @Override
+    public String toString() {
+        return "Link{" +
+                "uri='" + uri + '\'' +
+                ", rel='" + rel + '\'' +
+                '}';
+    }
 }

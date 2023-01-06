@@ -113,4 +113,15 @@ public class Run extends IdentifiableResource {
     public Map<String, String> getVariableValues() {
         return values;
     }
+
+    @Override
+    public String toString() {
+        return "Run[" + id + "]{" +
+                "players=" + players +
+                ", status=" + status +
+                ", date=" + date +
+                ", submitted=" + submitted +
+                ", times=" + times +
+                "}";
+    }
 }

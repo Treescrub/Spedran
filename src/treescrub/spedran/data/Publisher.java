@@ -13,4 +13,11 @@ public class Publisher extends IdentifiableNamedResource {
     public Publisher(JSONObject data) {
         super(data);
     }
+
+    @Override
+    public String toString() {
+        return "Publisher[" + id + "]{" +
+                "name='" + name + '\'' +
+                "}";
+    }
 }

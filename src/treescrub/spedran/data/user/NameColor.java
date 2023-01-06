@@ -22,4 +22,12 @@ public class NameColor {
     public String getDark() {
         return dark;
     }
+
+    @Override
+    public String toString() {
+        return "NameColor{" +
+                "light='" + light + '\'' +
+                ", dark='" + dark + '\'' +
+                '}';
+    }
 }

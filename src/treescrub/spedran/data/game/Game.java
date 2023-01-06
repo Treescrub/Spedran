@@ -130,4 +130,14 @@ public class Game extends IdentifiableResource {
     public Optional<Instant> getCreationTime() {
         return Optional.ofNullable(created);
     }
+
+    @Override
+    public String toString() {
+        return "Game[" + id + "]{" +
+                "names=" + names +
+                ", abbreviation='" + abbreviation + '\'' +
+                ", releaseDate=" + releaseDate +
+                ", created=" + created +
+                "}";
+    }
 }

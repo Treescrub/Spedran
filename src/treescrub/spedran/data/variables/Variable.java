@@ -73,4 +73,14 @@ public class Variable extends IdentifiableNamedResource {
     public boolean isSubcategory() {
         return isSubcategory;
     }
+
+    @Override
+    public String toString() {
+        return "Variable[" + id + "]{" +
+                "name='" + name + '\'' +
+                ", mandatory=" + mandatory +
+                ", isSubcategory=" + isSubcategory +
+                ", category='" + category + '\'' +
+                "}";
+    }
 }

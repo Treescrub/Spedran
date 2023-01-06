@@ -13,4 +13,11 @@ public class Gametype extends IdentifiableNamedResource {
     public Gametype(JSONObject data) {
         super(data);
     }
+
+    @Override
+    public String toString() {
+        return "Gametype[" + id + "]{" +
+                "name='" + name + '\'' +
+                "}";
+    }
 }

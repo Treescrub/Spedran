@@ -30,4 +30,13 @@ public class RunSystem {
     public Optional<String> getRegion() {
         return Optional.ofNullable(region);
     }
+
+    @Override
+    public String toString() {
+        return "RunSystem{" +
+                "platform='" + platform + '\'' +
+                ", emulated=" + emulated +
+                ", region='" + region + '\'' +
+                '}';
+    }
 }

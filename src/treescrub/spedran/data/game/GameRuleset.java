@@ -50,4 +50,14 @@ public class GameRuleset {
     public String getDefaultTime() {
         return defaultTime;
     }
+
+    @Override
+    public String toString() {
+        return "GameRuleset{" +
+                "showMilliseconds=" + showMilliseconds +
+                ", requireVerification=" + requireVerification +
+                ", requireVideo=" + requireVideo +
+                ", defaultTime='" + defaultTime + '\'' +
+                '}';
+    }
 }

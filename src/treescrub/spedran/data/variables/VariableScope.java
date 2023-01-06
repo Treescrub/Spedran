@@ -40,4 +40,12 @@ public class VariableScope {
     public Optional<String> getLevel() {
         return Optional.ofNullable(level);
     }
+
+    @Override
+    public String toString() {
+        return "VariableScope{" +
+                "type=" + type +
+                ", level='" + level + '\'' +
+                '}';
+    }
 }

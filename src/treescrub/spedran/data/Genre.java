@@ -13,4 +13,11 @@ public class Genre extends IdentifiableNamedResource {
     public Genre(JSONObject data) {
         super(data);
     }
+
+    @Override
+    public String toString() {
+        return "Genre[" + id + "]{" +
+                "name='" + name + '\'' +
+                "}";
+    }
 }

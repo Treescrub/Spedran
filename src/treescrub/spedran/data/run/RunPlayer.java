@@ -21,4 +21,9 @@ public class RunPlayer extends Link {
     public String getId() {
         return id;
     }
+
+    @Override
+    public String toString() {
+        return "RunPlayer[" + id + "]";
+    }
 }

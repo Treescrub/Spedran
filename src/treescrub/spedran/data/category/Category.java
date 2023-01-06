@@ -48,4 +48,13 @@ public class Category extends IdentifiableNamedResource {
     public boolean isMiscellaneous() {
         return miscellaneous;
     }
+
+    @Override
+    public String toString() {
+        return "Category[" + id + "]{" +
+                "name='" + name + '\'' +
+                ", isPerLevel=" + isPerLevel +
+                ", miscellaneous=" + miscellaneous +
+                "}";
+    }
 }

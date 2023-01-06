@@ -62,4 +62,13 @@ public class Series extends IdentifiableResource {
     public Optional<Instant> getCreationTime() {
         return Optional.ofNullable(created);
     }
+
+    @Override
+    public String toString() {
+        return "Series[" + id + "]{" +
+                "names=" + names +
+                ", abbreviation='" + abbreviation + '\'' +
+                ", created=" + created +
+                "}";
+    }
 }

@@ -24,4 +24,12 @@ public class UserLocation {
     public Optional<LocationInfo> getRegion() {
         return Optional.ofNullable(region);
     }
+
+    @Override
+    public String toString() {
+        return "UserLocation{" +
+                "country=" + country +
+                ", region=" + region +
+                '}';
+    }
 }

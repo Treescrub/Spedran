@@ -45,4 +45,14 @@ public class NameStyle {
     public Optional<NameColor> getEndColor() {
         return Optional.ofNullable(endColor);
     }
+
+    @Override
+    public String toString() {
+        return "NameStyle{" +
+                "style=" + style +
+                ", color=" + color +
+                ", startColor=" + startColor +
+                ", endColor=" + endColor +
+                '}';
+    }
 }

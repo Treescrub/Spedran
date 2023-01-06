@@ -101,4 +101,14 @@ public class User extends IdentifiableResource {
     public Optional<Link> getSpeedrunsLiveLink() {
         return Optional.ofNullable(speedrunsLive);
     }
+
+    @Override
+    public String toString() {
+        return "User[" + id + "]{" +
+                "names=" + names +
+                ", role='" + role + '\'' +
+                ", signup=" + signup +
+                ", location=" + location +
+                "}";
+    }
 }

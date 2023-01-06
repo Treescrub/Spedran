@@ -23,4 +23,12 @@ public class Platform extends IdentifiableNamedResource {
     public int getReleaseYear() {
         return released;
     }
+
+    @Override
+    public String toString() {
+        return "Platform[" + id + "]{" +
+                "name='" + name + '\'' +
+                ", released=" + released +
+                "}";
+    }
 }

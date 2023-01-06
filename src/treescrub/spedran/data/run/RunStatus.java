@@ -32,4 +32,13 @@ public class RunStatus {
     public Optional<Instant> getVerifyDate() {
         return Optional.ofNullable(verifyDate);
     }
+
+    @Override
+    public String toString() {
+        return "RunStatus{" +
+                "submissionStatus=" + submissionStatus +
+                ", examiner='" + examiner + '\'' +
+                ", verifyDate=" + verifyDate +
+                '}';
+    }
 }

@@ -13,4 +13,11 @@ public class Region extends IdentifiableNamedResource {
     public Region(JSONObject data) {
         super(data);
     }
+
+    @Override
+    public String toString() {
+        return "Region[" + id + "]{" +
+                "name='" + name + '\'' +
+                "}";
+    }
 }

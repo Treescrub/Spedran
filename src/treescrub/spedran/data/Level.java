@@ -31,4 +31,11 @@ public class Level extends IdentifiableNamedResource {
     public Optional<String> getRules() {
         return Optional.ofNullable(rules);
     }
+
+    @Override
+    public String toString() {
+        return "Level[" + id + "]{" +
+                "name='" + name + '\'' +
+                "}";
+    }
 }

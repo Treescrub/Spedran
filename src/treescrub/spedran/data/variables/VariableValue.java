@@ -37,4 +37,11 @@ public class VariableValue {
     public Map<String, Boolean> getFlags() {
         return flags;
     }
+
+    @Override
+    public String toString() {
+        return "VariableValue{" +
+                "label='" + label + '\'' +
+                '}';
+    }
 }

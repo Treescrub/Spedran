@@ -32,4 +32,12 @@ public class RunVideos {
     public List<Link> getLinks() {
         return links;
     }
+
+    @Override
+    public String toString() {
+        return "RunVideos{" +
+                "text='" + text + '\'' +
+                ", links=" + links +
+                '}';
+    }
 }

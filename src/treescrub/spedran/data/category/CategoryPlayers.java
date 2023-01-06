@@ -22,4 +22,12 @@ public class CategoryPlayers {
     public int getPlayers() {
         return players;
     }
+
+    @Override
+    public String toString() {
+        return "CategoryPlayers{" +
+                "isExact=" + isExact +
+                ", players=" + players +
+                '}';
+    }
 }

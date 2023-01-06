@@ -13,4 +13,11 @@ public class Engine extends IdentifiableNamedResource {
     public Engine(JSONObject data) {
         super(data);
     }
+
+    @Override
+    public String toString() {
+        return "Engine[" + id + "]{" +
+                "name='" + name + '\'' +
+                "}";
+    }
 }

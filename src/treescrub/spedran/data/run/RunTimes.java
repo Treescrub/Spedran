@@ -40,4 +40,14 @@ public class RunTimes {
     public Optional<Duration> getIngameTime() {
         return Optional.ofNullable(ingameTime);
     }
+
+    @Override
+    public String toString() {
+        return "RunTimes{" +
+                "primaryTime=" + primaryTime +
+                ", realTime=" + realTime +
+                ", realNoLoadsTime=" + realNoLoadsTime +
+                ", ingameTime=" + ingameTime +
+                '}';
+    }
 }

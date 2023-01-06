@@ -36,4 +36,13 @@ public class Names {
     public Optional<String> getTwitchName() {
         return Optional.ofNullable(twitch);
     }
+
+    @Override
+    public String toString() {
+        return "Names{" +
+                "international='" + international + '\'' +
+                ", japanese='" + japanese + '\'' +
+                ", twitch='" + twitch + '\'' +
+                '}';
+    }
 }
