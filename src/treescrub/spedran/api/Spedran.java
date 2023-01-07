@@ -8,6 +8,8 @@ import treescrub.spedran.data.user.User;
 import treescrub.spedran.data.variables.Variable;
 import treescrub.spedran.requests.Requests;
 
+import java.util.List;
+import java.util.Map;
 import java.util.concurrent.CompletableFuture;
 
 public class Spedran {
@@ -17,6 +19,10 @@ public class Spedran {
 
     public static CompletableFuture<Run> getRun(String id) {
         return Requests.getRun(id).thenCompose(data -> CompletableFuture.completedFuture(new Run(data)));
+    }
+
+    public static CompletableFuture<List<Run>> getRuns(Map<String, Object> parameters) {
+        return Requests.getRuns(parameters);
     }
 
     public static CompletableFuture<Category> getCategory(String id) {
