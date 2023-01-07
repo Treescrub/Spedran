@@ -10,14 +10,15 @@ public class Guest extends Resource {
     private String name;
 
     public Guest(HttpResponse<JsonNode> data) {
-        this(data.getBody().getObject().getJSONObject("data"));
+        super(data);
     }
 
     public Guest(JSONObject data) {
-        parseFromJson(data);
+        super(data);
     }
 
-    private void parseFromJson(JSONObject data) {
+    @Override
+    protected void parseFromJson(JSONObject data) {
         name = data.getString("name");
     }
 

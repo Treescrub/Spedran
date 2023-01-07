@@ -27,15 +27,17 @@ public class Run extends IdentifiableResource {
     private Map<String, String> values;
 
     public Run(HttpResponse<JsonNode> data) {
-        this(data.getBody().getObject().getJSONObject("data"));
+        super(data);
     }
 
     public Run(JSONObject data) {
         super(data);
-        parseFromJson(data);
     }
 
-    private void parseFromJson(JSONObject data) {
+    @Override
+    protected void parseFromJson(JSONObject data) {
+        super.parseFromJson(data);
+
         weblink = data.getString("weblink");
         game = data.getString("game");
         level = data.optString("level", null);

@@ -20,15 +20,17 @@ public class Variable extends IdentifiableNamedResource {
     private boolean isSubcategory;
 
     public Variable(HttpResponse<JsonNode> data) {
-        this(data.getBody().getObject().getJSONObject("data"));
+        super(data);
     }
 
     public Variable(JSONObject data) {
         super(data);
-        parseFromJson(data);
     }
 
-    private void parseFromJson(JSONObject data) {
+    @Override
+    protected void parseFromJson(JSONObject data) {
+        super.parseFromJson(data);
+
         category = data.optString("category", null);
         scope = new VariableScope(data.getJSONObject("scope"));
         mandatory = data.getBoolean("mandatory");

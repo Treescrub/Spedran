@@ -8,15 +8,17 @@ public class Platform extends IdentifiableNamedResource {
     private int released;
 
     public Platform(HttpResponse<JsonNode> data) {
-        this(data.getBody().getObject().getJSONObject("data"));
+        super(data);
     }
 
     public Platform(JSONObject data) {
         super(data);
-        parseFromJson(data);
     }
 
-    private void parseFromJson(JSONObject data) {
+    @Override
+    protected void parseFromJson(JSONObject data) {
+        super.parseFromJson(data);
+
         released = data.getInt("released");
     }
 

@@ -31,15 +31,17 @@ public class Game extends IdentifiableResource {
     private Instant created;
 
     public Game(HttpResponse<JsonNode> data) {
-        this(data.getBody().getObject().getJSONObject("data"));
+        super(data);
     }
 
     public Game(JSONObject data) {
         super(data);
-        parseFromJson(data);
     }
 
-    private void parseFromJson(JSONObject data) {
+    @Override
+    protected void parseFromJson(JSONObject data) {
+        super.parseFromJson(data);
+
         names = new Names(data.getJSONObject("names"));
         boostReceived = data.getInt("boostReceived");
         boostDistinctDonors = data.getInt("boostDistinctDonors");

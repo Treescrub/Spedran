@@ -13,15 +13,17 @@ public class Category extends IdentifiableNamedResource {
     private boolean miscellaneous;
 
     public Category(HttpResponse<JsonNode> data) {
-        this(data.getBody().getObject().getJSONObject("data"));
+        super(data);
     }
 
     public Category(JSONObject data) {
         super(data);
-        parseFromJson(data);
     }
 
-    private void parseFromJson(JSONObject data) {
+    @Override
+    protected void parseFromJson(JSONObject data) {
+        super.parseFromJson(data);
+
         weblink = data.getString("weblink");
         isPerLevel = data.getString("type").equals("per-level");
         rules = data.getString("rules");

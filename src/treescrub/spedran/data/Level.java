@@ -11,15 +11,17 @@ public class Level extends IdentifiableNamedResource {
     private String rules;
 
     public Level(HttpResponse<JsonNode> data) {
-        this(data.getBody().getObject().getJSONObject("data"));
+        super(data);
     }
 
     public Level(JSONObject data) {
         super(data);
-        parseFromJson(data);
     }
 
-    private void parseFromJson(JSONObject data) {
+    @Override
+    protected void parseFromJson(JSONObject data) {
+        super.parseFromJson(data);
+
         weblink = data.getString("weblink");
         rules = data.optString("rules", null);
     }

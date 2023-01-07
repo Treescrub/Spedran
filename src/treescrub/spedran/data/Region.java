@@ -7,11 +7,16 @@ import kong.unirest.json.JSONObject;
 public class Region extends IdentifiableNamedResource {
 
     public Region(HttpResponse<JsonNode> data) {
-        this(data.getBody().getObject().getJSONObject("data"));
+        super(data);
     }
 
     public Region(JSONObject data) {
         super(data);
+    }
+
+    @Override
+    protected void parseFromJson(JSONObject data) {
+        super.parseFromJson(data);
     }
 
     @Override

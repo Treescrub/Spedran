@@ -34,7 +34,10 @@ public class User extends IdentifiableResource {
         parseFromJson(data);
     }
 
-    private void parseFromJson(JSONObject data) {
+    @Override
+    protected void parseFromJson(JSONObject data) {
+        super.parseFromJson(data);
+
         names = new Names(data.getJSONObject("names"));
         supporterAnimation = data.getBoolean("supporterAnimation");
         pronouns = data.getString("pronouns").isEmpty() ? null : data.getString("pronouns");

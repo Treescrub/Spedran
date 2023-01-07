@@ -18,15 +18,17 @@ public class Series extends IdentifiableResource {
     private Instant created;
 
     public Series(HttpResponse<JsonNode> data) {
-        this(data.getBody().getObject().getJSONObject("data"));
+        super(data);
     }
 
     public Series(JSONObject data) {
         super(data);
-        parseFromJson(data);
     }
 
-    private void parseFromJson(JSONObject data) {
+    @Override
+    protected void parseFromJson(JSONObject data) {
+        super.parseFromJson(data);
+
         names = new Names(data.getJSONObject("names"));
         abbreviation = data.getString("abbreviation");
         weblink = data.getString("weblink");
