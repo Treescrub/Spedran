@@ -27,11 +27,57 @@ public class Requests {
                 .asJsonAsync();
     }
 
+    private static <T extends Resource> List<T> collectResources(PagedList<JsonNode> pagedList, Function<JSONObject, T> constructor) {
+        List<T> runs = new ArrayList<>();
+
+        for(JsonNode body : pagedList.getBodies()) {
+            JSONArray data = body.getObject().getJSONArray("data");
+            for(int i = 0; i < data.length(); i++) {
+                runs.add(constructor.apply(data.getJSONObject(i)));
+            }
+        }
+
+        return runs;
+    }
+
+    private static Function<HttpResponse<JsonNode>, String> getLinkExtractor() {
+        return response -> {
+            JSONObject body = response.getBody().getObject();
+
+            if (!body.has("pagination"))
+                return null;
+
+            JSONArray links = body.getJSONObject("pagination").getJSONArray("links");
+            for (int i = 0; i < links.length(); i++) {
+                JSONObject link = links.getJSONObject(i);
+
+                if (link.getString("rel").equals("next")) {
+                    return link.getString("uri");
+                }
+            }
+
+            return null;
+        };
+    }
+
     private static GetRequest getCollectionRequest(String resourceName, Map<String, Object> parameters) {
         return Unirest.get("/{resource}")
                 .routeParam("resource", resourceName)
                 .queryString(parameters)
                 .queryString("max", MAX_ITEMS);
+    }
+
+    private static <T extends Resource> CompletableFuture<List<T>> getCollection(String resourceName, Function<JSONObject, T> constructor, Map<String, Object> parameters) {
+        return CompletableFuture.supplyAsync(() -> {
+            PagedList<JsonNode> resources = getCollectionRequest(resourceName, parameters)
+                    .asPaged(HttpRequest::asJson, getLinkExtractor());
+
+            resources.ifFailure(response -> {
+
+            });
+
+            return collectResources(resources, constructor);
+        });
     }
 
     public static CompletableFuture<HttpResponse<JsonNode>> getGame(String id) {
@@ -74,48 +120,8 @@ public class Requests {
         return getSingleSimpleObject("runs", id);
     }
 
-    private static <T extends Resource> List<T> collectResources(PagedList<JsonNode> pagedList, Function<JSONObject, T> constructor) {
-        List<T> runs = new ArrayList<>();
-
-        for(JsonNode body : pagedList.getBodies()) {
-            JSONArray data = body.getObject().getJSONArray("data");
-            for(int i = 0; i < data.length(); i++) {
-                runs.add(constructor.apply(data.getJSONObject(i)));
-            }
-        }
-
-        return runs;
-    }
-
-    private static Function<HttpResponse<JsonNode>, String> getLinkExtractor() {
-        return response -> {
-            JSONObject body = response.getBody().getObject();
-
-            if (!body.has("pagination"))
-                return null;
-
-            JSONArray links = body.getJSONObject("pagination").getJSONArray("links");
-            for (int i = 0; i < links.length(); i++) {
-                JSONObject link = links.getJSONObject(i);
-
-                if (link.getString("rel").equals("next")) {
-                    return link.getString("uri");
-                }
-            }
-
-            return null;
-        };
-    }
-
     public static CompletableFuture<List<Run>> getRuns(Map<String, Object> parameters) {
-        PagedList<JsonNode> runs = getCollectionRequest("runs", parameters)
-                .asPaged(HttpRequest::asJson, getLinkExtractor());
-
-        runs.ifFailure(response -> {
-
-        });
-
-        return CompletableFuture.completedFuture(collectResources(runs, Run::new));
+        return getCollection("runs", Run::new, parameters);
     }
 
     public static CompletableFuture<HttpResponse<JsonNode>> getSeries(String id) {
