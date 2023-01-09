@@ -17,6 +17,10 @@ public class Spedran {
         return Requests.getGame(id);
     }
 
+    public static CompletableFuture<List<Game>> getGames(Map<String, Object> parameters) {
+        return Requests.getGames(parameters);
+    }
+
     public static CompletableFuture<Run> getRun(String id) {
         return Requests.getRun(id);
     }
@@ -41,6 +45,10 @@ public class Spedran {
         return Requests.getUser(id);
     }
 
+    public static CompletableFuture<List<User>> getUsers(Map<String, Object> parameters) {
+        return Requests.getUsers(parameters);
+    }
+
     public static CompletableFuture<Guest> getGuest(String name) {
         return Requests.getGuest(name);
     }
@@ -49,27 +57,55 @@ public class Spedran {
         return Requests.getGenre(id);
     }
 
+    public static CompletableFuture<List<Genre>> getGenres(Map<String, Object> parameters) {
+        return Requests.getGenres(parameters);
+    }
+
     public static CompletableFuture<Engine> getEngine(String id) {
         return Requests.getEngine(id);
+    }
+
+    public static CompletableFuture<List<Engine>> getEngines(Map<String, Object> parameters) {
+        return Requests.getEngines(parameters);
     }
 
     public static CompletableFuture<Gametype> getGametype(String id) {
         return Requests.getGametype(id);
     }
 
+    public static CompletableFuture<List<Gametype>> getGametypes(Map<String, Object> parameters) {
+        return Requests.getGametypes(parameters);
+    }
+
     public static CompletableFuture<Developer> getDeveloper(String id) {
         return Requests.getDeveloper(id);
+    }
+
+    public static CompletableFuture<List<Developer>> getDevelopers(Map<String, Object> parameters) {
+        return Requests.getDevelopers(parameters);
     }
 
     public static CompletableFuture<Region> getRegion(String id) {
         return Requests.getRegion(id);
     }
 
+    public static CompletableFuture<List<Region>> getRegions(Map<String, Object> parameters) {
+        return Requests.getRegions(parameters);
+    }
+
     public static CompletableFuture<Series> getSeries(String id) {
         return Requests.getSeries(id);
     }
 
+    public static CompletableFuture<List<Series>> getSeries(Map<String, Object> parameters) {
+        return Requests.getSeries(parameters);
+    }
+
     public static CompletableFuture<Platform> getPlatform(String id) {
         return Requests.getPlatform(id);
+    }
+
+    public static CompletableFuture<List<Platform>> getPlatforms(Map<String, Object> parameters) {
+        return Requests.getPlatforms(parameters);
     }
 }
