@@ -4,9 +4,11 @@ import kong.unirest.*;
 import kong.unirest.json.JSONArray;
 import kong.unirest.json.JSONObject;
 import treescrub.spedran.data.*;
+import treescrub.spedran.data.category.Category;
 import treescrub.spedran.data.game.Game;
 import treescrub.spedran.data.run.Run;
 import treescrub.spedran.data.user.User;
+import treescrub.spedran.data.variables.Variable;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -37,11 +39,11 @@ public class Requests {
         Unirest.config().defaultBaseUrl(BASE_URL);
     }
 
-    private static CompletableFuture<HttpResponse<JsonNode>> getSingleSimpleObject(String resourceName, String id) {
+    private static <T> CompletableFuture<T> getSingleSimpleObject(String resourceName, Function<HttpResponse<JsonNode>, T> constructor, String id) {
         return Unirest.get("/{resource}/{id}")
                 .routeParam("resource", resourceName)
                 .routeParam("id", id)
-                .asJsonAsync();
+                .asJsonAsync().thenApply(constructor);
     }
 
     private static <T extends Resource> List<T> collectResources(PagedList<JsonNode> pagedList, Function<JSONObject, T> constructor) {
@@ -98,98 +100,98 @@ public class Requests {
         });
     }
 
-    public static CompletableFuture<HttpResponse<JsonNode>> getGame(String id) {
-        return getSingleSimpleObject(RESOURCE_GAMES, id);
+    public static CompletableFuture<Game> getGame(String id) {
+        return getSingleSimpleObject(RESOURCE_GAMES, Game::new, id);
     }
 
     public static CompletableFuture<List<Game>> getGames(Map<String, Object> parameters) {
         return getCollection(RESOURCE_GAMES, Game::new, parameters);
     }
 
-    public static CompletableFuture<HttpResponse<JsonNode>> getLevel(String id) {
-        return getSingleSimpleObject(RESOURCE_LEVELS, id);
+    public static CompletableFuture<Level> getLevel(String id) {
+        return getSingleSimpleObject(RESOURCE_LEVELS, Level::new, id);
     }
 
-    public static CompletableFuture<HttpResponse<JsonNode>> getCategory(String id) {
-        return getSingleSimpleObject(RESOURCE_CATEGORIES, id);
+    public static CompletableFuture<Category> getCategory(String id) {
+        return getSingleSimpleObject(RESOURCE_CATEGORIES, Category::new, id);
     }
 
-    public static CompletableFuture<HttpResponse<JsonNode>> getPlatform(String id) {
-        return getSingleSimpleObject(RESOURCE_PLATFORMS, id);
+    public static CompletableFuture<Platform> getPlatform(String id) {
+        return getSingleSimpleObject(RESOURCE_PLATFORMS, Platform::new, id);
     }
 
     public static CompletableFuture<List<Platform>> getPlatforms(Map<String, Object> parameters) {
         return getCollection(RESOURCE_PLATFORMS, Platform::new, parameters);
     }
 
-    public static CompletableFuture<HttpResponse<JsonNode>> getGenre(String id) {
-        return getSingleSimpleObject(RESOURCE_GENRES, id);
+    public static CompletableFuture<Genre> getGenre(String id) {
+        return getSingleSimpleObject(RESOURCE_GENRES, Genre::new, id);
     }
 
     public static CompletableFuture<List<Genre>> getGenres(Map<String, Object> parameters) {
         return getCollection(RESOURCE_GENRES, Genre::new, parameters);
     }
 
-    public static CompletableFuture<HttpResponse<JsonNode>> getEngine(String id) {
-        return getSingleSimpleObject(RESOURCE_ENGINES, id);
+    public static CompletableFuture<Engine> getEngine(String id) {
+        return getSingleSimpleObject(RESOURCE_ENGINES, Engine::new, id);
     }
 
     public static CompletableFuture<List<Engine>> getEngines(Map<String, Object> parameters) {
         return getCollection(RESOURCE_ENGINES, Engine::new, parameters);
     }
-    public static CompletableFuture<HttpResponse<JsonNode>> getGametype(String id) {
-        return getSingleSimpleObject(RESOURCE_GAMETYPES, id);
+    public static CompletableFuture<Gametype> getGametype(String id) {
+        return getSingleSimpleObject(RESOURCE_GAMETYPES, Gametype::new, id);
     }
 
     public static CompletableFuture<List<Gametype>> getGametypes(Map<String, Object> parameters) {
         return getCollection(RESOURCE_GAMETYPES, Gametype::new, parameters);
     }
 
-    public static CompletableFuture<HttpResponse<JsonNode>> getDeveloper(String id) {
-        return getSingleSimpleObject(RESOURCE_DEVELOPERS, id);
+    public static CompletableFuture<Developer> getDeveloper(String id) {
+        return getSingleSimpleObject(RESOURCE_DEVELOPERS, Developer::new, id);
     }
 
     public static CompletableFuture<List<Developer>> getDevelopers(Map<String, Object> parameters) {
         return getCollection(RESOURCE_DEVELOPERS, Developer::new, parameters);
     }
 
-    public static CompletableFuture<HttpResponse<JsonNode>> getRegion(String id) {
-        return getSingleSimpleObject(RESOURCE_REGIONS, id);
+    public static CompletableFuture<Region> getRegion(String id) {
+        return getSingleSimpleObject(RESOURCE_REGIONS, Region::new, id);
     }
 
     public static CompletableFuture<List<Region>> getRegions(Map<String, Object> parameters) {
         return getCollection(RESOURCE_REGIONS, Region::new, parameters);
     }
 
-    public static CompletableFuture<HttpResponse<JsonNode>> getRun(String id) {
-        return getSingleSimpleObject(RESOURCE_RUNS, id);
+    public static CompletableFuture<Run> getRun(String id) {
+        return getSingleSimpleObject(RESOURCE_RUNS, Run::new, id);
     }
 
     public static CompletableFuture<List<Run>> getRuns(Map<String, Object> parameters) {
         return getCollection(RESOURCE_RUNS, Run::new, parameters);
     }
 
-    public static CompletableFuture<HttpResponse<JsonNode>> getSeries(String id) {
-        return getSingleSimpleObject(RESOURCE_SERIES, id);
+    public static CompletableFuture<Series> getSeries(String id) {
+        return getSingleSimpleObject(RESOURCE_SERIES, Series::new, id);
     }
 
     public static CompletableFuture<List<Series>> getSeries(Map<String, Object> parameters) {
         return getCollection(RESOURCE_SERIES, Series::new, parameters);
     }
 
-    public static CompletableFuture<HttpResponse<JsonNode>> getUser(String id) {
-        return getSingleSimpleObject(RESOURCE_USERS, id);
+    public static CompletableFuture<User> getUser(String id) {
+        return getSingleSimpleObject(RESOURCE_USERS, User::new, id);
     }
 
     public static CompletableFuture<List<User>> getUsers(Map<String, Object> parameters) {
         return getCollection(RESOURCE_USERS, User::new, parameters);
     }
 
-    public static CompletableFuture<HttpResponse<JsonNode>> getVariable(String id) {
-        return getSingleSimpleObject(RESOURCE_VARIABLES, id);
+    public static CompletableFuture<Variable> getVariable(String id) {
+        return getSingleSimpleObject(RESOURCE_VARIABLES, Variable::new, id);
     }
 
-    public static CompletableFuture<HttpResponse<JsonNode>> getGuest(String id) {
-        return getSingleSimpleObject(RESOURCE_GUESTS, id);
+    public static CompletableFuture<Guest> getGuest(String id) {
+        return getSingleSimpleObject(RESOURCE_GUESTS, Guest::new, id);
     }
 }

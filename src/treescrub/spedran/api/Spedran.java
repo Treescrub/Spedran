@@ -14,11 +14,11 @@ import java.util.concurrent.CompletableFuture;
 
 public class Spedran {
     public static CompletableFuture<Game> getGame(String id) {
-        return Requests.getGame(id).thenCompose(data -> CompletableFuture.completedFuture(new Game(data)));
+        return Requests.getGame(id);
     }
 
     public static CompletableFuture<Run> getRun(String id) {
-        return Requests.getRun(id).thenCompose(data -> CompletableFuture.completedFuture(new Run(data)));
+        return Requests.getRun(id);
     }
 
     public static CompletableFuture<List<Run>> getRuns(Map<String, Object> parameters) {
@@ -26,50 +26,50 @@ public class Spedran {
     }
 
     public static CompletableFuture<Category> getCategory(String id) {
-        return Requests.getCategory(id).thenCompose(data -> CompletableFuture.completedFuture(new Category(data)));
+        return Requests.getCategory(id);
     }
 
     public static CompletableFuture<Level> getLevel(String id) {
-        return Requests.getLevel(id).thenCompose(data -> CompletableFuture.completedFuture(new Level(data)));
+        return Requests.getLevel(id);
     }
 
     public static CompletableFuture<Variable> getVariable(String id) {
-        return Requests.getVariable(id).thenCompose(data -> CompletableFuture.completedFuture(new Variable(data)));
+        return Requests.getVariable(id);
     }
 
     public static CompletableFuture<User> getUser(String id) {
-        return Requests.getUser(id).thenCompose(data -> CompletableFuture.completedFuture(new User(data)));
+        return Requests.getUser(id);
     }
 
     public static CompletableFuture<Guest> getGuest(String name) {
-        return Requests.getGuest(name).thenCompose(data -> CompletableFuture.completedFuture(new Guest(data)));
+        return Requests.getGuest(name);
     }
 
     public static CompletableFuture<Genre> getGenre(String id) {
-        return Requests.getGenre(id).thenCompose(data -> CompletableFuture.completedFuture(new Genre(data)));
+        return Requests.getGenre(id);
     }
 
     public static CompletableFuture<Engine> getEngine(String id) {
-        return Requests.getEngine(id).thenCompose(data -> CompletableFuture.completedFuture(new Engine(data)));
+        return Requests.getEngine(id);
     }
 
     public static CompletableFuture<Gametype> getGametype(String id) {
-        return Requests.getGametype(id).thenCompose(data -> CompletableFuture.completedFuture(new Gametype(data)));
+        return Requests.getGametype(id);
     }
 
     public static CompletableFuture<Developer> getDeveloper(String id) {
-        return Requests.getDeveloper(id).thenCompose(data -> CompletableFuture.completedFuture(new Developer(data)));
+        return Requests.getDeveloper(id);
     }
 
     public static CompletableFuture<Region> getRegion(String id) {
-        return Requests.getRegion(id).thenCompose(data -> CompletableFuture.completedFuture(new Region(data)));
+        return Requests.getRegion(id);
     }
 
     public static CompletableFuture<Series> getSeries(String id) {
-        return Requests.getSeries(id).thenCompose(data -> CompletableFuture.completedFuture(new Series(data)));
+        return Requests.getSeries(id);
     }
 
     public static CompletableFuture<Platform> getPlatform(String id) {
-        return Requests.getPlatform(id).thenCompose(data -> CompletableFuture.completedFuture(new Platform(data)));
+        return Requests.getPlatform(id);
     }
 }
