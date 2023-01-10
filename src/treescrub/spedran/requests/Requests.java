@@ -11,6 +11,7 @@ import treescrub.spedran.data.user.User;
 import treescrub.spedran.data.variables.Variable;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.CompletableFuture;
@@ -39,28 +40,28 @@ public class Requests {
         setup();
     }
 
-    public static void setup() {
+    private static void setup() {
         Unirest.config().defaultBaseUrl(BASE_URL);
     }
 
-    private static <T> CompletableFuture<T> getSingleSimpleObject(String resourceName, Function<HttpResponse<JsonNode>, T> constructor, String id) {
-        return Unirest.get("{resource}/{id}")
-                .routeParam("resource", resourceName)
-                .routeParam("id", id)
-                .asJsonAsync().thenApply(constructor);
+    private static <T> CompletableFuture<T> getSingleSimpleObject(GetRequest request, Function<HttpResponse<JsonNode>, T> constructor) {
+        return request
+                .asJsonAsync()
+                .thenApply(constructor);
     }
 
     private static <T extends Resource> List<T> collectResources(PagedList<JsonNode> pagedList, Function<JSONObject, T> constructor) {
-        List<T> runs = new ArrayList<>();
+        List<T> resources = new ArrayList<>();
 
         for(JsonNode body : pagedList.getBodies()) {
             JSONArray data = body.getObject().getJSONArray("data");
-            for(int i = 0; i < data.length(); i++) {
-                runs.add(constructor.apply(data.getJSONObject(i)));
+
+            for(Object element : data) {
+                resources.add(constructor.apply((JSONObject) element));
             }
         }
 
-        return runs;
+        return resources;
     }
 
     private static String extractPaginationLink(HttpResponse<JsonNode> response) {
@@ -70,8 +71,8 @@ public class Requests {
             return null;
 
         JSONArray links = body.getJSONObject("pagination").getJSONArray("links");
-        for (int i = 0; i < links.length(); i++) {
-            JSONObject link = links.getJSONObject(i);
+        for(Object element : links) {
+            JSONObject link = (JSONObject) element;
 
             if (link.getString("rel").equals("next")) {
                 return link.getString("uri");
@@ -81,119 +82,177 @@ public class Requests {
         return null;
     }
 
-    private static GetRequest getCollectionRequest(String resourceName, Map<String, Object> parameters) {
-        return Unirest.get("{resource}")
-                .routeParam("resource", resourceName)
-                .queryString(parameters)
+    private static GetRequest getSimpleResourceRequest(String resourceName, String id, Map<String, Object> queryParameters) {
+        Map<String, Object> routeParams = new HashMap<>();
+        routeParams.put("resource", resourceName);
+        routeParams.put("id", id);
+
+        return getResourceRequest("{resource}/{id}", routeParams, queryParameters);
+    }
+
+    private static GetRequest getResourceRequest(String url, Map<String, Object> routeParams, Map<String, Object> queryParameters) {
+        return Unirest.get(url)
+                .routeParam(routeParams)
+                .queryString(queryParameters);
+    }
+
+    private static GetRequest getSimpleCollectionRequest(String resourceName, Map<String, Object> queryParameters) {
+        return getCollectionRequest(resourceName, new HashMap<>(), queryParameters);
+    }
+
+    private static GetRequest getCollectionRequest(String url, Map<String, Object> routeParams, Map<String, Object> queryParameters) {
+        return getResourceRequest(url, routeParams, queryParameters)
                 .queryString("max", MAX_ITEMS);
     }
 
-    private static <T extends Resource> CompletableFuture<List<T>> getCollection(String resourceName, Function<JSONObject, T> constructor, Map<String, Object> parameters) {
+    private static <T extends Resource> CompletableFuture<List<T>> getCollection(GetRequest request, Function<JSONObject, T> constructor) {
         return CompletableFuture.supplyAsync(() -> {
-            PagedList<JsonNode> resources = getCollectionRequest(resourceName, parameters)
-                    .asPaged(HttpRequest::asJson, Requests::extractPaginationLink);
-
-            resources.ifFailure(response -> {
-                System.out.println(getCollectionRequest(resourceName, parameters).toSummary().asString());
-                System.out.println("request failed with " + response.getStatus());
-            });
+            PagedList<JsonNode> resources = request.asPaged(HttpRequest::asJson, Requests::extractPaginationLink);
 
             return collectResources(resources, constructor);
         });
     }
 
     public static CompletableFuture<Game> getGame(String id) {
-        return getSingleSimpleObject(RESOURCE_GAMES, Game::new, id);
+        GetRequest request = getSimpleResourceRequest(RESOURCE_GAMES, id, new HashMap<>());
+
+        return getSingleSimpleObject(request, Game::new);
     }
 
-    public static CompletableFuture<List<Game>> getGames(Map<String, Object> parameters) {
-        return getCollection(RESOURCE_GAMES, Game::new, parameters);
+    public static CompletableFuture<List<Game>> getGames(Map<String, Object> queryParameters) {
+        GetRequest request = getSimpleCollectionRequest(RESOURCE_GAMES, queryParameters);
+
+        return getCollection(request, Game::new);
     }
 
     public static CompletableFuture<Level> getLevel(String id) {
-        return getSingleSimpleObject(RESOURCE_LEVELS, Level::new, id);
+        GetRequest request = getSimpleResourceRequest(RESOURCE_LEVELS, id, new HashMap<>());
+
+        return getSingleSimpleObject(request, Level::new);
     }
 
     public static CompletableFuture<Category> getCategory(String id) {
-        return getSingleSimpleObject(RESOURCE_CATEGORIES, Category::new, id);
+        GetRequest request = getSimpleResourceRequest(RESOURCE_CATEGORIES, id, new HashMap<>());
+
+        return getSingleSimpleObject(request, Category::new);
     }
 
     public static CompletableFuture<Platform> getPlatform(String id) {
-        return getSingleSimpleObject(RESOURCE_PLATFORMS, Platform::new, id);
+        GetRequest request = getSimpleResourceRequest(RESOURCE_PLATFORMS, id, new HashMap<>());
+
+        return getSingleSimpleObject(request, Platform::new);
     }
 
-    public static CompletableFuture<List<Platform>> getPlatforms(Map<String, Object> parameters) {
-        return getCollection(RESOURCE_PLATFORMS, Platform::new, parameters);
+    public static CompletableFuture<List<Platform>> getPlatforms(Map<String, Object> queryParameters) {
+        GetRequest request = getSimpleCollectionRequest(RESOURCE_PLATFORMS, queryParameters);
+
+        return getCollection(request, Platform::new);
     }
 
     public static CompletableFuture<Genre> getGenre(String id) {
-        return getSingleSimpleObject(RESOURCE_GENRES, Genre::new, id);
+        GetRequest request = getSimpleResourceRequest(RESOURCE_GENRES, id, new HashMap<>());
+
+        return getSingleSimpleObject(request, Genre::new);
     }
 
-    public static CompletableFuture<List<Genre>> getGenres(Map<String, Object> parameters) {
-        return getCollection(RESOURCE_GENRES, Genre::new, parameters);
+    public static CompletableFuture<List<Genre>> getGenres(Map<String, Object> queryParameters) {
+        GetRequest request = getSimpleCollectionRequest(RESOURCE_GENRES, queryParameters);
+
+        return getCollection(request, Genre::new);
     }
 
     public static CompletableFuture<Engine> getEngine(String id) {
-        return getSingleSimpleObject(RESOURCE_ENGINES, Engine::new, id);
+        GetRequest request = getSimpleResourceRequest(RESOURCE_ENGINES, id, new HashMap<>());
+
+        return getSingleSimpleObject(request, Engine::new);
     }
 
-    public static CompletableFuture<List<Engine>> getEngines(Map<String, Object> parameters) {
-        return getCollection(RESOURCE_ENGINES, Engine::new, parameters);
+    public static CompletableFuture<List<Engine>> getEngines(Map<String, Object> queryParameters) {
+        GetRequest request = getSimpleCollectionRequest(RESOURCE_ENGINES, queryParameters);
+
+        return getCollection(request, Engine::new);
     }
     public static CompletableFuture<Gametype> getGametype(String id) {
-        return getSingleSimpleObject(RESOURCE_GAMETYPES, Gametype::new, id);
+        GetRequest request = getSimpleResourceRequest(RESOURCE_GAMETYPES, id, new HashMap<>());
+
+        return getSingleSimpleObject(request, Gametype::new);
     }
 
-    public static CompletableFuture<List<Gametype>> getGametypes(Map<String, Object> parameters) {
-        return getCollection(RESOURCE_GAMETYPES, Gametype::new, parameters);
+    public static CompletableFuture<List<Gametype>> getGametypes(Map<String, Object> queryParameters) {
+        GetRequest request = getSimpleCollectionRequest(RESOURCE_GAMETYPES, queryParameters);
+
+        return getCollection(request, Gametype::new);
     }
 
     public static CompletableFuture<Developer> getDeveloper(String id) {
-        return getSingleSimpleObject(RESOURCE_DEVELOPERS, Developer::new, id);
+        GetRequest request = getSimpleResourceRequest(RESOURCE_DEVELOPERS, id, new HashMap<>());
+
+        return getSingleSimpleObject(request, Developer::new);
     }
 
-    public static CompletableFuture<List<Developer>> getDevelopers(Map<String, Object> parameters) {
-        return getCollection(RESOURCE_DEVELOPERS, Developer::new, parameters);
+    public static CompletableFuture<List<Developer>> getDevelopers(Map<String, Object> queryParameters) {
+        GetRequest request = getSimpleCollectionRequest(RESOURCE_DEVELOPERS, queryParameters);
+
+        return getCollection(request, Developer::new);
     }
 
     public static CompletableFuture<Region> getRegion(String id) {
-        return getSingleSimpleObject(RESOURCE_REGIONS, Region::new, id);
+        GetRequest request = getSimpleResourceRequest(RESOURCE_REGIONS, id, new HashMap<>());
+
+        return getSingleSimpleObject(request, Region::new);
     }
 
-    public static CompletableFuture<List<Region>> getRegions(Map<String, Object> parameters) {
-        return getCollection(RESOURCE_REGIONS, Region::new, parameters);
+    public static CompletableFuture<List<Region>> getRegions(Map<String, Object> queryParameters) {
+        GetRequest request = getSimpleCollectionRequest(RESOURCE_REGIONS, queryParameters);
+
+        return getCollection(request, Region::new);
     }
 
     public static CompletableFuture<Run> getRun(String id) {
-        return getSingleSimpleObject(RESOURCE_RUNS, Run::new, id);
+        GetRequest request = getSimpleResourceRequest(RESOURCE_RUNS, id, new HashMap<>());
+
+        return getSingleSimpleObject(request, Run::new);
     }
 
-    public static CompletableFuture<List<Run>> getRuns(Map<String, Object> parameters) {
-        return getCollection(RESOURCE_RUNS, Run::new, parameters);
+    public static CompletableFuture<List<Run>> getRuns(Map<String, Object> queryParameters) {
+        GetRequest request = getSimpleCollectionRequest(RESOURCE_RUNS, queryParameters);
+
+        return getCollection(request, Run::new);
     }
 
     public static CompletableFuture<Series> getSeries(String id) {
-        return getSingleSimpleObject(RESOURCE_SERIES, Series::new, id);
+        GetRequest request = getSimpleResourceRequest(RESOURCE_SERIES, id, new HashMap<>());
+
+        return getSingleSimpleObject(request, Series::new);
     }
 
     public static CompletableFuture<List<Series>> getSeries(Map<String, Object> parameters) {
-        return getCollection(RESOURCE_SERIES, Series::new, parameters);
+        GetRequest request = getSimpleCollectionRequest(RESOURCE_SERIES, parameters);
+
+        return getCollection(request, Series::new);
     }
 
     public static CompletableFuture<User> getUser(String id) {
-        return getSingleSimpleObject(RESOURCE_USERS, User::new, id);
+        GetRequest request = getSimpleResourceRequest(RESOURCE_USERS, id, new HashMap<>());
+
+        return getSingleSimpleObject(request, User::new);
     }
 
-    public static CompletableFuture<List<User>> getUsers(Map<String, Object> parameters) {
-        return getCollection(RESOURCE_USERS, User::new, parameters);
+    public static CompletableFuture<List<User>> getUsers(Map<String, Object> queryParameters) {
+        GetRequest request = getSimpleCollectionRequest(RESOURCE_USERS, queryParameters);
+
+        return getCollection(request, User::new);
     }
 
     public static CompletableFuture<Variable> getVariable(String id) {
-        return getSingleSimpleObject(RESOURCE_VARIABLES, Variable::new, id);
+        GetRequest request = getSimpleResourceRequest(RESOURCE_VARIABLES, id, new HashMap<>());
+
+        return getSingleSimpleObject(request, Variable::new);
     }
 
     public static CompletableFuture<Guest> getGuest(String id) {
-        return getSingleSimpleObject(RESOURCE_GUESTS, Guest::new, id);
+        GetRequest request = getSimpleResourceRequest(RESOURCE_GUESTS, id, new HashMap<>());
+
+        return getSingleSimpleObject(request, Guest::new);
     }
 }
