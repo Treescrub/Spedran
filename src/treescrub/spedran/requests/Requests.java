@@ -59,24 +59,22 @@ public class Requests {
         return runs;
     }
 
-    private static Function<HttpResponse<JsonNode>, String> getLinkExtractor() {
-        return response -> {
-            JSONObject body = response.getBody().getObject();
+    private static String extractPaginationLink(HttpResponse<JsonNode> response) {
+        JSONObject body = response.getBody().getObject();
 
-            if (!body.has("pagination"))
-                return null;
-
-            JSONArray links = body.getJSONObject("pagination").getJSONArray("links");
-            for (int i = 0; i < links.length(); i++) {
-                JSONObject link = links.getJSONObject(i);
-
-                if (link.getString("rel").equals("next")) {
-                    return link.getString("uri");
-                }
-            }
-
+        if (!body.has("pagination"))
             return null;
-        };
+
+        JSONArray links = body.getJSONObject("pagination").getJSONArray("links");
+        for (int i = 0; i < links.length(); i++) {
+            JSONObject link = links.getJSONObject(i);
+
+            if (link.getString("rel").equals("next")) {
+                return link.getString("uri");
+            }
+        }
+
+        return null;
     }
 
     private static GetRequest getCollectionRequest(String resourceName, Map<String, Object> parameters) {
@@ -89,7 +87,7 @@ public class Requests {
     private static <T extends Resource> CompletableFuture<List<T>> getCollection(String resourceName, Function<JSONObject, T> constructor, Map<String, Object> parameters) {
         return CompletableFuture.supplyAsync(() -> {
             PagedList<JsonNode> resources = getCollectionRequest(resourceName, parameters)
-                    .asPaged(HttpRequest::asJson, getLinkExtractor());
+                    .asPaged(HttpRequest::asJson, Requests::extractPaginationLink);
 
             resources.ifFailure(response -> {
                 System.out.println(getCollectionRequest(resourceName, parameters).toSummary().asString());
