@@ -17,7 +17,7 @@ import java.util.concurrent.CompletableFuture;
 import java.util.function.Function;
 
 public class Requests {
-    private static final String BASE_URL = "https://www.speedrun.com/api/v1";
+    private static final String BASE_URL = "https://www.speedrun.com/api/v1/";
     private static final int MAX_ITEMS = 200;
 
     private static final String RESOURCE_GAMES = "games";
@@ -35,12 +35,16 @@ public class Requests {
     private static final String RESOURCE_VARIABLES = "variables";
     private static final String RESOURCE_GUESTS = "guests";
 
+    static {
+        setup();
+    }
+
     public static void setup() {
         Unirest.config().defaultBaseUrl(BASE_URL);
     }
 
     private static <T> CompletableFuture<T> getSingleSimpleObject(String resourceName, Function<HttpResponse<JsonNode>, T> constructor, String id) {
-        return Unirest.get("/{resource}/{id}")
+        return Unirest.get("{resource}/{id}")
                 .routeParam("resource", resourceName)
                 .routeParam("id", id)
                 .asJsonAsync().thenApply(constructor);
@@ -78,7 +82,7 @@ public class Requests {
     }
 
     private static GetRequest getCollectionRequest(String resourceName, Map<String, Object> parameters) {
-        return Unirest.get("/{resource}")
+        return Unirest.get("{resource}")
                 .routeParam("resource", resourceName)
                 .queryString(parameters)
                 .queryString("max", MAX_ITEMS);
