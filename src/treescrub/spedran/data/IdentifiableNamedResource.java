@@ -15,6 +15,10 @@ public abstract class IdentifiableNamedResource extends IdentifiableResource {
         super(data);
     }
 
+    public IdentifiableNamedResource(String data) {
+        super(data);
+    }
+
     @Override
     protected void parseFromJson(JSONObject data) {
         super.parseFromJson(data);

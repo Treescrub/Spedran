@@ -38,6 +38,10 @@ public class Game extends IdentifiableResource {
         super(data);
     }
 
+    public Game(String data) {
+        super(data);
+    }
+
     @Override
     protected void parseFromJson(JSONObject data) {
         super.parseFromJson(data);

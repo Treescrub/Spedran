@@ -14,6 +14,10 @@ public class Gametype extends IdentifiableNamedResource {
         super(data);
     }
 
+    public Gametype(String data) {
+        super(data);
+    }
+
     @Override
     protected void parseFromJson(JSONObject data) {
         super.parseFromJson(data);

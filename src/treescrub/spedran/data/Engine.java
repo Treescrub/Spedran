@@ -14,6 +14,10 @@ public class Engine extends IdentifiableNamedResource {
         super(data);
     }
 
+    public Engine(String data) {
+        super(data);
+    }
+
     @Override
     protected void parseFromJson(JSONObject data) {
         super.parseFromJson(data);

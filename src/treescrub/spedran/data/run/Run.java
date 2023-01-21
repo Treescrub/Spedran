@@ -34,6 +34,10 @@ public class Run extends IdentifiableResource {
         super(data);
     }
 
+    public Run(String data) {
+        super(data);
+    }
+
     @Override
     protected void parseFromJson(JSONObject data) {
         super.parseFromJson(data);

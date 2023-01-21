@@ -20,6 +20,10 @@ public class Category extends IdentifiableNamedResource {
         super(data);
     }
 
+    public Category(String data) {
+        super(data);
+    }
+
     @Override
     protected void parseFromJson(JSONObject data) {
         super.parseFromJson(data);

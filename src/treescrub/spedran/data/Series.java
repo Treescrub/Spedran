@@ -25,6 +25,10 @@ public class Series extends IdentifiableResource {
         super(data);
     }
 
+    public Series(String data) {
+        super(data);
+    }
+
     @Override
     protected void parseFromJson(JSONObject data) {
         super.parseFromJson(data);

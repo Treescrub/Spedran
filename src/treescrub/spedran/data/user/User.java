@@ -34,6 +34,10 @@ public class User extends IdentifiableResource {
         parseFromJson(data);
     }
 
+    public User(String data) {
+        super(data);
+    }
+
     @Override
     protected void parseFromJson(JSONObject data) {
         super.parseFromJson(data);

@@ -8,6 +8,7 @@ import java.util.Objects;
 
 public abstract class IdentifiableResource extends Resource {
     protected String id;
+    protected boolean isReference;
 
     public IdentifiableResource(HttpResponse<JsonNode> data) {
         super(data);
@@ -17,9 +18,25 @@ public abstract class IdentifiableResource extends Resource {
         super(data);
     }
 
+    public IdentifiableResource(String data) {parseFromString(data);}
+
     @Override
     protected void parseFromJson(JSONObject data) {
         id = data.getString("id");
+        setReference(false);
+    }
+
+    protected void parseFromString(String data) {
+        id = data;
+        setReference(true);
+    }
+
+    protected void setReference(boolean isReference) {
+        this.isReference = isReference;
+    }
+
+    public boolean isReference() {
+        return isReference;
     }
 
     public String getId() {
