@@ -10,16 +10,14 @@ import treescrub.spedran.data.run.Run;
 import treescrub.spedran.data.user.User;
 import treescrub.spedran.data.variables.Variable;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.concurrent.CompletableFuture;
 import java.util.function.Function;
 
 public class Requests {
     private static final String BASE_URL = "https://www.speedrun.com/api/v1/";
     private static final int MAX_ITEMS = 200;
+    private static final int MAX_DUPLICATE_CHECK = 5;
 
     private static final String RESOURCE_GAMES = "games";
     private static final String RESOURCE_LEVELS = "levels";
@@ -50,6 +48,10 @@ public class Requests {
                 .thenApply(constructor);
     }
 
+    private static <T extends Resource> List<T> removeDuplicates(List<T> resources) {
+        return new ArrayList<>(new LinkedHashSet<>(resources));
+    }
+
     private static <T extends Resource> List<T> collectResources(PagedList<JsonNode> pagedList, Function<JSONObject, T> constructor) {
         List<T> resources = new ArrayList<>();
 
@@ -61,7 +63,7 @@ public class Requests {
             }
         }
 
-        return resources;
+        return removeDuplicates(resources);
     }
 
     private static String extractPaginationLink(HttpResponse<JsonNode> response) {
