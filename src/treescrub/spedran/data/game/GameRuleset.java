@@ -16,8 +16,8 @@ public class GameRuleset {
     private boolean emulatorsAllowed;
 
     public GameRuleset(JSONObject data) {
-        parseFromJson(data);
         runTimes = new ArrayList<>();
+        parseFromJson(data);
     }
 
     private void parseFromJson(JSONObject data) {
