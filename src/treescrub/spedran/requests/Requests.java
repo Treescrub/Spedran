@@ -33,12 +33,15 @@ public class Requests {
     private static final String RESOURCE_VARIABLES = "variables";
     private static final String RESOURCE_GUESTS = "guests";
 
+    private static UnirestInstance unirestInstance;
+
     static {
         setup();
     }
 
     private static void setup() {
-        Unirest.config().defaultBaseUrl(BASE_URL);
+        unirestInstance = Unirest.spawnInstance();
+        unirestInstance.config().defaultBaseUrl(BASE_URL);
     }
 
     private static <T> CompletableFuture<T> getSingleSimpleObject(GetRequest request, Function<HttpResponse<JsonNode>, T> constructor) {
@@ -92,7 +95,7 @@ public class Requests {
     }
 
     private static GetRequest getResourceRequest(String url, Map<String, Object> routeParams, Map<String, Object> queryParameters) {
-        return Unirest.get(url)
+        return unirestInstance.get(url)
                 .routeParam(routeParams)
                 .queryString(queryParameters);
     }
