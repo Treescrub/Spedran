@@ -17,7 +17,6 @@ import java.util.function.Function;
 public class Requests {
     private static final String BASE_URL = "https://www.speedrun.com/api/v1/";
     private static final int MAX_ITEMS = 200;
-    private static final int MAX_DUPLICATE_CHECK = 5;
 
     private static final String RESOURCE_GAMES = "games";
     private static final String RESOURCE_LEVELS = "levels";
