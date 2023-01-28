@@ -1,9 +1,6 @@
 package treescrub.spedran.data.filterbuilder;
 
 public class UserFilterBuilder extends FilterBuilder {
-    public static UserFilterBuilder getInstance() {
-        return new UserFilterBuilder();
-    }
 
     public UserFilterBuilder lookup(String value) {
         setOption("lookup", value);
@@ -32,6 +29,36 @@ public class UserFilterBuilder extends FilterBuilder {
 
     public UserFilterBuilder speedrunsLive(String value) {
         setOption("speedrunslive", value);
+        return this;
+    }
+
+    public UserFilterBuilder sortByInternationalName() {
+        setOption("orderby", "name.int");
+        return this;
+    }
+
+    public UserFilterBuilder sortByJapaneseName() {
+        setOption("orderby", "name.jap");
+        return this;
+    }
+
+    public UserFilterBuilder sortBySignupDate() {
+        setOption("orderby", "signup");
+        return this;
+    }
+
+    public UserFilterBuilder sortByRole() {
+        setOption("orderby", "role");
+        return this;
+    }
+
+    public UserFilterBuilder sortAscending() {
+        setOption("direction", "asc");
+        return this;
+    }
+
+    public UserFilterBuilder sortDescending() {
+        setOption("direction", "desc");
         return this;
     }
 }

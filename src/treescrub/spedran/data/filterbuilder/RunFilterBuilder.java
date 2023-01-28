@@ -10,9 +10,6 @@ import treescrub.spedran.data.run.SubmissionStatus;
 import treescrub.spedran.data.user.User;
 
 public class RunFilterBuilder extends FilterBuilder {
-    public RunFilterBuilder getInstance() {
-        return new RunFilterBuilder();
-    }
 
     public RunFilterBuilder user(String id) {
         setOption("user", id);
@@ -93,6 +90,66 @@ public class RunFilterBuilder extends FilterBuilder {
 
     public RunFilterBuilder status(SubmissionStatus value) {
         setOption("status", value.name().toLowerCase());
+        return this;
+    }
+
+    public RunFilterBuilder sortByGame() {
+        setOption("orderby", "game");
+        return this;
+    }
+
+    public RunFilterBuilder sortByCategory() {
+        setOption("orderby", "category");
+        return this;
+    }
+
+    public RunFilterBuilder sortByLevel() {
+        setOption("orderby", "level");
+        return this;
+    }
+
+    public RunFilterBuilder sortByPlatform() {
+        setOption("orderby", "platform");
+        return this;
+    }
+
+    public RunFilterBuilder sortByRegion() {
+        setOption("orderby", "region");
+        return this;
+    }
+
+    public RunFilterBuilder sortByEmulation() {
+        setOption("orderby", "emulated");
+        return this;
+    }
+
+    public RunFilterBuilder sortByDate() {
+        setOption("orderby", "date");
+        return this;
+    }
+
+    public RunFilterBuilder sortBySubmissionDate() {
+        setOption("orderby", "submitted");
+        return this;
+    }
+
+    public RunFilterBuilder sortByStatus() {
+        setOption("orderby", "status");
+        return this;
+    }
+
+    public RunFilterBuilder sortByVerifyDate() {
+        setOption("orderby", "verify-date");
+        return this;
+    }
+
+    public RunFilterBuilder sortAscending() {
+        setOption("direction", "asc");
+        return this;
+    }
+
+    public RunFilterBuilder sortDescending() {
+        setOption("direction", "desc");
         return this;
     }
 }

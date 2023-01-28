@@ -4,9 +4,6 @@ import treescrub.spedran.data.*;
 import treescrub.spedran.data.user.User;
 
 public class GameFilterBuilder extends FilterBuilder {
-    public static GameFilterBuilder getInstance() {
-        return new GameFilterBuilder();
-    }
 
     public GameFilterBuilder name(String value) {
         setOption("name", value);
@@ -93,5 +90,45 @@ public class GameFilterBuilder extends FilterBuilder {
 
     public GameFilterBuilder moderator(User user) {
         return moderator(user.getId());
+    }
+
+    public GameFilterBuilder sortByInternationalName() {
+        setOption("orderby", "name.int");
+        return this;
+    }
+
+    public GameFilterBuilder sortByJapaneseName() {
+        setOption("orderby", "name.jap");
+        return this;
+    }
+
+    public GameFilterBuilder sortByAbbreviation() {
+        setOption("orderby", "abbreviation");
+        return this;
+    }
+
+    public GameFilterBuilder sortByReleaseDate() {
+        setOption("orderby", "released");
+        return this;
+    }
+
+    public GameFilterBuilder sortByCreationDate() {
+        setOption("orderby", "created");
+        return this;
+    }
+
+    public GameFilterBuilder sortBySimilarity() {
+        setOption("orderby", "similarity");
+        return this;
+    }
+
+    public GameFilterBuilder sortAscending() {
+        setOption("direction", "asc");
+        return this;
+    }
+
+    public GameFilterBuilder sortDescending() {
+        setOption("direction", "desc");
+        return this;
     }
 }
