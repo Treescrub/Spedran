@@ -1,4 +1,4 @@
-package treescrub.spedran.data.filterbuilder;
+package treescrub.spedran.api.filterbuilder;
 
 import treescrub.spedran.data.*;
 import treescrub.spedran.data.user.User;

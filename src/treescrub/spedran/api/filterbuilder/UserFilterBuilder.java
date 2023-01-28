@@ -1,4 +1,4 @@
-package treescrub.spedran.data.filterbuilder;
+package treescrub.spedran.api.filterbuilder;
 
 public class UserFilterBuilder extends FilterBuilder {
 

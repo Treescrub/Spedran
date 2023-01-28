@@ -1,4 +1,4 @@
-package treescrub.spedran.data.filterbuilder;
+package treescrub.spedran.api.filterbuilder;
 
 import java.util.Collections;
 import java.util.HashMap;
