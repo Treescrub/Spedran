@@ -2,6 +2,7 @@ package treescrub.spedran.api;
 
 import treescrub.spedran.data.*;
 import treescrub.spedran.data.category.Category;
+import treescrub.spedran.data.filterbuilder.FilterBuilder;
 import treescrub.spedran.data.game.Game;
 import treescrub.spedran.data.run.Run;
 import treescrub.spedran.data.user.User;
@@ -27,6 +28,10 @@ public class Spedran {
 
     public static CompletableFuture<List<Run>> getRuns(Map<String, Object> parameters) {
         return Requests.getRuns(parameters);
+    }
+
+    public static CompletableFuture<List<Run>> getRuns(FilterBuilder filterBuilder) {
+        return getRuns(filterBuilder.toMap());
     }
 
     public static CompletableFuture<Category> getCategory(String id) {
