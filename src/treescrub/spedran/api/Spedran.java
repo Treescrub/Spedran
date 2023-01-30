@@ -34,6 +34,10 @@ public class Spedran {
         return getRuns(filterBuilder.toMap());
     }
 
+    public static RunsRequest getRuns() {
+        return new RunsRequest();
+    }
+
     public static CompletableFuture<Category> getCategory(String id) {
         return Requests.getCategory(id);
     }

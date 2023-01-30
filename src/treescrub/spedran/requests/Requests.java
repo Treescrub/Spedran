@@ -44,6 +44,10 @@ public class Requests {
         unirestInstance.config().defaultBaseUrl(BASE_URL);
     }
 
+    public static UnirestInstance getUnirestInstance() {
+        return unirestInstance;
+    }
+
     private static <T> CompletableFuture<T> getSingleSimpleObject(GetRequest request, Function<HttpResponse<JsonNode>, T> constructor) {
         return request
                 .asJsonAsync()
@@ -54,7 +58,7 @@ public class Requests {
         return new ArrayList<>(new LinkedHashSet<>(resources));
     }
 
-    private static <T extends Resource> List<T> collectResources(PagedList<JsonNode> pagedList, Function<JSONObject, T> constructor) {
+    public static <T extends Resource> List<T> collectResources(PagedList<JsonNode> pagedList, Function<JSONObject, T> constructor) {
         List<T> resources = new ArrayList<>();
 
         for(JsonNode body : pagedList.getBodies()) {
@@ -68,7 +72,7 @@ public class Requests {
         return removeDuplicates(resources);
     }
 
-    private static String extractPaginationLink(HttpResponse<JsonNode> response) {
+    public static String extractPaginationLink(HttpResponse<JsonNode> response) {
         JSONObject body = response.getBody().getObject();
 
         if (!body.has("pagination"))
@@ -109,7 +113,7 @@ public class Requests {
                 .queryString("max", MAX_ITEMS);
     }
 
-    private static <T extends Resource> CompletableFuture<List<T>> getCollection(GetRequest request, Function<JSONObject, T> constructor) {
+    public static <T extends Resource> CompletableFuture<List<T>> getCollection(HttpRequest<?> request, Function<JSONObject, T> constructor) {
         return CompletableFuture.supplyAsync(() -> {
             PagedList<JsonNode> resources = request.asPaged(HttpRequest::asJson, Requests::extractPaginationLink);
 
