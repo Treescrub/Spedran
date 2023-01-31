@@ -19,7 +19,7 @@ public abstract class ResourceRequest<T> {
     }
 
     protected ResourceRequest(HttpMethod method, String url) {
-        this(method, url, new HashMap<>());
+        this(method, url, Map.of());
     }
 
     private void rawSetParameter(String key, Object value) {

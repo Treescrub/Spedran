@@ -17,10 +17,11 @@ public abstract class ResourceCollectionRequest<T extends Resource> extends Reso
 
     protected ResourceCollectionRequest(HttpMethod method, String url, Map<String, Object> routeParameters) {
         super(method, url, routeParameters);
+        setParameter("max", MAX_ITEMS);
     }
 
     protected ResourceCollectionRequest(HttpMethod method, String url) {
-        super(method, url);
+        this(method, url, Map.of());
     }
 
     protected static String extractPaginationLink(HttpResponse<JsonNode> response) {
@@ -61,7 +62,6 @@ public abstract class ResourceCollectionRequest<T extends Resource> extends Reso
 
     @Override
     protected void applyQueryParameters() {
-        setParameter("max", MAX_ITEMS);
         super.applyQueryParameters();
     }
 

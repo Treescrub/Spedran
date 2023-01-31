@@ -12,7 +12,7 @@ public abstract class SingleResourceRequest<T> extends ResourceRequest<T> {
     }
 
     protected SingleResourceRequest(HttpMethod method, String url) {
-        super(method, url);
+        this(method, url, Map.of());
     }
 
     @Override
