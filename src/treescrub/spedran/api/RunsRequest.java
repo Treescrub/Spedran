@@ -112,6 +112,11 @@ public class RunsRequest extends ResourceCollectionRequest<Run> {
         return this;
     }
 
+    public RunsRequest sortDirection(SortDirection direction) {
+        setSortDirection(direction);
+        return this;
+    }
+
     @Override
     protected Function<JSONObject, Run> getConstructor() {
         return Run::new;
