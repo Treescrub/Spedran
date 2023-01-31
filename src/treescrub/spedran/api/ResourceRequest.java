@@ -22,8 +22,20 @@ public abstract class ResourceRequest<T> {
         this(method, url, new HashMap<>());
     }
 
-    protected void setParameter(String key, Object value) {
+    private void rawSetParameter(String key, Object value) {
         queryParameters.put(key, value);
+    }
+
+    protected void setParameter(String key, String value) {
+        rawSetParameter(key, value);
+    }
+
+    protected void setParameter(String key, int value) {
+        rawSetParameter(key, value);
+    }
+
+    protected void setParameter(String key, boolean value) {
+        rawSetParameter(key, value);
     }
 
     protected void applyQueryParameters() {
