@@ -75,5 +75,13 @@ public abstract class ResourceCollectionRequest<T extends Resource> extends Reso
         });
     }
 
+    protected void setSortParameter(String sortParameter) {
+        setParameter("orderby", sortParameter);
+    }
+
+    protected void setSortDirection(SortDirection direction) {
+        setParameter("direction", direction.toParameter());
+    }
+
     protected abstract Function<JSONObject, T> getConstructor();
 }
