@@ -1,4 +1,4 @@
-package treescrub.spedran.api;
+package treescrub.spedran.api.request;
 
 public enum SortDirection {
     ASCENDING,
