@@ -61,6 +61,11 @@ public class UsersRequest extends ResourceCollectionRequest<User> {
         return this;
     }
 
+    public UsersRequest sortDirection(SortDirection direction) {
+        setSortDirection(direction);
+        return this;
+    }
+
     // TODO: not setting any query parameters will return a 400 (bad request), CompletableFuture.failedFuture
 
     @Override

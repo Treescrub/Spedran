@@ -103,6 +103,11 @@ public class GamesRequest extends ResourceCollectionRequest<Game> {
         return this;
     }
 
+    public GamesRequest sortDirection(SortDirection direction) {
+        setSortDirection(direction);
+        return this;
+    }
+
     @Override
     protected Function<JSONObject, Game> getConstructor() {
         return Game::new;
