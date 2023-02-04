@@ -7,7 +7,7 @@ import treescrub.spedran.data.game.Game;
 import java.util.function.Function;
 
 public class GamesRequest extends ResourceCollectionRequest<Game> {
-    protected static final int MAX_ITEMS_BULK = 1000;
+    public static final int MAX_ITEMS_BULK = 1000;
 
     public GamesRequest() {
         super(HttpMethod.GET, "games");
