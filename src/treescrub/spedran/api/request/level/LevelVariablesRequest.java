@@ -4,6 +4,7 @@ import kong.unirest.HttpMethod;
 import kong.unirest.json.JSONObject;
 import treescrub.spedran.api.request.ResourceCollectionRequest;
 import treescrub.spedran.api.request.SortDirection;
+import treescrub.spedran.data.Level;
 import treescrub.spedran.data.variables.Variable;
 
 import java.util.Map;
@@ -12,6 +13,10 @@ import java.util.function.Function;
 public class LevelVariablesRequest extends ResourceCollectionRequest<Variable> {
     public LevelVariablesRequest(String id) {
         super(HttpMethod.GET, "levels/{id}/variables", Map.of("id", id));
+    }
+
+    public LevelVariablesRequest(Level level) {
+        this(level.getId());
     }
 
     public LevelVariablesRequest sortByName() {

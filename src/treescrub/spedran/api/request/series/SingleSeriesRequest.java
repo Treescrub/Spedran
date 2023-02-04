@@ -12,6 +12,10 @@ public class SingleSeriesRequest extends SingleResourceRequest<Series> {
         super(HttpMethod.GET, "series/{id}", Map.of("id", id));
     }
 
+    public SingleSeriesRequest(Series series) {
+        this(series.getId());
+    }
+
     @Override
     protected Series parse(JSONObject data) {
         return new Series(data);

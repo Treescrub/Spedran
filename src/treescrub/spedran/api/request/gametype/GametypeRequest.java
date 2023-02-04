@@ -12,6 +12,10 @@ public class GametypeRequest extends SingleResourceRequest<Gametype> {
         super(HttpMethod.GET, "gametypes/{id}", Map.of("id", id));
     }
 
+    public GametypeRequest(Gametype gametype) {
+        this(gametype.getId());
+    }
+
     @Override
     protected Gametype parse(JSONObject data) {
         return new Gametype(data);

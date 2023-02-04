@@ -3,6 +3,7 @@ package treescrub.spedran.api.request.game;
 import kong.unirest.HttpMethod;
 import kong.unirest.json.JSONObject;
 import treescrub.spedran.api.request.ResourceCollectionRequest;
+import treescrub.spedran.data.game.Game;
 import treescrub.spedran.data.leaderboard.Leaderboard;
 
 import java.util.Map;
@@ -11,6 +12,10 @@ import java.util.function.Function;
 public class GameRecords extends ResourceCollectionRequest<Leaderboard> {
     public GameRecords(String id) {
         super(HttpMethod.GET, "games/{id}/records", Map.of("id", id));
+    }
+
+    public GameRecords(Game game) {
+        this(game.getId());
     }
 
     public GameRecords top(int topPlaces) {

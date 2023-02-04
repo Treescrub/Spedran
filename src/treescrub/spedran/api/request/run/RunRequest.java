@@ -12,6 +12,10 @@ public class RunRequest extends SingleResourceRequest<Run> {
         super(HttpMethod.GET, "runs/{id}", Map.of("id", id));
     }
 
+    public RunRequest(Run run) {
+        this(run.getId());
+    }
+
     @Override
     protected Run parse(JSONObject data) {
         return new Run(data);

@@ -3,6 +3,7 @@ package treescrub.spedran.api.request.category;
 import kong.unirest.HttpMethod;
 import kong.unirest.json.JSONObject;
 import treescrub.spedran.api.request.ResourceCollectionRequest;
+import treescrub.spedran.data.category.Category;
 import treescrub.spedran.data.leaderboard.Leaderboard;
 
 import java.util.Map;
@@ -11,6 +12,10 @@ import java.util.function.Function;
 public class CategoryRecordsRequest extends ResourceCollectionRequest<Leaderboard> {
     public CategoryRecordsRequest(String id) {
         super(HttpMethod.GET, "categories/{id}/records", Map.of("id", id));
+    }
+
+    public CategoryRecordsRequest(Category category) {
+        this(category.getId());
     }
 
     public CategoryRecordsRequest topPlaces(int value) {

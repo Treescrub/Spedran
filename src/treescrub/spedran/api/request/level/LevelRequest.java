@@ -12,6 +12,10 @@ public class LevelRequest extends SingleResourceRequest<Level> {
         super(HttpMethod.GET, "levels/{id}", Map.of("id", id));
     }
 
+    public LevelRequest(Level level) {
+        this(level.getId());
+    }
+
     @Override
     protected Level parse(JSONObject data) {
         return new Level(data);

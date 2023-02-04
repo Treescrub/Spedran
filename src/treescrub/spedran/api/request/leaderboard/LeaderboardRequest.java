@@ -3,8 +3,14 @@ package treescrub.spedran.api.request.leaderboard;
 import kong.unirest.HttpMethod;
 import kong.unirest.json.JSONObject;
 import treescrub.spedran.api.request.SingleResourceRequest;
+import treescrub.spedran.data.Level;
+import treescrub.spedran.data.Platform;
+import treescrub.spedran.data.Region;
+import treescrub.spedran.data.category.Category;
+import treescrub.spedran.data.game.Game;
 import treescrub.spedran.data.leaderboard.Leaderboard;
 import treescrub.spedran.data.run.TimingType;
+import treescrub.spedran.data.variables.Variable;
 
 import java.util.Map;
 
@@ -17,6 +23,14 @@ public class LeaderboardRequest extends SingleResourceRequest<Leaderboard> {
         super(HttpMethod.GET, "leaderboards/{game}/level/{level}/{category}", Map.of("game", game, "category", category, "level", level));
     }
 
+    public LeaderboardRequest(Game game, Category category) {
+        this(game.getId(), category.getId());
+    }
+
+    public LeaderboardRequest(Game game, Category category, Level level) {
+        this(game.getId(), category.getId(), level.getId());
+    }
+
     public LeaderboardRequest top(int topPlaces) {
         setParameter("top", topPlaces);
         return this;
@@ -27,9 +41,17 @@ public class LeaderboardRequest extends SingleResourceRequest<Leaderboard> {
         return this;
     }
 
+    public LeaderboardRequest platform(Platform platform) {
+        return platform(platform.getId());
+    }
+
     public LeaderboardRequest region(String id) {
         setParameter("region", id);
         return this;
+    }
+
+    public LeaderboardRequest region(Region region) {
+        return region(region.getId());
     }
 
     public LeaderboardRequest onlyEmulators() {
@@ -60,6 +82,10 @@ public class LeaderboardRequest extends SingleResourceRequest<Leaderboard> {
     public LeaderboardRequest variable(String id, String value) {
         setParameter("var-" + id, value);
         return this;
+    }
+
+    public LeaderboardRequest variable(Variable variable, String valueId) {
+        return variable(variable.getId(), valueId);
     }
 
     @Override

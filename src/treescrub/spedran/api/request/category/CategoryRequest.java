@@ -12,6 +12,10 @@ public class CategoryRequest extends SingleResourceRequest<Category> {
         super(HttpMethod.GET, "categories/{id}", Map.of("id", id));
     }
 
+    public CategoryRequest(Category category) {
+        this(category.getId());
+    }
+
     @Override
     protected Category parse(JSONObject data) {
         return new Category(data);

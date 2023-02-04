@@ -12,6 +12,10 @@ public class RunPlayersRequest extends SingleResourceRequest<Run> {
         super(HttpMethod.PUT, "runs/{id}/players", Map.of("id", id));
     }
 
+    public RunPlayersRequest(Run run) {
+        this(run.getId());
+    }
+
     // TODO: authentication, run players serialization
 
     @Override

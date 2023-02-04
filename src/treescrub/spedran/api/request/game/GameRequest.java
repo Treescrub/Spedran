@@ -12,6 +12,10 @@ public class GameRequest extends SingleResourceRequest<Game> {
         super(HttpMethod.GET, "games/{id}", Map.of("id", id));
     }
 
+    public GameRequest(Game game) {
+        this(game.getId());
+    }
+
     @Override
     protected Game parse(JSONObject data) {
         return new Game(data);

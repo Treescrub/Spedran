@@ -12,6 +12,10 @@ public class DeveloperRequest extends SingleResourceRequest<Developer> {
         super(HttpMethod.GET, "developers/{id}", Map.of("id", id));
     }
 
+    public DeveloperRequest(Developer developer) {
+        this(developer.getId());
+    }
+
     @Override
     protected Developer parse(JSONObject data) {
         return new Developer(data);

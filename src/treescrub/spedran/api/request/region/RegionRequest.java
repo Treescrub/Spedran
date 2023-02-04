@@ -12,6 +12,10 @@ public class RegionRequest extends SingleResourceRequest<Region> {
         super(HttpMethod.GET, "regions/{id}", Map.of("id", id));
     }
 
+    public RegionRequest(Region region) {
+        this(region.getId());
+    }
+
     @Override
     protected Region parse(JSONObject data) {
         return new Region(data);

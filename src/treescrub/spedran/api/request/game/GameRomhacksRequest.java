@@ -4,7 +4,9 @@ import kong.unirest.HttpMethod;
 import kong.unirest.json.JSONObject;
 import treescrub.spedran.api.request.ResourceCollectionRequest;
 import treescrub.spedran.api.request.SortDirection;
+import treescrub.spedran.data.*;
 import treescrub.spedran.data.game.Game;
+import treescrub.spedran.data.user.User;
 
 import java.util.Map;
 import java.util.function.Function;
@@ -12,6 +14,10 @@ import java.util.function.Function;
 public class GameRomhacksRequest extends ResourceCollectionRequest<Game> {
     public GameRomhacksRequest(String id) {
         super(HttpMethod.GET, "games/{id}/derived-games", Map.of("id", id));
+    }
+
+    public GameRomhacksRequest(Game game) {
+        this(game.getId());
     }
 
     public GameRomhacksRequest name(String name) {
@@ -34,9 +40,17 @@ public class GameRomhacksRequest extends ResourceCollectionRequest<Game> {
         return this;
     }
 
+    public GameRomhacksRequest gameType(Gametype gametype) {
+        return gameType(gametype.getId());
+    }
+
     public GameRomhacksRequest platform(String id) {
         setParameter("platform", id);
         return this;
+    }
+
+    public GameRomhacksRequest platform(Platform platform) {
+        return platform(platform.getId());
     }
 
     public GameRomhacksRequest region(String id) {
@@ -44,9 +58,17 @@ public class GameRomhacksRequest extends ResourceCollectionRequest<Game> {
         return this;
     }
 
+    public GameRomhacksRequest region(Region region) {
+        return region(region.getId());
+    }
+
     public GameRomhacksRequest genre(String id) {
         setParameter("genre", id);
         return this;
+    }
+
+    public GameRomhacksRequest genre(Genre genre) {
+        return genre(genre.getId());
     }
 
     public GameRomhacksRequest engine(String id) {
@@ -54,9 +76,17 @@ public class GameRomhacksRequest extends ResourceCollectionRequest<Game> {
         return this;
     }
 
+    public GameRomhacksRequest engine(Engine engine) {
+        return engine(engine.getId());
+    }
+
     public GameRomhacksRequest developer(String id) {
         setParameter("developer", id);
         return this;
+    }
+
+    public GameRomhacksRequest developer(Developer developer) {
+        return developer(developer.getId());
     }
 
     public GameRomhacksRequest publisher(String id) {
@@ -64,11 +94,19 @@ public class GameRomhacksRequest extends ResourceCollectionRequest<Game> {
         return this;
     }
 
+    public GameRomhacksRequest publisher(Publisher publisher) {
+        return publisher(publisher.getId());
+    }
+
     public GameRomhacksRequest moderator(String id) {
         setParameter("moderator", id);
         return this;
     }
 
+    public GameRomhacksRequest moderator(User user) {
+        return moderator(user.getId());
+    }
+    
     public GameRomhacksRequest sortByInternationalName() {
         setSortParameter("name.int");
         return this;

@@ -12,6 +12,10 @@ public class PublisherRequest extends SingleResourceRequest<Publisher> {
         super(HttpMethod.GET, "publishers/{id}", Map.of("id", id));
     }
 
+    public PublisherRequest(Publisher publisher) {
+        this(publisher.getId());
+    }
+
     @Override
     protected Publisher parse(JSONObject data) {
         return new Publisher(data);

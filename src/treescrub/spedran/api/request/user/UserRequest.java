@@ -12,6 +12,10 @@ public class UserRequest extends SingleResourceRequest<User> {
         super(HttpMethod.GET, "users/{id}", Map.of("id", id));
     }
 
+    public UserRequest(User user) {
+        this(user.getId());
+    }
+
     @Override
     protected User parse(JSONObject data) {
         return new User(data);

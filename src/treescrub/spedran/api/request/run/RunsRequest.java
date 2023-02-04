@@ -4,8 +4,15 @@ import kong.unirest.HttpMethod;
 import kong.unirest.json.JSONObject;
 import treescrub.spedran.api.request.ResourceCollectionRequest;
 import treescrub.spedran.api.request.SortDirection;
+import treescrub.spedran.data.Guest;
+import treescrub.spedran.data.Level;
+import treescrub.spedran.data.Platform;
+import treescrub.spedran.data.Region;
+import treescrub.spedran.data.category.Category;
+import treescrub.spedran.data.game.Game;
 import treescrub.spedran.data.run.Run;
 import treescrub.spedran.data.run.SubmissionStatus;
+import treescrub.spedran.data.user.User;
 
 import java.util.function.Function;
 
@@ -19,9 +26,17 @@ public class RunsRequest extends ResourceCollectionRequest<Run> {
         return this;
     }
 
+    public RunsRequest user(User user) {
+        return user(user.getId());
+    }
+
     public RunsRequest guest(String name) {
         setParameter("guest", name);
         return this;
+    }
+
+    public RunsRequest guest(Guest guest) {
+        return guest(guest.getName());
     }
 
     public RunsRequest verifier(String id) {
@@ -29,9 +44,17 @@ public class RunsRequest extends ResourceCollectionRequest<Run> {
         return this;
     }
 
+    public RunsRequest verifier(User user) {
+        return verifier(user.getId());
+    }
+
     public RunsRequest game(String id) {
         setParameter("game", id);
         return this;
+    }
+
+    public RunsRequest game(Game game) {
+        return game(game.getId());
     }
 
     public RunsRequest level(String id) {
@@ -39,9 +62,17 @@ public class RunsRequest extends ResourceCollectionRequest<Run> {
         return this;
     }
 
+    public RunsRequest level(Level level) {
+        return level(level.getId());
+    }
+
     public RunsRequest category(String id) {
         setParameter("category", id);
         return this;
+    }
+
+    public RunsRequest category(Category category) {
+        return category(category.getId());
     }
 
     public RunsRequest platform(String id) {
@@ -49,9 +80,17 @@ public class RunsRequest extends ResourceCollectionRequest<Run> {
         return this;
     }
 
+    public RunsRequest platform(Platform platform) {
+        return platform(platform.getId());
+    }
+
     public RunsRequest region(String id) {
         setParameter("region", id);
         return this;
+    }
+
+    public RunsRequest region(Region region) {
+        return region(region.getId());
     }
 
     public RunsRequest emulated(boolean isEmulated) {

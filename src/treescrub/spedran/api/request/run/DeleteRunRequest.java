@@ -12,6 +12,10 @@ public class DeleteRunRequest extends SingleResourceRequest<Run> {
         super(HttpMethod.DELETE, "runs/{id}", Map.of("id", id));
     }
 
+    public DeleteRunRequest(Run run) {
+        this(run.getId());
+    }
+
     // TODO: authentication
 
     @Override

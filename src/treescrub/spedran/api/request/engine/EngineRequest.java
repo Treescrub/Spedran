@@ -12,6 +12,10 @@ public class EngineRequest extends SingleResourceRequest<Engine> {
         super(HttpMethod.GET, "engines/{id}", Map.of("id", id));
     }
 
+    public EngineRequest(Engine engine) {
+        this(engine.getId());
+    }
+
     @Override
     protected Engine parse(JSONObject data) {
         return new Engine(data);

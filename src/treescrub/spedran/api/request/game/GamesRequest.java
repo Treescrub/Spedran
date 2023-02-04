@@ -4,7 +4,9 @@ import kong.unirest.HttpMethod;
 import kong.unirest.json.JSONObject;
 import treescrub.spedran.api.request.ResourceCollectionRequest;
 import treescrub.spedran.api.request.SortDirection;
+import treescrub.spedran.data.*;
 import treescrub.spedran.data.game.Game;
+import treescrub.spedran.data.user.User;
 
 import java.util.function.Function;
 
@@ -35,9 +37,17 @@ public class GamesRequest extends ResourceCollectionRequest<Game> {
         return this;
     }
 
+    public GamesRequest gameType(Gametype gametype) {
+        return gameType(gametype.getId());
+    }
+
     public GamesRequest platform(String id) {
         setParameter("platform", id);
         return this;
+    }
+
+    public GamesRequest platform(Platform platform) {
+        return platform(platform.getId());
     }
 
     public GamesRequest region(String id) {
@@ -45,9 +55,17 @@ public class GamesRequest extends ResourceCollectionRequest<Game> {
         return this;
     }
 
+    public GamesRequest region(Region region) {
+        return region(region.getId());
+    }
+
     public GamesRequest genre(String id) {
         setParameter("genre", id);
         return this;
+    }
+
+    public GamesRequest genre(Genre genre) {
+        return genre(genre.getId());
     }
 
     public GamesRequest engine(String id) {
@@ -55,9 +73,17 @@ public class GamesRequest extends ResourceCollectionRequest<Game> {
         return this;
     }
 
+    public GamesRequest engine(Engine engine) {
+        return engine(engine.getId());
+    }
+
     public GamesRequest developer(String id) {
         setParameter("developer", id);
         return this;
+    }
+
+    public GamesRequest developer(Developer developer) {
+        return developer(developer.getId());
     }
 
     public GamesRequest publisher(String id) {
@@ -65,9 +91,17 @@ public class GamesRequest extends ResourceCollectionRequest<Game> {
         return this;
     }
 
+    public GamesRequest publisher(Publisher publisher) {
+        return publisher(publisher.getId());
+    }
+
     public GamesRequest moderator(String id) {
         setParameter("moderator", id);
         return this;
+    }
+
+    public GamesRequest moderator(User user) {
+        return moderator(user.getId());
     }
 
     public GamesRequest asBulk() {

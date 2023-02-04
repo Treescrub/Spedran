@@ -12,6 +12,10 @@ public class PlatformRequest extends SingleResourceRequest<Platform> {
         super(HttpMethod.GET, "platforms/{id}", Map.of("id", id));
     }
 
+    public PlatformRequest(Platform platform) {
+        this(platform.getId());
+    }
+
     @Override
     protected Platform parse(JSONObject data) {
         return new Platform(data);

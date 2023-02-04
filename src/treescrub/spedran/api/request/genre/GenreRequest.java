@@ -12,6 +12,10 @@ public class GenreRequest extends SingleResourceRequest<Genre> {
         super(HttpMethod.GET, "genres/{id}", Map.of("id", id));
     }
 
+    public GenreRequest(Genre genre) {
+        this(genre.getId());
+    }
+
     @Override
     protected Genre parse(JSONObject data) {
         return new Genre(data);

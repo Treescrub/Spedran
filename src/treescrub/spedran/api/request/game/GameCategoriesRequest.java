@@ -5,6 +5,7 @@ import kong.unirest.json.JSONObject;
 import treescrub.spedran.api.request.ResourceCollectionRequest;
 import treescrub.spedran.api.request.SortDirection;
 import treescrub.spedran.data.category.Category;
+import treescrub.spedran.data.game.Game;
 
 import java.util.Map;
 import java.util.function.Function;
@@ -12,6 +13,10 @@ import java.util.function.Function;
 public class GameCategoriesRequest extends ResourceCollectionRequest<Category> {
     public GameCategoriesRequest(String id) {
         super(HttpMethod.GET, "games/{id}/categories", Map.of("id", id));
+    }
+
+    public GameCategoriesRequest(Game game) {
+        this(game.getId());
     }
 
     public GameCategoriesRequest miscellaneous(boolean includeMiscellaneous) {
