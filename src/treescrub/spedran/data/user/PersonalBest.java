@@ -8,6 +8,10 @@ public class PersonalBest extends Resource {
     private int place;
     private Run run;
 
+    public PersonalBest(JSONObject data) {
+        super(data);
+    }
+
     @Override
     protected void parseFromJson(JSONObject data) {
         place = data.getInt("place");
