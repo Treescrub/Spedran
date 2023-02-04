@@ -1,6 +1,6 @@
 package treescrub.spedran.api;
 
-import treescrub.spedran.api.request.RunsRequest;
+import treescrub.spedran.api.request.run.RunsRequest;
 import treescrub.spedran.data.*;
 import treescrub.spedran.data.category.Category;
 import treescrub.spedran.api.filterbuilder.FilterBuilder;
