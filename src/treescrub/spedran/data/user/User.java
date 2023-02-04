@@ -31,7 +31,6 @@ public class User extends IdentifiableResource {
 
     public User(JSONObject data) {
         super(data);
-        parseFromJson(data);
     }
 
     public User(String data) {
