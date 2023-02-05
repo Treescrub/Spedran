@@ -9,31 +9,31 @@ import treescrub.spedran.data.leaderboard.Leaderboard;
 import java.util.Map;
 import java.util.function.Function;
 
-public class GameRecords extends ResourceCollectionRequest<Leaderboard> {
-    public GameRecords(String id) {
+public class GameRecordsRequest extends ResourceCollectionRequest<Leaderboard> {
+    public GameRecordsRequest(String id) {
         super(HttpMethod.GET, "games/{id}/records", Map.of("id", id));
     }
 
-    public GameRecords(Game game) {
+    public GameRecordsRequest(Game game) {
         this(game.getId());
     }
 
-    public GameRecords top(int topPlaces) {
+    public GameRecordsRequest top(int topPlaces) {
         setParameter("top", topPlaces);
         return this;
     }
 
-    public GameRecords scope(String recordsScope) {
+    public GameRecordsRequest scope(String recordsScope) {
         setParameter("scope", recordsScope);
         return this;
     }
 
-    public GameRecords miscellaneous(boolean includeMiscellaneous) {
+    public GameRecordsRequest miscellaneous(boolean includeMiscellaneous) {
         setParameter("miscellaneous", includeMiscellaneous);
         return this;
     }
 
-    public GameRecords skipEmpty(boolean skipEmptyRecords) {
+    public GameRecordsRequest skipEmpty(boolean skipEmptyRecords) {
         setParameter("skip-empty", skipEmptyRecords);
         return this;
     }
