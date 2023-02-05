@@ -3,6 +3,9 @@ package treescrub.spedran.data;
 import kong.unirest.HttpResponse;
 import kong.unirest.JsonNode;
 import kong.unirest.json.JSONObject;
+import treescrub.spedran.api.request.level.LevelCategoriesRequest;
+import treescrub.spedran.api.request.level.LevelRecordsRequest;
+import treescrub.spedran.api.request.level.LevelVariablesRequest;
 
 import java.util.Optional;
 
@@ -20,6 +23,18 @@ public class Level extends IdentifiableNamedResource {
 
     public Level(String data) {
         super(data);
+    }
+
+    public LevelCategoriesRequest getCategories() {
+        return new LevelCategoriesRequest(this);
+    }
+
+    public LevelRecordsRequest getRecords() {
+        return new LevelRecordsRequest(this);
+    }
+
+    public LevelVariablesRequest getVariables() {
+        return new LevelVariablesRequest(this);
     }
 
     @Override

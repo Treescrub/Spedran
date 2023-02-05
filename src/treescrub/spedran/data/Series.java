@@ -3,6 +3,7 @@ package treescrub.spedran.data;
 import kong.unirest.HttpResponse;
 import kong.unirest.JsonNode;
 import kong.unirest.json.JSONObject;
+import treescrub.spedran.api.request.series.SeriesGamesRequest;
 
 import java.time.Instant;
 import java.util.HashMap;
@@ -27,6 +28,10 @@ public class Series extends IdentifiableResource {
 
     public Series(String data) {
         super(data);
+    }
+
+    public SeriesGamesRequest getGames() {
+        return new SeriesGamesRequest(this);
     }
 
     @Override

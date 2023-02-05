@@ -3,6 +3,8 @@ package treescrub.spedran.data.category;
 import kong.unirest.HttpResponse;
 import kong.unirest.JsonNode;
 import kong.unirest.json.JSONObject;
+import treescrub.spedran.api.request.category.CategoryRecordsRequest;
+import treescrub.spedran.api.request.category.CategoryVariablesRequest;
 import treescrub.spedran.data.IdentifiableNamedResource;
 
 public class Category extends IdentifiableNamedResource {
@@ -22,6 +24,14 @@ public class Category extends IdentifiableNamedResource {
 
     public Category(String data) {
         super(data);
+    }
+
+    public CategoryRecordsRequest getRecords() {
+        return new CategoryRecordsRequest(this);
+    }
+
+    public CategoryVariablesRequest getVariables() {
+        return new CategoryVariablesRequest(this);
     }
 
     @Override

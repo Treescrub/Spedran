@@ -3,6 +3,9 @@ package treescrub.spedran.data.run;
 import kong.unirest.HttpResponse;
 import kong.unirest.JsonNode;
 import kong.unirest.json.JSONObject;
+import treescrub.spedran.api.request.run.DeleteRunRequest;
+import treescrub.spedran.api.request.run.RunPlayersRequest;
+import treescrub.spedran.api.request.run.RunStatusRequest;
 import treescrub.spedran.data.IdentifiableResource;
 import treescrub.spedran.data.Link;
 
@@ -36,6 +39,18 @@ public class Run extends IdentifiableResource {
 
     public Run(String data) {
         super(data);
+    }
+
+    public DeleteRunRequest delete() {
+        return new DeleteRunRequest(this);
+    }
+
+    public RunPlayersRequest setPlayers() {
+        return new RunPlayersRequest(this);
+    }
+
+    public RunStatusRequest setStatus() {
+        return new RunStatusRequest(this);
     }
 
     @Override

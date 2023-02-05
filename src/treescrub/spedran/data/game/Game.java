@@ -3,6 +3,7 @@ package treescrub.spedran.data.game;
 import kong.unirest.HttpResponse;
 import kong.unirest.JsonNode;
 import kong.unirest.json.JSONObject;
+import treescrub.spedran.api.request.game.*;
 import treescrub.spedran.data.ParseUtils;
 import treescrub.spedran.data.IdentifiableResource;
 import treescrub.spedran.data.Names;
@@ -40,6 +41,26 @@ public class Game extends IdentifiableResource {
 
     public Game(String data) {
         super(data);
+    }
+
+    public GameCategoriesRequest getCategories() {
+        return new GameCategoriesRequest(this);
+    }
+
+    public GameLevelsRequest getLevels() {
+        return new GameLevelsRequest(this);
+    }
+
+    public GameRecordsRequest getRecords() {
+        return new GameRecordsRequest(this);
+    }
+
+    public GameRomhacksRequest getRomhacks() {
+        return new GameRomhacksRequest(this);
+    }
+
+    public GameVariablesRequest getVariables() {
+        return new GameVariablesRequest(this);
     }
 
     @Override

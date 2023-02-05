@@ -3,6 +3,7 @@ package treescrub.spedran.data.user;
 import kong.unirest.HttpResponse;
 import kong.unirest.JsonNode;
 import kong.unirest.json.JSONObject;
+import treescrub.spedran.api.request.user.UserPBsRequest;
 import treescrub.spedran.data.IdentifiableResource;
 import treescrub.spedran.data.Link;
 import treescrub.spedran.data.Names;
@@ -35,6 +36,10 @@ public class User extends IdentifiableResource {
 
     public User(String data) {
         super(data);
+    }
+
+    public UserPBsRequest getPersonalBests() {
+        return new UserPBsRequest(this);
     }
 
     @Override
