@@ -5,6 +5,7 @@ import treescrub.spedran.data.Link;
 
 public class RunPlayer extends Link {
     private String id;
+    private boolean isGuest;
 
     public RunPlayer(JSONObject data) {
         super(data);
@@ -12,10 +13,18 @@ public class RunPlayer extends Link {
     }
 
     private void parseFromJson(JSONObject data) {
-        if (!data.isNull("id"))
+        if (!data.isNull("id")) {
             id = data.getString("id");
-        if (!data.isNull("name"))
+            isGuest = false;
+        }
+        if (!data.isNull("name")) {
             id = data.getString("name");
+            isGuest = true;
+        }
+    }
+
+    public boolean isGuest() {
+        return isGuest;
     }
 
     public String getId() {
