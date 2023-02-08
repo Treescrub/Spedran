@@ -37,10 +37,6 @@ public class Run extends IdentifiableResource {
         super(data);
     }
 
-    public Run(String data) {
-        super(data);
-    }
-
     public DeleteRunRequest delete() {
         return new DeleteRunRequest(this);
     }

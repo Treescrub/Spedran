@@ -21,10 +21,6 @@ public class Level extends IdentifiableNamedResource {
         super(data);
     }
 
-    public Level(String data) {
-        super(data);
-    }
-
     public LevelCategoriesRequest getCategories() {
         return new LevelCategoriesRequest(this);
     }

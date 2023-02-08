@@ -39,10 +39,6 @@ public class Game extends IdentifiableResource {
         super(data);
     }
 
-    public Game(String data) {
-        super(data);
-    }
-
     public GameCategoriesRequest getCategories() {
         return new GameCategoriesRequest(this);
     }

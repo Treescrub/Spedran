@@ -3,23 +3,18 @@ package treescrub.spedran.data.leaderboard;
 import kong.unirest.HttpResponse;
 import kong.unirest.JsonNode;
 import kong.unirest.json.JSONObject;
-import treescrub.spedran.data.Level;
-import treescrub.spedran.data.Platform;
-import treescrub.spedran.data.Region;
 import treescrub.spedran.data.Resource;
-import treescrub.spedran.data.category.Category;
-import treescrub.spedran.data.game.Game;
 import treescrub.spedran.data.run.TimingType;
 
 import java.util.*;
 
 public class Leaderboard extends Resource {
     private String weblink;
-    private Game game;
-    private Category category;
-    private Level level;
-    private Platform platform;
-    private Region region;
+    private String game;
+    private String category;
+    private String level;
+    private String platform;
+    private String region;
     private Boolean emulators;
     private boolean videoOnly;
     private TimingType timing;
@@ -37,11 +32,11 @@ public class Leaderboard extends Resource {
     @Override
     protected void parseFromJson(JSONObject data) {
         weblink = data.getString("weblink");
-        game = new Game(data.getString("game"));
-        category = new Category(data.getString("category"));
-        level = data.isNull("level") ? null : new Level(data.getString("level"));
-        platform = data.isNull("platform") ? null : new Platform(data.getString("platform"));
-        region = data.isNull("region") ? null : new Region(data.getString("region"));
+        game = data.getString("game");
+        category = data.getString("category");
+        level = data.isNull("level") ? null : data.getString("level");
+        platform = data.isNull("platform") ? null : data.getString("platform");
+        region = data.isNull("region") ? null : data.getString("region");
         emulators = data.isNull("emulators") ? null : data.getBoolean("emulators");
         videoOnly = data.getBoolean("video-only");
         timing = TimingType.valueOf(data.getString("timing").toUpperCase());
@@ -60,23 +55,23 @@ public class Leaderboard extends Resource {
         return weblink;
     }
 
-    public Game getGame() {
+    public String getGame() {
         return game;
     }
 
-    public Category getCategory() {
+    public String getCategory() {
         return category;
     }
 
-    public Optional<Level> getLevel() {
+    public Optional<String> getLevel() {
         return Optional.ofNullable(level);
     }
 
-    public Optional<Platform> getPlatform() {
+    public Optional<String> getPlatform() {
         return Optional.ofNullable(platform);
     }
 
-    public Optional<Region> getRegion() {
+    public Optional<String> getRegion() {
         return Optional.ofNullable(region);
     }
 

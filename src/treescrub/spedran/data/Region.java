@@ -14,10 +14,6 @@ public class Region extends IdentifiableNamedResource {
         super(data);
     }
 
-    public Region(String data) {
-        super(data);
-    }
-
     @Override
     protected void parseFromJson(JSONObject data) {
         super.parseFromJson(data);

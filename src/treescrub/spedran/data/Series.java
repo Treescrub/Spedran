@@ -26,10 +26,6 @@ public class Series extends IdentifiableResource {
         super(data);
     }
 
-    public Series(String data) {
-        super(data);
-    }
-
     public SeriesGamesRequest getGames() {
         return new SeriesGamesRequest(this);
     }

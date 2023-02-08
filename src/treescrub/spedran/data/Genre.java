@@ -14,10 +14,6 @@ public class Genre extends IdentifiableNamedResource {
         super(data);
     }
 
-    public Genre(String data) {
-        super(data);
-    }
-
     @Override
     protected void parseFromJson(JSONObject data) {
         super.parseFromJson(data);

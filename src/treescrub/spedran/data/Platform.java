@@ -15,10 +15,6 @@ public class Platform extends IdentifiableNamedResource {
         super(data);
     }
 
-    public Platform(String data) {
-        super(data);
-    }
-
     @Override
     protected void parseFromJson(JSONObject data) {
         super.parseFromJson(data);

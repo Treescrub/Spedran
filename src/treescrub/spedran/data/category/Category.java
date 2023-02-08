@@ -22,10 +22,6 @@ public class Category extends IdentifiableNamedResource {
         super(data);
     }
 
-    public Category(String data) {
-        super(data);
-    }
-
     public CategoryRecordsRequest getRecords() {
         return new CategoryRecordsRequest(this);
     }

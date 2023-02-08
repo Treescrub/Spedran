@@ -34,10 +34,6 @@ public class User extends IdentifiableResource {
         super(data);
     }
 
-    public User(String data) {
-        super(data);
-    }
-
     public UserPBsRequest getPersonalBests() {
         return new UserPBsRequest(this);
     }
