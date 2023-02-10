@@ -44,7 +44,7 @@ public class User extends IdentifiableResource {
 
         names = new Names(data.getJSONObject("names"));
         supporterAnimation = data.getBoolean("supporterAnimation");
-        pronouns = data.getString("pronouns").isEmpty() ? null : data.getString("pronouns");
+        pronouns = data.isNull("pronouns") || data.getString("pronouns").isEmpty() ? null : data.getString("pronouns");
         weblink = data.getString("weblink");
         nameStyle = new NameStyle(data.getJSONObject("name-style"));
         role = data.getString("role");
