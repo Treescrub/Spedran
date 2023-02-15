@@ -32,6 +32,7 @@ public class Requests {
     private static final String RESOURCE_USERS = "users";
     private static final String RESOURCE_VARIABLES = "variables";
     private static final String RESOURCE_GUESTS = "guests";
+    private static final String RESOURCE_PUBLISHERS = "publishers";
 
     private static UnirestInstance unirestInstance;
 
@@ -262,5 +263,11 @@ public class Requests {
         GetRequest request = getSimpleResourceRequest(RESOURCE_GUESTS, id, new HashMap<>());
 
         return getSingleSimpleObject(request, Guest::new);
+    }
+
+    public static CompletableFuture<Publisher> getPublisher(String id) {
+        GetRequest request = getSimpleResourceRequest(RESOURCE_PUBLISHERS, id, Map.of());
+
+        return getSingleSimpleObject(request, Publisher::new);
     }
 }
