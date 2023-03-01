@@ -18,7 +18,7 @@ public abstract class SingleResourceRequest<T> extends ResourceRequest<T> {
     @Override
     public CompletableFuture<T> complete() {
         applyQueryParameters();
-        return getRequest()
+        return request
                 .asJsonAsync()
                 .thenApply(response -> parse(response.getBody().getObject()));
     }

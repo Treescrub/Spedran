@@ -9,7 +9,7 @@ import java.util.Map;
 import java.util.concurrent.CompletableFuture;
 
 public abstract class ResourceRequest<T> {
-    private HttpRequest<?> request;
+    protected HttpRequest<?> request;
     private Map<String, Object> queryParameters;
 
     protected ResourceRequest(HttpMethod method, String url, Map<String, Object> routeParameters) {
@@ -40,10 +40,6 @@ public abstract class ResourceRequest<T> {
 
     protected void applyQueryParameters() {
         request.queryString(queryParameters);
-    }
-
-    protected HttpRequest<?> getRequest() {
-        return request;
     }
 
     protected abstract CompletableFuture<T> complete();

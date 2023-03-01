@@ -69,7 +69,7 @@ public abstract class ResourceCollectionRequest<T extends Resource> extends Reso
     public CompletableFuture<List<T>> complete() {
         applyQueryParameters();
         return CompletableFuture.supplyAsync(() -> {
-            PagedList<JsonNode> resources = getRequest().asPaged(HttpRequest::asJson, ResourceCollectionRequest::extractPaginationLink);
+            PagedList<JsonNode> resources = request.asPaged(HttpRequest::asJson, ResourceCollectionRequest::extractPaginationLink);
 
             return collectResources(resources, getConstructor());
         });
