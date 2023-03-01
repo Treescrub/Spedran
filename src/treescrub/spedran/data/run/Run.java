@@ -37,8 +37,8 @@ public class Run extends IdentifiableResource {
         super(data);
     }
 
-    public DeleteRunRequest delete() {
-        return new DeleteRunRequest(this);
+    public DeleteRunRequest delete(String apiKey) {
+        return new DeleteRunRequest(this, apiKey);
     }
 
     public RunPlayersRequest setPlayers() {
