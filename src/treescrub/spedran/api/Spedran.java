@@ -5,11 +5,13 @@ import treescrub.spedran.api.request.engine.EnginesRequest;
 import treescrub.spedran.api.request.game.GamesRequest;
 import treescrub.spedran.api.request.gametype.GametypesRequest;
 import treescrub.spedran.api.request.genre.GenresRequest;
+import treescrub.spedran.api.request.leaderboard.LeaderboardRequest;
 import treescrub.spedran.api.request.platform.PlatformsRequest;
 import treescrub.spedran.api.request.publisher.PublishersRequest;
 import treescrub.spedran.api.request.region.RegionsRequest;
 import treescrub.spedran.api.request.run.RunsRequest;
 import treescrub.spedran.api.request.series.AllSeriesRequest;
+import treescrub.spedran.api.request.user.UsersRequest;
 import treescrub.spedran.data.*;
 import treescrub.spedran.data.category.Category;
 import treescrub.spedran.data.game.Game;
@@ -18,8 +20,6 @@ import treescrub.spedran.data.user.User;
 import treescrub.spedran.data.variables.Variable;
 import treescrub.spedran.requests.Requests;
 
-import java.util.List;
-import java.util.Map;
 import java.util.concurrent.CompletableFuture;
 
 public class Spedran {
@@ -28,7 +28,7 @@ public class Spedran {
     }
 
     public static GamesRequest getGames() {
-        return new GamesRequest();
+        return Requests.getGames();
     }
 
     public static CompletableFuture<Run> getRun(String id) {
@@ -36,7 +36,7 @@ public class Spedran {
     }
 
     public static RunsRequest getRuns() {
-        return new RunsRequest();
+        return Requests.getRuns();
     }
 
     public static CompletableFuture<Category> getCategory(String id) {
@@ -55,8 +55,8 @@ public class Spedran {
         return Requests.getUser(id);
     }
 
-    public static CompletableFuture<List<User>> getUsers(Map<String, Object> parameters) {
-        return Requests.getUsers(parameters);
+    public static UsersRequest getUsers() {
+        return Requests.getUsers();
     }
 
     public static CompletableFuture<Guest> getGuest(String name) {
@@ -68,7 +68,7 @@ public class Spedran {
     }
 
     public static GenresRequest getGenres() {
-        return new GenresRequest();
+        return Requests.getGenres();
     }
 
     public static CompletableFuture<Engine> getEngine(String id) {
@@ -76,7 +76,7 @@ public class Spedran {
     }
 
     public static EnginesRequest getEngines() {
-        return new EnginesRequest();
+        return Requests.getEngines();
     }
 
     public static CompletableFuture<Gametype> getGametype(String id) {
@@ -84,7 +84,7 @@ public class Spedran {
     }
 
     public static GametypesRequest getGametypes() {
-        return new GametypesRequest();
+        return Requests.getGametypes();
     }
 
     public static CompletableFuture<Developer> getDeveloper(String id) {
@@ -92,7 +92,7 @@ public class Spedran {
     }
 
     public static DevelopersRequest getDevelopers() {
-        return new DevelopersRequest();
+        return Requests.getDevelopers();
     }
 
     public static CompletableFuture<Region> getRegion(String id) {
@@ -100,7 +100,7 @@ public class Spedran {
     }
 
     public static RegionsRequest getRegions() {
-        return new RegionsRequest();
+        return Requests.getRegions();
     }
 
     public static CompletableFuture<Series> getSingleSeries(String id) {
@@ -108,7 +108,7 @@ public class Spedran {
     }
 
     public static AllSeriesRequest getMultipleSeries() {
-        return new AllSeriesRequest();
+        return Requests.getSeries();
     }
 
     public static CompletableFuture<Platform> getPlatform(String id) {
@@ -116,7 +116,7 @@ public class Spedran {
     }
 
     public static PlatformsRequest getPlatforms() {
-        return new PlatformsRequest();
+        return Requests.getPlatforms();
     }
 
     public static CompletableFuture<Publisher> getPublisher(String id) {
@@ -124,6 +124,22 @@ public class Spedran {
     }
 
     public static PublishersRequest getPublishers() {
-        return new PublishersRequest();
+        return Requests.getPublishers();
+    }
+
+    public static LeaderboardRequest getLeaderboard(String gameId, String categoryId, String levelId) {
+        return Requests.getLeaderboard(gameId, categoryId, levelId);
+    }
+
+    public static LeaderboardRequest getLeaderboard(String gameId, String categoryId) {
+        return Requests.getLeaderboard(gameId, categoryId);
+    }
+
+    public static LeaderboardRequest getLeaderboard(Game game, Category category, Level level) {
+        return Requests.getLeaderboard(game, category, level);
+    }
+
+    public static LeaderboardRequest getLeaderboard(Game game, Category category) {
+        return Requests.getLeaderboard(game, category);
     }
 }

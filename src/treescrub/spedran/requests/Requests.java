@@ -1,8 +1,18 @@
 package treescrub.spedran.requests;
 
 import kong.unirest.*;
-import kong.unirest.json.JSONArray;
-import kong.unirest.json.JSONObject;
+import treescrub.spedran.api.request.developer.DevelopersRequest;
+import treescrub.spedran.api.request.engine.EnginesRequest;
+import treescrub.spedran.api.request.game.GamesRequest;
+import treescrub.spedran.api.request.gametype.GametypesRequest;
+import treescrub.spedran.api.request.genre.GenresRequest;
+import treescrub.spedran.api.request.leaderboard.LeaderboardRequest;
+import treescrub.spedran.api.request.platform.PlatformsRequest;
+import treescrub.spedran.api.request.publisher.PublishersRequest;
+import treescrub.spedran.api.request.region.RegionsRequest;
+import treescrub.spedran.api.request.run.RunsRequest;
+import treescrub.spedran.api.request.series.AllSeriesRequest;
+import treescrub.spedran.api.request.user.UsersRequest;
 import treescrub.spedran.data.*;
 import treescrub.spedran.data.category.Category;
 import treescrub.spedran.data.game.Game;
@@ -16,7 +26,6 @@ import java.util.function.Function;
 
 public class Requests {
     private static final String BASE_URL = "https://www.speedrun.com/api/v1/";
-    private static final int MAX_ITEMS = 200;
 
     private static final String RESOURCE_GAMES = "games";
     private static final String RESOURCE_LEVELS = "levels";
@@ -55,71 +64,14 @@ public class Requests {
                 .thenApply(constructor);
     }
 
-    private static <T extends Resource> List<T> removeDuplicates(List<T> resources) {
-        return new ArrayList<>(new LinkedHashSet<>(resources));
-    }
-
-    public static <T extends Resource> List<T> collectResources(PagedList<JsonNode> pagedList, Function<JSONObject, T> constructor) {
-        List<T> resources = new ArrayList<>();
-
-        for(JsonNode body : pagedList.getBodies()) {
-            JSONArray data = body.getObject().getJSONArray("data");
-
-            for(Object element : data) {
-                resources.add(constructor.apply((JSONObject) element));
-            }
-        }
-
-        return removeDuplicates(resources);
-    }
-
-    public static String extractPaginationLink(HttpResponse<JsonNode> response) {
-        JSONObject body = response.getBody().getObject();
-
-        if (!body.has("pagination"))
-            return null;
-
-        JSONArray links = body.getJSONObject("pagination").getJSONArray("links");
-        for(Object element : links) {
-            JSONObject link = (JSONObject) element;
-
-            if (link.getString("rel").equals("next")) {
-                return link.getString("uri");
-            }
-        }
-
-        return null;
-    }
-
     private static GetRequest getSimpleResourceRequest(String resourceName, String id, Map<String, Object> queryParameters) {
         Map<String, Object> routeParams = new HashMap<>();
         routeParams.put("resource", resourceName);
         routeParams.put("id", id);
 
-        return getResourceRequest("{resource}/{id}", routeParams, queryParameters);
-    }
-
-    private static GetRequest getResourceRequest(String url, Map<String, Object> routeParams, Map<String, Object> queryParameters) {
-        return unirestInstance.get(url)
+        return unirestInstance.get("{resource}/{id}")
                 .routeParam(routeParams)
                 .queryString(queryParameters);
-    }
-
-    private static GetRequest getSimpleCollectionRequest(String resourceName, Map<String, Object> queryParameters) {
-        return getCollectionRequest(resourceName, new HashMap<>(), queryParameters);
-    }
-
-    private static GetRequest getCollectionRequest(String url, Map<String, Object> routeParams, Map<String, Object> queryParameters) {
-        return getResourceRequest(url, routeParams, queryParameters)
-                .queryString("max", MAX_ITEMS);
-    }
-
-    public static <T extends Resource> CompletableFuture<List<T>> getCollection(HttpRequest<?> request, Function<JSONObject, T> constructor) {
-        return CompletableFuture.supplyAsync(() -> {
-            PagedList<JsonNode> resources = request.asPaged(HttpRequest::asJson, Requests::extractPaginationLink);
-
-            return collectResources(resources, constructor);
-        });
     }
 
     public static CompletableFuture<Game> getGame(String id) {
@@ -128,10 +80,8 @@ public class Requests {
         return getSingleSimpleObject(request, Game::new);
     }
 
-    public static CompletableFuture<List<Game>> getGames(Map<String, Object> queryParameters) {
-        GetRequest request = getSimpleCollectionRequest(RESOURCE_GAMES, queryParameters);
-
-        return getCollection(request, Game::new);
+    public static GamesRequest getGames() {
+        return new GamesRequest();
     }
 
     public static CompletableFuture<Level> getLevel(String id) {
@@ -152,10 +102,8 @@ public class Requests {
         return getSingleSimpleObject(request, Platform::new);
     }
 
-    public static CompletableFuture<List<Platform>> getPlatforms(Map<String, Object> queryParameters) {
-        GetRequest request = getSimpleCollectionRequest(RESOURCE_PLATFORMS, queryParameters);
-
-        return getCollection(request, Platform::new);
+    public static PlatformsRequest getPlatforms() {
+        return new PlatformsRequest();
     }
 
     public static CompletableFuture<Genre> getGenre(String id) {
@@ -164,10 +112,8 @@ public class Requests {
         return getSingleSimpleObject(request, Genre::new);
     }
 
-    public static CompletableFuture<List<Genre>> getGenres(Map<String, Object> queryParameters) {
-        GetRequest request = getSimpleCollectionRequest(RESOURCE_GENRES, queryParameters);
-
-        return getCollection(request, Genre::new);
+    public static GenresRequest getGenres() {
+        return new GenresRequest();
     }
 
     public static CompletableFuture<Engine> getEngine(String id) {
@@ -176,21 +122,18 @@ public class Requests {
         return getSingleSimpleObject(request, Engine::new);
     }
 
-    public static CompletableFuture<List<Engine>> getEngines(Map<String, Object> queryParameters) {
-        GetRequest request = getSimpleCollectionRequest(RESOURCE_ENGINES, queryParameters);
-
-        return getCollection(request, Engine::new);
+    public static EnginesRequest getEngines() {
+        return new EnginesRequest();
     }
+
     public static CompletableFuture<Gametype> getGametype(String id) {
         GetRequest request = getSimpleResourceRequest(RESOURCE_GAMETYPES, id, new HashMap<>());
 
         return getSingleSimpleObject(request, Gametype::new);
     }
 
-    public static CompletableFuture<List<Gametype>> getGametypes(Map<String, Object> queryParameters) {
-        GetRequest request = getSimpleCollectionRequest(RESOURCE_GAMETYPES, queryParameters);
-
-        return getCollection(request, Gametype::new);
+    public static GametypesRequest getGametypes() {
+        return new GametypesRequest();
     }
 
     public static CompletableFuture<Developer> getDeveloper(String id) {
@@ -199,10 +142,8 @@ public class Requests {
         return getSingleSimpleObject(request, Developer::new);
     }
 
-    public static CompletableFuture<List<Developer>> getDevelopers(Map<String, Object> queryParameters) {
-        GetRequest request = getSimpleCollectionRequest(RESOURCE_DEVELOPERS, queryParameters);
-
-        return getCollection(request, Developer::new);
+    public static DevelopersRequest getDevelopers() {
+        return new DevelopersRequest();
     }
 
     public static CompletableFuture<Region> getRegion(String id) {
@@ -211,10 +152,8 @@ public class Requests {
         return getSingleSimpleObject(request, Region::new);
     }
 
-    public static CompletableFuture<List<Region>> getRegions(Map<String, Object> queryParameters) {
-        GetRequest request = getSimpleCollectionRequest(RESOURCE_REGIONS, queryParameters);
-
-        return getCollection(request, Region::new);
+    public static RegionsRequest getRegions() {
+        return new RegionsRequest();
     }
 
     public static CompletableFuture<Run> getRun(String id) {
@@ -223,10 +162,8 @@ public class Requests {
         return getSingleSimpleObject(request, Run::new);
     }
 
-    public static CompletableFuture<List<Run>> getRuns(Map<String, Object> queryParameters) {
-        GetRequest request = getSimpleCollectionRequest(RESOURCE_RUNS, queryParameters);
-
-        return getCollection(request, Run::new);
+    public static RunsRequest getRuns() {
+        return new RunsRequest();
     }
 
     public static CompletableFuture<Series> getSeries(String id) {
@@ -235,10 +172,8 @@ public class Requests {
         return getSingleSimpleObject(request, Series::new);
     }
 
-    public static CompletableFuture<List<Series>> getSeries(Map<String, Object> parameters) {
-        GetRequest request = getSimpleCollectionRequest(RESOURCE_SERIES, parameters);
-
-        return getCollection(request, Series::new);
+    public static AllSeriesRequest getSeries() {
+        return new AllSeriesRequest();
     }
 
     public static CompletableFuture<User> getUser(String id) {
@@ -247,10 +182,8 @@ public class Requests {
         return getSingleSimpleObject(request, User::new);
     }
 
-    public static CompletableFuture<List<User>> getUsers(Map<String, Object> queryParameters) {
-        GetRequest request = getSimpleCollectionRequest(RESOURCE_USERS, queryParameters);
-
-        return getCollection(request, User::new);
+    public static UsersRequest getUsers() {
+        return new UsersRequest();
     }
 
     public static CompletableFuture<Variable> getVariable(String id) {
@@ -269,5 +202,29 @@ public class Requests {
         GetRequest request = getSimpleResourceRequest(RESOURCE_PUBLISHERS, id, Map.of());
 
         return getSingleSimpleObject(request, Publisher::new);
+    }
+
+    public static PublishersRequest getPublishers() {
+        return new PublishersRequest();
+    }
+
+    public static LeaderboardRequest getLeaderboard(String gameId, String categoryId, String levelId) {
+        if(levelId == null) {
+            return new LeaderboardRequest(gameId, categoryId);
+        } else {
+            return new LeaderboardRequest(gameId, categoryId, levelId);
+        }
+    }
+
+    public static LeaderboardRequest getLeaderboard(String gameId, String categoryId) {
+        return getLeaderboard(gameId, categoryId, null);
+    }
+
+    public static LeaderboardRequest getLeaderboard(Game game, Category category) {
+        return getLeaderboard(game.getId(), category.getId());
+    }
+
+    public static LeaderboardRequest getLeaderboard(Game game, Category category, Level level) {
+        return getLeaderboard(game.getId(), category.getId(), level.getId());
     }
 }
