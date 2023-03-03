@@ -25,7 +25,7 @@ import java.util.concurrent.CompletableFuture;
 import java.util.function.Function;
 
 public class Requests {
-    private static final String BASE_URL = "https://www.speedrun.com/api/v1/";
+    public static final String BASE_URL = "https://www.speedrun.com/api/v1/";
 
     private static final String RESOURCE_GAMES = "games";
     private static final String RESOURCE_LEVELS = "levels";
@@ -52,6 +52,7 @@ public class Requests {
     private static void setup() {
         unirestInstance = Unirest.spawnInstance();
         unirestInstance.config().defaultBaseUrl(BASE_URL);
+        unirestInstance.config().interceptor(new LoggingInterceptor());
     }
 
     public static UnirestInstance getUnirestInstance() {
