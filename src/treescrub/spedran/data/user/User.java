@@ -69,7 +69,7 @@ public class User extends IdentifiableResource {
         return Optional.ofNullable(pronouns);
     }
 
-    public String getLink() {
+    public String getWeblink() {
         return weblink;
     }
 

@@ -40,7 +40,7 @@ class UserTest {
         JSONObject json = JSONLoader.getJsonTestFile("l4d/user/user");
         User user = new User(json);
 
-        assertEquals("https://www.speedrun.com/user/matthew_1919", user.getLink());
+        assertEquals("https://www.speedrun.com/user/matthew_1919", user.getWeblink());
     }
 
     @Test
