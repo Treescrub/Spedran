@@ -20,8 +20,13 @@ public class VariableValue {
         rules = data.optString("rules", null);
         flags = new HashMap<>();
         if(data.has("flags")) {
-            for (String key : data.getJSONObject("flags").keySet()) {
-                flags.put(key, data.getJSONObject("flags").getBoolean(key));
+            JSONObject flagsObject = data.getJSONObject("flags");
+            for(String key : flagsObject.keySet()) {
+                if(flagsObject.isNull(key)) {
+                    flags.put(key, null);
+                } else {
+                    flags.put(key, flagsObject.getBoolean(key));
+                }
             }
         }
     }
