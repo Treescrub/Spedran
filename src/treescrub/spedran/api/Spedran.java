@@ -23,6 +23,14 @@ import treescrub.spedran.requests.Requests;
 import java.util.concurrent.CompletableFuture;
 
 public class Spedran {
+    public static void setApiKey(String key) {
+        Requests.getUnirestInstance().config().addDefaultHeader("X-Api-Key", key);
+    }
+
+    public static void removeApiKey() {
+        setApiKey("");
+    }
+
     public static CompletableFuture<Game> getGame(String id) {
         return Requests.getGame(id);
     }
