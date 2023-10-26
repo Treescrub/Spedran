@@ -29,6 +29,8 @@ public class LoggingInterceptor implements Interceptor {
             LOGGER.warn("{} request to '{}' failed with '{}: {}'", request.getHttpMethod(), getShortenedUrl(request.getUrl()), response.getStatus(), response.getStatusText());
         }
 
+        LOGGER.debug("Received response from {} request to '{}'", request.getHttpMethod(), getShortenedUrl(request.getUrl()));
+
         Interceptor.super.onResponse(response, request, config);
     }
 
