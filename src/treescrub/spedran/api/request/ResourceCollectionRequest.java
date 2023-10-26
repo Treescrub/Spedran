@@ -57,6 +57,7 @@ public abstract class ResourceCollectionRequest<T extends Resource> extends Reso
             }
         }
 
+        // The API sometimes returns duplicate resources in a collection
         return removeDuplicates(resources);
     }
 
