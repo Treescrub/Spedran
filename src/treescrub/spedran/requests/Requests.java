@@ -51,6 +51,7 @@ public class Requests {
 
     private static void setup() {
         unirestInstance = Unirest.spawnInstance();
+        unirestInstance.config().addDefaultHeader("User-Agent", "Spedran/1.0");
         unirestInstance.config().defaultBaseUrl(BASE_URL);
         unirestInstance.config().interceptor(new LoggingInterceptor());
     }
