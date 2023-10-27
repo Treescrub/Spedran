@@ -12,6 +12,7 @@ public class RunStatus {
     private SubmissionStatus submissionStatus;
     private String examiner;
     private Instant verifyDate;
+    private String reason;
 
     public RunStatus(JSONObject data) {
         parseFromJson(data);
@@ -20,8 +21,10 @@ public class RunStatus {
     private void parseFromJson(JSONObject data) {
         submissionStatus = SubmissionStatus.valueOf(data.getString("status").toUpperCase());
         examiner = data.optString("examiner", null);
-        if (!data.isNull("verify-date"))
+        if(!data.isNull("verify-date")) {
             verifyDate = Instant.parse(data.getString("verify-date"));
+        }
+        reason = data.optString("reason", null);
     }
 
     /**
@@ -51,6 +54,15 @@ public class RunStatus {
      */
     public Optional<Instant> getVerifyDate() {
         return Optional.ofNullable(verifyDate);
+    }
+
+    /**
+     *
+     *
+     * @return
+     */
+    public Optional<String> getReason() {
+        return Optional.ofNullable(reason);
     }
 
     @Override
