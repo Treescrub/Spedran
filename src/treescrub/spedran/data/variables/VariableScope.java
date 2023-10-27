@@ -4,6 +4,9 @@ import kong.unirest.json.JSONObject;
 
 import java.util.Optional;
 
+/**
+ *
+ */
 public class VariableScope {
     enum ScopeType {
         GLOBAL,
@@ -33,10 +36,18 @@ public class VariableScope {
         return null;
     }
 
+    /**
+     *
+     * @return
+     */
     public ScopeType getType() {
         return type;
     }
 
+    /**
+     *
+     * @return
+     */
     public Optional<String> getLevel() {
         return Optional.ofNullable(level);
     }

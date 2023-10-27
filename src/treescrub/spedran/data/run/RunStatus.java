@@ -5,6 +5,9 @@ import kong.unirest.json.JSONObject;
 import java.time.Instant;
 import java.util.Optional;
 
+/**
+ * Holds information about the current run status.
+ */
 public class RunStatus {
     private SubmissionStatus submissionStatus;
     private String examiner;
@@ -21,14 +24,31 @@ public class RunStatus {
             verifyDate = Instant.parse(data.getString("verify-date"));
     }
 
+    /**
+     * Returns the status.
+     *
+     * @return a {@link SubmissionStatus}
+     */
     public SubmissionStatus getStatus() {
         return submissionStatus;
     }
 
+    /**
+     * Returns the ID of the verifier.
+     * Only exists if status is {@link SubmissionStatus#VERIFIED} or {@link SubmissionStatus#REJECTED}.
+     *
+     * @return an {@link Optional} with the ID of the verifier
+     */
     public Optional<String> getExaminer() {
         return Optional.ofNullable(examiner);
     }
 
+    /**
+     * Returns the time of verification.
+     * Only exists if status is {@link SubmissionStatus#VERIFIED}.
+     *
+     * @return an {@link Optional} with the {@link Instant} of verification
+     */
     public Optional<Instant> getVerifyDate() {
         return Optional.ofNullable(verifyDate);
     }

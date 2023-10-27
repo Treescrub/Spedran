@@ -4,6 +4,9 @@ import kong.unirest.json.JSONObject;
 import treescrub.spedran.data.Resource;
 import treescrub.spedran.data.run.Run;
 
+/**
+ *
+ */
 public class PersonalBest extends Resource {
     private int place;
     private Run run;
@@ -18,10 +21,18 @@ public class PersonalBest extends Resource {
         run = new Run(data.getJSONObject("run"));
     }
 
+    /**
+     *
+     * @return
+     */
     public int getPlace() {
         return place;
     }
 
+    /**
+     *
+     * @return
+     */
     public Run getRun() {
         return run;
     }

@@ -6,6 +6,9 @@ import kong.unirest.json.JSONObject;
 
 import java.util.Objects;
 
+/**
+ *
+ */
 public class Guest extends Resource {
     private String name;
 
@@ -22,6 +25,10 @@ public class Guest extends Resource {
         name = data.getString("name");
     }
 
+    /**
+     *
+     * @return
+     */
     public String getName() {
         return name;
     }

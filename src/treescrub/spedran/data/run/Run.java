@@ -13,6 +13,9 @@ import java.time.Instant;
 import java.time.LocalDate;
 import java.util.*;
 
+/**
+ *
+ */
 public class Run extends IdentifiableResource {
     private String weblink;
     private String game;
@@ -37,14 +40,32 @@ public class Run extends IdentifiableResource {
         super(data);
     }
 
+    /**
+     * Returns a request builder that allows deletion of this run from SRC.
+     * Requires an API key with sufficient permissions to delete runs, or API key of run owner.
+     *
+     * @param apiKey SRC API key
+     * @return a request builder to delete this run
+     */
     public DeleteRunRequest delete(String apiKey) {
         return new DeleteRunRequest(this, apiKey);
     }
 
+    /**
+     * Returns a request builder to set the players on this run.
+     *
+     * @return a request builder to set players
+     */
     public RunPlayersRequest setPlayers() {
         return new RunPlayersRequest(this);
     }
 
+    /**
+     * Returns a request builder to change the status of this run.
+     * Requires an API key with sufficient permissions to reject/verify runs.
+     *
+     * @return
+     */
     public RunStatusRequest setStatus() {
         return new RunStatusRequest(this);
     }
@@ -75,58 +96,129 @@ public class Run extends IdentifiableResource {
         }
     }
 
+    /**
+     * Returns a String containing the URL of the run on SRC.
+     *
+     * @return a link to the run
+     */
     public String getWeblink() {
         return weblink;
     }
 
+    /**
+     * Returns a String containing the ID of this run's game.
+     *
+     * @return the id of the game this run belongs to
+     */
     public String getGame() {
         return game;
     }
 
+    /**
+     * Returns an Optional String containing the ID of this run's level.
+     * If this run has no associated level, returns an empty Optional.
+     *
+     * @return an {@link Optional} with the ID of this run's level
+     */
     public Optional<String> getLevel() {
         return Optional.ofNullable(level);
     }
 
+    /**
+     * Returns a String containing the ID of this run's category.
+     *
+     * @return the ID of this run's category
+     */
     public String getCategory() {
         return category;
     }
 
+    /**
+     *
+     *
+     * @return an {@link Optional} with information about the run's videos
+     */
     public Optional<RunVideos> getVideos() {
         return Optional.ofNullable(videos);
     }
 
+    /**
+     *
+     *
+     * @return an {@link Optional} with the run comment
+     */
     public Optional<String> getComment() {
         return Optional.ofNullable(comment);
     }
 
+    /**
+     *
+     *
+     * @return
+     */
     public RunStatus getStatus() {
         return status;
     }
 
+    /**
+     *
+     *
+     * @return
+     */
     public List<RunPlayer> getPlayers() {
         return players;
     }
 
+    /**
+     * Returns the {@link LocalDate} that this run was actually ran.
+     *
+     * @return
+     */
     public Optional<LocalDate> getDateRan() {
         return Optional.ofNullable(date);
     }
 
+    /**
+     * Returns the {@link Instant} that this run was submitted to SRC.
+     *
+     * @return
+     */
     public Optional<Instant> getSubmitTime() {
         return Optional.ofNullable(submitted);
     }
 
+    /**
+     *
+     *
+     * @return a {@link RunTimes} object that has timing info
+     */
     public RunTimes getRunTimes() {
         return times;
     }
 
+    /**
+     *
+     *
+     * @return a {@link RunSystem} object that has system info
+     */
     public RunSystem getSystem() {
         return system;
     }
 
+    /**
+     *
+     *
+     * @return a {@link Link} wrapped in an {@link Optional} that contains info about splits
+     */
     public Optional<Link> getSplits() {
         return Optional.ofNullable(splits);
     }
 
+    /**
+     * Returns a {@link Map} with each key being a variable ID, and the corresponding value being the variable value ID.
+     *
+     * @return a {@link Map} between variable IDs and variable value IDs
+     */
     public Map<String, String> getVariableValues() {
         return values;
     }

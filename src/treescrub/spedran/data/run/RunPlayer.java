@@ -3,6 +3,10 @@ package treescrub.spedran.data.run;
 import kong.unirest.json.JSONObject;
 import treescrub.spedran.data.Link;
 
+/**
+ * Has information about a specific runner.
+ * Only makes sense in the context of a run.
+ */
 public class RunPlayer extends Link {
     private String id;
     private boolean isGuest;

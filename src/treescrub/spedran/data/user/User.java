@@ -11,6 +11,9 @@ import treescrub.spedran.data.Names;
 import java.time.Instant;
 import java.util.Optional;
 
+/**
+ * Represents a user on SRC.
+ */
 public class User extends IdentifiableResource {
     private Names names;
     private boolean supporterAnimation;
@@ -34,6 +37,10 @@ public class User extends IdentifiableResource {
         super(data);
     }
 
+    /**
+     *
+     * @return
+     */
     public UserPBsRequest getPersonalBests() {
         return new UserPBsRequest(this);
     }
@@ -57,54 +64,108 @@ public class User extends IdentifiableResource {
         speedrunsLive = data.isNull("speedrunslive") ? null : new Link(data.getJSONObject("speedrunslive"));
     }
 
+    /**
+     * Returns the names for this user.
+     *
+     * @return
+     */
     public Names getNames() {
         return names;
     }
 
+    /**
+     * Returns a <code>boolean</code> for the user having their name color animated.
+     *
+     * @return
+     */
     public boolean hasSupporterAnimation() {
         return supporterAnimation;
     }
 
+    /**
+     *
+     * @return an {@link Optional} containing this user's pronouns
+     */
     public Optional<String> getPronouns() {
         return Optional.ofNullable(pronouns);
     }
 
+    /**
+     *
+     * @return
+     */
     public String getWeblink() {
         return weblink;
     }
 
+    /**
+     *
+     * @return
+     */
     public NameStyle getNameStyle() {
         return nameStyle;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getRole() {
         return role;
     }
 
+    /**
+     *
+     * @return
+     */
     public Optional<Instant> getSignupTime() {
         return Optional.ofNullable(signup);
     }
 
+    /**
+     *
+     * @return
+     */
     public Optional<UserLocation> getLocation() {
         return Optional.ofNullable(location);
     }
 
+    /**
+     *
+     * @return
+     */
     public Optional<Link> getTwitchLink() {
         return Optional.ofNullable(twitch);
     }
 
+    /**
+     *
+     * @return
+     */
     public Optional<Link> getHitboxLink() {
         return Optional.ofNullable(hitbox);
     }
 
+    /**
+     *
+     * @return
+     */
     public Optional<Link> getYoutubeLink() {
         return Optional.ofNullable(youtube);
     }
 
+    /**
+     *
+     * @return
+     */
     public Optional<Link> getTwitterLink() {
         return Optional.ofNullable(twitter);
     }
 
+    /**
+     *
+     * @return
+     */
     public Optional<Link> getSpeedrunsLiveLink() {
         return Optional.ofNullable(speedrunsLive);
     }

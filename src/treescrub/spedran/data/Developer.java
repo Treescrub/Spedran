@@ -4,6 +4,9 @@ import kong.unirest.HttpResponse;
 import kong.unirest.JsonNode;
 import kong.unirest.json.JSONObject;
 
+/**
+ *
+ */
 public class Developer extends IdentifiableNamedResource {
 
     public Developer(HttpResponse<JsonNode> data) {

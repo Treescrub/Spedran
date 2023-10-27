@@ -3,6 +3,9 @@ package treescrub.spedran.data.leaderboard;
 import kong.unirest.json.JSONObject;
 import treescrub.spedran.data.run.Run;
 
+/**
+ *
+ */
 public class LeaderboardRun {
     private int place;
     private Run run;
@@ -12,10 +15,18 @@ public class LeaderboardRun {
         run = new Run(data.getJSONObject("run"));
     }
 
+    /**
+     *
+     * @return
+     */
     public int getPlace() {
         return place;
     }
 
+    /**
+     *
+     * @return
+     */
     public Run getRun() {
         return run;
     }

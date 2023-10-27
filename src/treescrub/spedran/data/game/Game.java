@@ -12,6 +12,9 @@ import java.time.Instant;
 import java.time.LocalDate;
 import java.util.*;
 
+/**
+ *
+ */
 public class Game extends IdentifiableResource {
     private Names names;
     private Integer boostReceived;
@@ -39,22 +42,42 @@ public class Game extends IdentifiableResource {
         super(data);
     }
 
+    /**
+     *
+     * @return
+     */
     public GameCategoriesRequest getCategories() {
         return new GameCategoriesRequest(this);
     }
 
+    /**
+     *
+     * @return
+     */
     public GameLevelsRequest getLevels() {
         return new GameLevelsRequest(this);
     }
 
+    /**
+     *
+     * @return
+     */
     public GameRecordsRequest getRecords() {
         return new GameRecordsRequest(this);
     }
 
+    /**
+     *
+     * @return
+     */
     public GameRomhacksRequest getRomhacks() {
         return new GameRomhacksRequest(this);
     }
 
+    /**
+     *
+     * @return
+     */
     public GameVariablesRequest getVariables() {
         return new GameVariablesRequest(this);
     }
@@ -86,70 +109,138 @@ public class Game extends IdentifiableResource {
             created = Instant.parse(data.getString("created"));
     }
 
+    /**
+     *
+     * @return
+     */
     public Names getNames() {
         return names;
     }
 
+    /**
+     *
+     * @return
+     */
     public Integer getBoostsReceived() {
         return boostReceived;
     }
 
+    /**
+     *
+     * @return
+     */
     public Integer getDistinctBoosters() {
         return boostDistinctDonors;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getAbbreviation() {
         return abbreviation;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getWebLink() {
         return weblink;
     }
 
+    /**
+     *
+     * @return
+     */
     public Optional<String> getDiscordLink() {
         return Optional.ofNullable(discord);
     }
 
+    /**
+     *
+     * @return
+     */
     public LocalDate getReleaseDate() {
         return releaseDate;
     }
 
+    /**
+     *
+     * @return
+     */
     public Optional<GameRuleset> getRuleset() {
         return Optional.ofNullable(ruleset);
     }
 
+    /**
+     *
+     * @return
+     */
     public List<String> getGametypes() {
         return Collections.unmodifiableList(gametypes);
     }
 
+    /**
+     *
+     * @return
+     */
     public List<String> getPlatforms() {
         return Collections.unmodifiableList(platforms);
     }
 
+    /**
+     *
+     * @return
+     */
     public List<String> getRegions() {
         return Collections.unmodifiableList(regions);
     }
 
+    /**
+     *
+     * @return
+     */
     public List<String> getGenres() {
         return Collections.unmodifiableList(genres);
     }
 
+    /**
+     *
+     * @return
+     */
     public List<String> getEngines() {
         return Collections.unmodifiableList(engines);
     }
 
+    /**
+     *
+     * @return
+     */
     public List<String> getDevelopers() {
         return Collections.unmodifiableList(developers);
     }
 
+    /**
+     *
+     * @return
+     */
     public List<String> getPublishers() {
         return Collections.unmodifiableList(publishers);
     }
 
+    /**
+     *
+     * @return
+     */
     public Map<String, String> getModerators() {
         return Collections.unmodifiableMap(moderators);
     }
 
+    /**
+     *
+     * @return
+     */
     public Optional<Instant> getCreationTime() {
         return Optional.ofNullable(created);
     }

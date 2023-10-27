@@ -5,6 +5,9 @@ import treescrub.spedran.data.Names;
 
 import java.util.Objects;
 
+/**
+ * Provides region code and name info.
+ */
 public class LocationInfo {
     private String code;
     private Names names;

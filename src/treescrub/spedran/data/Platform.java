@@ -4,6 +4,9 @@ import kong.unirest.HttpResponse;
 import kong.unirest.JsonNode;
 import kong.unirest.json.JSONObject;
 
+/**
+ *
+ */
 public class Platform extends IdentifiableNamedResource {
     private int released;
 
@@ -22,6 +25,10 @@ public class Platform extends IdentifiableNamedResource {
         released = data.getInt("released");
     }
 
+    /**
+     *
+     * @return
+     */
     public int getReleaseYear() {
         return released;
     }

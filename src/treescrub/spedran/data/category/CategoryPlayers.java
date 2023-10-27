@@ -2,6 +2,9 @@ package treescrub.spedran.data.category;
 
 import kong.unirest.json.JSONObject;
 
+/**
+ *
+ */
 public class CategoryPlayers {
     private boolean isExact;
     private int players;
@@ -15,10 +18,18 @@ public class CategoryPlayers {
         players = data.getInt("value");
     }
 
+    /**
+     *
+     * @return
+     */
     public boolean isExact() {
         return isExact;
     }
 
+    /**
+     *
+     * @return
+     */
     public int getPlayers() {
         return players;
     }

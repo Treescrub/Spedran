@@ -4,6 +4,9 @@ import kong.unirest.HttpResponse;
 import kong.unirest.JsonNode;
 import kong.unirest.json.JSONObject;
 
+/**
+ *
+ */
 public class Publisher extends IdentifiableNamedResource {
 
     public Publisher(HttpResponse<JsonNode> data) {

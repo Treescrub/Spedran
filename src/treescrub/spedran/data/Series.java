@@ -10,6 +10,9 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
 
+/**
+ *
+ */
 public class Series extends IdentifiableResource {
     private Names names;
     private String abbreviation;
@@ -46,26 +49,50 @@ public class Series extends IdentifiableResource {
             created = Instant.parse(data.getString("created"));
     }
 
+    /**
+     *
+     * @return
+     */
     public Names getNames() {
         return names;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getAbbreviation() {
         return abbreviation;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getWeblink() {
         return weblink;
     }
 
+    /**
+     *
+     * @return
+     */
     public Optional<String> getDiscord() {
         return Optional.ofNullable(discord);
     }
 
+    /**
+     *
+     * @return
+     */
     public Map<String, String> getModerators() {
         return moderators;
     }
 
+    /**
+     *
+     * @return
+     */
     public Optional<Instant> getCreationTime() {
         return Optional.ofNullable(created);
     }

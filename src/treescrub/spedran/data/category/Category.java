@@ -7,6 +7,9 @@ import treescrub.spedran.api.request.category.CategoryRecordsRequest;
 import treescrub.spedran.api.request.category.CategoryVariablesRequest;
 import treescrub.spedran.data.IdentifiableNamedResource;
 
+/**
+ *
+ */
 public class Category extends IdentifiableNamedResource {
     private String weblink;
     private boolean isPerLevel;
@@ -22,10 +25,18 @@ public class Category extends IdentifiableNamedResource {
         super(data);
     }
 
+    /**
+     *
+     * @return
+     */
     public CategoryRecordsRequest getRecords() {
         return new CategoryRecordsRequest(this);
     }
 
+    /**
+     *
+     * @return
+     */
     public CategoryVariablesRequest getVariables() {
         return new CategoryVariablesRequest(this);
     }
@@ -41,22 +52,42 @@ public class Category extends IdentifiableNamedResource {
         miscellaneous = data.getBoolean("miscellaneous");
     }
 
+    /**
+     *
+     * @return
+     */
     public String getWeblink() {
         return weblink;
     }
 
+    /**
+     *
+     * @return
+     */
     public Boolean isPerLevel() {
         return isPerLevel;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getRules() {
         return rules;
     }
 
+    /**
+     *
+     * @return
+     */
     public CategoryPlayers getPlayers() {
         return players;
     }
 
+    /**
+     *
+     * @return
+     */
     public boolean isMiscellaneous() {
         return miscellaneous;
     }

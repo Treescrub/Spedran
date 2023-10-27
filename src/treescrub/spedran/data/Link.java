@@ -6,6 +6,9 @@ import kong.unirest.json.JSONObject;
 
 import java.util.Optional;
 
+/**
+ *
+ */
 public class Link {
     private String uri;
     private String rel;
@@ -24,10 +27,18 @@ public class Link {
             rel = data.getString("rel");
     }
 
+    /**
+     *
+     * @return
+     */
     public String getURI() {
         return uri;
     }
 
+    /**
+     *
+     * @return
+     */
     public Optional<String> getRelation() {
         return Optional.ofNullable(rel);
     }

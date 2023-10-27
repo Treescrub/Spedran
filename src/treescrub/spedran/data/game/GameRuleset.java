@@ -7,6 +7,9 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+/**
+ *
+ */
 public class GameRuleset {
     private boolean showMilliseconds;
     private boolean requireVerification;
@@ -32,26 +35,50 @@ public class GameRuleset {
         emulatorsAllowed = data.getBoolean("emulators-allowed");
     }
 
+    /**
+     *
+     * @return
+     */
     public boolean areMillisecondsShown() {
         return showMilliseconds;
     }
 
+    /**
+     *
+     * @return
+     */
     public boolean isVerificationRequired() {
         return requireVerification;
     }
 
+    /**
+     *
+     * @return
+     */
     public boolean isVideoRequired() {
         return requireVideo;
     }
 
+    /**
+     *
+     * @return
+     */
     public boolean areEmulatorsAllowed() {
         return emulatorsAllowed;
     }
 
+    /**
+     *
+     * @return
+     */
     public List<TimingType> getRunTimes() {
         return Collections.unmodifiableList(runTimes);
     }
 
+    /**
+     *
+     * @return
+     */
     public TimingType getDefaultTime() {
         return defaultTime;
     }

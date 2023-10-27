@@ -6,6 +6,9 @@ import kong.unirest.json.JSONObject;
 
 import java.util.Optional;
 
+/**
+ * Has international, Japanese, and Twitch names.
+ */
 public class Names {
     private String international;
     private String japanese;

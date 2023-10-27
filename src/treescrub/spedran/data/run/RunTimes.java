@@ -5,6 +5,9 @@ import kong.unirest.json.JSONObject;
 import java.time.Duration;
 import java.util.Optional;
 
+/**
+ * Has info on all run timing.
+ */
 public class RunTimes {
     private Duration primaryTime;
     private Duration realTime;

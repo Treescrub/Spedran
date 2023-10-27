@@ -9,6 +9,9 @@ import treescrub.spedran.api.request.level.LevelVariablesRequest;
 
 import java.util.Optional;
 
+/**
+ *
+ */
 public class Level extends IdentifiableNamedResource {
     private String weblink;
     private String rules;
@@ -41,10 +44,18 @@ public class Level extends IdentifiableNamedResource {
         rules = data.optString("rules", null);
     }
 
+    /**
+     *
+     * @return
+     */
     public String getWeblink() {
         return weblink;
     }
 
+    /**
+     *
+     * @return
+     */
     public Optional<String> getRules() {
         return Optional.ofNullable(rules);
     }

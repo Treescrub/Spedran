@@ -6,6 +6,9 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
 
+/**
+ *
+ */
 public class VariableValue {
     private String label;
     private String rules;
@@ -31,14 +34,26 @@ public class VariableValue {
         }
     }
 
+    /**
+     *
+     * @return
+     */
     public String getLabel() {
         return label;
     }
 
+    /**
+     *
+     * @return
+     */
     public Optional<String> getRules() {
         return Optional.ofNullable(rules);
     }
 
+    /**
+     *
+     * @return
+     */
     public Map<String, Boolean> getFlags() {
         return flags;
     }

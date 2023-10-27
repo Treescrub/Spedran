@@ -2,6 +2,9 @@ package treescrub.spedran.data.user;
 
 import kong.unirest.json.JSONObject;
 
+/**
+ * Simple class to store name color info.
+ */
 public class NameColor {
     private String light;
     private String dark;

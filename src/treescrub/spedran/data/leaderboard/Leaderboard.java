@@ -8,6 +8,9 @@ import treescrub.spedran.data.run.TimingType;
 
 import java.util.*;
 
+/**
+ *
+ */
 public class Leaderboard extends Resource {
     private String weblink;
     private String game;
@@ -51,46 +54,90 @@ public class Leaderboard extends Resource {
         }
     }
 
+    /**
+     *
+     * @return
+     */
     public String getWeblink() {
         return weblink;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getGame() {
         return game;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getCategory() {
         return category;
     }
 
+    /**
+     *
+     * @return
+     */
     public Optional<String> getLevel() {
         return Optional.ofNullable(level);
     }
 
+    /**
+     *
+     * @return
+     */
     public Optional<String> getPlatform() {
         return Optional.ofNullable(platform);
     }
 
+    /**
+     *
+     * @return
+     */
     public Optional<String> getRegion() {
         return Optional.ofNullable(region);
     }
 
+    /**
+     *
+     * @return
+     */
     public Boolean getEmulators() {
         return emulators;
     }
 
+    /**
+     *
+     * @return
+     */
     public boolean isVideoOnly() {
         return videoOnly;
     }
 
+    /**
+     *
+     * @return
+     */
     public TimingType getTiming() {
         return timing;
     }
 
+    /**
+     *
+     * @return
+     */
     public Map<String, String> getValues() {
         return values;
     }
 
+    /**
+     *
+     * @return
+     */
     public List<LeaderboardRun> getRuns() {
         return runs;
     }

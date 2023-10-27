@@ -7,6 +7,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+/**
+ * Links and primary video text if anything other than single link found.
+ */
 public class RunVideos {
     private String text;
     private List<Link> links;

@@ -9,6 +9,9 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
 
+/**
+ *
+ */
 public class Variable extends IdentifiableNamedResource {
     private String category;
     private VariableScope scope;
@@ -44,34 +47,66 @@ public class Variable extends IdentifiableNamedResource {
         isSubcategory = data.getBoolean("is-subcategory");
     }
 
+    /**
+     *
+     * @return
+     */
     public Optional<String> getCategory() {
         return Optional.ofNullable(category);
     }
 
+    /**
+     *
+     * @return
+     */
     public VariableScope getScope() {
         return scope;
     }
 
+    /**
+     *
+     * @return
+     */
     public boolean isMandatory() {
         return mandatory;
     }
 
+    /**
+     *
+     * @return
+     */
     public boolean isUserDefined() {
         return userDefined;
     }
 
+    /**
+     *
+     * @return
+     */
     public boolean isObsoleting() {
         return obsoletes;
     }
 
+    /**
+     *
+     * @return
+     */
     public Map<String, VariableValue> getValues() {
         return values;
     }
 
+    /**
+     *
+     * @return
+     */
     public Optional<String> getDefaultValue() {
         return Optional.ofNullable(defaultValue);
     }
 
+    /**
+     *
+     * @return
+     */
     public boolean isSubcategory() {
         return isSubcategory;
     }

@@ -4,6 +4,9 @@ import kong.unirest.json.JSONObject;
 
 import java.util.Optional;
 
+/**
+ * Has info about platform and region for a run.
+ */
 public class RunSystem {
     private String platform;
     private boolean emulated;
