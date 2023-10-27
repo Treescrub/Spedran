@@ -28,10 +28,18 @@ public class RunVideos {
         }
     }
 
+    /**
+     *
+     * @return
+     */
     public Optional<String> getText() {
         return Optional.ofNullable(text);
     }
 
+    /**
+     *
+     * @return
+     */
     public List<Link> getLinks() {
         return links;
     }

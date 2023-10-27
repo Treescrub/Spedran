@@ -22,6 +22,16 @@ public class Publisher extends IdentifiableNamedResource {
         super.parseFromJson(data);
     }
 
+    /**
+     *
+     * @return
+     * @see treescrub.spedran.api.Spedran#getPublisher(String)
+     */
+    @Override
+    public String getId() {
+        return super.getId();
+    }
+
     @Override
     public String toString() {
         return "Publisher[" + id + "]{" +

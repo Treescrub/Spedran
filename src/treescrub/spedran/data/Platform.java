@@ -28,6 +28,16 @@ public class Platform extends IdentifiableNamedResource {
     /**
      *
      * @return
+     * @see treescrub.spedran.api.Spedran#getPlatform(String)
+     */
+    @Override
+    public String getId() {
+        return super.getId();
+    }
+
+    /**
+     *
+     * @return
      */
     public int getReleaseYear() {
         return released;

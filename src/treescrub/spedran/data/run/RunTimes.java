@@ -28,18 +28,34 @@ public class RunTimes {
             ingameTime = Duration.parse(data.getString("ingame"));
     }
 
+    /**
+     *
+     * @return
+     */
     public Duration getPrimaryTime() {
         return primaryTime;
     }
 
+    /**
+     *
+     * @return
+     */
     public Optional<Duration> getRealTime() {
         return Optional.ofNullable(realTime);
     }
 
+    /**
+     *
+     * @return
+     */
     public Optional<Duration> getRealNoLoadsTime() {
         return Optional.ofNullable(realNoLoadsTime);
     }
 
+    /**
+     *
+     * @return
+     */
     public Optional<Duration> getIngameTime() {
         return Optional.ofNullable(ingameTime);
     }

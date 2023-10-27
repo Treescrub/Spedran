@@ -176,6 +176,7 @@ public class Game extends IdentifiableResource {
     /**
      *
      * @return
+     * @see treescrub.spedran.api.Spedran#getGametype(String)
      */
     public List<String> getGametypes() {
         return Collections.unmodifiableList(gametypes);
@@ -184,6 +185,7 @@ public class Game extends IdentifiableResource {
     /**
      *
      * @return
+     * @see treescrub.spedran.api.Spedran#getPlatform(String)
      */
     public List<String> getPlatforms() {
         return Collections.unmodifiableList(platforms);
@@ -192,6 +194,7 @@ public class Game extends IdentifiableResource {
     /**
      *
      * @return
+     * @see treescrub.spedran.api.Spedran#getRegion(String)
      */
     public List<String> getRegions() {
         return Collections.unmodifiableList(regions);
@@ -200,6 +203,7 @@ public class Game extends IdentifiableResource {
     /**
      *
      * @return
+     * @see treescrub.spedran.api.Spedran#getGenre(String)
      */
     public List<String> getGenres() {
         return Collections.unmodifiableList(genres);
@@ -208,6 +212,7 @@ public class Game extends IdentifiableResource {
     /**
      *
      * @return
+     * @see treescrub.spedran.api.Spedran#getEngine(String)
      */
     public List<String> getEngines() {
         return Collections.unmodifiableList(engines);
@@ -216,6 +221,7 @@ public class Game extends IdentifiableResource {
     /**
      *
      * @return
+     * @see treescrub.spedran.api.Spedran#getDeveloper(String)
      */
     public List<String> getDevelopers() {
         return Collections.unmodifiableList(developers);
@@ -224,6 +230,7 @@ public class Game extends IdentifiableResource {
     /**
      *
      * @return
+     * @see treescrub.spedran.api.Spedran#getPublisher(String)
      */
     public List<String> getPublishers() {
         return Collections.unmodifiableList(publishers);
@@ -232,6 +239,7 @@ public class Game extends IdentifiableResource {
     /**
      *
      * @return
+     * @see treescrub.spedran.api.Spedran#getUser(String)
      */
     public Map<String, String> getModerators() {
         return Collections.unmodifiableMap(moderators);

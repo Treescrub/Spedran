@@ -22,6 +22,16 @@ public class Gametype extends IdentifiableNamedResource {
         super.parseFromJson(data);
     }
 
+    /**
+     *
+     * @return
+     * @see treescrub.spedran.api.Spedran#getGametype(String)
+     */
+    @Override
+    public String getId() {
+        return super.getId();
+    }
+
     @Override
     public String toString() {
         return "Gametype[" + id + "]{" +

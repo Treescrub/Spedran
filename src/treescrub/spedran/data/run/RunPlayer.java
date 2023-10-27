@@ -27,10 +27,19 @@ public class RunPlayer extends Link {
         }
     }
 
+    /**
+     *
+     * @return
+     */
     public boolean isGuest() {
         return isGuest;
     }
 
+    /**
+     *
+     * @return
+     * @see treescrub.spedran.api.Spedran#getUser(String)
+     */
     public String getId() {
         return id;
     }

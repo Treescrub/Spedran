@@ -52,6 +52,16 @@ public class Series extends IdentifiableResource {
     /**
      *
      * @return
+     * @see treescrub.spedran.api.Spedran#getSingleSeries(String)
+     */
+    @Override
+    public String getId() {
+        return super.getId();
+    }
+
+    /**
+     *
+     * @return
      */
     public Names getNames() {
         return names;

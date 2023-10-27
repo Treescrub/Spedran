@@ -109,6 +109,7 @@ public class Run extends IdentifiableResource {
      * Returns a String containing the ID of this run's game.
      *
      * @return the id of the game this run belongs to
+     * @see treescrub.spedran.api.Spedran#getGame(String)
      */
     public String getGame() {
         return game;
@@ -119,6 +120,7 @@ public class Run extends IdentifiableResource {
      * If this run has no associated level, returns an empty Optional.
      *
      * @return an {@link Optional} with the ID of this run's level
+     * @see treescrub.spedran.api.Spedran#getLevel(String)
      */
     public Optional<String> getLevel() {
         return Optional.ofNullable(level);
@@ -128,6 +130,7 @@ public class Run extends IdentifiableResource {
      * Returns a String containing the ID of this run's category.
      *
      * @return the ID of this run's category
+     * @see treescrub.spedran.api.Spedran#getCategory(String)
      */
     public String getCategory() {
         return category;

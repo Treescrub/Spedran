@@ -8,7 +8,7 @@ import java.util.Optional;
  *
  */
 public class VariableScope {
-    enum ScopeType {
+    public enum ScopeType {
         GLOBAL,
         FULL_GAME,
         ALL_LEVELS,
@@ -47,6 +47,7 @@ public class VariableScope {
     /**
      *
      * @return
+     * @see treescrub.spedran.api.Spedran#getLevel(String)
      */
     public Optional<String> getLevel() {
         return Optional.ofNullable(level);

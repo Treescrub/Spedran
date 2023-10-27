@@ -22,14 +22,28 @@ public class RunSystem {
         region = data.optString("region", null);
     }
 
+    /**
+     *
+     * @return
+     * @see treescrub.spedran.api.Spedran#getPlatform(String)
+     */
     public String getPlatform() {
         return platform;
     }
 
+    /**
+     *
+     * @return
+     */
     public boolean isEmulated() {
         return emulated;
     }
 
+    /**
+     *
+     * @return
+     * @see treescrub.spedran.api.Spedran#getRegion(String)
+     */
     public Optional<String> getRegion() {
         return Optional.ofNullable(region);
     }

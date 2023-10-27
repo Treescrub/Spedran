@@ -8,7 +8,7 @@ import java.util.Optional;
  * Username styling info.
  */
 public class NameStyle {
-    enum Style {
+    public enum Style {
         SOLID,
         GRADIENT,
     }
@@ -32,18 +32,34 @@ public class NameStyle {
         }
     }
 
+    /**
+     *
+     * @return
+     */
     public Style getStyle() {
         return style;
     }
 
+    /**
+     *
+     * @return
+     */
     public Optional<NameColor> getColor() {
         return Optional.ofNullable(color);
     }
 
+    /**
+     *
+     * @return
+     */
     public Optional<NameColor> getStartColor() {
         return Optional.ofNullable(startColor);
     }
 
+    /**
+     *
+     * @return
+     */
     public Optional<NameColor> getEndColor() {
         return Optional.ofNullable(endColor);
     }

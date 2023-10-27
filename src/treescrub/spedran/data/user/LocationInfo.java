@@ -21,10 +21,18 @@ public class LocationInfo {
         names = new Names(data.getJSONObject("names"));
     }
 
+    /**
+     *
+     * @return
+     */
     public String getCode() {
         return code;
     }
 
+    /**
+     *
+     * @return
+     */
     public Names getNames() {
         return names;
     }

@@ -41,6 +41,7 @@ public class RunStatus {
      * Only exists if status is {@link SubmissionStatus#VERIFIED} or {@link SubmissionStatus#REJECTED}.
      *
      * @return an {@link Optional} with the ID of the verifier
+     * @see treescrub.spedran.api.Spedran#getUser(String)
      */
     public Optional<String> getExaminer() {
         return Optional.ofNullable(examiner);

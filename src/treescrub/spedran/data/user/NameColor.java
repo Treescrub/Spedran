@@ -18,10 +18,18 @@ public class NameColor {
         dark = data.getString("dark");
     }
 
+    /**
+     *
+     * @return
+     */
     public String getLight() {
         return light;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getDark() {
         return dark;
     }
