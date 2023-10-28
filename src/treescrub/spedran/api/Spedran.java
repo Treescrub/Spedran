@@ -24,6 +24,7 @@ import java.util.concurrent.CompletableFuture;
 
 public class Spedran {
     /**
+     * Sets the current API key.
      *
      * @param key SRC API key
      */
@@ -32,16 +33,24 @@ public class Spedran {
     }
 
     /**
-     *
+     * Identical to {@link Spedran#clearApiKey()}
      */
     public static void removeApiKey() {
         setApiKey("");
     }
 
     /**
+     * Clears the current API key.
+     */
+    public static void clearApiKey() {
+        removeApiKey();
+    }
+
+    /**
      *
-     * @param id game ID
-     * @return
+     *
+     * @param id ID of the game to get
+     * @return a CompletableFuture of a game
      */
     public static CompletableFuture<Game> getGame(String id) {
         return Requests.getGame(id);
@@ -57,8 +66,8 @@ public class Spedran {
 
     /**
      *
-     * @param id run ID
-     * @return
+     * @param id ID of the run to get
+     * @return a CompletableFuture of a run
      */
     public static CompletableFuture<Run> getRun(String id) {
         return Requests.getRun(id);
@@ -74,8 +83,8 @@ public class Spedran {
 
     /**
      *
-     * @param id category ID
-     * @return
+     * @param id ID of the category to get
+     * @return a CompletableFuture of a category
      */
     public static CompletableFuture<Category> getCategory(String id) {
         return Requests.getCategory(id);
@@ -83,8 +92,8 @@ public class Spedran {
 
     /**
      *
-     * @param id level ID
-     * @return
+     * @param id ID of the level to get
+     * @return a CompletableFuture of a level
      */
     public static CompletableFuture<Level> getLevel(String id) {
         return Requests.getLevel(id);
@@ -92,8 +101,8 @@ public class Spedran {
 
     /**
      *
-     * @param id variable ID
-     * @return
+     * @param id ID of the variable to get
+     * @return a CompletableFuture of a variable
      */
     public static CompletableFuture<Variable> getVariable(String id) {
         return Requests.getVariable(id);
@@ -101,8 +110,8 @@ public class Spedran {
 
     /**
      *
-     * @param id user ID
-     * @return
+     * @param id ID of the user to get
+     * @return a CompletableFuture of a user
      */
     public static CompletableFuture<User> getUser(String id) {
         return Requests.getUser(id);
@@ -118,8 +127,8 @@ public class Spedran {
 
     /**
      *
-     * @param name guest name
-     * @return
+     * @param name name of the guest to get
+     * @return a CompletableFuture of a guest
      */
     public static CompletableFuture<Guest> getGuest(String name) {
         return Requests.getGuest(name);
@@ -127,8 +136,8 @@ public class Spedran {
 
     /**
      *
-     * @param id genre ID
-     * @return
+     * @param id ID of the genre to get
+     * @return a CompletableFuture of a genre
      */
     public static CompletableFuture<Genre> getGenre(String id) {
         return Requests.getGenre(id);
@@ -144,8 +153,8 @@ public class Spedran {
 
     /**
      *
-     * @param id engine ID
-     * @return
+     * @param id ID of the engine to get
+     * @return a CompletableFuture of an engine
      */
     public static CompletableFuture<Engine> getEngine(String id) {
         return Requests.getEngine(id);
@@ -161,8 +170,8 @@ public class Spedran {
 
     /**
      *
-     * @param id gametype ID
-     * @return
+     * @param id ID of the gametype to get
+     * @return a CompletableFuture of a gametype
      */
     public static CompletableFuture<Gametype> getGametype(String id) {
         return Requests.getGametype(id);
@@ -178,8 +187,8 @@ public class Spedran {
 
     /**
      *
-     * @param id developer ID
-     * @return
+     * @param id ID of the developer to get
+     * @return a CompletableFuture of a developer
      */
     public static CompletableFuture<Developer> getDeveloper(String id) {
         return Requests.getDeveloper(id);
@@ -195,8 +204,8 @@ public class Spedran {
 
     /**
      *
-     * @param id region ID
-     * @return
+     * @param id ID of the region to get
+     * @return a CompletableFuture of a region
      */
     public static CompletableFuture<Region> getRegion(String id) {
         return Requests.getRegion(id);
@@ -212,8 +221,8 @@ public class Spedran {
 
     /**
      *
-     * @param id series ID
-     * @return
+     * @param id ID of the series to get
+     * @return a CompletableFuture of a series
      */
     public static CompletableFuture<Series> getSingleSeries(String id) {
         return Requests.getSeries(id);
@@ -229,8 +238,8 @@ public class Spedran {
 
     /**
      *
-     * @param id platform ID
-     * @return
+     * @param id ID of the platform to get
+     * @return a CompletableFuture of a platform
      */
     public static CompletableFuture<Platform> getPlatform(String id) {
         return Requests.getPlatform(id);
@@ -246,8 +255,8 @@ public class Spedran {
 
     /**
      *
-     * @param id publisher ID
-     * @return
+     * @param id ID of the publisher to get
+     * @return a CompletableFuture of a publisher
      */
     public static CompletableFuture<Publisher> getPublisher(String id) {
         return Requests.getPublisher(id);
@@ -263,9 +272,9 @@ public class Spedran {
 
     /**
      *
-     * @param gameId game ID
-     * @param categoryId category ID
-     * @param levelId level ID
+     * @param gameId game ID to filter the leaderboard
+     * @param categoryId category ID to filter the leaderboard
+     * @param levelId level ID to filter the leaderboard
      * @return
      */
     public static LeaderboardRequest getLeaderboard(String gameId, String categoryId, String levelId) {
@@ -274,8 +283,8 @@ public class Spedran {
 
     /**
      *
-     * @param gameId game ID
-     * @param categoryId category ID
+     * @param gameId game ID to filter the leaderboard
+     * @param categoryId category ID to filter the leaderboard
      * @return
      */
     public static LeaderboardRequest getLeaderboard(String gameId, String categoryId) {
@@ -284,9 +293,9 @@ public class Spedran {
 
     /**
      *
-     * @param game game
-     * @param category category
-     * @param level level
+     * @param game game filter
+     * @param category category filter
+     * @param level level filter
      * @return
      */
     public static LeaderboardRequest getLeaderboard(Game game, Category category, Level level) {
@@ -295,8 +304,8 @@ public class Spedran {
 
     /**
      *
-     * @param game game
-     * @param category category
+     * @param game game filter
+     * @param category category filter
      * @return
      */
     public static LeaderboardRequest getLeaderboard(Game game, Category category) {

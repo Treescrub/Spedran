@@ -111,7 +111,7 @@ public class Game extends IdentifiableResource {
 
     /**
      *
-     * @return
+     * @return a Names describing this game's names
      */
     public Names getNames() {
         return names;
@@ -119,7 +119,9 @@ public class Game extends IdentifiableResource {
 
     /**
      *
-     * @return
+     *
+     * @return times this game has been boosted
+     * @see <a href="https://www.speedrun.com/supporter/faq">SRC Supporter FAQ</a>
      */
     public Integer getBoostsReceived() {
         return boostReceived;
@@ -127,7 +129,9 @@ public class Game extends IdentifiableResource {
 
     /**
      *
-     * @return
+     *
+     * @return total unique users that have boosted this game
+     * @see <a href="https://www.speedrun.com/supporter/faq">SRC Supporter FAQ</a>
      */
     public Integer getDistinctBoosters() {
         return boostDistinctDonors;
@@ -135,7 +139,7 @@ public class Game extends IdentifiableResource {
 
     /**
      *
-     * @return
+     * @return the shortened game title
      */
     public String getAbbreviation() {
         return abbreviation;
@@ -143,7 +147,8 @@ public class Game extends IdentifiableResource {
 
     /**
      *
-     * @return
+     *
+     * @return a link to this game on SRC
      */
     public String getWebLink() {
         return weblink;
@@ -151,7 +156,7 @@ public class Game extends IdentifiableResource {
 
     /**
      *
-     * @return
+     * @return an {@link Optional} with an invitation link to this game's Discord server
      */
     public Optional<String> getDiscordLink() {
         return Optional.ofNullable(discord);
@@ -159,7 +164,7 @@ public class Game extends IdentifiableResource {
 
     /**
      *
-     * @return
+     * @return a LocalDate describing when this game was released
      */
     public LocalDate getReleaseDate() {
         return releaseDate;
@@ -167,7 +172,7 @@ public class Game extends IdentifiableResource {
 
     /**
      *
-     * @return
+     * @return an {@link Optional} with a {@link GameRuleset}
      */
     public Optional<GameRuleset> getRuleset() {
         return Optional.ofNullable(ruleset);
@@ -175,7 +180,7 @@ public class Game extends IdentifiableResource {
 
     /**
      *
-     * @return
+     * @return a List of gametype IDs
      * @see treescrub.spedran.api.Spedran#getGametype(String)
      */
     public List<String> getGametypes() {
@@ -184,7 +189,7 @@ public class Game extends IdentifiableResource {
 
     /**
      *
-     * @return
+     * @return a List of platform IDs
      * @see treescrub.spedran.api.Spedran#getPlatform(String)
      */
     public List<String> getPlatforms() {
@@ -193,7 +198,7 @@ public class Game extends IdentifiableResource {
 
     /**
      *
-     * @return
+     * @return a List of region IDs
      * @see treescrub.spedran.api.Spedran#getRegion(String)
      */
     public List<String> getRegions() {
@@ -202,7 +207,7 @@ public class Game extends IdentifiableResource {
 
     /**
      *
-     * @return
+     * @return a List of genre IDs
      * @see treescrub.spedran.api.Spedran#getGenre(String)
      */
     public List<String> getGenres() {
@@ -211,7 +216,7 @@ public class Game extends IdentifiableResource {
 
     /**
      *
-     * @return
+     * @return a List of engine IDs
      * @see treescrub.spedran.api.Spedran#getEngine(String)
      */
     public List<String> getEngines() {
@@ -220,7 +225,7 @@ public class Game extends IdentifiableResource {
 
     /**
      *
-     * @return
+     * @return a List of developer IDs
      * @see treescrub.spedran.api.Spedran#getDeveloper(String)
      */
     public List<String> getDevelopers() {
@@ -229,7 +234,7 @@ public class Game extends IdentifiableResource {
 
     /**
      *
-     * @return
+     * @return a List of publisher IDs
      * @see treescrub.spedran.api.Spedran#getPublisher(String)
      */
     public List<String> getPublishers() {
@@ -238,7 +243,7 @@ public class Game extends IdentifiableResource {
 
     /**
      *
-     * @return
+     * @return a Map of user IDs to moderator types
      * @see treescrub.spedran.api.Spedran#getUser(String)
      */
     public Map<String, String> getModerators() {
@@ -247,7 +252,7 @@ public class Game extends IdentifiableResource {
 
     /**
      *
-     * @return
+     * @return an {@link Optional} Instant describing when this game was added to SRC
      */
     public Optional<Instant> getCreationTime() {
         return Optional.ofNullable(created);
