@@ -19,6 +19,7 @@ public class GameRecordsRequest extends ResourceCollectionRequest<Leaderboard> {
     }
 
     public GameRecordsRequest top(int topPlaces) {
+        topPlaces = Math.max(topPlaces, 1);
         setParameter("top", topPlaces);
         return this;
     }
