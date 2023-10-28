@@ -18,16 +18,36 @@ public class CategoryRecordsRequest extends ResourceCollectionRequest<Leaderboar
         this(category.getId());
     }
 
+    /**
+     * Sets number of places to return.
+     * Starts from 1st place with {@code 1}.
+     * Must be >= {@code 1}.
+     * <p>
+     * This will return more than {@code value} runs per leaderboard if there are ties.
+     *
+     * @param value the top places to filter for
+     * @return
+     */
     public CategoryRecordsRequest topPlaces(int value) {
         setParameter("top", value);
         return this;
     }
 
+    /**
+     * Skips leaderboards if they do not contain any runs.
+     *
+     * @return this object
+     */
     public CategoryRecordsRequest skipEmptyResults() {
         setParameter("skip-empty", true);
         return this;
     }
 
+    /**
+     * Keeps all leaderboards in the results, regardless of whether they have any runs.
+     *
+     * @return this object
+     */
     public CategoryRecordsRequest keepEmptyResults() {
         setParameter("skip-empty", false);
         return this;
