@@ -20,15 +20,14 @@ public class CategoryRecordsRequest extends ResourceCollectionRequest<Leaderboar
 
     /**
      * Sets number of places to return.
-     * Starts from 1st place with {@code 1}.
-     * Must be >= {@code 1}.
      * <p>
      * This will return more than {@code value} runs per leaderboard if there are ties.
      *
-     * @param value the top places to filter for
-     * @return
+     * @param value the top places to filter for, clamped to {@code >= 1}
+     * @return this object
      */
     public CategoryRecordsRequest topPlaces(int value) {
+        value = Math.max(value, 1);
         setParameter("top", value);
         return this;
     }
