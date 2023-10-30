@@ -251,6 +251,9 @@ public class Game extends IdentifiableResource {
     }
 
     /**
+     * Returns an Instant with the exact time this game was added to SRC.
+     * <p>
+     * Games added before this field was implemented will return an empty Optional.
      *
      * @return an {@link Optional} Instant describing when this game was added to SRC
      */
