@@ -32,6 +32,7 @@ import treescrub.spedran.requests.Requests;
 
 import java.util.concurrent.CompletableFuture;
 
+@SuppressWarnings("unused")
 public class Spedran {
     /**
      * Sets the current API key.
