@@ -1,16 +1,26 @@
 package treescrub.spedran.api;
 
+import treescrub.spedran.api.request.category.CategoryRecordsRequest;
+import treescrub.spedran.api.request.category.CategoryVariablesRequest;
 import treescrub.spedran.api.request.developer.DevelopersRequest;
 import treescrub.spedran.api.request.engine.EnginesRequest;
-import treescrub.spedran.api.request.game.GamesRequest;
+import treescrub.spedran.api.request.game.*;
 import treescrub.spedran.api.request.gametype.GametypesRequest;
 import treescrub.spedran.api.request.genre.GenresRequest;
 import treescrub.spedran.api.request.leaderboard.LeaderboardRequest;
+import treescrub.spedran.api.request.level.LevelCategoriesRequest;
+import treescrub.spedran.api.request.level.LevelRecordsRequest;
+import treescrub.spedran.api.request.level.LevelVariablesRequest;
 import treescrub.spedran.api.request.platform.PlatformsRequest;
 import treescrub.spedran.api.request.publisher.PublishersRequest;
 import treescrub.spedran.api.request.region.RegionsRequest;
+import treescrub.spedran.api.request.run.DeleteRunRequest;
+import treescrub.spedran.api.request.run.RunPlayersRequest;
+import treescrub.spedran.api.request.run.RunStatusRequest;
 import treescrub.spedran.api.request.run.RunsRequest;
 import treescrub.spedran.api.request.series.AllSeriesRequest;
+import treescrub.spedran.api.request.series.SeriesGamesRequest;
+import treescrub.spedran.api.request.user.UserPBsRequest;
 import treescrub.spedran.api.request.user.UsersRequest;
 import treescrub.spedran.data.*;
 import treescrub.spedran.data.category.Category;
@@ -58,6 +68,51 @@ public class Spedran {
 
     /**
      *
+     * @param gameId
+     * @return
+     */
+    public static GameCategoriesRequest getGameCategories(String gameId) {
+        return Requests.getGameCategories(gameId);
+    }
+
+    /**
+     *
+     * @param gameId
+     * @return
+     */
+    public static GameLevelsRequest getGameLevels(String gameId) {
+        return Requests.getGameLevels(gameId);
+    }
+
+    /**
+     *
+     * @param gameId
+     * @return
+     */
+    public static GameRecordsRequest getGameRecords(String gameId) {
+        return Requests.getGameRecords(gameId);
+    }
+
+    /**
+     *
+     * @param gameId
+     * @return
+     */
+    public static GameRomhacksRequest getGameRomhacks(String gameId) {
+        return Requests.getGameRomhacks(gameId);
+    }
+
+    /**
+     *
+     * @param gameId
+     * @return
+     */
+    public static GameVariablesRequest getGameVariables(String gameId) {
+        return Requests.getGameVariables(gameId);
+    }
+
+    /**
+     *
      * @return
      */
     public static GamesRequest getGames() {
@@ -71,6 +126,34 @@ public class Spedran {
      */
     public static CompletableFuture<Run> getRun(String id) {
         return Requests.getRun(id);
+    }
+
+    /**
+     *
+     * @param runId
+     * @param apiKey
+     * @return
+     */
+    public static DeleteRunRequest deleteRun(String runId, String apiKey) {
+        return Requests.deleteRun(runId, apiKey);
+    }
+
+    /**
+     *
+     * @param runId
+     * @return
+     */
+    public static RunPlayersRequest getRunPlayers(String runId) {
+        return Requests.getRunPlayers(runId);
+    }
+
+    /**
+     *
+     * @param runId
+     * @return
+     */
+    public static RunStatusRequest setRunStatus(String runId) {
+        return Requests.setRunStatus(runId);
     }
 
     /**
@@ -92,11 +175,56 @@ public class Spedran {
 
     /**
      *
+     * @param categoryId
+     * @return
+     */
+    public static CategoryRecordsRequest getCategoryRecords(String categoryId) {
+        return Requests.getCategoryRecords(categoryId);
+    }
+
+    /**
+     *
+     * @param categoryId
+     * @return
+     */
+    public static CategoryVariablesRequest getCategoryVariables(String categoryId) {
+        return Requests.getCategoryVariables(categoryId);
+    }
+
+    /**
+     *
      * @param id ID of the level to get
      * @return a CompletableFuture of a level
      */
     public static CompletableFuture<Level> getLevel(String id) {
         return Requests.getLevel(id);
+    }
+
+    /**
+     *
+     * @param levelId
+     * @return
+     */
+    public static LevelCategoriesRequest getLevelCategories(String levelId) {
+        return Requests.getLevelCategories(levelId);
+    }
+
+    /**
+     *
+     * @param levelId
+     * @return
+     */
+    public static LevelRecordsRequest getLevelRecords(String levelId) {
+        return Requests.getLevelRecords(levelId);
+    }
+
+    /**
+     *
+     * @param levelId
+     * @return
+     */
+    public static LevelVariablesRequest getLevelVariables(String levelId) {
+        return Requests.getLevelVariables(levelId);
     }
 
     /**
@@ -123,6 +251,15 @@ public class Spedran {
      */
     public static UsersRequest getUsers() {
         return Requests.getUsers();
+    }
+
+    /**
+     *
+     * @param userId
+     * @return
+     */
+    public static UserPBsRequest getUserPBs(String userId) {
+        return Requests.getUserPBs(userId);
     }
 
     /**
@@ -226,6 +363,15 @@ public class Spedran {
      */
     public static CompletableFuture<Series> getSingleSeries(String id) {
         return Requests.getSeries(id);
+    }
+
+    /**
+     *
+     * @param seriesId
+     * @return
+     */
+    public static SeriesGamesRequest getSeriesGames(String seriesId) {
+        return Requests.getSeriesGames(seriesId);
     }
 
     /**

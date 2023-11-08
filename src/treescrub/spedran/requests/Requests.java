@@ -1,17 +1,27 @@
 package treescrub.spedran.requests;
 
 import kong.unirest.*;
+import treescrub.spedran.api.request.category.CategoryRecordsRequest;
+import treescrub.spedran.api.request.category.CategoryVariablesRequest;
 import treescrub.spedran.api.request.developer.DevelopersRequest;
 import treescrub.spedran.api.request.engine.EnginesRequest;
-import treescrub.spedran.api.request.game.GamesRequest;
+import treescrub.spedran.api.request.game.*;
 import treescrub.spedran.api.request.gametype.GametypesRequest;
 import treescrub.spedran.api.request.genre.GenresRequest;
 import treescrub.spedran.api.request.leaderboard.LeaderboardRequest;
+import treescrub.spedran.api.request.level.LevelCategoriesRequest;
+import treescrub.spedran.api.request.level.LevelRecordsRequest;
+import treescrub.spedran.api.request.level.LevelVariablesRequest;
 import treescrub.spedran.api.request.platform.PlatformsRequest;
 import treescrub.spedran.api.request.publisher.PublishersRequest;
 import treescrub.spedran.api.request.region.RegionsRequest;
+import treescrub.spedran.api.request.run.DeleteRunRequest;
+import treescrub.spedran.api.request.run.RunPlayersRequest;
+import treescrub.spedran.api.request.run.RunStatusRequest;
 import treescrub.spedran.api.request.run.RunsRequest;
 import treescrub.spedran.api.request.series.AllSeriesRequest;
+import treescrub.spedran.api.request.series.SeriesGamesRequest;
+import treescrub.spedran.api.request.user.UserPBsRequest;
 import treescrub.spedran.api.request.user.UsersRequest;
 import treescrub.spedran.data.*;
 import treescrub.spedran.data.category.Category;
@@ -82,6 +92,26 @@ public class Requests {
         return getSingleSimpleObject(request, Game::new);
     }
 
+    public static GameCategoriesRequest getGameCategories(String gameId) {
+        return new GameCategoriesRequest(gameId);
+    }
+
+    public static GameLevelsRequest getGameLevels(String gameId) {
+        return new GameLevelsRequest(gameId);
+    }
+
+    public static GameRecordsRequest getGameRecords(String gameId) {
+        return new GameRecordsRequest(gameId);
+    }
+
+    public static GameRomhacksRequest getGameRomhacks(String gameId) {
+        return new GameRomhacksRequest(gameId);
+    }
+
+    public static GameVariablesRequest getGameVariables(String gameId) {
+        return new GameVariablesRequest(gameId);
+    }
+
     public static GamesRequest getGames() {
         return new GamesRequest();
     }
@@ -92,10 +122,30 @@ public class Requests {
         return getSingleSimpleObject(request, Level::new);
     }
 
+    public static LevelCategoriesRequest getLevelCategories(String levelId) {
+        return new LevelCategoriesRequest(levelId);
+    }
+
+    public static LevelRecordsRequest getLevelRecords(String levelId) {
+        return new LevelRecordsRequest(levelId);
+    }
+
+    public static LevelVariablesRequest getLevelVariables(String levelId) {
+        return new LevelVariablesRequest(levelId);
+    }
+
     public static CompletableFuture<Category> getCategory(String id) {
         GetRequest request = getSimpleResourceRequest(RESOURCE_CATEGORIES, id, new HashMap<>());
 
         return getSingleSimpleObject(request, Category::new);
+    }
+
+    public static CategoryRecordsRequest getCategoryRecords(String categoryId) {
+        return new CategoryRecordsRequest(categoryId);
+    }
+
+    public static CategoryVariablesRequest getCategoryVariables(String categoryId) {
+        return new CategoryVariablesRequest(categoryId);
     }
 
     public static CompletableFuture<Platform> getPlatform(String id) {
@@ -164,6 +214,18 @@ public class Requests {
         return getSingleSimpleObject(request, Run::new);
     }
 
+    public static DeleteRunRequest deleteRun(String runId, String apiKey) {
+        return new DeleteRunRequest(runId, apiKey);
+    }
+
+    public static RunPlayersRequest getRunPlayers(String runId) {
+        return new RunPlayersRequest(runId);
+    }
+
+    public static RunStatusRequest setRunStatus(String runId) {
+        return new RunStatusRequest(runId);
+    }
+
     public static RunsRequest getRuns() {
         return new RunsRequest();
     }
@@ -172,6 +234,10 @@ public class Requests {
         GetRequest request = getSimpleResourceRequest(RESOURCE_SERIES, id, new HashMap<>());
 
         return getSingleSimpleObject(request, Series::new);
+    }
+
+    public static SeriesGamesRequest getSeriesGames(String seriesId) {
+        return new SeriesGamesRequest(seriesId);
     }
 
     public static AllSeriesRequest getSeries() {
@@ -186,6 +252,10 @@ public class Requests {
 
     public static UsersRequest getUsers() {
         return new UsersRequest();
+    }
+
+    public static UserPBsRequest getUserPBs(String userId) {
+        return new UserPBsRequest(userId);
     }
 
     public static CompletableFuture<Variable> getVariable(String id) {
