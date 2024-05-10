@@ -1,27 +1,21 @@
 package treescrub.spedran.api;
 
-import treescrub.spedran.api.request.category.CategoryRecordsRequest;
-import treescrub.spedran.api.request.category.CategoryVariablesRequest;
-import treescrub.spedran.api.request.developer.DevelopersRequest;
-import treescrub.spedran.api.request.engine.EnginesRequest;
+import treescrub.spedran.api.request.category.*;
+import treescrub.spedran.api.request.developer.*;
+import treescrub.spedran.api.request.engine.*;
 import treescrub.spedran.api.request.game.*;
-import treescrub.spedran.api.request.gametype.GametypesRequest;
-import treescrub.spedran.api.request.genre.GenresRequest;
+import treescrub.spedran.api.request.gametype.*;
+import treescrub.spedran.api.request.genre.*;
+import treescrub.spedran.api.request.guest.GuestRequest;
 import treescrub.spedran.api.request.leaderboard.LeaderboardRequest;
-import treescrub.spedran.api.request.level.LevelCategoriesRequest;
-import treescrub.spedran.api.request.level.LevelRecordsRequest;
-import treescrub.spedran.api.request.level.LevelVariablesRequest;
-import treescrub.spedran.api.request.platform.PlatformsRequest;
-import treescrub.spedran.api.request.publisher.PublishersRequest;
-import treescrub.spedran.api.request.region.RegionsRequest;
-import treescrub.spedran.api.request.run.DeleteRunRequest;
-import treescrub.spedran.api.request.run.RunPlayersRequest;
-import treescrub.spedran.api.request.run.RunStatusRequest;
-import treescrub.spedran.api.request.run.RunsRequest;
-import treescrub.spedran.api.request.series.AllSeriesRequest;
-import treescrub.spedran.api.request.series.SeriesGamesRequest;
-import treescrub.spedran.api.request.user.UserPBsRequest;
-import treescrub.spedran.api.request.user.UsersRequest;
+import treescrub.spedran.api.request.level.*;
+import treescrub.spedran.api.request.platform.*;
+import treescrub.spedran.api.request.publisher.*;
+import treescrub.spedran.api.request.region.*;
+import treescrub.spedran.api.request.run.*;
+import treescrub.spedran.api.request.series.*;
+import treescrub.spedran.api.request.user.*;
+import treescrub.spedran.api.request.variable.VariableRequest;
 import treescrub.spedran.data.*;
 import treescrub.spedran.data.category.Category;
 import treescrub.spedran.data.game.Game;
@@ -64,7 +58,7 @@ public class Spedran {
      * @return a CompletableFuture of a game
      */
     public static CompletableFuture<Game> getGame(String id) {
-        return Requests.getGame(id);
+        return new GameRequest(id).complete();
     }
 
     /**
@@ -73,7 +67,7 @@ public class Spedran {
      * @return
      */
     public static GameCategoriesRequest getGameCategories(String gameId) {
-        return Requests.getGameCategories(gameId);
+        return new GameCategoriesRequest(gameId);
     }
 
     /**
@@ -82,7 +76,7 @@ public class Spedran {
      * @return
      */
     public static GameLevelsRequest getGameLevels(String gameId) {
-        return Requests.getGameLevels(gameId);
+        return new GameLevelsRequest(gameId);
     }
 
     /**
@@ -91,7 +85,7 @@ public class Spedran {
      * @return
      */
     public static GameRecordsRequest getGameRecords(String gameId) {
-        return Requests.getGameRecords(gameId);
+        return new GameRecordsRequest(gameId);
     }
 
     /**
@@ -100,7 +94,7 @@ public class Spedran {
      * @return
      */
     public static GameRomhacksRequest getGameRomhacks(String gameId) {
-        return Requests.getGameRomhacks(gameId);
+        return new GameRomhacksRequest(gameId);
     }
 
     /**
@@ -109,7 +103,7 @@ public class Spedran {
      * @return
      */
     public static GameVariablesRequest getGameVariables(String gameId) {
-        return Requests.getGameVariables(gameId);
+        return new GameVariablesRequest(gameId);
     }
 
     /**
@@ -117,7 +111,7 @@ public class Spedran {
      * @return
      */
     public static GamesRequest getGames() {
-        return Requests.getGames();
+        return new GamesRequest();
     }
 
     /**
@@ -126,7 +120,7 @@ public class Spedran {
      * @return a CompletableFuture of a run
      */
     public static CompletableFuture<Run> getRun(String id) {
-        return Requests.getRun(id);
+        return new RunRequest(id).complete();
     }
 
     /**
@@ -136,7 +130,7 @@ public class Spedran {
      * @return
      */
     public static DeleteRunRequest deleteRun(String runId, String apiKey) {
-        return Requests.deleteRun(runId, apiKey);
+        return new DeleteRunRequest(runId, apiKey);
     }
 
     /**
@@ -145,7 +139,7 @@ public class Spedran {
      * @return
      */
     public static RunPlayersRequest getRunPlayers(String runId) {
-        return Requests.getRunPlayers(runId);
+        return new RunPlayersRequest(runId);
     }
 
     /**
@@ -154,7 +148,7 @@ public class Spedran {
      * @return
      */
     public static RunStatusRequest setRunStatus(String runId) {
-        return Requests.setRunStatus(runId);
+        return new RunStatusRequest(runId);
     }
 
     /**
@@ -162,7 +156,7 @@ public class Spedran {
      * @return
      */
     public static RunsRequest getRuns() {
-        return Requests.getRuns();
+        return new RunsRequest();
     }
 
     /**
@@ -171,7 +165,7 @@ public class Spedran {
      * @return a CompletableFuture of a category
      */
     public static CompletableFuture<Category> getCategory(String id) {
-        return Requests.getCategory(id);
+        return new CategoryRequest(id).complete();
     }
 
     /**
@@ -180,7 +174,7 @@ public class Spedran {
      * @return
      */
     public static CategoryRecordsRequest getCategoryRecords(String categoryId) {
-        return Requests.getCategoryRecords(categoryId);
+        return new CategoryRecordsRequest(categoryId);
     }
 
     /**
@@ -189,7 +183,7 @@ public class Spedran {
      * @return
      */
     public static CategoryVariablesRequest getCategoryVariables(String categoryId) {
-        return Requests.getCategoryVariables(categoryId);
+        return new CategoryVariablesRequest(categoryId);
     }
 
     /**
@@ -198,7 +192,7 @@ public class Spedran {
      * @return a CompletableFuture of a level
      */
     public static CompletableFuture<Level> getLevel(String id) {
-        return Requests.getLevel(id);
+        return new LevelRequest(id).complete();
     }
 
     /**
@@ -207,7 +201,7 @@ public class Spedran {
      * @return
      */
     public static LevelCategoriesRequest getLevelCategories(String levelId) {
-        return Requests.getLevelCategories(levelId);
+        return new LevelCategoriesRequest(levelId);
     }
 
     /**
@@ -216,7 +210,7 @@ public class Spedran {
      * @return
      */
     public static LevelRecordsRequest getLevelRecords(String levelId) {
-        return Requests.getLevelRecords(levelId);
+        return new LevelRecordsRequest(levelId);
     }
 
     /**
@@ -225,7 +219,7 @@ public class Spedran {
      * @return
      */
     public static LevelVariablesRequest getLevelVariables(String levelId) {
-        return Requests.getLevelVariables(levelId);
+        return new LevelVariablesRequest(levelId);
     }
 
     /**
@@ -234,7 +228,7 @@ public class Spedran {
      * @return a CompletableFuture of a variable
      */
     public static CompletableFuture<Variable> getVariable(String id) {
-        return Requests.getVariable(id);
+        return new VariableRequest(id).complete();
     }
 
     /**
@@ -243,7 +237,7 @@ public class Spedran {
      * @return a CompletableFuture of a user
      */
     public static CompletableFuture<User> getUser(String id) {
-        return Requests.getUser(id);
+        return new UserRequest(id).complete();
     }
 
     /**
@@ -251,7 +245,7 @@ public class Spedran {
      * @return
      */
     public static UsersRequest getUsers() {
-        return Requests.getUsers();
+        return new UsersRequest();
     }
 
     /**
@@ -260,7 +254,7 @@ public class Spedran {
      * @return
      */
     public static UserPBsRequest getUserPBs(String userId) {
-        return Requests.getUserPBs(userId);
+        return new UserPBsRequest(userId);
     }
 
     /**
@@ -269,7 +263,7 @@ public class Spedran {
      * @return a CompletableFuture of a guest
      */
     public static CompletableFuture<Guest> getGuest(String name) {
-        return Requests.getGuest(name);
+        return new GuestRequest(name).complete();
     }
 
     /**
@@ -278,7 +272,7 @@ public class Spedran {
      * @return a CompletableFuture of a genre
      */
     public static CompletableFuture<Genre> getGenre(String id) {
-        return Requests.getGenre(id);
+        return new GenreRequest(id).complete();
     }
 
     /**
@@ -286,7 +280,7 @@ public class Spedran {
      * @return
      */
     public static GenresRequest getGenres() {
-        return Requests.getGenres();
+        return new GenresRequest();
     }
 
     /**
@@ -295,7 +289,7 @@ public class Spedran {
      * @return a CompletableFuture of an engine
      */
     public static CompletableFuture<Engine> getEngine(String id) {
-        return Requests.getEngine(id);
+        return new EngineRequest(id).complete();
     }
 
     /**
@@ -303,7 +297,7 @@ public class Spedran {
      * @return
      */
     public static EnginesRequest getEngines() {
-        return Requests.getEngines();
+        return new EnginesRequest();
     }
 
     /**
@@ -312,7 +306,7 @@ public class Spedran {
      * @return a CompletableFuture of a gametype
      */
     public static CompletableFuture<Gametype> getGametype(String id) {
-        return Requests.getGametype(id);
+        return new GametypeRequest(id).complete();
     }
 
     /**
@@ -320,7 +314,7 @@ public class Spedran {
      * @return
      */
     public static GametypesRequest getGametypes() {
-        return Requests.getGametypes();
+        return new GametypesRequest();
     }
 
     /**
@@ -329,7 +323,7 @@ public class Spedran {
      * @return a CompletableFuture of a developer
      */
     public static CompletableFuture<Developer> getDeveloper(String id) {
-        return Requests.getDeveloper(id);
+        return new DeveloperRequest(id).complete();
     }
 
     /**
@@ -337,7 +331,7 @@ public class Spedran {
      * @return
      */
     public static DevelopersRequest getDevelopers() {
-        return Requests.getDevelopers();
+        return new DevelopersRequest();
     }
 
     /**
@@ -346,7 +340,7 @@ public class Spedran {
      * @return a CompletableFuture of a region
      */
     public static CompletableFuture<Region> getRegion(String id) {
-        return Requests.getRegion(id);
+        return new RegionRequest(id).complete();
     }
 
     /**
@@ -354,7 +348,7 @@ public class Spedran {
      * @return
      */
     public static RegionsRequest getRegions() {
-        return Requests.getRegions();
+        return new RegionsRequest();
     }
 
     /**
@@ -363,7 +357,7 @@ public class Spedran {
      * @return a CompletableFuture of a series
      */
     public static CompletableFuture<Series> getSingleSeries(String id) {
-        return Requests.getSeries(id);
+        return new SingleSeriesRequest(id).complete();
     }
 
     /**
@@ -372,7 +366,7 @@ public class Spedran {
      * @return
      */
     public static SeriesGamesRequest getSeriesGames(String seriesId) {
-        return Requests.getSeriesGames(seriesId);
+        return new SeriesGamesRequest(seriesId);
     }
 
     /**
@@ -380,7 +374,7 @@ public class Spedran {
      * @return
      */
     public static AllSeriesRequest getMultipleSeries() {
-        return Requests.getSeries();
+        return new AllSeriesRequest();
     }
 
     /**
@@ -389,7 +383,7 @@ public class Spedran {
      * @return a CompletableFuture of a platform
      */
     public static CompletableFuture<Platform> getPlatform(String id) {
-        return Requests.getPlatform(id);
+        return new PlatformRequest(id).complete();
     }
 
     /**
@@ -397,7 +391,7 @@ public class Spedran {
      * @return
      */
     public static PlatformsRequest getPlatforms() {
-        return Requests.getPlatforms();
+        return new PlatformsRequest();
     }
 
     /**
@@ -406,7 +400,7 @@ public class Spedran {
      * @return a CompletableFuture of a publisher
      */
     public static CompletableFuture<Publisher> getPublisher(String id) {
-        return Requests.getPublisher(id);
+        return new PublisherRequest(id).complete();
     }
 
     /**
@@ -414,7 +408,7 @@ public class Spedran {
      * @return
      */
     public static PublishersRequest getPublishers() {
-        return Requests.getPublishers();
+        return new PublishersRequest();
     }
 
     /**
@@ -425,7 +419,7 @@ public class Spedran {
      * @return
      */
     public static LeaderboardRequest getLeaderboard(String gameId, String categoryId, String levelId) {
-        return Requests.getLeaderboard(gameId, categoryId, levelId);
+        return new LeaderboardRequest(gameId, categoryId, levelId);
     }
 
     /**
@@ -435,7 +429,7 @@ public class Spedran {
      * @return
      */
     public static LeaderboardRequest getLeaderboard(String gameId, String categoryId) {
-        return Requests.getLeaderboard(gameId, categoryId);
+        return new LeaderboardRequest(gameId, categoryId);
     }
 
     /**
@@ -446,7 +440,7 @@ public class Spedran {
      * @return
      */
     public static LeaderboardRequest getLeaderboard(Game game, Category category, Level level) {
-        return Requests.getLeaderboard(game, category, level);
+        return new LeaderboardRequest(game, category, level);
     }
 
     /**
@@ -456,6 +450,6 @@ public class Spedran {
      * @return
      */
     public static LeaderboardRequest getLeaderboard(Game game, Category category) {
-        return Requests.getLeaderboard(game, category);
+        return new LeaderboardRequest(game, category);
     }
 }
