@@ -4,6 +4,8 @@ import kong.unirest.*;
 import kong.unirest.json.JSONArray;
 import kong.unirest.json.JSONObject;
 import treescrub.spedran.data.Resource;
+import treescrub.spedran.requests.RequestQueue;
+import treescrub.spedran.requests.Requests;
 
 import java.util.ArrayList;
 import java.util.LinkedHashSet;
@@ -14,6 +16,7 @@ import java.util.function.Function;
 
 public abstract class ResourceCollectionRequest<T extends Resource> extends ResourceRequest<List<T>> {
     private static final int MAX_ITEMS = 200;
+    private List<JsonNode> responseBodies = new ArrayList<>();
 
     protected ResourceCollectionRequest(HttpMethod method, String url, Map<String, Object> routeParameters) {
         super(method, url, routeParameters);
@@ -24,9 +27,7 @@ public abstract class ResourceCollectionRequest<T extends Resource> extends Reso
         this(method, url, Map.of());
     }
 
-    protected static String extractPaginationLink(HttpResponse<JsonNode> response) {
-        JSONObject body = response.getBody().getObject();
-
+    protected static String extractPaginationLink(JSONObject body) {
         if (!body.has("pagination"))
             return null;
 
@@ -46,14 +47,14 @@ public abstract class ResourceCollectionRequest<T extends Resource> extends Reso
         return new ArrayList<>(new LinkedHashSet<>(resources));
     }
 
-    private static <T extends Resource> List<T> collectResources(PagedList<JsonNode> pagedList, Function<JSONObject, T> constructor) {
+    private List<T> collectResources() {
         List<T> resources = new ArrayList<>();
 
-        for(JsonNode body : pagedList.getBodies()) {
+        for(JsonNode body : responseBodies) {
             JSONArray data = body.getObject().getJSONArray("data");
 
             for(Object element : data) {
-                resources.add(constructor.apply((JSONObject) element));
+                resources.add(getConstructor().apply((JSONObject) element));
             }
         }
 
@@ -67,13 +68,31 @@ public abstract class ResourceCollectionRequest<T extends Resource> extends Reso
     }
 
     @Override
+    public void finishRequest(Object body) {
+        JsonNode jsonBody = ((JsonNode) body);
+        responseBodies.add(jsonBody);
+        String nextLink = extractPaginationLink(jsonBody.getObject());
+
+        if(nextLink == null) {
+            completed = true;
+            result.complete(collectResources());
+            return;
+        }
+
+        request = Requests.getUnirestInstance().request(request.getHttpMethod().name(), nextLink);
+    }
+
+    @Override
+    public HttpResponse<?> executeBlocking() {
+        return request.asJson();
+    }
+
+    @Override
     public CompletableFuture<List<T>> complete() {
         applyQueryParameters();
-        return CompletableFuture.supplyAsync(() -> {
-            PagedList<JsonNode> resources = request.asPaged(HttpRequest::asJson, ResourceCollectionRequest::extractPaginationLink);
+        RequestQueue.queueRequest(this);
 
-            return collectResources(resources, getConstructor());
-        });
+        return result;
     }
 
     protected void setSortParameter(String sortParameter) {

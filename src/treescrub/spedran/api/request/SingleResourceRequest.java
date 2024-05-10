@@ -32,8 +32,9 @@ public abstract class SingleResourceRequest<T> extends ResourceRequest<T> {
     }
 
     @Override
-    public void finishRequest(Object contents) {
-        result.complete(parse(((JsonNode) contents).getObject()));
+    public void finishRequest(Object body) {
+        completed = true;
+        result.complete(parse(((JsonNode) body).getObject()));
     }
 
     protected abstract T parse(JSONObject data);

@@ -35,6 +35,8 @@ public class RequestQueue {
     public static void queueRequest(ResourceRequest<?> request) {
         requestQueue.add(request);
 
+        logger.debug("Request {} submitted to queue", request.getRequest().toSummary().asString());
+
         queueExecutor.submit(RequestQueue::executeUntilEmpty);
     }
 
@@ -46,6 +48,8 @@ public class RequestQueue {
 
         while(currentRequest != null) {
             if(shouldRateLimit()) {
+                logger.debug("Sleeping for {}ms because of rate limit", getRateLimitDelay());
+
                 try {
                     Thread.sleep(getRateLimitDelay());
                 } catch (InterruptedException e) {
@@ -53,9 +57,13 @@ public class RequestQueue {
                 }
             }
 
+            logger.debug("Sending request for {}", currentRequest);
+
             executeRequest(currentRequest);
 
-            requestQueue.remove();
+            if(currentRequest.isCompleted()) {
+                requestQueue.remove();
+            }
             currentRequest = requestQueue.peek();
         }
     }
@@ -82,6 +90,8 @@ public class RequestQueue {
                 requestQueue.add(resourceRequest);
 
                 rateLimitCount.incrementAndGet();
+
+                logger.info("Hit rate limit");
 
                 return;
             }

@@ -13,6 +13,7 @@ public abstract class ResourceRequest<T> {
     protected HttpRequest<?> request;
     protected CompletableFuture<T> result;
     private Map<String, Object> queryParameters;
+    protected boolean completed = false;
 
     protected ResourceRequest(HttpMethod method, String url, Map<String, Object> routeParameters) {
         request = Requests.getUnirestInstance().request(method.name(), url)
@@ -25,7 +26,11 @@ public abstract class ResourceRequest<T> {
         return request;
     }
 
-    public abstract void finishRequest(Object contents);
+    public boolean isCompleted() {
+        return completed;
+    }
+
+    public abstract void finishRequest(Object body);
 
     public void failRequest(Throwable throwable) {
         result.completeExceptionally(throwable);
