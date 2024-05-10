@@ -98,7 +98,8 @@ public class RequestQueue {
 
             // Log the error code and fail the request.
             logger.info("Request to '{}' responded with error code {}", httpRequest.getUrl(), response.getStatus());
-            resourceRequest.failRequest(new Throwable());
+            resourceRequest.failRequest(new Throwable()); // FIXME: use an actual throwable/exception
+            requestQueue.remove();
         }
     }
 
