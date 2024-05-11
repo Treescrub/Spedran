@@ -24,9 +24,16 @@ public class RequestQueue {
      */
     private static final int RATELIMIT_CODE = 420;
     /**
-     * The constant used for exponential backoff.
+     * The base of the exponent for exponential backoff.
      */
-    private static final double BACKOFF_CONSTANT = 2.0;
+    private static final double BACKOFF_EXPONENT_BASE = 2.0;
+    /**
+     * Time between rate limited requests before exponential backoff is reduced.
+     * In milliseconds.
+     */
+    private static final long BACKOFF_REDUCE_DELAY_MS = 30 * 1000;
+
+    private static long lastRateLimit = 0;
 
     private static final ExecutorService queueExecutor = Executors.newSingleThreadExecutor();
 
@@ -77,10 +84,17 @@ public class RequestQueue {
         HttpResponse<?> response = resourceRequest.executeBlocking();
 
         if(response.isSuccess()) {
-            synchronized (rateLimitCount) {
-                if(rateLimitCount.get() > 0) {
-                    rateLimitCount.decrementAndGet();
+            long millisecondsSinceLastRateLimit = System.currentTimeMillis() - lastRateLimit;
+
+            if(millisecondsSinceLastRateLimit >= BACKOFF_REDUCE_DELAY_MS) {
+                synchronized (rateLimitCount) {
+                    if (rateLimitCount.get() > 0) {
+                        logger.debug("Reducing rate limit delay");
+                        rateLimitCount.decrementAndGet();
+                    }
                 }
+
+                lastRateLimit = System.currentTimeMillis();
             }
 
             resourceRequest.finishRequest(response.getBody());
@@ -90,6 +104,7 @@ public class RequestQueue {
                 requestQueue.add(resourceRequest);
 
                 rateLimitCount.incrementAndGet();
+                lastRateLimit = System.currentTimeMillis();
 
                 logger.info("Hit rate limit");
 
@@ -118,6 +133,6 @@ public class RequestQueue {
      * @return delay in milliseconds
      */
     private static int getRateLimitDelay() {
-        return (int) (Math.pow(BACKOFF_CONSTANT, rateLimitCount.get()) * 1000);
+        return (int) (Math.pow(BACKOFF_EXPONENT_BASE, rateLimitCount.get() - 1) * 1000 * 0.5);
     }
 }
