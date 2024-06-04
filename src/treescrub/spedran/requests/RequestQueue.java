@@ -15,12 +15,12 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class RequestQueue {
     private static final Queue<ResourceRequest<?>> requestQueue = new ConcurrentLinkedQueue<>();
     /**
-     * Times we encountered a ratelimit.
-     * Decremented if a request is successful.
+     * Number of times we recently encountered a rate limit.
+     * Decremented on successful request if we haven't hit a rate limit recently.
      */
     private static final AtomicInteger rateLimitCount = new AtomicInteger(0);
     /**
-     * HTTP status code used to indicate throttling/ratelimiting.
+     * HTTP status code used to indicate throttling/rate limiting.
      */
     private static final int RATELIMIT_CODE = 420;
     /**
@@ -32,11 +32,14 @@ public class RequestQueue {
      * In milliseconds.
      */
     private static final long BACKOFF_REDUCE_DELAY_MS = 30 * 1000;
+    /**
+     * Constant to multiply backoff time by in order to offset initial delay.
+     */
+    private static final double BACKOFF_OFFSET_CONSTANT = 0.5;
 
     private static long lastRateLimit = 0;
 
     private static final ExecutorService queueExecutor = Executors.newSingleThreadExecutor();
-
     private static final Logger logger = LogManager.getLogger();
 
     public static void queueRequest(ResourceRequest<?> request) {
@@ -64,10 +67,9 @@ public class RequestQueue {
                 }
             }
 
-            logger.debug("Sending request for {}", currentRequest);
-
             executeRequest(currentRequest);
 
+            // If all API requests for the current request are finished, remove from queue
             if(currentRequest.isCompleted()) {
                 requestQueue.remove();
             }
@@ -80,12 +82,13 @@ public class RequestQueue {
      */
     private static void executeRequest(ResourceRequest<?> resourceRequest) {
         HttpRequest<?> httpRequest = resourceRequest.getRequest();
-        // Execute the blocking resource request and get the response.
+        // Execute the blocking resource request and get the response from the API.
         HttpResponse<?> response = resourceRequest.executeBlocking();
 
         if(response.isSuccess()) {
             long millisecondsSinceLastRateLimit = System.currentTimeMillis() - lastRateLimit;
 
+            // Reduce the delay because it's been a while since we hit a rate limit
             if(millisecondsSinceLastRateLimit >= BACKOFF_REDUCE_DELAY_MS) {
                 synchronized (rateLimitCount) {
                     if (rateLimitCount.get() > 0) {
@@ -106,7 +109,7 @@ public class RequestQueue {
                 rateLimitCount.incrementAndGet();
                 lastRateLimit = System.currentTimeMillis();
 
-                logger.info("Hit rate limit");
+                logger.debug("Hit rate limit");
 
                 return;
             }
@@ -119,9 +122,9 @@ public class RequestQueue {
     }
 
     /**
-     * Should requests be delayed due to a rate limit.
+     * Should requests be delayed due to hitting a recent rate limit.
      *
-     * @return should delay requests
+     * @return should requests be delayed to prevent hitting rate limit
      */
     private static boolean shouldRateLimit() {
         return rateLimitCount.get() > 0;
@@ -133,6 +136,6 @@ public class RequestQueue {
      * @return delay in milliseconds
      */
     private static int getRateLimitDelay() {
-        return (int) (Math.pow(BACKOFF_EXPONENT_BASE, rateLimitCount.get() - 1) * 1000 * 0.5);
+        return (int) (Math.pow(BACKOFF_EXPONENT_BASE, rateLimitCount.get() - 1) * 1000 * BACKOFF_OFFSET_CONSTANT);
     }
 }
