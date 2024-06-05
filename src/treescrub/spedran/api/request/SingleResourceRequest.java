@@ -1,7 +1,10 @@
 package treescrub.spedran.api.request;
 
 import kong.unirest.HttpMethod;
+import kong.unirest.HttpResponse;
+import kong.unirest.JsonNode;
 import kong.unirest.json.JSONObject;
+import treescrub.spedran.requests.RequestQueue;
 
 import java.util.Map;
 import java.util.concurrent.CompletableFuture;
@@ -18,9 +21,20 @@ public abstract class SingleResourceRequest<T> extends ResourceRequest<T> {
     @Override
     public CompletableFuture<T> complete() {
         applyQueryParameters();
-        return request
-                .asJsonAsync()
-                .thenApply(response -> parse(response.getBody().getObject()));
+        RequestQueue.queueRequest(this);
+
+        return result;
+    }
+
+    @Override
+    public HttpResponse<JsonNode> executeBlocking() {
+        return request.asJson();
+    }
+
+    @Override
+    public void finishRequest(Object body) {
+        completed = true;
+        result.complete(parse(((JsonNode) body).getObject().getJSONObject("data")));
     }
 
     protected abstract T parse(JSONObject data);
