@@ -6,7 +6,7 @@
 
     <groupId>com.github.treescrub</groupId>
     <artifactId>spedran</artifactId>
-    <version>1.0</version>
+    <version>0.9</version>
 
     <properties>
         <maven.compiler.source>11</maven.compiler.source>
