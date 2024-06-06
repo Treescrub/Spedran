@@ -8,7 +8,7 @@ import java.nio.file.Files;
 
 public class JSONLoader {
     public static JSONObject getJsonTestFile(String path) {
-        path = "test/resources/" + path + ".json";
+        path = "src/test/resources/" + path + ".json";
         String jsonString = null;
         try {
             jsonString = Files.readString(new File(path).toPath());
