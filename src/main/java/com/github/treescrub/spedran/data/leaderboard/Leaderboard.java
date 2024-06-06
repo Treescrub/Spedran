@@ -65,7 +65,7 @@ public class Leaderboard extends Resource {
     /**
      *
      * @return
-     * @see treescrub.spedran.api.Spedran#getGame(String)
+     * @see com.github.treescrub.spedran.api.Spedran#getGame(String)
      */
     public String getGame() {
         return game;
@@ -74,7 +74,7 @@ public class Leaderboard extends Resource {
     /**
      *
      * @return
-     * @see treescrub.spedran.api.Spedran#getCategory(String)
+     * @see com.github.treescrub.spedran.api.Spedran#getCategory(String)
      */
     public String getCategory() {
         return category;
@@ -83,7 +83,7 @@ public class Leaderboard extends Resource {
     /**
      *
      * @return
-     * @see treescrub.spedran.api.Spedran#getLevel(String)
+     * @see com.github.treescrub.spedran.api.Spedran#getLevel(String)
      */
     public Optional<String> getLevel() {
         return Optional.ofNullable(level);
@@ -92,7 +92,7 @@ public class Leaderboard extends Resource {
     /**
      *
      * @return
-     * @see treescrub.spedran.api.Spedran#getPlatform(String)
+     * @see com.github.treescrub.spedran.api.Spedran#getPlatform(String)
      */
     public Optional<String> getPlatform() {
         return Optional.ofNullable(platform);
@@ -101,7 +101,7 @@ public class Leaderboard extends Resource {
     /**
      *
      * @return
-     * @see treescrub.spedran.api.Spedran#getRegion(String)
+     * @see com.github.treescrub.spedran.api.Spedran#getRegion(String)
      */
     public Optional<String> getRegion() {
         return Optional.ofNullable(region);

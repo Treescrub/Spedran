@@ -38,7 +38,7 @@ public class RunPlayer extends Link {
     /**
      *
      * @return
-     * @see treescrub.spedran.api.Spedran#getUser(String)
+     * @see com.github.treescrub.spedran.api.Spedran#getUser(String)
      */
     public String getId() {
         return id;

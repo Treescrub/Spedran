@@ -47,7 +47,7 @@ public class Level extends IdentifiableNamedResource {
     /**
      *
      * @return
-     * @see treescrub.spedran.api.Spedran#getLevel(String)
+     * @see com.github.treescrub.spedran.api.Spedran#getLevel(String)
      */
     @Override
     public String getId() {

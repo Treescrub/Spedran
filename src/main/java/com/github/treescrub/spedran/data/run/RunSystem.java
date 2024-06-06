@@ -25,7 +25,7 @@ public class RunSystem {
     /**
      *
      * @return
-     * @see treescrub.spedran.api.Spedran#getPlatform(String)
+     * @see com.github.treescrub.spedran.api.Spedran#getPlatform(String)
      */
     public String getPlatform() {
         return platform;
@@ -42,7 +42,7 @@ public class RunSystem {
     /**
      *
      * @return
-     * @see treescrub.spedran.api.Spedran#getRegion(String)
+     * @see com.github.treescrub.spedran.api.Spedran#getRegion(String)
      */
     public Optional<String> getRegion() {
         return Optional.ofNullable(region);

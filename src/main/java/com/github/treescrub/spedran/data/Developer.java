@@ -25,7 +25,7 @@ public class Developer extends IdentifiableNamedResource {
     /**
      *
      * @return
-     * @see treescrub.spedran.api.Spedran#getDeveloper(String)
+     * @see com.github.treescrub.spedran.api.Spedran#getDeveloper(String)
      */
     @Override
     public String getId() {

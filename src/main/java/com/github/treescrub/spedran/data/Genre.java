@@ -25,7 +25,7 @@ public class Genre extends IdentifiableNamedResource {
     /**
      *
      * @return
-     * @see treescrub.spedran.api.Spedran#getGenre(String)
+     * @see com.github.treescrub.spedran.api.Spedran#getGenre(String)
      */
     @Override
     public String getId() {

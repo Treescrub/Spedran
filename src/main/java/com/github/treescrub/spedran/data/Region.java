@@ -25,7 +25,7 @@ public class Region extends IdentifiableNamedResource {
     /**
      *
      * @return
-     * @see treescrub.spedran.api.Spedran#getRegion(String)
+     * @see com.github.treescrub.spedran.api.Spedran#getRegion(String)
      */
     @Override
     public String getId() {

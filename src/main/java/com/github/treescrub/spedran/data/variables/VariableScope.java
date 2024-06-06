@@ -47,7 +47,7 @@ public class VariableScope {
     /**
      *
      * @return
-     * @see treescrub.spedran.api.Spedran#getLevel(String)
+     * @see com.github.treescrub.spedran.api.Spedran#getLevel(String)
      */
     public Optional<String> getLevel() {
         return Optional.ofNullable(level);

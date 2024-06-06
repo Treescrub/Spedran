@@ -52,7 +52,7 @@ public class Series extends IdentifiableResource {
     /**
      *
      * @return
-     * @see treescrub.spedran.api.Spedran#getSingleSeries(String)
+     * @see com.github.treescrub.spedran.api.Spedran#getSingleSeries(String)
      */
     @Override
     public String getId() {

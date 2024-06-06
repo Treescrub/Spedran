@@ -25,7 +25,7 @@ public class Gametype extends IdentifiableNamedResource {
     /**
      *
      * @return
-     * @see treescrub.spedran.api.Spedran#getGametype(String)
+     * @see com.github.treescrub.spedran.api.Spedran#getGametype(String)
      */
     @Override
     public String getId() {

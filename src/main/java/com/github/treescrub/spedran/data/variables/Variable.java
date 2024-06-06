@@ -50,7 +50,7 @@ public class Variable extends IdentifiableNamedResource {
     /**
      *
      * @return
-     * @see treescrub.spedran.api.Spedran#getCategory(String)
+     * @see com.github.treescrub.spedran.api.Spedran#getCategory(String)
      */
     public Optional<String> getCategory() {
         return Optional.ofNullable(category);

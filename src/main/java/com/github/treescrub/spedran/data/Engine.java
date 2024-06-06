@@ -25,7 +25,7 @@ public class Engine extends IdentifiableNamedResource {
     /**
      *
      * @return
-     * @see treescrub.spedran.api.Spedran#getEngine(String)
+     * @see com.github.treescrub.spedran.api.Spedran#getEngine(String)
      */
     @Override
     public String getId() {

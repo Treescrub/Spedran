@@ -25,7 +25,7 @@ public class Publisher extends IdentifiableNamedResource {
     /**
      *
      * @return
-     * @see treescrub.spedran.api.Spedran#getPublisher(String)
+     * @see com.github.treescrub.spedran.api.Spedran#getPublisher(String)
      */
     @Override
     public String getId() {

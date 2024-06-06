@@ -181,7 +181,7 @@ public class Game extends IdentifiableResource {
     /**
      *
      * @return a List of gametype IDs
-     * @see treescrub.spedran.api.Spedran#getGametype(String)
+     * @see com.github.treescrub.spedran.api.Spedran#getGametype(String)
      */
     public List<String> getGametypes() {
         return Collections.unmodifiableList(gametypes);
@@ -190,7 +190,7 @@ public class Game extends IdentifiableResource {
     /**
      *
      * @return a List of platform IDs
-     * @see treescrub.spedran.api.Spedran#getPlatform(String)
+     * @see com.github.treescrub.spedran.api.Spedran#getPlatform(String)
      */
     public List<String> getPlatforms() {
         return Collections.unmodifiableList(platforms);
@@ -199,7 +199,7 @@ public class Game extends IdentifiableResource {
     /**
      *
      * @return a List of region IDs
-     * @see treescrub.spedran.api.Spedran#getRegion(String)
+     * @see com.github.treescrub.spedran.api.Spedran#getRegion(String)
      */
     public List<String> getRegions() {
         return Collections.unmodifiableList(regions);
@@ -208,7 +208,7 @@ public class Game extends IdentifiableResource {
     /**
      *
      * @return a List of genre IDs
-     * @see treescrub.spedran.api.Spedran#getGenre(String)
+     * @see com.github.treescrub.spedran.api.Spedran#getGenre(String)
      */
     public List<String> getGenres() {
         return Collections.unmodifiableList(genres);
@@ -217,7 +217,7 @@ public class Game extends IdentifiableResource {
     /**
      *
      * @return a List of engine IDs
-     * @see treescrub.spedran.api.Spedran#getEngine(String)
+     * @see com.github.treescrub.spedran.api.Spedran#getEngine(String)
      */
     public List<String> getEngines() {
         return Collections.unmodifiableList(engines);
@@ -226,7 +226,7 @@ public class Game extends IdentifiableResource {
     /**
      *
      * @return a List of developer IDs
-     * @see treescrub.spedran.api.Spedran#getDeveloper(String)
+     * @see com.github.treescrub.spedran.api.Spedran#getDeveloper(String)
      */
     public List<String> getDevelopers() {
         return Collections.unmodifiableList(developers);
@@ -235,7 +235,7 @@ public class Game extends IdentifiableResource {
     /**
      *
      * @return a List of publisher IDs
-     * @see treescrub.spedran.api.Spedran#getPublisher(String)
+     * @see com.github.treescrub.spedran.api.Spedran#getPublisher(String)
      */
     public List<String> getPublishers() {
         return Collections.unmodifiableList(publishers);
@@ -244,7 +244,7 @@ public class Game extends IdentifiableResource {
     /**
      *
      * @return a Map of user IDs to moderator types
-     * @see treescrub.spedran.api.Spedran#getUser(String)
+     * @see com.github.treescrub.spedran.api.Spedran#getUser(String)
      */
     public Map<String, String> getModerators() {
         return Collections.unmodifiableMap(moderators);

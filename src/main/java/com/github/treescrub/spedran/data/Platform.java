@@ -28,7 +28,7 @@ public class Platform extends IdentifiableNamedResource {
     /**
      *
      * @return
-     * @see treescrub.spedran.api.Spedran#getPlatform(String)
+     * @see com.github.treescrub.spedran.api.Spedran#getPlatform(String)
      */
     @Override
     public String getId() {
