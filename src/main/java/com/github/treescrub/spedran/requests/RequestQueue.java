@@ -40,7 +40,7 @@ public class RequestQueue {
     private static long lastRateLimit = 0;
 
     private static final ExecutorService queueExecutor = Executors.newSingleThreadExecutor();
-    private static final Logger logger = LogManager.getLogger();
+    private static final Logger logger = LogManager.getLogger(RequestQueue.class);
 
     public static void queueRequest(ResourceRequest<?> request) {
         requestQueue.add(request);
