@@ -16,8 +16,7 @@ public abstract class ResourceRequest<T> {
     protected boolean completed = false;
 
     protected ResourceRequest(HttpMethod method, String url, Map<String, Object> routeParameters) {
-        request = Requests.getUnirestInstance().request(method.name(), url)
-                .routeParam(routeParameters);
+        request = Requests.request(method, url).routeParam(routeParameters);
         queryParameters = new HashMap<>();
         result = new CompletableFuture<>();
     }

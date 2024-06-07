@@ -23,25 +23,42 @@ import com.github.treescrub.spedran.data.run.Run;
 import com.github.treescrub.spedran.data.user.User;
 import com.github.treescrub.spedran.data.variables.Variable;
 import com.github.treescrub.spedran.requests.Requests;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.util.concurrent.CompletableFuture;
 
 @SuppressWarnings("unused")
 public class Spedran {
+    private static final Logger logger = LogManager.getLogger(Spedran.class);
+
     /**
      * Sets the current API key.
+     * The API key is not set if it is {@code null} or blank.
      *
      * @param key SRC API key
      */
     public static void setApiKey(String key) {
-        Requests.getUnirestInstance().config().addDefaultHeader("X-Api-Key", key);
+        if(key == null) {
+            logger.warn("Attempted to set SRC API key with a null string");
+            return;
+        }
+        if(key.isBlank()) {
+            logger.warn("Attempted to set SRC API key with a blank string");
+            return;
+        }
+        if(!key.chars().allMatch(character -> character > 32 && character < 127)) {
+            logger.warn("Setting SRC API key with key that contains non-ascii or non-printable characters");
+        }
+
+        Requests.setKey(key);
     }
 
     /**
      * Identical to {@link Spedran#clearApiKey()}
      */
     public static void removeApiKey() {
-        setApiKey("");
+        Requests.clearKey();
     }
 
     /**

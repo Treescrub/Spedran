@@ -79,7 +79,7 @@ public abstract class ResourceCollectionRequest<T extends Resource> extends Reso
             return;
         }
 
-        request = Requests.getUnirestInstance().request(request.getHttpMethod().name(), nextLink);
+        request = Requests.request(request.getHttpMethod(), nextLink);
     }
 
     @Override
