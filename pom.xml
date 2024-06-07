@@ -61,6 +61,7 @@
                     <archive>
                         <manifestEntries>
                             <Built-By>Treescrub</Built-By>
+                            <Multi-Release>true</Multi-Release>
                         </manifestEntries>
                     </archive>
                 </configuration>
