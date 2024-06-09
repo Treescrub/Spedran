@@ -20,6 +20,10 @@ public class RequestQueue {
      */
     private static final AtomicInteger rateLimitCount = new AtomicInteger(0);
     /**
+     * Total requests in queue.
+     */
+    private static final AtomicInteger requestsInQueue = new AtomicInteger(0);
+    /**
      * HTTP status code used to indicate throttling/rate limiting.
      */
     private static final int RATELIMIT_CODE = 420;
@@ -44,8 +48,9 @@ public class RequestQueue {
 
     public static void queueRequest(ResourceRequest<?> request) {
         requestQueue.add(request);
+        requestsInQueue.incrementAndGet();
 
-        logger.debug("Request {} submitted to queue", request.getRequest().toSummary().asString());
+        logger.debug("Request {} submitted to queue", request.getRequest().getUrl());
 
         queueExecutor.submit(RequestQueue::executeUntilEmpty);
     }
@@ -69,11 +74,15 @@ public class RequestQueue {
 
             executeRequest(currentRequest);
 
-            // If all API requests for the current request are finished, remove from queue
-            if(currentRequest.isCompleted()) {
-                requestQueue.remove();
+            synchronized(requestQueue) {
+                // If all API requests for the current request are finished, remove from queue
+                if (currentRequest.isCompleted()) {
+                    requestQueue.remove();
+                    requestsInQueue.decrementAndGet();
+                }
+
+                currentRequest = requestQueue.peek();
             }
-            currentRequest = requestQueue.peek();
         }
     }
 
@@ -81,6 +90,8 @@ public class RequestQueue {
      * Execute the next request and check the result.
      */
     private static void executeRequest(ResourceRequest<?> resourceRequest) {
+        logger.debug("Executing request, {} left in queue", requestsInQueue.get());
+
         HttpRequest<?> httpRequest = resourceRequest.getRequest();
         // Execute the blocking resource request and get the response from the API.
         HttpResponse<?> response = resourceRequest.executeBlocking();
