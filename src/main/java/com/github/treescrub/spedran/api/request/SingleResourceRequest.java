@@ -34,7 +34,8 @@ public abstract class SingleResourceRequest<T> extends ResourceRequest<T> {
     @Override
     public void finishRequest(Object body) {
         completed = true;
-        result.complete(parse(((JsonNode) body).getObject().getJSONObject("data")));
+        // Complete async so that we aren't on the same thread as the RequestQueue
+        result.completeAsync(() -> parse(((JsonNode) body).getObject().getJSONObject("data")));
     }
 
     protected abstract T parse(JSONObject data);

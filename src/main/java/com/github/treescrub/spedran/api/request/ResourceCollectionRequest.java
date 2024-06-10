@@ -75,7 +75,8 @@ public abstract class ResourceCollectionRequest<T extends Resource> extends Reso
 
         if(nextLink == null) {
             completed = true;
-            result.complete(collectResources());
+            // Complete async so that we aren't on the same thread as the RequestQueue
+            result.completeAsync(this::collectResources);
             return;
         }
 
