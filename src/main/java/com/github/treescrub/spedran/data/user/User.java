@@ -20,7 +20,7 @@ public class User extends IdentifiableResource {
     private String pronouns;
     private String weblink;
     private NameStyle nameStyle;
-    private String role;
+    private UserRole role;
     private Instant signup;
     private UserLocation location;
     private Link twitch;
@@ -55,7 +55,7 @@ public class User extends IdentifiableResource {
         pronouns = data.isNull("pronouns") || data.getString("pronouns").isEmpty() ? null : data.getString("pronouns");
         weblink = data.getString("weblink");
         nameStyle = new NameStyle(data.getJSONObject("name-style"));
-        role = data.getString("role");
+        role = UserRole.valueOf(data.getString("role").toUpperCase());
         signup = data.isNull("signup") ? null : Instant.parse(data.getString("signup"));
         location = data.isNull("location") ? null : new UserLocation(data.getJSONObject("location"));
         twitch = data.isNull("twitch") ? null : new Link(data.getJSONObject("twitch"));
@@ -111,13 +111,11 @@ public class User extends IdentifiableResource {
     }
 
     /**
-     * Gets the role of this user.
-     * <br>
-     * This can be one of: {@code banned}, {@code user}, {@code trusted}, {@code moderator}, {@code admin}, or {@code programmer}.
+     * Gets the role of this user across the entire site.
      *
-     * @return the role of this user
+     * @return the {@link UserRole} of this user
      */
-    public String getRole() {
+    public UserRole getRole() {
         return role;
     }
 
