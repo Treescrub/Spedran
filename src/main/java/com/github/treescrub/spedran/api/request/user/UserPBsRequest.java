@@ -1,15 +1,15 @@
 package com.github.treescrub.spedran.api.request.user;
 
+import com.github.treescrub.spedran.data.leaderboard.LeaderboardRun;
 import kong.unirest.HttpMethod;
 import kong.unirest.json.JSONObject;
 import com.github.treescrub.spedran.api.request.ResourceCollectionRequest;
-import com.github.treescrub.spedran.data.user.PersonalBest;
 import com.github.treescrub.spedran.data.user.User;
 
 import java.util.Map;
 import java.util.function.Function;
 
-public class UserPBsRequest extends ResourceCollectionRequest<PersonalBest> {
+public class UserPBsRequest extends ResourceCollectionRequest<LeaderboardRun> {
     public UserPBsRequest(String id) {
         super(HttpMethod.GET, "users/{id}/personal-bests", Map.of("id", id));
     }
@@ -34,7 +34,7 @@ public class UserPBsRequest extends ResourceCollectionRequest<PersonalBest> {
     }
 
     @Override
-    protected Function<JSONObject, PersonalBest> getConstructor() {
-        return PersonalBest::new;
+    protected Function<JSONObject, LeaderboardRun> getConstructor() {
+        return LeaderboardRun::new;
     }
 }
