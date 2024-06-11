@@ -2,6 +2,7 @@ package com.github.treescrub.spedran.user;
 
 import com.github.treescrub.spedran.JSONLoader;
 import com.github.treescrub.spedran.data.user.User;
+import com.github.treescrub.spedran.data.user.UserRole;
 import kong.unirest.json.JSONObject;
 import org.junit.jupiter.api.Test;
 
@@ -57,7 +58,7 @@ class UserTest {
         JSONObject json = JSONLoader.getJsonTestFile("l4d/user/user");
         User user = new User(json);
 
-        assertEquals("user", user.getRole());
+        assertEquals(UserRole.USER, user.getRole());
     }
 
     @Test
