@@ -1,12 +1,12 @@
 package com.github.treescrub.spedran.data.user;
 
-import kong.unirest.HttpResponse;
-import kong.unirest.JsonNode;
-import kong.unirest.json.JSONObject;
 import com.github.treescrub.spedran.api.request.user.UserPBsRequest;
 import com.github.treescrub.spedran.data.IdentifiableResource;
 import com.github.treescrub.spedran.data.Link;
 import com.github.treescrub.spedran.data.Names;
+import kong.unirest.HttpResponse;
+import kong.unirest.JsonNode;
+import kong.unirest.json.JSONObject;
 
 import java.time.Instant;
 import java.util.Optional;
@@ -38,8 +38,9 @@ public class User extends IdentifiableResource {
     }
 
     /**
+     * Gets a new {@link UserPBsRequest} builder object to request this user's personal best runs.
      *
-     * @return
+     * @return a {@code UserPBsRequest} builder
      */
     public UserPBsRequest getPersonalBests() {
         return new UserPBsRequest(this);
@@ -65,24 +66,25 @@ public class User extends IdentifiableResource {
     }
 
     /**
-     * Returns the names for this user.
+     * Returns the {@link Names} for this user.
      *
-     * @return
+     * @return a {@code Names} with this user's names
      */
     public Names getNames() {
         return names;
     }
 
     /**
-     * Returns a <code>boolean</code> for the user having their name color animated.
+     * Returns {@code true} if this user has their name color animated, otherwise {@code false}.
      *
-     * @return
+     * @return whether this user has the supporter animation
      */
     public boolean hasSupporterAnimation() {
         return supporterAnimation;
     }
 
     /**
+     * Gets the user specified pronouns for this user.
      *
      * @return an {@link Optional} containing this user's pronouns
      */
@@ -91,80 +93,94 @@ public class User extends IdentifiableResource {
     }
 
     /**
+     * Gets the link to this user on SRC.
      *
-     * @return
+     * @return a link to this user's profile
      */
     public String getWeblink() {
         return weblink;
     }
 
     /**
+     * Gets the {@link NameStyle} for this user.
      *
-     * @return
+     * @return a {@code NameStyle} of this user
      */
     public NameStyle getNameStyle() {
         return nameStyle;
     }
 
     /**
+     * Gets the role of this user.
+     * <br>
+     * This can be one of: {@code banned}, {@code user}, {@code trusted}, {@code moderator}, {@code admin}, or {@code programmer}.
      *
-     * @return
+     * @return the role of this user
      */
     public String getRole() {
         return role;
     }
 
     /**
+     * Gets the time that this user signed up on SRC.
      *
-     * @return
+     * @return an {@link Instant}
      */
     public Optional<Instant> getSignupTime() {
         return Optional.ofNullable(signup);
     }
 
     /**
+     * Gets the location that this user specified.
      *
-     * @return
+     * @return an {@link Optional} with a {@link UserLocation} with this user's location in the world
      */
     public Optional<UserLocation> getLocation() {
         return Optional.ofNullable(location);
     }
 
     /**
+     * Gets the link to this user's Twitch account.
      *
-     * @return
+     * @return an {@link Optional} with a {@link Link} to a Twitch account
      */
     public Optional<Link> getTwitchLink() {
         return Optional.ofNullable(twitch);
     }
 
     /**
+     * Gets the link to this user's Hitbox account.
+     * <br>
+     * Hitbox.tv is shut down, so the returned link will not be a valid page.
      *
-     * @return
+     * @return an {@link Optional} with a {@link Link} to a Hitbox account
      */
     public Optional<Link> getHitboxLink() {
         return Optional.ofNullable(hitbox);
     }
 
     /**
+     * Gets the link to this user's YouTube channel.
      *
-     * @return
+     * @return an {@link Optional} with a {@link Link} to a YouTube channel
      */
     public Optional<Link> getYoutubeLink() {
         return Optional.ofNullable(youtube);
     }
 
     /**
+     * Gets the link to this user's Twitter account.
      *
-     * @return
+     * @return an {@link Optional} with a {@link Link} to a Twitter account
      */
     public Optional<Link> getTwitterLink() {
         return Optional.ofNullable(twitter);
     }
 
     /**
+     * Gets the link to this user's SpeedRunsLive account.
      *
-     * @return
+     * @return an {@link Optional} with a {@link Link} to a SpeedRunsLive account
      */
     public Optional<Link> getSpeedrunsLiveLink() {
         return Optional.ofNullable(speedrunsLive);

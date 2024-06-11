@@ -1,16 +1,18 @@
 package com.github.treescrub.spedran.data.variables;
 
+import com.github.treescrub.spedran.data.IdentifiableNamedResource;
+import com.github.treescrub.spedran.data.user.User;
+
 import kong.unirest.HttpResponse;
 import kong.unirest.JsonNode;
 import kong.unirest.json.JSONObject;
-import com.github.treescrub.spedran.data.IdentifiableNamedResource;
 
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
 
 /**
- *
+ * A moderator defined variable for which a value can be set on a {@link com.github.treescrub.spedran.data.run.Run}.
  */
 public class Variable extends IdentifiableNamedResource {
     private String category;
@@ -48,8 +50,10 @@ public class Variable extends IdentifiableNamedResource {
     }
 
     /**
+     * Gets the category ID that this variable applies to.
      *
-     * @return
+     * @return an {@link Optional} with the category ID
+     *
      * @see com.github.treescrub.spedran.api.Spedran#getCategory(String)
      */
     public Optional<String> getCategory() {
@@ -57,56 +61,63 @@ public class Variable extends IdentifiableNamedResource {
     }
 
     /**
+     * Gets the {@link VariableScope} where this variable is usable.
      *
-     * @return
+     * @return a {@code VariableScope} of this variable
      */
     public VariableScope getScope() {
         return scope;
     }
 
     /**
+     * If the {@link User} submitting a run is required to set a value for this variable, returns {@code true}, otherwise {@code false}.
      *
-     * @return
+     * @return whether the submitter of a run needs to set a value for this variable
      */
     public boolean isMandatory() {
         return mandatory;
     }
 
     /**
+     * If the {@link User} submitting a run can enter custom values, returns {@code true}, otherwise {@code false}.
      *
-     * @return
+     * @return whether the submitter of a run can enter custom values
      */
     public boolean isUserDefined() {
         return userDefined;
     }
 
     /**
+     * If this variable is used to display runs for the leaderboard, returns {@code true}, otherwise {@code false}.
      *
-     * @return
+     * @return whether this variable can prevent a run from being considered obsolete
      */
     public boolean isObsoleting() {
         return obsoletes;
     }
 
     /**
+     * A {@link Map} to map variable value IDs to a {@link VariableValue}.
      *
-     * @return
+     * @return a {@code Map} with keys being variable value IDs, and values being {@code VariableValue}
      */
     public Map<String, VariableValue> getValues() {
         return values;
     }
 
     /**
+     * Gets the default value ID for this variable.
      *
-     * @return
+     * @return the default value ID to use
      */
     public Optional<String> getDefaultValue() {
         return Optional.ofNullable(defaultValue);
     }
 
     /**
+     * If this variable should be handled as a subcategory, returns {@code true}, otherwise {@code false}.
      *
-     * @return
+     * @return whether this variable is a subcategory
      */
     public boolean isSubcategory() {
         return isSubcategory;

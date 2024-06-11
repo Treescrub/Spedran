@@ -5,7 +5,9 @@ import kong.unirest.JsonNode;
 import kong.unirest.json.JSONObject;
 
 /**
- *
+ * A genre of game.
+ * <br>
+ * For example: FPS, platformer, and so on.
  */
 public class Genre extends IdentifiableNamedResource {
 
@@ -20,16 +22,6 @@ public class Genre extends IdentifiableNamedResource {
     @Override
     protected void parseFromJson(JSONObject data) {
         super.parseFromJson(data);
-    }
-
-    /**
-     *
-     * @return
-     * @see com.github.treescrub.spedran.api.Spedran#getGenre(String)
-     */
-    @Override
-    public String getId() {
-        return super.getId();
     }
 
     @Override

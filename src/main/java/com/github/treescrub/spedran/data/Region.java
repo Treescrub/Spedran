@@ -5,7 +5,11 @@ import kong.unirest.JsonNode;
 import kong.unirest.json.JSONObject;
 
 /**
- *
+ * Historical regions of the world where games were distributed.
+ * <br>
+ * Name consists of a shortened country or region name and either {@code NTSC} or {@code PAL}.
+ * <br>
+ * For example: {@code USA / NTSC}.
  */
 public class Region extends IdentifiableNamedResource {
 
@@ -20,16 +24,6 @@ public class Region extends IdentifiableNamedResource {
     @Override
     protected void parseFromJson(JSONObject data) {
         super.parseFromJson(data);
-    }
-
-    /**
-     *
-     * @return
-     * @see com.github.treescrub.spedran.api.Spedran#getRegion(String)
-     */
-    @Override
-    public String getId() {
-        return super.getId();
     }
 
     @Override

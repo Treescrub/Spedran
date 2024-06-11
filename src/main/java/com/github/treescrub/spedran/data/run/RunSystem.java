@@ -5,7 +5,10 @@ import kong.unirest.json.JSONObject;
 import java.util.Optional;
 
 /**
- * Has info about platform and region for a run.
+ * Contains platform and region info, as well as if the run used an emulator.
+ *
+ * @see com.github.treescrub.spedran.data.Platform
+ * @see com.github.treescrub.spedran.data.Region
  */
 public class RunSystem {
     private String platform;
@@ -23,8 +26,11 @@ public class RunSystem {
     }
 
     /**
+     * Gets the platform ID that this run was played on
      *
-     * @return
+     * @return the platform ID
+     *
+     * @see com.github.treescrub.spedran.data.Platform
      * @see com.github.treescrub.spedran.api.Spedran#getPlatform(String)
      */
     public String getPlatform() {
@@ -32,16 +38,20 @@ public class RunSystem {
     }
 
     /**
+     * Was the run played on an emulator.
      *
-     * @return
+     * @return whether the run was played on emulator
      */
     public boolean isEmulated() {
         return emulated;
     }
 
     /**
+     * Gets the region ID that this run was played on
      *
-     * @return
+     * @return an {@link Optional} with the region ID if applicable
+     *
+     * @see com.github.treescrub.spedran.data.Region
      * @see com.github.treescrub.spedran.api.Spedran#getRegion(String)
      */
     public Optional<String> getRegion() {

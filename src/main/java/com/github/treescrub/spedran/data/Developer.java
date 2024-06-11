@@ -5,7 +5,7 @@ import kong.unirest.JsonNode;
 import kong.unirest.json.JSONObject;
 
 /**
- *
+ * The developer of a game.
  */
 public class Developer extends IdentifiableNamedResource {
 
@@ -20,16 +20,6 @@ public class Developer extends IdentifiableNamedResource {
     @Override
     protected void parseFromJson(JSONObject data) {
         super.parseFromJson(data);
-    }
-
-    /**
-     *
-     * @return
-     * @see com.github.treescrub.spedran.api.Spedran#getDeveloper(String)
-     */
-    @Override
-    public String getId() {
-        return super.getId();
     }
 
     @Override

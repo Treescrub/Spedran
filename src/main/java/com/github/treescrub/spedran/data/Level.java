@@ -1,16 +1,16 @@
 package com.github.treescrub.spedran.data;
 
-import kong.unirest.HttpResponse;
-import kong.unirest.JsonNode;
-import kong.unirest.json.JSONObject;
 import com.github.treescrub.spedran.api.request.level.LevelCategoriesRequest;
 import com.github.treescrub.spedran.api.request.level.LevelRecordsRequest;
 import com.github.treescrub.spedran.api.request.level.LevelVariablesRequest;
+import kong.unirest.HttpResponse;
+import kong.unirest.JsonNode;
+import kong.unirest.json.JSONObject;
 
 import java.util.Optional;
 
 /**
- *
+ * A specific level in a {@link com.github.treescrub.spedran.data.game.Game}.
  */
 public class Level extends IdentifiableNamedResource {
     private String weblink;
@@ -24,14 +24,29 @@ public class Level extends IdentifiableNamedResource {
         super(data);
     }
 
+    /**
+     * Gets a new {@link LevelCategoriesRequest} builder object to request categories for this level.
+     *
+     * @return a {@code LevelCategoriesRequest} builder
+     */
     public LevelCategoriesRequest getCategories() {
         return new LevelCategoriesRequest(this);
     }
 
+    /**
+     * Gets a new {@link LevelRecordsRequest} builder object to request records for this level.
+     *
+     * @return a {@code LevelRecordsRequest} builder
+     */
     public LevelRecordsRequest getRecords() {
         return new LevelRecordsRequest(this);
     }
 
+    /**
+     * Gets a new {@link LevelVariablesRequest} builder object to request variables for this level.
+     *
+     * @return a {@code LevelVariablesRequest} builder
+     */
     public LevelVariablesRequest getVariables() {
         return new LevelVariablesRequest(this);
     }
@@ -45,26 +60,18 @@ public class Level extends IdentifiableNamedResource {
     }
 
     /**
+     * Gets the link to this level on SRC.
      *
-     * @return
-     * @see com.github.treescrub.spedran.api.Spedran#getLevel(String)
-     */
-    @Override
-    public String getId() {
-        return super.getId();
-    }
-
-    /**
-     *
-     * @return
+     * @return a link to the level on SRC
      */
     public String getWeblink() {
         return weblink;
     }
 
     /**
+     * Gets the rules text for this level.
      *
-     * @return
+     * @return an {@link Optional} with the rules text if it is set, empty if no level specific rules were set
      */
     public Optional<String> getRules() {
         return Optional.ofNullable(rules);

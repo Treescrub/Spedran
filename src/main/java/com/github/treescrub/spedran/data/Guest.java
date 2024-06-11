@@ -7,7 +7,7 @@ import kong.unirest.json.JSONObject;
 import java.util.Objects;
 
 /**
- *
+ * A guest runner. Can be entered as a runner in a run by other users, but has no account.
  */
 public class Guest extends Resource {
     private String name;
@@ -26,8 +26,9 @@ public class Guest extends Resource {
     }
 
     /**
+     * Gets the username for this guest.
      *
-     * @return
+     * @return the name
      */
     public String getName() {
         return name;

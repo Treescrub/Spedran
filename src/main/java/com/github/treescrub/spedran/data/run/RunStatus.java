@@ -6,7 +6,7 @@ import java.time.Instant;
 import java.util.Optional;
 
 /**
- * Holds information about the current run status.
+ * The verification status of a {@link Run} on SRC.
  */
 public class RunStatus {
     private SubmissionStatus submissionStatus;
@@ -28,9 +28,9 @@ public class RunStatus {
     }
 
     /**
-     * Returns the status.
+     * Returns the {@link SubmissionStatus} type.
      *
-     * @return a {@link SubmissionStatus}
+     * @return a {@code SubmissionStatus}
      */
     public SubmissionStatus getStatus() {
         return submissionStatus;
@@ -41,6 +41,8 @@ public class RunStatus {
      * Only exists if status is {@link SubmissionStatus#VERIFIED} or {@link SubmissionStatus#REJECTED}.
      *
      * @return an {@link Optional} with the ID of the verifier
+     *
+     * @see com.github.treescrub.spedran.data.user.User
      * @see com.github.treescrub.spedran.api.Spedran#getUser(String)
      */
     public Optional<String> getExaminer() {
@@ -49,7 +51,7 @@ public class RunStatus {
 
     /**
      * Returns the time of verification.
-     * Only exists if status is {@link SubmissionStatus#VERIFIED}.
+     * Only exists if the status is {@link SubmissionStatus#VERIFIED}.
      *
      * @return an {@link Optional} with the {@link Instant} of verification
      */
@@ -58,9 +60,10 @@ public class RunStatus {
     }
 
     /**
+     * Gets the verifier supplied reason for rejection.
+     * Only exists if the status is {@link SubmissionStatus#REJECTED}.
      *
-     *
-     * @return
+     * @return the reason for rejection
      */
     public Optional<String> getReason() {
         return Optional.ofNullable(reason);

@@ -8,7 +8,8 @@ import java.util.Collections;
 import java.util.List;
 
 /**
- *
+ * A set of moderator specified rules that define how runs can be submitted for a specific {@link Game}.
+ * These are not rules in the sense of moderating the leaderboard, but rather as restrictions when submitting a run.
  */
 public class GameRuleset {
     private boolean showMilliseconds;
@@ -36,48 +37,54 @@ public class GameRuleset {
     }
 
     /**
+     * Returns {@code true} if milliseconds are shown on the leaderboard, otherwise {@code false}.
      *
-     * @return
+     * @return whether milliseconds are displayed on runs
      */
     public boolean areMillisecondsShown() {
         return showMilliseconds;
     }
 
     /**
+     * Returns {@code true} if a run needs to be verified before it appears on the leaderboard.
      *
-     * @return
+     * @return whether verification of a run is required
      */
     public boolean isVerificationRequired() {
         return requireVerification;
     }
 
     /**
+     * Returns {@code true} if a video link is required, otherwise {@code false}.
      *
-     * @return
+     * @return whether a video of a run is required
      */
     public boolean isVideoRequired() {
         return requireVideo;
     }
 
     /**
+     * Returns {@code true} if emulators are allowed to be used in runs, otherwise {@code false}.
      *
-     * @return
+     * @return whether emulators are allowed in a run
      */
     public boolean areEmulatorsAllowed() {
         return emulatorsAllowed;
     }
 
     /**
+     * Gets a {@code List} of allowed {@link TimingType}s that a run can have.
      *
-     * @return
+     * @return a {@code List} of {@code TimingType}s
      */
     public List<TimingType> getRunTimes() {
         return Collections.unmodifiableList(runTimes);
     }
 
     /**
+     * Gets the default {@link TimingType} that this game uses to sort the leaderboard by.
      *
-     * @return
+     * @return the {@code TimingType} that runs are sorted by
      */
     public TimingType getDefaultTime() {
         return defaultTime;

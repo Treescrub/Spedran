@@ -14,7 +14,7 @@ import java.time.LocalDate;
 import java.util.*;
 
 /**
- *
+ * A speedrun on SRC.
  */
 public class Run extends IdentifiableResource {
     private String weblink;
@@ -109,6 +109,8 @@ public class Run extends IdentifiableResource {
      * Returns a String containing the ID of this run's game.
      *
      * @return the id of the game this run belongs to
+     *
+     * @see com.github.treescrub.spedran.data.game.Game
      * @see com.github.treescrub.spedran.api.Spedran#getGame(String)
      */
     public String getGame() {
@@ -116,10 +118,12 @@ public class Run extends IdentifiableResource {
     }
 
     /**
-     * Returns an Optional String containing the ID of this run's level.
+     * Returns an {@link Optional} String containing the ID of this run's level.
      * If this run has no associated level, returns an empty Optional.
      *
-     * @return an {@link Optional} with the ID of this run's level
+     * @return an {@code Optional} with the ID of this run's level
+     *
+     * @see com.github.treescrub.spedran.data.Level
      * @see com.github.treescrub.spedran.api.Spedran#getLevel(String)
      */
     public Optional<String> getLevel() {
@@ -130,6 +134,8 @@ public class Run extends IdentifiableResource {
      * Returns a String containing the ID of this run's category.
      *
      * @return the ID of this run's category
+     *
+     * @see com.github.treescrub.spedran.data.category.Category
      * @see com.github.treescrub.spedran.api.Spedran#getCategory(String)
      */
     public String getCategory() {
@@ -137,16 +143,16 @@ public class Run extends IdentifiableResource {
     }
 
     /**
+     * Gets a {@link RunVideos} describing the videos in this run.
      *
-     *
-     * @return an {@link Optional} with information about the run's videos
+     * @return an {@link Optional} with information about this run's videos
      */
     public Optional<RunVideos> getVideos() {
         return Optional.ofNullable(videos);
     }
 
     /**
-     *
+     * Gets the description of this run.
      *
      * @return an {@link Optional} with the run comment
      */
@@ -155,18 +161,18 @@ public class Run extends IdentifiableResource {
     }
 
     /**
+     * Gets the current verification status of this run.
      *
-     *
-     * @return
+     * @return a {@link RunStatus} with verification info
      */
     public RunStatus getStatus() {
         return status;
     }
 
     /**
+     * Gets a {@code List} of the runners of this run.
      *
-     *
-     * @return
+     * @return a {@code List} of the runners
      */
     public List<RunPlayer> getPlayers() {
         return players;
@@ -175,7 +181,7 @@ public class Run extends IdentifiableResource {
     /**
      * Returns the {@link LocalDate} that this run was actually ran.
      *
-     * @return
+     * @return a {@code LocalDate}
      */
     public Optional<LocalDate> getDateRan() {
         return Optional.ofNullable(date);
@@ -184,7 +190,7 @@ public class Run extends IdentifiableResource {
     /**
      * Returns the {@link Instant} that this run was submitted to SRC.
      *
-     * @return
+     * @return a {@code Instant}
      */
     public Optional<Instant> getSubmitTime() {
         return Optional.ofNullable(submitted);
@@ -211,7 +217,7 @@ public class Run extends IdentifiableResource {
     /**
      *
      *
-     * @return a {@link Link} wrapped in an {@link Optional} that contains info about splits
+     * @return an {@link Optional} with a {@link Link} that contains info about splits
      */
     public Optional<Link> getSplits() {
         return Optional.ofNullable(splits);

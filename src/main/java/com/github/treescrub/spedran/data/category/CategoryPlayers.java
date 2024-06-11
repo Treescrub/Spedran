@@ -3,7 +3,7 @@ package com.github.treescrub.spedran.data.category;
 import kong.unirest.json.JSONObject;
 
 /**
- *
+ * Contains the rules for how many players can participate in the category.
  */
 public class CategoryPlayers {
     private boolean isExact;
@@ -19,16 +19,19 @@ public class CategoryPlayers {
     }
 
     /**
+     * If {@code true}, there must be exactly {@link CategoryPlayers#getPlayers()} players.
+     * If {@code false}, there can be up to {@link CategoryPlayers#getPlayers()} players.
      *
-     * @return
+     * @return {@code true} if there must be an exact amount of runners, {@code false} otherwise
      */
     public boolean isExact() {
         return isExact;
     }
 
     /**
+     * Gets the number of allowed players.
      *
-     * @return
+     * @return player count
      */
     public int getPlayers() {
         return players;

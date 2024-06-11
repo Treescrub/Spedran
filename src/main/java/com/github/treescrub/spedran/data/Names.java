@@ -7,7 +7,7 @@ import kong.unirest.json.JSONObject;
 import java.util.Optional;
 
 /**
- * Has international, Japanese, and Twitch names.
+ * Contains international, Japanese, and Twitch names.
  */
 public class Names {
     private String international;
@@ -28,14 +28,29 @@ public class Names {
         twitch = data.optString("twitch", null);
     }
 
+    /**
+     * Gets the international name for this item.
+     *
+     * @return international name
+     */
     public String getInternationalName() {
         return international;
     }
 
+    /**
+     * Gets the japanese name for this item.
+     *
+     * @return an {@link Optional} with the japanese name, or empty if no japanese name.
+     */
     public Optional<String> getJapaneseName() {
         return Optional.ofNullable(japanese);
     }
 
+    /**
+     * Gets the Twitch (as in the streaming site) name for this item.
+     *
+     * @return an {@link Optional} with the Twitch name, or empty if no Twitch name.
+     */
     public Optional<String> getTwitchName() {
         return Optional.ofNullable(twitch);
     }

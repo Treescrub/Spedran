@@ -71,7 +71,7 @@ public class Spedran {
     /**
      *
      *
-     * @param id ID of the game to get
+     * @param id ID of the game to get. can be the game's abbreviation as well
      * @return a CompletableFuture of a game
      */
     public static CompletableFuture<Game> getGame(String id) {

@@ -7,7 +7,7 @@ import kong.unirest.json.JSONObject;
 import java.util.Optional;
 
 /**
- *
+ * A link consisting of a URI and optionally a relation.
  */
 public class Link {
     private String uri;
@@ -28,16 +28,18 @@ public class Link {
     }
 
     /**
+     * Gets the URI for this link.
      *
-     * @return
+     * @return the URI
      */
     public String getURI() {
         return uri;
     }
 
     /**
+     * Gets the relation for this link.
      *
-     * @return
+     * @return an {@link Optional} with the relation, or empty if not set
      */
     public Optional<String> getRelation() {
         return Optional.ofNullable(rel);

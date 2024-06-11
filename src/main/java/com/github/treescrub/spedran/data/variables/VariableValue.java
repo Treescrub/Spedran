@@ -7,7 +7,9 @@ import java.util.Map;
 import java.util.Optional;
 
 /**
- *
+ * A value for a {@link Variable}.
+ * <br>
+ * Contains info about the value label. Also has rules text and flags if the variable is a subcategory.
  */
 public class VariableValue {
     private String label;
@@ -35,24 +37,29 @@ public class VariableValue {
     }
 
     /**
+     * Gets the label for this value.
      *
-     * @return
+     * @return the label text
      */
     public String getLabel() {
         return label;
     }
 
     /**
+     * Gets the rules text if the variable is marked as a subcategory.
      *
-     * @return
+     * @return an {@link Optional} with the rules text, empty if variable is not a subcategory
      */
     public Optional<String> getRules() {
         return Optional.ofNullable(rules);
     }
 
     /**
+     * Gets a {@link Map} of flags.
+     * <br>
+     * Currently, the only flag is {@code miscellaneous}.
      *
-     * @return
+     * @return a {@code Map} of flags, empty if variable is not a subcategory
      */
     public Map<String, Boolean> getFlags() {
         return flags;

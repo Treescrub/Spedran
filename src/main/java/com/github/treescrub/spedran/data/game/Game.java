@@ -13,7 +13,7 @@ import java.time.LocalDate;
 import java.util.*;
 
 /**
- *
+ * A game which has a leaderboard on SRC.
  */
 public class Game extends IdentifiableResource {
     private Names names;
@@ -43,40 +43,45 @@ public class Game extends IdentifiableResource {
     }
 
     /**
+     * Gets a new {@link GameCategoriesRequest} builder object to request categories for this game.
      *
-     * @return
+     * @return a {@code GameCategoriesRequest} builder
      */
     public GameCategoriesRequest getCategories() {
         return new GameCategoriesRequest(this);
     }
 
     /**
+     * Gets a new {@link GameLevelsRequest} builder object to request levels for this game.
      *
-     * @return
+     * @return a {@code GameLevelsRequest} builder
      */
     public GameLevelsRequest getLevels() {
         return new GameLevelsRequest(this);
     }
 
     /**
+     * Gets a new {@link GameRecordsRequest} builder object to request records for this game.
      *
-     * @return
+     * @return a {@code GameRecordsRequest} builder
      */
     public GameRecordsRequest getRecords() {
         return new GameRecordsRequest(this);
     }
 
     /**
+     * Gets a new {@link GameRomhacksRequest} builder object to request romhacks (derived games) for this game.
      *
-     * @return
+     * @return a {@code GameRomhacksRequest} builder
      */
     public GameRomhacksRequest getRomhacks() {
         return new GameRomhacksRequest(this);
     }
 
     /**
+     * Gets a new {@link GameVariablesRequest} builder object to request variables for this game.
      *
-     * @return
+     * @return a {@code GameVariablesRequest} builder
      */
     public GameVariablesRequest getVariables() {
         return new GameVariablesRequest(this);
@@ -110,17 +115,19 @@ public class Game extends IdentifiableResource {
     }
 
     /**
+     * Gets a {@link Names} object with the names for this game.
      *
-     * @return a Names describing this game's names
+     * @return a {@code Names} of this game's names
      */
     public Names getNames() {
         return names;
     }
 
     /**
+     * Gets the current boosts for this game on SRC.
      *
+     * @return current boosts used on this game
      *
-     * @return times this game has been boosted
      * @see <a href="https://www.speedrun.com/supporter/faq">SRC Supporter FAQ</a>
      */
     public Integer getBoostsReceived() {
@@ -128,9 +135,10 @@ public class Game extends IdentifiableResource {
     }
 
     /**
-     *
+     * Gets the number of unique supporters currently boosting this game.
      *
      * @return total unique users that have boosted this game
+     *
      * @see <a href="https://www.speedrun.com/supporter/faq">SRC Supporter FAQ</a>
      */
     public Integer getDistinctBoosters() {
@@ -138,6 +146,7 @@ public class Game extends IdentifiableResource {
     }
 
     /**
+     * Gets the unique shortened name that is used by SRC.
      *
      * @return the shortened game title
      */
@@ -146,7 +155,7 @@ public class Game extends IdentifiableResource {
     }
 
     /**
-     *
+     * Gets a link to this game on SRC.
      *
      * @return a link to this game on SRC
      */
@@ -155,6 +164,7 @@ public class Game extends IdentifiableResource {
     }
 
     /**
+     * Gets a Discord invite link to the official Discord server for this game, if it exists.
      *
      * @return an {@link Optional} with an invitation link to this game's Discord server
      */
@@ -163,24 +173,29 @@ public class Game extends IdentifiableResource {
     }
 
     /**
+     * Gets the date when this game was released.
      *
-     * @return a LocalDate describing when this game was released
+     * @return a {@link LocalDate} describing when this game was released
      */
     public LocalDate getReleaseDate() {
         return releaseDate;
     }
 
     /**
+     * Gets a {@link GameRuleset} object with the game-wide rules.
      *
-     * @return an {@link Optional} with a {@link GameRuleset}
+     * @return an {@link Optional} with a {@code GameRuleset}
      */
     public Optional<GameRuleset> getRuleset() {
         return Optional.ofNullable(ruleset);
     }
 
     /**
+     * Gets a {@code List} of all gametype IDs that describe this game.
      *
-     * @return a List of gametype IDs
+     * @return a {@code List} of gametype IDs
+     *
+     * @see com.github.treescrub.spedran.data.Gametype
      * @see com.github.treescrub.spedran.api.Spedran#getGametype(String)
      */
     public List<String> getGametypes() {
@@ -188,8 +203,11 @@ public class Game extends IdentifiableResource {
     }
 
     /**
+     * Gets a {@code List} of platform IDs that this game is on.
      *
-     * @return a List of platform IDs
+     * @return a {@code List} of platform IDs
+     *
+     * @see com.github.treescrub.spedran.data.Platform
      * @see com.github.treescrub.spedran.api.Spedran#getPlatform(String)
      */
     public List<String> getPlatforms() {
@@ -197,8 +215,11 @@ public class Game extends IdentifiableResource {
     }
 
     /**
+     * Gets a {@code List} of region IDs that this game is in.
      *
-     * @return a List of region IDs
+     * @return a {@code List} of region IDs
+     *
+     * @see com.github.treescrub.spedran.data.Region
      * @see com.github.treescrub.spedran.api.Spedran#getRegion(String)
      */
     public List<String> getRegions() {
@@ -206,8 +227,11 @@ public class Game extends IdentifiableResource {
     }
 
     /**
+     * Gets a {@code List} of genre IDs that this game is in.
      *
-     * @return a List of genre IDs
+     * @return a {@code List} of genre IDs
+     *
+     * @see com.github.treescrub.spedran.data.Genre
      * @see com.github.treescrub.spedran.api.Spedran#getGenre(String)
      */
     public List<String> getGenres() {
@@ -215,8 +239,11 @@ public class Game extends IdentifiableResource {
     }
 
     /**
+     * Gets a {@code List} of engine IDs that this game runs in.
      *
-     * @return a List of engine IDs
+     * @return a {@code List} of engine IDs
+     *
+     * @see com.github.treescrub.spedran.data.Engine
      * @see com.github.treescrub.spedran.api.Spedran#getEngine(String)
      */
     public List<String> getEngines() {
@@ -224,8 +251,11 @@ public class Game extends IdentifiableResource {
     }
 
     /**
+     * Gets a {@code List} of developer IDs that developed this game.
      *
-     * @return a List of developer IDs
+     * @return a {@code List} of developer IDs
+     *
+     * @see com.github.treescrub.spedran.data.Developer
      * @see com.github.treescrub.spedran.api.Spedran#getDeveloper(String)
      */
     public List<String> getDevelopers() {
@@ -233,8 +263,11 @@ public class Game extends IdentifiableResource {
     }
 
     /**
+     * Gets a {@code List} of publisher IDs that published this game.
      *
-     * @return a List of publisher IDs
+     * @return a {@code List} of publisher IDs
+     *
+     * @see com.github.treescrub.spedran.data.Publisher
      * @see com.github.treescrub.spedran.api.Spedran#getPublisher(String)
      */
     public List<String> getPublishers() {
@@ -242,8 +275,11 @@ public class Game extends IdentifiableResource {
     }
 
     /**
+     * Gets a {@code Map} of user IDs as keys and moderator types as values.
      *
-     * @return a Map of user IDs to moderator types
+     * @return a {@code Map} of user IDs to moderator types
+     *
+     * @see com.github.treescrub.spedran.data.user.User
      * @see com.github.treescrub.spedran.api.Spedran#getUser(String)
      */
     public Map<String, String> getModerators() {
@@ -251,11 +287,11 @@ public class Game extends IdentifiableResource {
     }
 
     /**
-     * Returns an Instant with the exact time this game was added to SRC.
+     * Returns an {@link Instant} with the time this game was added to SRC.
      * <p>
      * Games added before this field was implemented will return an empty Optional.
      *
-     * @return an {@link Optional} Instant describing when this game was added to SRC
+     * @return an {@link Optional} with an {@code Instant} describing when this game was added to SRC
      */
     public Optional<Instant> getCreationTime() {
         return Optional.ofNullable(created);

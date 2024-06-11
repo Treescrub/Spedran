@@ -5,7 +5,9 @@ import kong.unirest.json.JSONObject;
 import java.util.Optional;
 
 /**
- * Username styling info.
+ * Describes how the name for a {@link User} should be colored.
+ * <br>
+ * If the style is a gradient, {@link NameStyle#getStartColor()} and {@link NameStyle#getEndColor()} can be identical.
  */
 public class NameStyle {
     public enum Style {
@@ -33,32 +35,41 @@ public class NameStyle {
     }
 
     /**
+     * Gets the style of the name.
+     * <p>
+     * If {@link Style#SOLID}, the name color will be solid and {@link NameStyle#getColor()} will have the color preset.
+     * <br>
+     * If {@link Style#GRADIENT}, the name color will be a gradient left to right, from {@link NameStyle#getStartColor()} to {@link NameStyle#getEndColor()}.
+     * <p>
      *
-     * @return
+     * @return the color style for the user
      */
     public Style getStyle() {
         return style;
     }
 
     /**
+     * Gets the color when {@link NameStyle#getStyle()} is {@link Style#SOLID}.
      *
-     * @return
+     * @return an {@link Optional} with the {@link NameColor} if the style is solid, otherwise empty.
      */
     public Optional<NameColor> getColor() {
         return Optional.ofNullable(color);
     }
 
     /**
+     * Gets the start or leftmost color when {@link NameStyle#getStyle()} is {@link Style#GRADIENT}.
      *
-     * @return
+     * @return the starting {@link NameColor}
      */
     public Optional<NameColor> getStartColor() {
         return Optional.ofNullable(startColor);
     }
 
     /**
+     * Gets the start or rightmost color when {@link NameStyle#getStyle()} is {@link Style#GRADIENT}.
      *
-     * @return
+     * @return the ending {@link NameColor}
      */
     public Optional<NameColor> getEndColor() {
         return Optional.ofNullable(endColor);

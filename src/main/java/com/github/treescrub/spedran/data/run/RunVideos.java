@@ -8,7 +8,11 @@ import java.util.List;
 import java.util.Optional;
 
 /**
- * Links and primary video text if anything other than single link found.
+ * Has information about all video links in the run.
+ * <br>
+ * Includes the main video section and videos linked in the description.
+ * <br>
+ * If the main video section contains more than just a video link, {@link RunVideos#text} is set.
  */
 public class RunVideos {
     private String text;
@@ -29,16 +33,18 @@ public class RunVideos {
     }
 
     /**
+     * Gets the full text of the main video section if it contains more than just a video link.
      *
-     * @return
+     * @return an {@link Optional} with the full text
      */
     public Optional<String> getText() {
         return Optional.ofNullable(text);
     }
 
     /**
+     * Gets the video links mentioned in the run.
      *
-     * @return
+     * @return a {@code List} of {@link Link}s to videos
      */
     public List<Link> getLinks() {
         return links;

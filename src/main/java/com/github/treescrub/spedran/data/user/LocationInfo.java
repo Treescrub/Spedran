@@ -6,7 +6,7 @@ import com.github.treescrub.spedran.data.Names;
 import java.util.Objects;
 
 /**
- * Provides region code and name info.
+ * Contains a location code and {@link Names} for a location in the world.
  */
 public class LocationInfo {
     private String code;
@@ -22,16 +22,18 @@ public class LocationInfo {
     }
 
     /**
+     * Gets the code for this location.
      *
-     * @return
+     * @return a {@code String} with the location code
      */
     public String getCode() {
         return code;
     }
 
     /**
+     * Gets the {@link Names} for this location.
      *
-     * @return
+     * @return a {@code Names}
      */
     public Names getNames() {
         return names;

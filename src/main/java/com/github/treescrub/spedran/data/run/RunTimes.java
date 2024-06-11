@@ -6,7 +6,10 @@ import java.time.Duration;
 import java.util.Optional;
 
 /**
- * Has info on all run timing.
+ * Contains info of all times set for a run.
+ *
+ * @see Run
+ * @see Run#getRunTimes()
  */
 public class RunTimes {
     private Duration primaryTime;
@@ -29,32 +32,37 @@ public class RunTimes {
     }
 
     /**
+     * Gets the primary or default time of this run.
+     * The timing type is determined by the {@link com.github.treescrub.spedran.data.game.GameRuleset}
      *
-     * @return
+     * @return a {@link Duration} with the primary time
      */
     public Duration getPrimaryTime() {
         return primaryTime;
     }
 
     /**
+     * Gets the real time of this run.
      *
-     * @return
+     * @return a {@link Optional} with a {@link Duration} with the real time
      */
     public Optional<Duration> getRealTime() {
         return Optional.ofNullable(realTime);
     }
 
     /**
+     * Gets the real with loads removed time of this run.
      *
-     * @return
+     * @return a {@link Optional} with a {@link Duration} with the real with loads removed time
      */
     public Optional<Duration> getRealNoLoadsTime() {
         return Optional.ofNullable(realNoLoadsTime);
     }
 
     /**
+     * Gets the in-game time of this run.
      *
-     * @return
+     * @return a {@link Optional} with a {@link Duration} with the in-game time
      */
     public Optional<Duration> getIngameTime() {
         return Optional.ofNullable(ingameTime);

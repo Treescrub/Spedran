@@ -22,6 +22,11 @@ public abstract class IdentifiableResource extends Resource {
         id = data.getString("id");
     }
 
+    /**
+     * Gets the ID for this resource.
+     *
+     * @return the resource ID
+     */
     public String getId() {
         return id;
     }

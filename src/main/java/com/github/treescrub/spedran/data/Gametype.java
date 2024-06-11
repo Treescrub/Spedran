@@ -5,7 +5,9 @@ import kong.unirest.JsonNode;
 import kong.unirest.json.JSONObject;
 
 /**
- *
+ * Represents different types of unofficial games.
+ * <br>
+ * For example: ROM hacks, mods, category extensions, and so on.
  */
 public class Gametype extends IdentifiableNamedResource {
 
@@ -20,16 +22,6 @@ public class Gametype extends IdentifiableNamedResource {
     @Override
     protected void parseFromJson(JSONObject data) {
         super.parseFromJson(data);
-    }
-
-    /**
-     *
-     * @return
-     * @see com.github.treescrub.spedran.api.Spedran#getGametype(String)
-     */
-    @Override
-    public String getId() {
-        return super.getId();
     }
 
     @Override

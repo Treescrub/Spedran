@@ -9,7 +9,8 @@ import com.github.treescrub.spedran.data.run.TimingType;
 import java.util.*;
 
 /**
- *
+ * A collection of runs sorted by ranking as they would appear on SRC.
+ * Does not contain obsoleted runs.
  */
 public class Leaderboard extends Resource {
     private String weblink;
@@ -55,93 +56,122 @@ public class Leaderboard extends Resource {
     }
 
     /**
+     * Gets the link to this leaderboard on SRC.
+     * <br><b>SRC API currently returns a link that does not work!</b>
      *
-     * @return
+     * @return a link to the leaderboard on SRC
      */
     public String getWeblink() {
         return weblink;
     }
 
     /**
+     * Gets the game ID for this leaderboard.
      *
-     * @return
+     * @return the game ID
+     *
      * @see com.github.treescrub.spedran.api.Spedran#getGame(String)
+     * @see com.github.treescrub.spedran.data.game.Game
      */
     public String getGame() {
         return game;
     }
 
     /**
+     * Gets the category ID for this leaderboard.
      *
-     * @return
+     * @return the category ID
+     *
      * @see com.github.treescrub.spedran.api.Spedran#getCategory(String)
+     * @see com.github.treescrub.spedran.data.category.Category
      */
     public String getCategory() {
         return category;
     }
 
     /**
+     * Gets the level ID as an {@link Optional}.
      *
-     * @return
+     * @return an {@link Optional} containing the level ID, empty if no level was provided
+     *
      * @see com.github.treescrub.spedran.api.Spedran#getLevel(String)
+     * @see com.github.treescrub.spedran.data.Level
      */
     public Optional<String> getLevel() {
         return Optional.ofNullable(level);
     }
 
     /**
+     * Gets the platform ID as an {@link Optional}.
      *
-     * @return
+     * @return an {@link Optional} containing the platform ID, empty if no platform was provided
+     *
      * @see com.github.treescrub.spedran.api.Spedran#getPlatform(String)
+     * @see com.github.treescrub.spedran.data.Platform
      */
     public Optional<String> getPlatform() {
         return Optional.ofNullable(platform);
     }
 
     /**
+     * Gets the region ID as an {@link Optional}.
      *
-     * @return
+     * @return an {@link Optional} with the region ID, empty if no region was provided
+     *
      * @see com.github.treescrub.spedran.api.Spedran#getRegion(String)
+     * @see com.github.treescrub.spedran.data.Region
      */
     public Optional<String> getRegion() {
         return Optional.ofNullable(region);
     }
 
     /**
+     * Gets whether runs using an emulator were filtered out.
      *
-     * @return
+     * @return {@code false} if runs using an emulator were filtered out, otherwise {@code true}
      */
     public Boolean getEmulators() {
         return emulators;
     }
 
     /**
+     * If runs with no video were filtered out, returns {@code true}, otherwise {@code false}.
      *
-     * @return
+     * @return {@code true} if the 'videos only' filter was set, otherwise {@code false}
      */
     public boolean isVideoOnly() {
         return videoOnly;
     }
 
     /**
+     * Gets the {@code TimingType} that was used to sort the runs from {@link Leaderboard#getRuns()}.
      *
-     * @return
+     * @return the {@code TimingType} that the runs were sorted by
+     *
+     * @see com.github.treescrub.spedran.data.run.TimingType
      */
     public TimingType getTiming() {
         return timing;
     }
 
     /**
+     * Gets a mapping of variable IDs to variable value IDs.
      *
-     * @return
+     * @return a {@code Map} with keys being variable IDs and values being variable values
+     *
+     * @see com.github.treescrub.spedran.data.variables.Variable
      */
     public Map<String, String> getValues() {
         return values;
     }
 
     /**
+     * Gets all runs on the leaderboard.
+     * Runs are sorted by place on the leaderboard.
      *
-     * @return
+     * @return a {@code List} with all runs on this leaderboard
+     *
+     * @see com.github.treescrub.spedran.data.leaderboard.LeaderboardRun
      */
     public List<LeaderboardRun> getRuns() {
         return runs;

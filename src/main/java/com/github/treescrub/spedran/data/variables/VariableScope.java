@@ -5,13 +5,25 @@ import kong.unirest.json.JSONObject;
 import java.util.Optional;
 
 /**
- *
+ * The scope that a {@link Variable} should apply or be visible in.
  */
 public class VariableScope {
     public enum ScopeType {
+        /**
+         * Applies to every run in the game.
+         */
         GLOBAL,
+        /**
+         * Applies only to runs that don't have levels.
+         */
         FULL_GAME,
+        /**
+         * Applies to runs that do have levels.
+         */
         ALL_LEVELS,
+        /**
+         * Applies only to one specific level.
+         */
         SINGLE_LEVEL
     }
 
@@ -37,16 +49,20 @@ public class VariableScope {
     }
 
     /**
+     * Gets the {@link ScopeType} for the variable.
      *
-     * @return
+     * @return a {@code ScopeType}
      */
     public ScopeType getType() {
         return type;
     }
 
     /**
+     * Gets the associated level ID if the scope type is {@link ScopeType#SINGLE_LEVEL}.
      *
-     * @return
+     * @return an {@link Optional} with the level ID if the scope is limited to a single level
+     *
+     * @see com.github.treescrub.spedran.data.Level
      * @see com.github.treescrub.spedran.api.Spedran#getLevel(String)
      */
     public Optional<String> getLevel() {

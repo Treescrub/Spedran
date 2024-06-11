@@ -5,7 +5,7 @@ import kong.unirest.JsonNode;
 import kong.unirest.json.JSONObject;
 
 /**
- *
+ * The game engine used in a game.
  */
 public class Engine extends IdentifiableNamedResource {
 
@@ -20,16 +20,6 @@ public class Engine extends IdentifiableNamedResource {
     @Override
     protected void parseFromJson(JSONObject data) {
         super.parseFromJson(data);
-    }
-
-    /**
-     *
-     * @return
-     * @see com.github.treescrub.spedran.api.Spedran#getEngine(String)
-     */
-    @Override
-    public String getId() {
-        return super.getId();
     }
 
     @Override
