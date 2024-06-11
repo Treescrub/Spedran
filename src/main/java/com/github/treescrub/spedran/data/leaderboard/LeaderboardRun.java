@@ -1,16 +1,22 @@
 package com.github.treescrub.spedran.data.leaderboard;
 
+import com.github.treescrub.spedran.data.Resource;
 import kong.unirest.json.JSONObject;
 import com.github.treescrub.spedran.data.run.Run;
 
 /**
  * A run on a leaderboard. Has a place on the leaderboard and the associated run.
  */
-public class LeaderboardRun {
+public class LeaderboardRun extends Resource {
     private int place;
     private Run run;
 
     public LeaderboardRun(JSONObject data) {
+        super(data);
+    }
+
+    @Override
+    protected void parseFromJson(JSONObject data) {
         place = data.getInt("place");
         run = new Run(data.getJSONObject("run"));
     }
