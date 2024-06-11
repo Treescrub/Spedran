@@ -2,6 +2,8 @@ package com.github.treescrub.spedran.data.user;
 
 /**
  * The role of a user on SRC.
+ * <br>
+ * These roles are site wide, they are not affiliated with a specific leaderboard.
  */
 public enum UserRole {
     /**

@@ -113,7 +113,7 @@ public class User extends IdentifiableResource {
     /**
      * Gets the role of this user across the entire site.
      *
-     * @return the {@link UserRole} of this user
+     * @return the {@link UserRole} of this user on SRC itself
      */
     public UserRole getRole() {
         return role;
