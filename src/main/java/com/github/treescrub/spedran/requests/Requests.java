@@ -1,6 +1,8 @@
 package com.github.treescrub.spedran.requests;
 
 import kong.unirest.*;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.util.Optional;
 
@@ -10,6 +12,7 @@ public class Requests {
     private static String key;
     private static UnirestInstance unirestInstance;
     private static final RequestCache cache = new RequestCache();
+    private static final Logger logger = LogManager.getLogger(Requests.class);
 
     static {
         setup();
@@ -45,5 +48,34 @@ public class Requests {
 
     static void addCachedResponse(String url, HttpResponse<?> response) {
         cache.addResponse(url, response);
+    }
+
+    /**
+     * Enable request caching.
+     */
+    public static void enableCache() {
+        cache.enable();
+
+        logger.debug("Enabling request cache");
+    }
+
+    /**
+     * Disable request caching.
+     */
+    public static void disableCache() {
+        cache.disable();
+
+        logger.debug("Disabling request cache");
+    }
+
+    /**
+     * Sets the maximum time that entries are considered valid in the request cache.
+     *
+     * @param newTimeLimit the new time limit in milliseconds
+     */
+    public static void setCacheTimeLimit(long newTimeLimit) {
+        cache.setTimeLimit(newTimeLimit);
+
+        logger.debug("Setting request cache time limit to {}ms", newTimeLimit);
     }
 }

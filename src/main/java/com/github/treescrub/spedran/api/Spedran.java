@@ -69,6 +69,29 @@ public class Spedran {
     }
 
     /**
+     * Enable request caching.
+     */
+    public static void enableCache() {
+        Requests.enableCache();
+    }
+
+    /**
+     * Disable request caching.
+     */
+    public static void disableCache() {
+        Requests.disableCache();
+    }
+
+    /**
+     * Sets the maximum time that entries are considered valid in the request cache.
+     *
+     * @param newTimeLimit the new time limit in milliseconds
+     */
+    public static void setCacheTimeLimit(long newTimeLimit) {
+        Requests.setCacheTimeLimit(newTimeLimit);
+    }
+
+    /**
      *
      *
      * @param id ID of the game to get. can be the game's abbreviation as well
