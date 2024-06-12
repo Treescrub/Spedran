@@ -6,6 +6,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import com.github.treescrub.spedran.api.request.ResourceRequest;
 
+import java.util.Optional;
 import java.util.Queue;
 import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.ExecutorService;
@@ -93,8 +94,20 @@ public class RequestQueue {
         logger.debug("Executing request, {} left in queue", requestsInQueue.get());
 
         HttpRequest<?> httpRequest = resourceRequest.getRequest();
-        // Execute the blocking resource request and get the response from the API.
-        HttpResponse<?> response = resourceRequest.executeBlocking();
+        HttpResponse<?> response;
+
+        Optional<HttpResponse<?>> cachedResponse = Requests.getCachedResponse(httpRequest.getUrl());
+        if(cachedResponse.isPresent()) {
+            // Skip querying the API and just use the cached response.
+            response = cachedResponse.get();
+
+            logger.debug("Using cached response for '{}'", httpRequest.getUrl());
+        } else {
+            // Execute the blocking resource request and get the response from the API.
+            response = resourceRequest.executeBlocking();
+
+            Requests.addCachedResponse(httpRequest.getUrl(), response);
+        }
 
         if(response.isSuccess()) {
             long millisecondsSinceLastRateLimit = System.currentTimeMillis() - lastRateLimit;
