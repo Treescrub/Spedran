@@ -85,6 +85,7 @@ public class Run extends IdentifiableResource {
         for(int i = 0; i < data.getJSONArray("players").length(); i++) {
             players.add(new RunPlayer(data.getJSONArray("players").getJSONObject(i)));
         }
+        players = Collections.unmodifiableList(players);
         date = data.isNull("date") ? null : LocalDate.parse(data.getString("date"));
         submitted = data.isNull("submitted") ? null : Instant.parse(data.getString("submitted"));
         times = new RunTimes(data.getJSONObject("times"));
@@ -94,6 +95,7 @@ public class Run extends IdentifiableResource {
         for(String key : data.getJSONObject("values").keySet()) {
             values.put(key, data.getJSONObject("values").getString(key));
         }
+        values = Collections.unmodifiableMap(values);
     }
 
     /**

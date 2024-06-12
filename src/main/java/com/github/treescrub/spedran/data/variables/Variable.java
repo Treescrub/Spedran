@@ -7,6 +7,7 @@ import kong.unirest.HttpResponse;
 import kong.unirest.JsonNode;
 import kong.unirest.json.JSONObject;
 
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
@@ -46,6 +47,7 @@ public class Variable extends IdentifiableNamedResource {
         for(String valueId : data.getJSONObject("values").getJSONObject("values").keySet()) {
             values.put(valueId, new VariableValue(data.getJSONObject("values").getJSONObject("values").getJSONObject(valueId)));
         }
+        values = Collections.unmodifiableMap(values);
         isSubcategory = data.getBoolean("is-subcategory");
     }
 
