@@ -48,11 +48,13 @@ public class Leaderboard extends Resource {
         for(String key : data.getJSONObject("values").keySet()) {
             values.put(key, data.getString(key));
         }
+        values = Collections.unmodifiableMap(values);
         runs = new ArrayList<>();
         for(Object object : data.getJSONArray("runs")) {
             JSONObject runData = (JSONObject) object;
             runs.add(new LeaderboardRun(runData));
         }
+        runs = Collections.unmodifiableList(runs);
     }
 
     /**
