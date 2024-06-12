@@ -46,7 +46,6 @@ public class RequestQueue {
 
     private static final ExecutorService queueExecutor = Executors.newSingleThreadExecutor();
     private static final Logger logger = LogManager.getLogger(RequestQueue.class);
-    private static final RequestCache cache = new RequestCache();
 
     public static void queueRequest(ResourceRequest<?> request) {
         requestQueue.add(request);
@@ -97,7 +96,7 @@ public class RequestQueue {
         HttpRequest<?> httpRequest = resourceRequest.getRequest();
         HttpResponse<?> response;
 
-        Optional<HttpResponse<?>> cachedResponse = cache.getCachedResponse(httpRequest.getUrl());
+        Optional<HttpResponse<?>> cachedResponse = Requests.getCachedResponse(httpRequest.getUrl());
         if(cachedResponse.isPresent()) {
             // Skip querying the API and just use the cached response.
             response = cachedResponse.get();
@@ -107,7 +106,7 @@ public class RequestQueue {
             // Execute the blocking resource request and get the response from the API.
             response = resourceRequest.executeBlocking();
 
-            cache.addResponse(httpRequest.getUrl(), response);
+            Requests.addCachedResponse(httpRequest.getUrl(), response);
         }
 
         if(response.isSuccess()) {
