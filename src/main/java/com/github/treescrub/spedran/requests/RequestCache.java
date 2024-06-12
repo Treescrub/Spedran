@@ -7,6 +7,7 @@ import org.apache.logging.log4j.Logger;
 import java.util.Map;
 import java.util.Optional;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.atomic.AtomicLong;
 
 class RequestCache {
     static class CacheEntry {
@@ -20,7 +21,7 @@ class RequestCache {
     }
 
     private static final Logger logger = LogManager.getLogger(RequestCache.class);
-    private static final long CACHE_TIME_LIMIT_MS = 1000L;
+    private static AtomicLong cacheTimeLimitMs = new AtomicLong(1000L);
     private final Map<String, CacheEntry> cachedRequests;
 
     RequestCache() {
@@ -36,7 +37,7 @@ class RequestCache {
 
         long currentTimestamp = System.currentTimeMillis();
 
-        if(entry.timestamp > currentTimestamp || currentTimestamp - entry.timestamp >= CACHE_TIME_LIMIT_MS) {
+        if(entry.timestamp > currentTimestamp || currentTimestamp - entry.timestamp >= cacheTimeLimitMs.get()) {
             // Remove this entry from the cache.
             cachedRequests.remove(url);
 
@@ -51,5 +52,12 @@ class RequestCache {
     void addResponse(String url, HttpResponse<?> response) {
         logger.debug("Adding '{}' to cache", url);
         cachedRequests.put(url, new CacheEntry(System.currentTimeMillis(), response));
+    }
+
+    /**
+     * Sets the time limit in milliseconds before an entry is considered invalid.
+     */
+    void setTimeLimit(long timeLimit) {
+        cacheTimeLimitMs.set(timeLimit);
     }
 }
