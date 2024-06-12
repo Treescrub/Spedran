@@ -6,6 +6,7 @@ import kong.unirest.JsonNode;
 import kong.unirest.json.JSONObject;
 
 import java.time.Instant;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
@@ -54,6 +55,7 @@ public class Series extends IdentifiableResource {
         for(String key : data.getJSONObject("moderators").keySet()) {
             moderators.put(key, data.getJSONObject("moderators").getString(key));
         }
+        moderators = Collections.unmodifiableMap(moderators);
         if(!data.isNull("created"))
             created = Instant.parse(data.getString("created"));
     }

@@ -32,6 +32,7 @@ public class GameRuleset {
             String timingType = (String) element;
             runTimes.add(TimingType.valueOf(timingType.toUpperCase()));
         }
+        runTimes = Collections.unmodifiableList(runTimes);
         defaultTime = TimingType.valueOf(data.getString("default-time").toUpperCase());
         emulatorsAllowed = data.getBoolean("emulators-allowed");
     }

@@ -4,6 +4,7 @@ import kong.unirest.json.JSONObject;
 import com.github.treescrub.spedran.data.Link;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
@@ -30,6 +31,7 @@ public class RunVideos {
                 links.add(new Link(data.getJSONArray("links").getJSONObject(i)));
             }
         }
+        links = Collections.unmodifiableList(links);
     }
 
     /**

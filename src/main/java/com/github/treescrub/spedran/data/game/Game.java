@@ -110,6 +110,7 @@ public class Game extends IdentifiableResource {
         for(String key : data.getJSONObject("moderators").keySet()) {
             moderators.put(key, data.getJSONObject("moderators").getString(key));
         }
+        moderators = Collections.unmodifiableMap(moderators);
         if(!data.isNull("created"))
             created = Instant.parse(data.getString("created"));
     }

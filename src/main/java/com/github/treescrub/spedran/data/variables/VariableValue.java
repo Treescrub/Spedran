@@ -2,6 +2,7 @@ package com.github.treescrub.spedran.data.variables;
 
 import kong.unirest.json.JSONObject;
 
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
@@ -34,6 +35,7 @@ public class VariableValue {
                 }
             }
         }
+        flags = Collections.unmodifiableMap(flags);
     }
 
     /**
