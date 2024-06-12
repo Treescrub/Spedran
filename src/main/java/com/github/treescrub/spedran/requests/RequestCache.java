@@ -20,7 +20,8 @@ class RequestCache {
     }
 
     private static final Logger logger = LogManager.getLogger(RequestCache.class);
-    private static volatile long cacheTimeLimitMs = 1000L;
+    private volatile long cacheTimeLimitMs = 1000L;
+    private volatile boolean disabled = false;
     private final Map<String, CacheEntry> cachedRequests;
 
     RequestCache() {
@@ -28,6 +29,10 @@ class RequestCache {
     }
 
     Optional<HttpResponse<?>> getCachedResponse(String url) {
+        if(disabled) {
+            return Optional.empty();
+        }
+
         CacheEntry entry = cachedRequests.get(url);
 
         if(entry == null) {
@@ -49,6 +54,10 @@ class RequestCache {
     }
 
     void addResponse(String url, HttpResponse<?> response) {
+        if(disabled) {
+            return;
+        }
+
         logger.debug("Adding '{}' to cache", url);
         cachedRequests.put(url, new CacheEntry(System.currentTimeMillis(), response));
     }
@@ -58,5 +67,15 @@ class RequestCache {
      */
     void setTimeLimit(long timeLimit) {
         cacheTimeLimitMs = timeLimit;
+    }
+
+    void enable() {
+        this.disabled = false;
+    }
+
+    void disable() {
+        this.disabled = true;
+
+        cachedRequests.clear();
     }
 }
