@@ -1,12 +1,10 @@
 package com.github.treescrub.spedran.data.game;
 
-import kong.unirest.HttpResponse;
-import kong.unirest.JsonNode;
-import kong.unirest.json.JSONObject;
 import com.github.treescrub.spedran.api.request.game.*;
-import com.github.treescrub.spedran.data.ParseUtils;
 import com.github.treescrub.spedran.data.IdentifiableResource;
 import com.github.treescrub.spedran.data.Names;
+import com.github.treescrub.spedran.data.ParseUtils;
+import kong.unirest.json.JSONObject;
 
 import java.time.Instant;
 import java.time.LocalDate;
@@ -16,30 +14,48 @@ import java.util.*;
  * A game which has a leaderboard on SRC.
  */
 public class Game extends IdentifiableResource {
-    private Names names;
-    private Integer boostReceived;
-    private Integer boostDistinctDonors;
-    private String abbreviation;
-    private String weblink;
-    private String discord;
-    private LocalDate releaseDate;
-    private GameRuleset ruleset;
-    private List<String> gametypes;
-    private List<String> platforms;
-    private List<String> regions;
-    private List<String> genres;
-    private List<String> engines;
-    private List<String> developers;
-    private List<String> publishers;
-    private Map<String, String> moderators;
-    private Instant created;
-
-    public Game(HttpResponse<JsonNode> data) {
-        super(data);
-    }
+    private final Names names;
+    private final Integer boostReceived;
+    private final Integer boostDistinctDonors;
+    private final String abbreviation;
+    private final String weblink;
+    private final String discord;
+    private final LocalDate releaseDate;
+    private final GameRuleset ruleset;
+    private final List<String> gametypes;
+    private final List<String> platforms;
+    private final List<String> regions;
+    private final List<String> genres;
+    private final List<String> engines;
+    private final List<String> developers;
+    private final List<String> publishers;
+    private final Map<String, String> moderators;
+    private final Instant created;
 
     public Game(JSONObject data) {
         super(data);
+
+        names = new Names(data.getJSONObject("names"));
+        boostReceived = data.getInt("boostReceived");
+        boostDistinctDonors = data.getInt("boostDistinctDonors");
+        abbreviation = data.getString("abbreviation");
+        weblink = data.getString("weblink");
+        discord = data.getString("discord").isEmpty() ? null : data.getString("discord");
+        releaseDate = LocalDate.parse(data.getString("release-date"));
+        ruleset = new GameRuleset(data.getJSONObject("ruleset"));
+        gametypes = ParseUtils.getStringList(data.getJSONArray("gametypes"));
+        platforms = ParseUtils.getStringList(data.getJSONArray("platforms"));
+        regions = ParseUtils.getStringList(data.getJSONArray("regions"));
+        genres = ParseUtils.getStringList(data.getJSONArray("genres"));
+        engines = ParseUtils.getStringList(data.getJSONArray("engines"));
+        developers = ParseUtils.getStringList(data.getJSONArray("developers"));
+        publishers = ParseUtils.getStringList(data.getJSONArray("publishers"));
+        Map<String, String> tempModerators = new HashMap<>();
+        for(String key : data.getJSONObject("moderators").keySet()) {
+            tempModerators.put(key, data.getJSONObject("moderators").getString(key));
+        }
+        moderators = Collections.unmodifiableMap(tempModerators);
+        created = !data.isNull("created") ? Instant.parse(data.getString("created")) : null;
     }
 
     /**
@@ -85,34 +101,6 @@ public class Game extends IdentifiableResource {
      */
     public GameVariablesRequest getVariables() {
         return new GameVariablesRequest(this);
-    }
-
-    @Override
-    protected void parseFromJson(JSONObject data) {
-        super.parseFromJson(data);
-
-        names = new Names(data.getJSONObject("names"));
-        boostReceived = data.getInt("boostReceived");
-        boostDistinctDonors = data.getInt("boostDistinctDonors");
-        abbreviation = data.getString("abbreviation");
-        weblink = data.getString("weblink");
-        discord = data.getString("discord").isEmpty() ? null : data.getString("discord");
-        releaseDate = LocalDate.parse(data.getString("release-date"));
-        ruleset = new GameRuleset(data.getJSONObject("ruleset"));
-        gametypes = ParseUtils.getStringList(data.getJSONArray("gametypes"));
-        platforms = ParseUtils.getStringList(data.getJSONArray("platforms"));
-        regions = ParseUtils.getStringList(data.getJSONArray("regions"));
-        genres = ParseUtils.getStringList(data.getJSONArray("genres"));
-        engines = ParseUtils.getStringList(data.getJSONArray("engines"));
-        developers = ParseUtils.getStringList(data.getJSONArray("developers"));
-        publishers = ParseUtils.getStringList(data.getJSONArray("publishers"));
-        moderators = new HashMap<>();
-        for(String key : data.getJSONObject("moderators").keySet()) {
-            moderators.put(key, data.getJSONObject("moderators").getString(key));
-        }
-        moderators = Collections.unmodifiableMap(moderators);
-        if(!data.isNull("created"))
-            created = Instant.parse(data.getString("created"));
     }
 
     /**
@@ -200,7 +188,7 @@ public class Game extends IdentifiableResource {
      * @see com.github.treescrub.spedran.api.Spedran#getGametype(String)
      */
     public List<String> getGametypes() {
-        return Collections.unmodifiableList(gametypes);
+        return gametypes;
     }
 
     /**
@@ -212,7 +200,7 @@ public class Game extends IdentifiableResource {
      * @see com.github.treescrub.spedran.api.Spedran#getPlatform(String)
      */
     public List<String> getPlatforms() {
-        return Collections.unmodifiableList(platforms);
+        return platforms;
     }
 
     /**
@@ -224,7 +212,7 @@ public class Game extends IdentifiableResource {
      * @see com.github.treescrub.spedran.api.Spedran#getRegion(String)
      */
     public List<String> getRegions() {
-        return Collections.unmodifiableList(regions);
+        return regions;
     }
 
     /**
@@ -236,7 +224,7 @@ public class Game extends IdentifiableResource {
      * @see com.github.treescrub.spedran.api.Spedran#getGenre(String)
      */
     public List<String> getGenres() {
-        return Collections.unmodifiableList(genres);
+        return genres;
     }
 
     /**
@@ -248,7 +236,7 @@ public class Game extends IdentifiableResource {
      * @see com.github.treescrub.spedran.api.Spedran#getEngine(String)
      */
     public List<String> getEngines() {
-        return Collections.unmodifiableList(engines);
+        return engines;
     }
 
     /**
@@ -260,7 +248,7 @@ public class Game extends IdentifiableResource {
      * @see com.github.treescrub.spedran.api.Spedran#getDeveloper(String)
      */
     public List<String> getDevelopers() {
-        return Collections.unmodifiableList(developers);
+        return developers;
     }
 
     /**
@@ -272,7 +260,7 @@ public class Game extends IdentifiableResource {
      * @see com.github.treescrub.spedran.api.Spedran#getPublisher(String)
      */
     public List<String> getPublishers() {
-        return Collections.unmodifiableList(publishers);
+        return publishers;
     }
 
     /**
@@ -284,7 +272,7 @@ public class Game extends IdentifiableResource {
      * @see com.github.treescrub.spedran.api.Spedran#getUser(String)
      */
     public Map<String, String> getModerators() {
-        return Collections.unmodifiableMap(moderators);
+        return moderators;
     }
 
     /**

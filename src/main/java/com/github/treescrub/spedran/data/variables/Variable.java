@@ -2,9 +2,6 @@ package com.github.treescrub.spedran.data.variables;
 
 import com.github.treescrub.spedran.data.IdentifiableNamedResource;
 import com.github.treescrub.spedran.data.user.User;
-
-import kong.unirest.HttpResponse;
-import kong.unirest.JsonNode;
 import kong.unirest.json.JSONObject;
 
 import java.util.Collections;
@@ -16,26 +13,17 @@ import java.util.Optional;
  * A moderator defined variable for which a value can be set on a {@link com.github.treescrub.spedran.data.run.Run}.
  */
 public class Variable extends IdentifiableNamedResource {
-    private String category;
-    private VariableScope scope;
-    private boolean mandatory;
-    private boolean userDefined;
-    private boolean obsoletes;
-    private Map<String, VariableValue> values;
-    private String defaultValue;
-    private boolean isSubcategory;
-
-    public Variable(HttpResponse<JsonNode> data) {
-        super(data);
-    }
+    private final String category;
+    private final VariableScope scope;
+    private final boolean mandatory;
+    private final boolean userDefined;
+    private final boolean obsoletes;
+    private final Map<String, VariableValue> values;
+    private final String defaultValue;
+    private final boolean isSubcategory;
 
     public Variable(JSONObject data) {
         super(data);
-    }
-
-    @Override
-    protected void parseFromJson(JSONObject data) {
-        super.parseFromJson(data);
 
         category = data.optString("category", null);
         scope = new VariableScope(data.getJSONObject("scope"));
@@ -43,13 +31,14 @@ public class Variable extends IdentifiableNamedResource {
         userDefined = data.getBoolean("user-defined");
         obsoletes = data.getBoolean("obsoletes");
         defaultValue = data.getJSONObject("values").optString("default", null);
-        values = new HashMap<>();
+        Map<String, VariableValue> tempValues = new HashMap<>();
         for(String valueId : data.getJSONObject("values").getJSONObject("values").keySet()) {
-            values.put(valueId, new VariableValue(data.getJSONObject("values").getJSONObject("values").getJSONObject(valueId)));
+            tempValues.put(valueId, new VariableValue(data.getJSONObject("values").getJSONObject("values").getJSONObject(valueId)));
         }
-        values = Collections.unmodifiableMap(values);
+        values = Collections.unmodifiableMap(tempValues);
         isSubcategory = data.getBoolean("is-subcategory");
     }
+
 
     /**
      * Gets the category ID that this variable applies to.

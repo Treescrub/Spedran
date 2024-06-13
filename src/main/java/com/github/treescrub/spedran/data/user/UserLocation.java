@@ -10,14 +10,10 @@ import java.util.Optional;
  * Has country info and may have region info.
  */
 public class UserLocation {
-    private LocationInfo country;
-    private LocationInfo region;
+    private final LocationInfo country;
+    private final LocationInfo region;
 
     public UserLocation(JSONObject data) {
-        parseFromJson(data);
-    }
-
-    private void parseFromJson(JSONObject data) {
         country = new LocationInfo(data.getJSONObject("country"));
         region = data.isNull("region") ? null : new LocationInfo(data.getJSONObject("region"));
     }

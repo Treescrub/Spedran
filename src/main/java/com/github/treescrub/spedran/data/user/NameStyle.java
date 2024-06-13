@@ -15,20 +15,19 @@ public class NameStyle {
         GRADIENT,
     }
 
-    private Style style;
-    private NameColor color;
-    private NameColor startColor;
-    private NameColor endColor;
+    private final Style style;
+    private final NameColor color;
+    private final NameColor startColor;
+    private final NameColor endColor;
 
     public NameStyle(JSONObject data) {
-        parseFromJson(data);
-    }
-
-    private void parseFromJson(JSONObject data) {
         style = Style.valueOf(data.getString("style").toUpperCase());
         if (style == Style.SOLID) {
             color = new NameColor(data.getJSONObject("color"));
+            startColor = null;
+            endColor = null;
         } else {
+            color = null;
             startColor = new NameColor(data.getJSONObject("color-from"));
             endColor = new NameColor(data.getJSONObject("color-to"));
         }

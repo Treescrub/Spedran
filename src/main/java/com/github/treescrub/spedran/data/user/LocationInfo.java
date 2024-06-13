@@ -9,14 +9,10 @@ import java.util.Objects;
  * Contains a location code and {@link Names} for a location in the world.
  */
 public class LocationInfo {
-    private String code;
-    private Names names;
+    private final String code;
+    private final Names names;
 
     public LocationInfo(JSONObject data) {
-        parseFromJson(data);
-    }
-
-    private void parseFromJson(JSONObject data) {
         code = data.getString("code");
         names = new Names(data.getJSONObject("names"));
     }

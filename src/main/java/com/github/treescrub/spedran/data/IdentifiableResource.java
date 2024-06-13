@@ -17,11 +17,6 @@ public abstract class IdentifiableResource extends Resource {
         super(data);
     }
 
-    @Override
-    protected void parseFromJson(JSONObject data) {
-        id = data.getString("id");
-    }
-
     /**
      * Gets the ID for this resource.
      *

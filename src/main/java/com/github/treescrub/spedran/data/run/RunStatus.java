@@ -9,20 +9,18 @@ import java.util.Optional;
  * The verification status of a {@link Run} on SRC.
  */
 public class RunStatus {
-    private SubmissionStatus submissionStatus;
-    private String examiner;
-    private Instant verifyDate;
-    private String reason;
+    private final SubmissionStatus submissionStatus;
+    private final String examiner;
+    private final Instant verifyDate;
+    private final String reason;
 
     public RunStatus(JSONObject data) {
-        parseFromJson(data);
-    }
-
-    private void parseFromJson(JSONObject data) {
         submissionStatus = SubmissionStatus.valueOf(data.getString("status").toUpperCase());
         examiner = data.optString("examiner", null);
         if(!data.isNull("verify-date")) {
             verifyDate = Instant.parse(data.getString("verify-date"));
+        } else {
+            verifyDate = null;
         }
         reason = data.optString("reason", null);
     }
