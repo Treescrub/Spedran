@@ -12,27 +12,23 @@ import java.util.List;
  * These are not rules in the sense of moderating the leaderboard, but rather as restrictions when submitting a run.
  */
 public class GameRuleset {
-    private boolean showMilliseconds;
-    private boolean requireVerification;
-    private boolean requireVideo;
-    private List<TimingType> runTimes;
-    private TimingType defaultTime;
-    private boolean emulatorsAllowed;
+    private final boolean showMilliseconds;
+    private final boolean requireVerification;
+    private final boolean requireVideo;
+    private final List<TimingType> runTimes;
+    private final TimingType defaultTime;
+    private final boolean emulatorsAllowed;
 
     public GameRuleset(JSONObject data) {
-        runTimes = new ArrayList<>();
-        parseFromJson(data);
-    }
-
-    private void parseFromJson(JSONObject data) {
         showMilliseconds = data.getBoolean("show-milliseconds");
         requireVerification = data.getBoolean("require-verification");
         requireVideo = data.getBoolean("require-video");
+        List<TimingType> tempRunTimes = new ArrayList<>();
         for(Object element : data.getJSONArray("run-times")) {
             String timingType = (String) element;
-            runTimes.add(TimingType.valueOf(timingType.toUpperCase()));
+            tempRunTimes.add(TimingType.valueOf(timingType.toUpperCase()));
         }
-        runTimes = Collections.unmodifiableList(runTimes);
+        runTimes = Collections.unmodifiableList(tempRunTimes);
         defaultTime = TimingType.valueOf(data.getString("default-time").toUpperCase());
         emulatorsAllowed = data.getBoolean("emulators-allowed");
     }
@@ -79,7 +75,7 @@ public class GameRuleset {
      * @return a {@code List} of {@code TimingType}s
      */
     public List<TimingType> getRunTimes() {
-        return Collections.unmodifiableList(runTimes);
+        return runTimes;
     }
 
     /**

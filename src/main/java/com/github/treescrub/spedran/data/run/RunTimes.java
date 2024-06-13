@@ -12,23 +12,16 @@ import java.util.Optional;
  * @see Run#getRunTimes()
  */
 public class RunTimes {
-    private Duration primaryTime;
-    private Duration realTime;
-    private Duration realNoLoadsTime;
-    private Duration ingameTime;
+    private final Duration primaryTime;
+    private final Duration realTime;
+    private final Duration realNoLoadsTime;
+    private final Duration ingameTime;
 
     public RunTimes(JSONObject data) {
-        parseFromJson(data);
-    }
-
-    private void parseFromJson(JSONObject data) {
         primaryTime = Duration.parse(data.getString("primary"));
-        if (!data.isNull("realtime"))
-            realTime = Duration.parse(data.getString("realtime"));
-        if (!data.isNull("realtime_noloads"))
-            realNoLoadsTime = Duration.parse(data.getString("realtime_noloads"));
-        if (!data.isNull("ingame"))
-            ingameTime = Duration.parse(data.getString("ingame"));
+        realTime = !data.isNull("realtime") ? Duration.parse(data.getString("realtime")) : null;
+        realNoLoadsTime = !data.isNull("realtime_noloads") ? Duration.parse(data.getString("realtime_noloads")) : null;
+        ingameTime = !data.isNull("ingame") ? Duration.parse(data.getString("ingame")) : null;
     }
 
     /**

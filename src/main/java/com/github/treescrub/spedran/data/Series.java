@@ -1,8 +1,6 @@
 package com.github.treescrub.spedran.data;
 
 import com.github.treescrub.spedran.api.request.series.SeriesGamesRequest;
-import kong.unirest.HttpResponse;
-import kong.unirest.JsonNode;
 import kong.unirest.json.JSONObject;
 
 import java.time.Instant;
@@ -19,19 +17,30 @@ import java.util.Optional;
  * The special series named {@code N/A} is a placeholder when a game is not part of a series.
  */
 public class Series extends IdentifiableResource {
-    private Names names;
-    private String abbreviation;
-    private String weblink;
-    private String discord;
-    private Map<String, String> moderators;
-    private Instant created;
-
-    public Series(HttpResponse<JsonNode> data) {
-        super(data);
-    }
+    private final Names names;
+    private final String abbreviation;
+    private final String weblink;
+    private final String discord;
+    private final Map<String, String> moderators;
+    private final Instant created;
 
     public Series(JSONObject data) {
         super(data);
+
+        names = new Names(data.getJSONObject("names"));
+        abbreviation = data.getString("abbreviation");
+        weblink = data.getString("weblink");
+        discord = data.optString("discord", null);
+        Map<String, String> tempModerators = new HashMap<>();
+        for(String key : data.getJSONObject("moderators").keySet()) {
+            tempModerators.put(key, data.getJSONObject("moderators").getString(key));
+        }
+        moderators = Collections.unmodifiableMap(tempModerators);
+        if(!data.isNull("created")) {
+            created = Instant.parse(data.getString("created"));
+        } else {
+            created = null;
+        }
     }
 
     /**
@@ -41,23 +50,6 @@ public class Series extends IdentifiableResource {
      */
     public SeriesGamesRequest getGames() {
         return new SeriesGamesRequest(this);
-    }
-
-    @Override
-    protected void parseFromJson(JSONObject data) {
-        super.parseFromJson(data);
-
-        names = new Names(data.getJSONObject("names"));
-        abbreviation = data.getString("abbreviation");
-        weblink = data.getString("weblink");
-        discord = data.optString("discord", null);
-        moderators = new HashMap<>();
-        for(String key : data.getJSONObject("moderators").keySet()) {
-            moderators.put(key, data.getJSONObject("moderators").getString(key));
-        }
-        moderators = Collections.unmodifiableMap(moderators);
-        if(!data.isNull("created"))
-            created = Instant.parse(data.getString("created"));
     }
 
     /**

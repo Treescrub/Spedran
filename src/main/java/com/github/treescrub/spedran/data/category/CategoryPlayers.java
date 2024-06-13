@@ -6,14 +6,10 @@ import kong.unirest.json.JSONObject;
  * Contains the rules for how many players can participate in the category.
  */
 public class CategoryPlayers {
-    private boolean isExact;
-    private int players;
+    private final boolean isExact;
+    private final int players;
 
     public CategoryPlayers(JSONObject data) {
-        parseFromJson(data);
-    }
-
-    private void parseFromJson(JSONObject data) {
         isExact = data.getString("type").equals("exactly");
         players = data.getInt("value");
     }

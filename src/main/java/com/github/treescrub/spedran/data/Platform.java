@@ -1,7 +1,5 @@
 package com.github.treescrub.spedran.data;
 
-import kong.unirest.HttpResponse;
-import kong.unirest.JsonNode;
 import kong.unirest.json.JSONObject;
 
 /**
@@ -10,19 +8,10 @@ import kong.unirest.json.JSONObject;
  * For example: PC, Xbox 360, Game Boy Advance, Amazon Fire TV, and so on.
  */
 public class Platform extends IdentifiableNamedResource {
-    private int released;
-
-    public Platform(HttpResponse<JsonNode> data) {
-        super(data);
-    }
+    private final int released;
 
     public Platform(JSONObject data) {
         super(data);
-    }
-
-    @Override
-    protected void parseFromJson(JSONObject data) {
-        super.parseFromJson(data);
 
         released = data.getInt("released");
     }

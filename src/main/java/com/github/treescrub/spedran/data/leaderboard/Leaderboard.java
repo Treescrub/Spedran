@@ -1,10 +1,8 @@
 package com.github.treescrub.spedran.data.leaderboard;
 
-import kong.unirest.HttpResponse;
-import kong.unirest.JsonNode;
-import kong.unirest.json.JSONObject;
 import com.github.treescrub.spedran.data.Resource;
 import com.github.treescrub.spedran.data.run.TimingType;
+import kong.unirest.json.JSONObject;
 
 import java.util.*;
 
@@ -13,28 +11,21 @@ import java.util.*;
  * Does not contain obsoleted runs.
  */
 public class Leaderboard extends Resource {
-    private String weblink;
-    private String game;
-    private String category;
-    private String level;
-    private String platform;
-    private String region;
-    private Boolean emulators;
-    private boolean videoOnly;
-    private TimingType timing;
-    private Map<String, String> values;
-    private List<LeaderboardRun> runs;
-
-    public Leaderboard(HttpResponse<JsonNode> data) {
-        super(data);
-    }
+    private final String weblink;
+    private final String game;
+    private final String category;
+    private final String level;
+    private final String platform;
+    private final String region;
+    private final Boolean emulators;
+    private final boolean videoOnly;
+    private final TimingType timing;
+    private final Map<String, String> values;
+    private final List<LeaderboardRun> runs;
 
     public Leaderboard(JSONObject data) {
         super(data);
-    }
 
-    @Override
-    protected void parseFromJson(JSONObject data) {
         weblink = data.getString("weblink");
         game = data.getString("game");
         category = data.getString("category");
@@ -44,17 +35,17 @@ public class Leaderboard extends Resource {
         emulators = data.isNull("emulators") ? null : data.getBoolean("emulators");
         videoOnly = data.getBoolean("video-only");
         timing = TimingType.valueOf(data.getString("timing").toUpperCase());
-        values = new HashMap<>();
+        Map<String, String> tempValues = new HashMap<>();
         for(String key : data.getJSONObject("values").keySet()) {
-            values.put(key, data.getString(key));
+            tempValues.put(key, data.getString(key));
         }
-        values = Collections.unmodifiableMap(values);
-        runs = new ArrayList<>();
+        values = Collections.unmodifiableMap(tempValues);
+        List<LeaderboardRun> tempRuns = new ArrayList<>();
         for(Object object : data.getJSONArray("runs")) {
             JSONObject runData = (JSONObject) object;
-            runs.add(new LeaderboardRun(runData));
+            tempRuns.add(new LeaderboardRun(runData));
         }
-        runs = Collections.unmodifiableList(runs);
+        runs = Collections.unmodifiableList(tempRuns);
     }
 
     /**

@@ -1,13 +1,11 @@
 package com.github.treescrub.spedran.data.run;
 
-import kong.unirest.HttpResponse;
-import kong.unirest.JsonNode;
-import kong.unirest.json.JSONObject;
 import com.github.treescrub.spedran.api.request.run.DeleteRunRequest;
 import com.github.treescrub.spedran.api.request.run.RunPlayersRequest;
 import com.github.treescrub.spedran.api.request.run.RunStatusRequest;
 import com.github.treescrub.spedran.data.IdentifiableResource;
 import com.github.treescrub.spedran.data.Link;
+import kong.unirest.json.JSONObject;
 
 import java.time.Instant;
 import java.time.LocalDate;
@@ -17,27 +15,46 @@ import java.util.*;
  * A speedrun on SRC.
  */
 public class Run extends IdentifiableResource {
-    private String weblink;
-    private String game;
-    private String level;
-    private String category;
-    private RunVideos videos;
-    private String comment;
-    private RunStatus status;
-    private List<RunPlayer> players;
-    private LocalDate date;
-    private Instant submitted;
-    private RunTimes times;
-    private RunSystem system;
-    private Link splits;
-    private Map<String, String> values;
-
-    public Run(HttpResponse<JsonNode> data) {
-        super(data);
-    }
+    private final String weblink;
+    private final String game;
+    private final String level;
+    private final String category;
+    private final RunVideos videos;
+    private final String comment;
+    private final RunStatus status;
+    private final List<RunPlayer> players;
+    private final LocalDate date;
+    private final Instant submitted;
+    private final RunTimes times;
+    private final RunSystem system;
+    private final Link splits;
+    private final Map<String, String> values;
 
     public Run(JSONObject data) {
         super(data);
+
+        weblink = data.getString("weblink");
+        game = data.getString("game");
+        level = data.optString("level", null);
+        category = data.getString("category");
+        videos = data.isNull("videos") ? null : new RunVideos(data.getJSONObject("videos"));
+        comment = data.optString("comment", null);
+        status = new RunStatus(data.getJSONObject("status"));
+        List<RunPlayer> tempPlayers = new ArrayList<>();
+        for(int i = 0; i < data.getJSONArray("players").length(); i++) {
+            tempPlayers.add(new RunPlayer(data.getJSONArray("players").getJSONObject(i)));
+        }
+        players = Collections.unmodifiableList(tempPlayers);
+        date = data.isNull("date") ? null : LocalDate.parse(data.getString("date"));
+        submitted = data.isNull("submitted") ? null : Instant.parse(data.getString("submitted"));
+        times = new RunTimes(data.getJSONObject("times"));
+        system = new RunSystem(data.getJSONObject("system"));
+        splits = data.isNull("splits") ? null : new Link(data.getJSONObject("splits"));
+        Map<String, String> tempValues = new HashMap<>();
+        for(String key : data.getJSONObject("values").keySet()) {
+            tempValues.put(key, data.getJSONObject("values").getString(key));
+        }
+        values = Collections.unmodifiableMap(tempValues);
     }
 
     /**
@@ -68,34 +85,6 @@ public class Run extends IdentifiableResource {
      */
     public RunStatusRequest setStatus() {
         return new RunStatusRequest(this);
-    }
-
-    @Override
-    protected void parseFromJson(JSONObject data) {
-        super.parseFromJson(data);
-
-        weblink = data.getString("weblink");
-        game = data.getString("game");
-        level = data.optString("level", null);
-        category = data.getString("category");
-        videos = data.isNull("videos") ? null : new RunVideos(data.getJSONObject("videos"));
-        comment = data.optString("comment", null);
-        status = new RunStatus(data.getJSONObject("status"));
-        players = new ArrayList<>();
-        for(int i = 0; i < data.getJSONArray("players").length(); i++) {
-            players.add(new RunPlayer(data.getJSONArray("players").getJSONObject(i)));
-        }
-        players = Collections.unmodifiableList(players);
-        date = data.isNull("date") ? null : LocalDate.parse(data.getString("date"));
-        submitted = data.isNull("submitted") ? null : Instant.parse(data.getString("submitted"));
-        times = new RunTimes(data.getJSONObject("times"));
-        system = new RunSystem(data.getJSONObject("system"));
-        splits = data.isNull("splits") ? null : new Link(data.getJSONObject("splits"));
-        values = new HashMap<>();
-        for(String key : data.getJSONObject("values").keySet()) {
-            values.put(key, data.getJSONObject("values").getString(key));
-        }
-        values = Collections.unmodifiableMap(values);
     }
 
     /**

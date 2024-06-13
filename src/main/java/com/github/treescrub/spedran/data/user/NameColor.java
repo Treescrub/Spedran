@@ -8,14 +8,10 @@ import kong.unirest.json.JSONObject;
  * Has light and dark hex color codes for light and dark backgrounds.
  */
 public class NameColor {
-    private String light;
-    private String dark;
+    private final String light;
+    private final String dark;
 
     public NameColor(JSONObject data) {
-        parseFromJson(data);
-    }
-
-    private void parseFromJson(JSONObject data) {
         light = data.getString("light");
         dark = data.getString("dark");
     }

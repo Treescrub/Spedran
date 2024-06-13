@@ -27,8 +27,8 @@ public class VariableScope {
         SINGLE_LEVEL
     }
 
-    private ScopeType type;
-    private String level;
+    private final ScopeType type;
+    private final String level;
 
     public VariableScope(JSONObject data) {
         type = parseType(data.getString("type"));

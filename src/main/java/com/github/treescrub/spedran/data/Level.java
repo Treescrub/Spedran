@@ -3,8 +3,6 @@ package com.github.treescrub.spedran.data;
 import com.github.treescrub.spedran.api.request.level.LevelCategoriesRequest;
 import com.github.treescrub.spedran.api.request.level.LevelRecordsRequest;
 import com.github.treescrub.spedran.api.request.level.LevelVariablesRequest;
-import kong.unirest.HttpResponse;
-import kong.unirest.JsonNode;
 import kong.unirest.json.JSONObject;
 
 import java.util.Optional;
@@ -13,15 +11,14 @@ import java.util.Optional;
  * A specific level in a {@link com.github.treescrub.spedran.data.game.Game}.
  */
 public class Level extends IdentifiableNamedResource {
-    private String weblink;
-    private String rules;
-
-    public Level(HttpResponse<JsonNode> data) {
-        super(data);
-    }
+    private final String weblink;
+    private final String rules;
 
     public Level(JSONObject data) {
         super(data);
+
+        weblink = data.getString("weblink");
+        rules = data.optString("rules", null);
     }
 
     /**
@@ -49,14 +46,6 @@ public class Level extends IdentifiableNamedResource {
      */
     public LevelVariablesRequest getVariables() {
         return new LevelVariablesRequest(this);
-    }
-
-    @Override
-    protected void parseFromJson(JSONObject data) {
-        super.parseFromJson(data);
-
-        weblink = data.getString("weblink");
-        rules = data.optString("rules", null);
     }
 
     /**

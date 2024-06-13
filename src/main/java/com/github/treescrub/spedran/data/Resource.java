@@ -9,11 +9,5 @@ public abstract class Resource {
         this(data.getBody().getObject().getJSONObject("data"));
     }
 
-    public Resource(JSONObject data) {
-        parseFromJson(data);
-    }
-
-    protected Resource() {}
-
-    protected abstract void parseFromJson(JSONObject data);
+    public Resource(JSONObject data) {}
 }

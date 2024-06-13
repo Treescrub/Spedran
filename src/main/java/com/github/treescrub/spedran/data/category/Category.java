@@ -3,8 +3,6 @@ package com.github.treescrub.spedran.data.category;
 import com.github.treescrub.spedran.api.request.category.CategoryRecordsRequest;
 import com.github.treescrub.spedran.api.request.category.CategoryVariablesRequest;
 import com.github.treescrub.spedran.data.IdentifiableNamedResource;
-import kong.unirest.HttpResponse;
-import kong.unirest.JsonNode;
 import kong.unirest.json.JSONObject;
 
 /**
@@ -13,18 +11,20 @@ import kong.unirest.json.JSONObject;
  * Common category names are {@code Any%}, {@code 100%}, and so on.
  */
 public class Category extends IdentifiableNamedResource {
-    private String weblink;
-    private boolean isPerLevel;
-    private String rules;
-    private CategoryPlayers players;
-    private boolean miscellaneous;
-
-    public Category(HttpResponse<JsonNode> data) {
-        super(data);
-    }
+    private final String weblink;
+    private final boolean isPerLevel;
+    private final String rules;
+    private final CategoryPlayers players;
+    private final boolean miscellaneous;
 
     public Category(JSONObject data) {
         super(data);
+
+        weblink = data.getString("weblink");
+        isPerLevel = data.getString("type").equals("per-level");
+        rules = data.getString("rules");
+        players = new CategoryPlayers(data.getJSONObject("players"));
+        miscellaneous = data.getBoolean("miscellaneous");
     }
 
     /**
@@ -43,17 +43,6 @@ public class Category extends IdentifiableNamedResource {
      */
     public CategoryVariablesRequest getVariables() {
         return new CategoryVariablesRequest(this);
-    }
-
-    @Override
-    protected void parseFromJson(JSONObject data) {
-        super.parseFromJson(data);
-
-        weblink = data.getString("weblink");
-        isPerLevel = data.getString("type").equals("per-level");
-        rules = data.getString("rules");
-        players = new CategoryPlayers(data.getJSONObject("players"));
-        miscellaneous = data.getBoolean("miscellaneous");
     }
 
     /**

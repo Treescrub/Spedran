@@ -1,7 +1,5 @@
 package com.github.treescrub.spedran.data;
 
-import kong.unirest.HttpResponse;
-import kong.unirest.JsonNode;
 import kong.unirest.json.JSONObject;
 
 import java.util.Optional;
@@ -10,21 +8,12 @@ import java.util.Optional;
  * A link consisting of a URI and optionally a relation.
  */
 public class Link {
-    private String uri;
-    private String rel;
-
-    public Link(HttpResponse<JsonNode> data) {
-        this(data.getBody().getObject().getJSONObject("data"));
-    }
+    private final String uri;
+    private final String rel;
 
     public Link(JSONObject data) {
-        parseFromJson(data);
-    }
-
-    private void parseFromJson(JSONObject data) {
         uri = data.getString("uri");
-        if(data.has("rel"))
-            rel = data.getString("rel");
+        rel = data.optString("rel", null);
     }
 
     /**

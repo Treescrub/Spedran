@@ -4,8 +4,6 @@ import com.github.treescrub.spedran.api.request.user.UserPBsRequest;
 import com.github.treescrub.spedran.data.IdentifiableResource;
 import com.github.treescrub.spedran.data.Link;
 import com.github.treescrub.spedran.data.Names;
-import kong.unirest.HttpResponse;
-import kong.unirest.JsonNode;
 import kong.unirest.json.JSONObject;
 
 import java.time.Instant;
@@ -15,40 +13,22 @@ import java.util.Optional;
  * Represents a user on SRC.
  */
 public class User extends IdentifiableResource {
-    private Names names;
-    private boolean supporterAnimation;
-    private String pronouns;
-    private String weblink;
-    private NameStyle nameStyle;
-    private UserRole role;
-    private Instant signup;
-    private UserLocation location;
-    private Link twitch;
-    private Link hitbox;
-    private Link youtube;
-    private Link twitter;
-    private Link speedrunsLive;
-
-    public User(HttpResponse<JsonNode> data) {
-        this(data.getBody().getObject().getJSONObject("data"));
-    }
+    private final Names names;
+    private final boolean supporterAnimation;
+    private final String pronouns;
+    private final String weblink;
+    private final NameStyle nameStyle;
+    private final UserRole role;
+    private final Instant signup;
+    private final UserLocation location;
+    private final Link twitch;
+    private final Link hitbox;
+    private final Link youtube;
+    private final Link twitter;
+    private final Link speedrunsLive;
 
     public User(JSONObject data) {
         super(data);
-    }
-
-    /**
-     * Gets a new {@link UserPBsRequest} builder object to request this user's personal best runs.
-     *
-     * @return a {@code UserPBsRequest} builder
-     */
-    public UserPBsRequest getPersonalBests() {
-        return new UserPBsRequest(this);
-    }
-
-    @Override
-    protected void parseFromJson(JSONObject data) {
-        super.parseFromJson(data);
 
         names = new Names(data.getJSONObject("names"));
         supporterAnimation = data.getBoolean("supporterAnimation");
@@ -63,6 +43,15 @@ public class User extends IdentifiableResource {
         youtube = data.isNull("youtube") ? null : new Link(data.getJSONObject("youtube"));
         twitter = data.isNull("twitter") ? null : new Link(data.getJSONObject("twitter"));
         speedrunsLive = data.isNull("speedrunslive") ? null : new Link(data.getJSONObject("speedrunslive"));
+    }
+
+    /**
+     * Gets a new {@link UserPBsRequest} builder object to request this user's personal best runs.
+     *
+     * @return a {@code UserPBsRequest} builder
+     */
+    public UserPBsRequest getPersonalBests() {
+        return new UserPBsRequest(this);
     }
 
     /**

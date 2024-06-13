@@ -13,29 +13,25 @@ import java.util.Optional;
  * Contains info about the value label. Also has rules text and flags if the variable is a subcategory.
  */
 public class VariableValue {
-    private String label;
-    private String rules;
-    private Map<String, Boolean> flags;
+    private final String label;
+    private final String rules;
+    private final Map<String, Boolean> flags;
 
     public VariableValue(JSONObject data) {
-        parseFromJson(data);
-    }
-
-    private void parseFromJson(JSONObject data) {
         label = data.getString("label");
         rules = data.optString("rules", null);
-        flags = new HashMap<>();
+        Map<String, Boolean> tempFlags = new HashMap<>();
         if(data.has("flags")) {
             JSONObject flagsObject = data.getJSONObject("flags");
             for(String key : flagsObject.keySet()) {
                 if(flagsObject.isNull(key)) {
-                    flags.put(key, null);
+                    tempFlags.put(key, null);
                 } else {
-                    flags.put(key, flagsObject.getBoolean(key));
+                    tempFlags.put(key, flagsObject.getBoolean(key));
                 }
             }
         }
-        flags = Collections.unmodifiableMap(flags);
+        flags = Collections.unmodifiableMap(tempFlags);
     }
 
     /**

@@ -11,15 +11,11 @@ import java.util.Optional;
  * @see com.github.treescrub.spedran.data.Region
  */
 public class RunSystem {
-    private String platform;
-    private boolean emulated;
-    private String region;
+    private final String platform;
+    private final boolean emulated;
+    private final String region;
 
     public RunSystem(JSONObject data) {
-        parseFromJson(data);
-    }
-
-    private void parseFromJson(JSONObject data) {
         platform = data.optString("platform", null);
         emulated = data.getBoolean("emulated");
         region = data.optString("region", null);

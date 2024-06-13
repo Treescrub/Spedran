@@ -16,22 +16,18 @@ import java.util.Optional;
  * If the main video section contains more than just a video link, {@link RunVideos#text} is set.
  */
 public class RunVideos {
-    private String text;
-    private List<Link> links;
+    private final String text;
+    private final List<Link> links;
 
     public RunVideos(JSONObject data) {
-        parseFromJson(data);
-    }
-
-    private void parseFromJson(JSONObject data) {
         text = data.isNull("text") ? null : data.getString("text");
-        links = new ArrayList<>();
+        List<Link> tempLinks = new ArrayList<>();
         if(data.has("links")) {
             for (int i = 0; i < data.getJSONArray("links").length(); i++) {
-                links.add(new Link(data.getJSONArray("links").getJSONObject(i)));
+                tempLinks.add(new Link(data.getJSONArray("links").getJSONObject(i)));
             }
         }
-        links = Collections.unmodifiableList(links);
+        links = Collections.unmodifiableList(tempLinks);
     }
 
     /**
