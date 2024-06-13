@@ -1,20 +1,16 @@
 package com.github.treescrub.spedran.data;
 
-import kong.unirest.HttpResponse;
-import kong.unirest.JsonNode;
 import kong.unirest.json.JSONObject;
 
 import java.util.Objects;
 
 public abstract class IdentifiableResource extends Resource {
-    protected String id;
-
-    public IdentifiableResource(HttpResponse<JsonNode> data) {
-        super(data);
-    }
+    protected final String id;
 
     public IdentifiableResource(JSONObject data) {
         super(data);
+
+        id = data.getString("id");
     }
 
     /**
