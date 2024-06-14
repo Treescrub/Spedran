@@ -123,8 +123,8 @@ public class Leaderboard extends Resource {
      *
      * @return {@code false} if runs using an emulator were filtered out, otherwise {@code true}
      */
-    public Boolean getEmulators() {
-        return emulators;
+    public Optional<Boolean> getEmulators() {
+        return Optional.ofNullable(emulators);
     }
 
     /**
