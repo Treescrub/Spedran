@@ -169,4 +169,13 @@ public class Leaderboard extends Resource {
     public List<LeaderboardRun> getRuns() {
         return runs;
     }
+
+    @Override
+    public String toString() {
+        return "Leaderboard{" +
+                "game='" + game + '\'' +
+                ", category='" + category + '\'' +
+                ", level='" + level + '\'' +
+                "}";
+    }
 }

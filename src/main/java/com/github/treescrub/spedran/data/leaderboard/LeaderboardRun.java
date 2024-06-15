@@ -36,4 +36,12 @@ public class LeaderboardRun extends Resource {
     public Run getRun() {
         return run;
     }
+
+    @Override
+    public String toString() {
+        return "LeaderboardRun{" +
+                "place=" + place +
+                ", run=" + run +
+                '}';
+    }
 }
