@@ -25,8 +25,8 @@ public class Requests {
         unirestInstance.config().interceptor(new LoggingInterceptor());
     }
 
-    public static HttpRequest<?> request(HttpMethod method, String url) {
-        HttpRequest<?> httpRequest = unirestInstance.request(method.name(), url);
+    public static HttpRequestWithBody request(HttpMethod method, String url) {
+        HttpRequestWithBody httpRequest = unirestInstance.request(method.name(), url);
         if(key != null) {
             httpRequest.header("X-Api-Key", key);
         }
