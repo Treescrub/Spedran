@@ -15,12 +15,20 @@ public abstract class ModifyResourceRequest<T> extends SingleResourceRequest<T> 
         super(method, url, routeParameters);
     }
 
-    protected abstract JSONElement buildBody();
+    protected abstract JSONElement buildBody() throws InvalidBuilderStateException;
 
     @Override
     public CompletableFuture<T> complete() {
-        request.body(buildBody());
+        try {
+            JSONElement body = buildBody();
 
-        return super.complete();
+            if(body != null) {
+                request.body(body);
+            }
+
+            return super.complete();
+        } catch (InvalidBuilderStateException e) {
+            return CompletableFuture.failedFuture(e);
+        }
     }
 }

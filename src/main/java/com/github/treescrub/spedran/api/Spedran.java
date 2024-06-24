@@ -183,12 +183,11 @@ public class Spedran {
      * Gets a {@link DeleteRunRequest} builder to delete a {@link Run}.
      *
      * @param runId the ID of the run to delete
-     * @param apiKey the API key to use. must have sufficient permissions to delete the run
      *
      * @return a {@code DeleteRunRequest} builder
      */
-    public static DeleteRunRequest deleteRun(String runId, String apiKey) {
-        return new DeleteRunRequest(runId, apiKey);
+    public static DeleteRunRequest deleteRun(String runId) {
+        return new DeleteRunRequest(runId);
     }
 
     /**

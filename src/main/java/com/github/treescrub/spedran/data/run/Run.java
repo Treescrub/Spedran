@@ -1,5 +1,6 @@
 package com.github.treescrub.spedran.data.run;
 
+import com.github.treescrub.spedran.api.Spedran;
 import com.github.treescrub.spedran.api.request.run.DeleteRunRequest;
 import com.github.treescrub.spedran.api.request.run.RunPlayersRequest;
 import com.github.treescrub.spedran.api.request.run.RunStatusRequest;
@@ -59,13 +60,14 @@ public class Run extends IdentifiableResource {
 
     /**
      * Returns a request builder that allows deletion of this run from SRC.
-     * Requires an API key with sufficient permissions to delete runs, or API key of run owner.
+     * Requires a set API key with sufficient permissions to delete runs, or API key of run owner.
      *
-     * @param apiKey SRC API key
      * @return a request builder to delete this run
+     *
+     * @see Spedran#setApiKey(String)
      */
-    public DeleteRunRequest delete(String apiKey) {
-        return new DeleteRunRequest(this, apiKey);
+    public DeleteRunRequest delete() {
+        return new DeleteRunRequest(this);
     }
 
     /**
@@ -102,7 +104,7 @@ public class Run extends IdentifiableResource {
      * @return the id of the game this run belongs to
      *
      * @see com.github.treescrub.spedran.data.game.Game
-     * @see com.github.treescrub.spedran.api.Spedran#getGame(String)
+     * @see Spedran#getGame(String)
      */
     public String getGame() {
         return game;
@@ -115,7 +117,7 @@ public class Run extends IdentifiableResource {
      * @return an {@code Optional} with the ID of this run's level
      *
      * @see com.github.treescrub.spedran.data.Level
-     * @see com.github.treescrub.spedran.api.Spedran#getLevel(String)
+     * @see Spedran#getLevel(String)
      */
     public Optional<String> getLevel() {
         return Optional.ofNullable(level);
@@ -127,7 +129,7 @@ public class Run extends IdentifiableResource {
      * @return the ID of this run's category
      *
      * @see com.github.treescrub.spedran.data.category.Category
-     * @see com.github.treescrub.spedran.api.Spedran#getCategory(String)
+     * @see Spedran#getCategory(String)
      */
     public String getCategory() {
         return category;
