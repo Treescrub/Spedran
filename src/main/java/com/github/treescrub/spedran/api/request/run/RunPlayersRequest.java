@@ -104,6 +104,7 @@ public class RunPlayersRequest extends ModifyResourceRequest<Run> {
             }
 
             playerNode.put(idKeyName, entry.getValue());
+            playersNode.put(playerNode);
         }
 
         JSONObject rootNode = new JSONObject();
