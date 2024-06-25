@@ -1,5 +1,7 @@
 package com.github.treescrub.spedran.data;
 
+import com.github.treescrub.spedran.api.Spedran;
+import com.github.treescrub.spedran.api.request.run.RunsRequest;
 import kong.unirest.json.JSONObject;
 
 import java.util.Objects;
@@ -14,6 +16,15 @@ public class Guest extends Resource {
         super(data);
 
         name = data.getString("name");
+    }
+
+    /**
+     * Gets a new {@link RunsRequest} builder object to request all the runs that this guest participated in.
+     *
+     * @return a {@code RunsRequest} builder
+     */
+    public RunsRequest getRuns() {
+        return Spedran.getRuns().guest(this);
     }
 
     /**

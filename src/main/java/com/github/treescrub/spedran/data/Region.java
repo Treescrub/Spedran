@@ -1,5 +1,8 @@
 package com.github.treescrub.spedran.data;
 
+import com.github.treescrub.spedran.api.Spedran;
+import com.github.treescrub.spedran.api.request.game.GamesRequest;
+import com.github.treescrub.spedran.api.request.run.RunsRequest;
 import kong.unirest.json.JSONObject;
 
 /**
@@ -13,6 +16,24 @@ public class Region extends IdentifiableNamedResource {
 
     public Region(JSONObject data) {
         super(data);
+    }
+
+    /**
+     * Gets a new {@link GamesRequest} builder object to request all games that use this region.
+     *
+     * @return a {@code GamesRequest} builder
+     */
+    public GamesRequest getGames() {
+        return Spedran.getGames().region(this);
+    }
+
+    /**
+     * Gets a new {@link RunsRequest} builder object to request all runs that are played in this region.
+     *
+     * @return a {@code RunsRequest} builder
+     */
+    public RunsRequest getRuns() {
+        return Spedran.getRuns().region(this);
     }
 
     @Override

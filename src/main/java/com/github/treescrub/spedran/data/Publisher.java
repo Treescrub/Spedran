@@ -1,5 +1,7 @@
 package com.github.treescrub.spedran.data;
 
+import com.github.treescrub.spedran.api.Spedran;
+import com.github.treescrub.spedran.api.request.game.GamesRequest;
 import kong.unirest.json.JSONObject;
 
 /**
@@ -11,6 +13,15 @@ public class Publisher extends IdentifiableNamedResource {
 
     public Publisher(JSONObject data) {
         super(data);
+    }
+
+    /**
+     * Gets a new {@link GamesRequest} builder object to request all games that were published by this publisher.
+     *
+     * @return a {@code GamesRequest} builder
+     */
+    public GamesRequest getGames() {
+        return Spedran.getGames().publisher(this);
     }
 
     @Override

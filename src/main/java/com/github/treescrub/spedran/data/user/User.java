@@ -1,5 +1,8 @@
 package com.github.treescrub.spedran.data.user;
 
+import com.github.treescrub.spedran.api.Spedran;
+import com.github.treescrub.spedran.api.request.game.GamesRequest;
+import com.github.treescrub.spedran.api.request.run.RunsRequest;
 import com.github.treescrub.spedran.api.request.user.UserPBsRequest;
 import com.github.treescrub.spedran.data.IdentifiableResource;
 import com.github.treescrub.spedran.data.Link;
@@ -43,6 +46,24 @@ public class User extends IdentifiableResource {
         youtube = data.isNull("youtube") ? null : new Link(data.getJSONObject("youtube"));
         twitter = data.isNull("twitter") ? null : new Link(data.getJSONObject("twitter"));
         speedrunsLive = data.isNull("speedrunslive") ? null : new Link(data.getJSONObject("speedrunslive"));
+    }
+
+    /**
+     * Gets a new {@link RunsRequest} builder object to request all of this user's runs.
+     *
+     * @return a {@code RunsRequest} builder
+     */
+    public RunsRequest getRuns() {
+        return Spedran.getRuns().user(this);
+    }
+
+    /**
+     * Gets a new {@link GamesRequest} builder object to request all the games this user moderates.
+     *
+     * @return a {@code GamesRequest} builder
+     */
+    public GamesRequest getGamesModerated() {
+        return Spedran.getGames().moderator(this);
     }
 
     /**

@@ -1,8 +1,10 @@
 package com.github.treescrub.spedran.data;
 
+import com.github.treescrub.spedran.api.Spedran;
 import com.github.treescrub.spedran.api.request.level.LevelCategoriesRequest;
 import com.github.treescrub.spedran.api.request.level.LevelRecordsRequest;
 import com.github.treescrub.spedran.api.request.level.LevelVariablesRequest;
+import com.github.treescrub.spedran.api.request.run.RunsRequest;
 import kong.unirest.json.JSONObject;
 
 import java.util.Optional;
@@ -19,6 +21,15 @@ public class Level extends IdentifiableNamedResource {
 
         weblink = data.getString("weblink");
         rules = data.optString("rules", null);
+    }
+
+    /**
+     * Gets a new {@link RunsRequest} builder object to request all runs on this level.
+     *
+     * @return a {@code RunsRequest} builder
+     */
+    public RunsRequest getRuns() {
+        return Spedran.getRuns().level(this);
     }
 
     /**
