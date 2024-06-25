@@ -1,26 +1,45 @@
 package com.github.treescrub.spedran.api;
 
-import com.github.treescrub.spedran.api.request.category.*;
-import com.github.treescrub.spedran.api.request.developer.*;
-import com.github.treescrub.spedran.api.request.engine.*;
+import com.github.treescrub.spedran.api.request.NotificationsRequest;
+import com.github.treescrub.spedran.api.request.category.CategoryRecordsRequest;
+import com.github.treescrub.spedran.api.request.category.CategoryRequest;
+import com.github.treescrub.spedran.api.request.category.CategoryVariablesRequest;
+import com.github.treescrub.spedran.api.request.developer.DeveloperRequest;
+import com.github.treescrub.spedran.api.request.developer.DevelopersRequest;
+import com.github.treescrub.spedran.api.request.engine.EngineRequest;
+import com.github.treescrub.spedran.api.request.engine.EnginesRequest;
 import com.github.treescrub.spedran.api.request.game.*;
-import com.github.treescrub.spedran.api.request.gametype.*;
-import com.github.treescrub.spedran.api.request.genre.*;
+import com.github.treescrub.spedran.api.request.gametype.GametypeRequest;
+import com.github.treescrub.spedran.api.request.gametype.GametypesRequest;
+import com.github.treescrub.spedran.api.request.genre.GenreRequest;
+import com.github.treescrub.spedran.api.request.genre.GenresRequest;
 import com.github.treescrub.spedran.api.request.guest.GuestRequest;
 import com.github.treescrub.spedran.api.request.leaderboard.LeaderboardRequest;
-import com.github.treescrub.spedran.api.request.level.*;
-import com.github.treescrub.spedran.api.request.platform.*;
-import com.github.treescrub.spedran.api.request.publisher.*;
-import com.github.treescrub.spedran.api.request.region.*;
+import com.github.treescrub.spedran.api.request.level.LevelCategoriesRequest;
+import com.github.treescrub.spedran.api.request.level.LevelRecordsRequest;
+import com.github.treescrub.spedran.api.request.level.LevelRequest;
+import com.github.treescrub.spedran.api.request.level.LevelVariablesRequest;
+import com.github.treescrub.spedran.api.request.platform.PlatformRequest;
+import com.github.treescrub.spedran.api.request.platform.PlatformsRequest;
+import com.github.treescrub.spedran.api.request.publisher.PublisherRequest;
+import com.github.treescrub.spedran.api.request.publisher.PublishersRequest;
+import com.github.treescrub.spedran.api.request.region.RegionRequest;
+import com.github.treescrub.spedran.api.request.region.RegionsRequest;
 import com.github.treescrub.spedran.api.request.run.*;
-import com.github.treescrub.spedran.api.request.series.*;
-import com.github.treescrub.spedran.api.request.user.*;
+import com.github.treescrub.spedran.api.request.series.AllSeriesRequest;
+import com.github.treescrub.spedran.api.request.series.SeriesGamesRequest;
+import com.github.treescrub.spedran.api.request.series.SingleSeriesRequest;
+import com.github.treescrub.spedran.api.request.user.ProfileRequest;
+import com.github.treescrub.spedran.api.request.user.UserPBsRequest;
+import com.github.treescrub.spedran.api.request.user.UserRequest;
+import com.github.treescrub.spedran.api.request.user.UsersRequest;
 import com.github.treescrub.spedran.api.request.variable.VariableRequest;
 import com.github.treescrub.spedran.data.*;
 import com.github.treescrub.spedran.data.category.Category;
 import com.github.treescrub.spedran.data.game.Game;
 import com.github.treescrub.spedran.data.leaderboard.Leaderboard;
 import com.github.treescrub.spedran.data.leaderboard.LeaderboardRun;
+import com.github.treescrub.spedran.data.notification.Notification;
 import com.github.treescrub.spedran.data.run.Run;
 import com.github.treescrub.spedran.data.user.User;
 import com.github.treescrub.spedran.data.variables.Variable;
@@ -28,6 +47,7 @@ import com.github.treescrub.spedran.requests.Requests;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import java.util.List;
 import java.util.concurrent.CompletableFuture;
 
 @SuppressWarnings("unused")
@@ -326,6 +346,16 @@ public class Spedran {
      */
     public static CompletableFuture<User> getProfile() {
         return new ProfileRequest().complete();
+    }
+
+    /**
+     * Gets all of the {@link Notification}s for the currently authenticated user.
+     *
+     * @return a {@link CompletableFuture} with a {@code List} of notifications
+     * @see Spedran#setApiKey(String)
+     */
+    public static CompletableFuture<List<Notification>> getNotifications() {
+        return new NotificationsRequest().complete();
     }
 
     /**
