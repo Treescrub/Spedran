@@ -202,6 +202,15 @@ public class Spedran {
     }
 
     /**
+     * Gets a {@link SubmitRunRequest} builder to submit a run to SRC.
+     *
+     * @return a {@code SubmitRunRequest} builder
+     */
+    public static SubmitRunRequest submitRun() {
+        return new SubmitRunRequest();
+    }
+
+    /**
      * Gets a {@link RunStatusRequest} builder to change the {@link Run}'s verification status.
      *
      * @param runId the ID of the run to set the status of
