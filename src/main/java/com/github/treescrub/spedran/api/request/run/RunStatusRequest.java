@@ -36,6 +36,7 @@ public class RunStatusRequest extends ModifyResourceRequest<Void> {
     /**
      * Sets the status of the {@link Run} to {@link SubmissionStatus#REJECTED} with the provided rejection reason.
      *
+     * @param reason a {@code String} with the reason for this run being rejected
      * @return this builder object
      */
     public RunStatusRequest reject(String reason) {
