@@ -50,7 +50,7 @@ public class RunPlayersRequest extends ModifyResourceRequest<Run> {
      * @return this builder object
      */
     public RunPlayersRequest addUser(String userId) {
-        runPlayers.put("user", userId);
+        runPlayers.put(userId, "user");
 
         return this;
     }
@@ -72,7 +72,7 @@ public class RunPlayersRequest extends ModifyResourceRequest<Run> {
      * @return this builder object
      */
     public RunPlayersRequest addGuest(String guestName) {
-        runPlayers.put("guest", guestName);
+        runPlayers.put(guestName, "guest");
 
         return this;
     }
@@ -94,16 +94,20 @@ public class RunPlayersRequest extends ModifyResourceRequest<Run> {
         JSONArray playersNode = new JSONArray();
         for(Map.Entry<String, String> entry : runPlayers.entrySet()) {
             JSONObject playerNode = new JSONObject();
-            playerNode.put("rel", entry.getKey());
+
+            String id = entry.getKey();
+            String type = entry.getValue();
+
+            playerNode.put("rel", type);
 
             String idKeyName;
-            if(entry.getKey().equals("user")) {
+            if(type.equals("user")) {
                 idKeyName = "id";
             } else {
                 idKeyName = "name";
             }
 
-            playerNode.put(idKeyName, entry.getValue());
+            playerNode.put(idKeyName, id);
             playersNode.put(playerNode);
         }
 
