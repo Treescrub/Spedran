@@ -319,6 +319,16 @@ public class Spedran {
     }
 
     /**
+     * Gets the {@link User} that owns the current API key.
+     *
+     * @return a {@link CompletableFuture} of the current authenticated {@code User}
+     * @see Spedran#setApiKey(String)
+     */
+    public static CompletableFuture<User> getProfile() {
+        return new ProfileRequest().complete();
+    }
+
+    /**
      * Gets the {@link User} that corresponds to the provided {@code id} asynchronously.
      *
      * @param id the ID of the user to get
