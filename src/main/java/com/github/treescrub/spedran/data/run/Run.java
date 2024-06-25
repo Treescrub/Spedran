@@ -1,5 +1,6 @@
 package com.github.treescrub.spedran.data.run;
 
+import com.github.treescrub.spedran.api.Spedran;
 import com.github.treescrub.spedran.api.request.run.DeleteRunRequest;
 import com.github.treescrub.spedran.api.request.run.RunPlayersRequest;
 import com.github.treescrub.spedran.api.request.run.RunStatusRequest;
@@ -58,30 +59,35 @@ public class Run extends IdentifiableResource {
     }
 
     /**
-     * Returns a request builder that allows deletion of this run from SRC.
-     * Requires an API key with sufficient permissions to delete runs, or API key of run owner.
+     * Gets a new {@link DeleteRunRequest} builder to delete this run from SRC.
+     * <br>
+     * Requires a set API key with sufficient permissions to delete runs, or API key of run owner.
      *
-     * @param apiKey SRC API key
-     * @return a request builder to delete this run
+     * @return a {@code DeleteRunRequest} builder
+     *
+     * @see Spedran#setApiKey(String)
      */
-    public DeleteRunRequest delete(String apiKey) {
-        return new DeleteRunRequest(this, apiKey);
+    public DeleteRunRequest delete() {
+        return new DeleteRunRequest(this);
     }
 
     /**
-     * Returns a request builder to set the players on this run.
+     * Gets a new {@link RunPlayersRequest} builder to set the players on this run.
+     * <br>
+     * Requires a set API key with sufficient permissions to change the players on this run.
      *
-     * @return a request builder to set players
+     * @return a {@code RunPlayersRequest} builder
      */
     public RunPlayersRequest setPlayers() {
         return new RunPlayersRequest(this);
     }
 
     /**
-     * Returns a request builder to change the status of this run.
+     * Gets a new {@link RunStatusRequest} builder to change the status of this run.
+     * <br>
      * Requires an API key with sufficient permissions to reject/verify runs.
      *
-     * @return
+     * @return a request builder to set the status
      */
     public RunStatusRequest setStatus() {
         return new RunStatusRequest(this);
@@ -102,7 +108,7 @@ public class Run extends IdentifiableResource {
      * @return the id of the game this run belongs to
      *
      * @see com.github.treescrub.spedran.data.game.Game
-     * @see com.github.treescrub.spedran.api.Spedran#getGame(String)
+     * @see Spedran#getGame(String)
      */
     public String getGame() {
         return game;
@@ -115,7 +121,7 @@ public class Run extends IdentifiableResource {
      * @return an {@code Optional} with the ID of this run's level
      *
      * @see com.github.treescrub.spedran.data.Level
-     * @see com.github.treescrub.spedran.api.Spedran#getLevel(String)
+     * @see Spedran#getLevel(String)
      */
     public Optional<String> getLevel() {
         return Optional.ofNullable(level);
@@ -127,7 +133,7 @@ public class Run extends IdentifiableResource {
      * @return the ID of this run's category
      *
      * @see com.github.treescrub.spedran.data.category.Category
-     * @see com.github.treescrub.spedran.api.Spedran#getCategory(String)
+     * @see Spedran#getCategory(String)
      */
     public String getCategory() {
         return category;

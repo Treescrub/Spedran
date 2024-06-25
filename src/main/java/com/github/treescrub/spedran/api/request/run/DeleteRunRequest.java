@@ -1,25 +1,29 @@
 package com.github.treescrub.spedran.api.request.run;
 
-import kong.unirest.HttpMethod;
-import kong.unirest.json.JSONObject;
-import com.github.treescrub.spedran.api.request.SingleResourceRequest;
+import com.github.treescrub.spedran.api.request.ModifyResourceRequest;
 import com.github.treescrub.spedran.data.run.Run;
+import kong.unirest.HttpMethod;
+import kong.unirest.json.JSONElement;
+import kong.unirest.json.JSONObject;
 
 import java.util.Map;
 
-public class DeleteRunRequest extends SingleResourceRequest<Run> {
-    public DeleteRunRequest(String id, String apiKey) {
+public class DeleteRunRequest extends ModifyResourceRequest<Run> {
+    public DeleteRunRequest(String id) {
         super(HttpMethod.DELETE, "runs/{id}", Map.of("id", id));
-
-        request.header("X-API-Key", apiKey);
     }
 
-    public DeleteRunRequest(Run run, String apiKey) {
-        this(run.getId(), apiKey);
+    public DeleteRunRequest(Run run) {
+        this(run.getId());
     }
 
     @Override
     protected Run parse(JSONObject data) {
         return new Run(data);
+    }
+
+    @Override
+    protected JSONElement buildBody() {
+        return null;
     }
 }

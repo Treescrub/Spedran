@@ -2,6 +2,7 @@ package com.github.treescrub.spedran.api.request;
 
 import kong.unirest.HttpMethod;
 import kong.unirest.HttpRequest;
+import kong.unirest.HttpRequestWithBody;
 import kong.unirest.HttpResponse;
 import com.github.treescrub.spedran.requests.Requests;
 
@@ -10,7 +11,7 @@ import java.util.Map;
 import java.util.concurrent.CompletableFuture;
 
 public abstract class ResourceRequest<T> {
-    protected HttpRequest<?> request;
+    protected HttpRequestWithBody request;
     protected CompletableFuture<T> result;
     private Map<String, Object> queryParameters;
     protected boolean completed = false;

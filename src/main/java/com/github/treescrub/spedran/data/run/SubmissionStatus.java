@@ -19,4 +19,9 @@ public enum SubmissionStatus {
      * The run was verified by a verifier.
      */
     VERIFIED,
+    ;
+
+    public String toAPIName() {
+        return this.name().toLowerCase();
+    }
 }
