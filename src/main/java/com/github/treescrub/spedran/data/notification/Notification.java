@@ -50,17 +50,16 @@ public class Notification extends IdentifiableResource {
 
     /**
      * Gets a {@link Link} with the type of notification and URL of the relevant page.
-     * <p>
-     *  {@link Link#getRelation()} will be one of:
-     *  <ul>
-     *     <li>{@code "post"} - Forum post created, a user liked a forum post, or a user commented on a run</li>
-     *     <li>{@code "run"} - New run for verification, a run status changed, or a user beat WR</li>
-     *     <li>{@code "game"} - Game request approved or denied</li>
-     *     <li>{@code "guide"} - Guide posted or updated</li>
-     *     <li>{@code "thread"} - Created new forum thread</li>
-     *     <li>An empty {@code Optional} - News post created (possibly other scenarios)</li>
-     *  </ul>
-     * </p>
+     * <br><br>
+     * {@link Link#getRelation()} will be one of:
+     * <ul>
+     *    <li>{@code "post"} - Forum post created, a user liked a forum post, or a user commented on a run</li>
+     *    <li>{@code "run"} - New run for verification, a run status changed, or a user beat WR</li>
+     *    <li>{@code "game"} - Game request approved or denied</li>
+     *    <li>{@code "guide"} - Guide posted or updated</li>
+     *    <li>{@code "thread"} - Created new forum thread</li>
+     *    <li>An empty {@code Optional} - News post created (possibly other scenarios)</li>
+     * </ul>
      *
      * @return a {@code Link} for the relevant page
      */
