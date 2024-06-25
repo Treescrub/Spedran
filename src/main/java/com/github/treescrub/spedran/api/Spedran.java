@@ -191,13 +191,13 @@ public class Spedran {
     }
 
     /**
-     * Gets a {@link RunPlayersRequest} builder to change the {@link User}s on a {@link Run}.
+     * Gets a {@link RunPlayersRequest} builder to change the players in a {@link Run}.
      *
      * @param runId the ID of the run to set the players for
      *
      * @return a {@code RunPlayersRequest} builder
      */
-    public static RunPlayersRequest getRunPlayers(String runId) {
+    public static RunPlayersRequest setRunPlayers(String runId) {
         return new RunPlayersRequest(runId);
     }
 
