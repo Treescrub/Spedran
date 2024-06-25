@@ -59,10 +59,11 @@ public class Run extends IdentifiableResource {
     }
 
     /**
-     * Returns a request builder that allows deletion of this run from SRC.
+     * Gets a new {@link DeleteRunRequest} builder to delete this run from SRC.
+     * <br>
      * Requires a set API key with sufficient permissions to delete runs, or API key of run owner.
      *
-     * @return a request builder to delete this run
+     * @return a {@code DeleteRunRequest} builder
      *
      * @see Spedran#setApiKey(String)
      */
@@ -71,19 +72,22 @@ public class Run extends IdentifiableResource {
     }
 
     /**
-     * Returns a request builder to set the players on this run.
+     * Gets a new {@link RunPlayersRequest} builder to set the players on this run.
+     * <br>
+     * Requires a set API key with sufficient permissions to change the players on this run.
      *
-     * @return a request builder to set players
+     * @return a {@code RunPlayersRequest} builder
      */
     public RunPlayersRequest setPlayers() {
         return new RunPlayersRequest(this);
     }
 
     /**
-     * Returns a request builder to change the status of this run.
+     * Gets a new {@link RunStatusRequest} builder to change the status of this run.
+     * <br>
      * Requires an API key with sufficient permissions to reject/verify runs.
      *
-     * @return
+     * @return a request builder to set the status
      */
     public RunStatusRequest setStatus() {
         return new RunStatusRequest(this);
