@@ -1,6 +1,8 @@
 package com.github.treescrub.spedran.data.game;
 
+import com.github.treescrub.spedran.api.Spedran;
 import com.github.treescrub.spedran.api.request.game.*;
+import com.github.treescrub.spedran.api.request.run.RunsRequest;
 import com.github.treescrub.spedran.data.IdentifiableResource;
 import com.github.treescrub.spedran.data.Names;
 import com.github.treescrub.spedran.data.ParseUtils;
@@ -56,6 +58,15 @@ public class Game extends IdentifiableResource {
         }
         moderators = Collections.unmodifiableMap(tempModerators);
         created = !data.isNull("created") ? Instant.parse(data.getString("created")) : null;
+    }
+
+    /**
+     * Gets a new {@link RunsRequest} builder object to request all runs for this game.
+     *
+     * @return a {@code RunsRequest} builder
+     */
+    public RunsRequest getRuns() {
+        return Spedran.getRuns().game(this);
     }
 
     /**

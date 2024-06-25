@@ -1,5 +1,8 @@
 package com.github.treescrub.spedran.data;
 
+import com.github.treescrub.spedran.api.Spedran;
+import com.github.treescrub.spedran.api.request.game.GamesRequest;
+import com.github.treescrub.spedran.api.request.run.RunsRequest;
 import kong.unirest.json.JSONObject;
 
 /**
@@ -14,6 +17,24 @@ public class Platform extends IdentifiableNamedResource {
         super(data);
 
         released = data.getInt("released");
+    }
+
+    /**
+     * Gets a new {@link GamesRequest} builder object to request all games that are on this platform.
+     *
+     * @return a {@code GamesRequest} builder
+     */
+    public GamesRequest getGames() {
+        return Spedran.getGames().platform(this);
+    }
+
+    /**
+     * Gets a new {@link RunsRequest} builder object to request all runs that are on this platform.
+     *
+     * @return a {@code RunsRequest} builder
+     */
+    public RunsRequest getRuns() {
+        return Spedran.getRuns().platform(this);
     }
 
     /**

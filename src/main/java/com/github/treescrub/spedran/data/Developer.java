@@ -1,5 +1,7 @@
 package com.github.treescrub.spedran.data;
 
+import com.github.treescrub.spedran.api.Spedran;
+import com.github.treescrub.spedran.api.request.game.GamesRequest;
 import kong.unirest.json.JSONObject;
 
 /**
@@ -9,6 +11,15 @@ public class Developer extends IdentifiableNamedResource {
 
     public Developer(JSONObject data) {
         super(data);
+    }
+
+    /**
+     * Gets a new {@link GamesRequest} builder object to request all the games developed by this developer.
+     *
+     * @return a {@code GamesRequest} builder
+     */
+    public GamesRequest getGames() {
+        return Spedran.getGames().developer(this);
     }
 
     @Override

@@ -1,7 +1,9 @@
 package com.github.treescrub.spedran.data.category;
 
+import com.github.treescrub.spedran.api.Spedran;
 import com.github.treescrub.spedran.api.request.category.CategoryRecordsRequest;
 import com.github.treescrub.spedran.api.request.category.CategoryVariablesRequest;
+import com.github.treescrub.spedran.api.request.run.RunsRequest;
 import com.github.treescrub.spedran.data.IdentifiableNamedResource;
 import kong.unirest.json.JSONObject;
 
@@ -25,6 +27,15 @@ public class Category extends IdentifiableNamedResource {
         rules = data.getString("rules");
         players = new CategoryPlayers(data.getJSONObject("players"));
         miscellaneous = data.getBoolean("miscellaneous");
+    }
+
+    /**
+     * Gets a new {@link RunsRequest} builder object to request all runs in this category.
+     *
+     * @return a {@code RunsRequest} builder
+     */
+    public RunsRequest getRuns() {
+        return Spedran.getRuns().category(this);
     }
 
     /**
