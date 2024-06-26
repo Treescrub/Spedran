@@ -1,10 +1,16 @@
 package com.github.treescrub.spedran.data.game;
 
 import com.github.treescrub.spedran.data.Link;
+import com.github.treescrub.spedran.data.Series;
 import kong.unirest.json.JSONObject;
 
 import java.util.Optional;
 
+/**
+ * A collection of {@link Link}s to customized images for a {@link Game} or {@link Series}.
+ * <br><br>
+ * Everything but the cover image can be seen and changed in the Settings menu for a game/series, under Theme.
+ */
 public class GameAssets {
     private final Link logo;
     private final Link tinyCover;
