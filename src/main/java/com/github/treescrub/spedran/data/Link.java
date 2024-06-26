@@ -16,6 +16,10 @@ public class Link {
         rel = data.optString("rel", null);
     }
 
+    public static boolean isEmpty(JSONObject data) {
+        return data.optString("uri", null) == null;
+    }
+
     /**
      * Gets the URI for this link.
      *
