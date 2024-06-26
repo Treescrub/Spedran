@@ -35,17 +35,9 @@ public class GameAssets {
         firstTrophy = new Link(data.getJSONObject("trophy-1st"));
         secondTrophy = new Link(data.getJSONObject("trophy-2nd"));
         thirdTrophy = new Link(data.getJSONObject("trophy-3rd"));
-        fourthTrophy = getLinkOrNull(data.getJSONObject("trophy-4th"));
-        background = getLinkOrNull(data.getJSONObject("background"));
-        foreground = getLinkOrNull(data.getJSONObject("foreground"));
-    }
-
-    private static Link getLinkOrNull(JSONObject data) {
-        if(Link.isEmpty(data)) {
-            return null;
-        } else {
-            return new Link(data);
-        }
+        fourthTrophy = Link.getLinkOrNull(data.getJSONObject("trophy-4th"));
+        background = Link.getLinkOrNull(data.getJSONObject("background"));
+        foreground = Link.getLinkOrNull(data.getJSONObject("foreground"));
     }
 
     /**

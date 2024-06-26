@@ -16,8 +16,22 @@ public class Link {
         rel = data.optString("rel", null);
     }
 
-    public static boolean isEmpty(JSONObject data) {
+    private static boolean isEmpty(JSONObject data) {
         return data.optString("uri", null) == null;
+    }
+
+    /**
+     * Gets a {@link Link} from the provided JSON, or {@code null} if it's an empty {@code Link}.
+     *
+     * @param data the JSON data
+     * @return a {@code Link}, null if not a valid {@code Link}
+     */
+    public static Link getLinkOrNull(JSONObject data) {
+        if(isEmpty(data)) {
+            return null;
+        } else {
+            return new Link(data);
+        }
     }
 
     /**
