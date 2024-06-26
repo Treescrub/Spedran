@@ -26,12 +26,12 @@ public abstract class SingleResourceRequest<T> extends ResourceRequest<T> {
     }
 
     @Override
-    public HttpResponse<JsonNode> executeBlocking() {
+    HttpResponse<JsonNode> executeBlocking() {
         return request.asJson();
     }
 
     @Override
-    public void finishRequest(Object body) {
+    void finishRequest(Object body) {
         completed = true;
         // Complete async so that we aren't on the same thread as the RequestQueue
         result.completeAsync(() -> parse(((JsonNode) body).getObject().getJSONObject("data")));

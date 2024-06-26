@@ -68,7 +68,7 @@ public abstract class ResourceCollectionRequest<T extends Resource> extends Reso
     }
 
     @Override
-    public void finishRequest(Object body) {
+    void finishRequest(Object body) {
         JsonNode jsonBody = ((JsonNode) body);
         responseBodies.add(jsonBody);
         String nextLink = extractPaginationLink(jsonBody.getObject());
@@ -84,7 +84,7 @@ public abstract class ResourceCollectionRequest<T extends Resource> extends Reso
     }
 
     @Override
-    public HttpResponse<?> executeBlocking() {
+    HttpResponse<?> executeBlocking() {
         return request.asJson();
     }
 

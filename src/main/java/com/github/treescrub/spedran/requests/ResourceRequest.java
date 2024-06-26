@@ -21,21 +21,21 @@ abstract class ResourceRequest<T> {
         result = new CompletableFuture<>();
     }
 
-    public HttpRequest<?> getRequest() {
+    HttpRequest<?> getRequest() {
         return request;
     }
 
-    public boolean isCompleted() {
+    boolean isCompleted() {
         return completed;
     }
 
-    public abstract void finishRequest(Object body);
+    abstract void finishRequest(Object body);
 
-    public void failRequest(Throwable throwable) {
+    void failRequest(Throwable throwable) {
         result.completeExceptionally(throwable);
     }
 
-    public abstract HttpResponse<?> executeBlocking();
+    abstract HttpResponse<?> executeBlocking();
 
     protected ResourceRequest(HttpMethod method, String url) {
         this(method, url, Map.of());
