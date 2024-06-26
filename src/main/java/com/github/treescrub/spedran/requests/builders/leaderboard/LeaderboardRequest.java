@@ -3,11 +3,11 @@ package com.github.treescrub.spedran.requests.builders.leaderboard;
 import com.github.treescrub.spedran.data.Level;
 import com.github.treescrub.spedran.data.Platform;
 import com.github.treescrub.spedran.data.Region;
-import com.github.treescrub.spedran.data.category.Category;
-import com.github.treescrub.spedran.data.game.Game;
-import com.github.treescrub.spedran.data.leaderboard.Leaderboard;
-import com.github.treescrub.spedran.data.run.TimingType;
-import com.github.treescrub.spedran.data.variables.Variable;
+import com.github.treescrub.spedran.data.Category;
+import com.github.treescrub.spedran.data.Game;
+import com.github.treescrub.spedran.data.Leaderboard;
+import com.github.treescrub.spedran.data.TimingType;
+import com.github.treescrub.spedran.data.Variable;
 import com.github.treescrub.spedran.requests.SingleResourceRequest;
 import kong.unirest.HttpMethod;
 

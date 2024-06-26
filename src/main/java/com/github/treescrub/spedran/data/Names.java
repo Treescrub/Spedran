@@ -12,7 +12,7 @@ public class Names {
     private final String japanese;
     private final String twitch;
 
-    public Names(JSONObject data) {
+    Names(JSONObject data) {
         international = data.getString("international");
         japanese = data.optString("japanese", null);
         twitch = data.optString("twitch", null);

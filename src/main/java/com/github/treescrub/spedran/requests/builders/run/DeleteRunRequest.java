@@ -1,6 +1,6 @@
 package com.github.treescrub.spedran.requests.builders.run;
 
-import com.github.treescrub.spedran.data.run.Run;
+import com.github.treescrub.spedran.data.Run;
 import com.github.treescrub.spedran.requests.ModifyResourceRequest;
 import kong.unirest.HttpMethod;
 import kong.unirest.json.JSONElement;

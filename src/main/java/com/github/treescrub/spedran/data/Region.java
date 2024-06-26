@@ -14,7 +14,7 @@ import kong.unirest.json.JSONObject;
  */
 public class Region extends IdentifiableNamedResource {
 
-    public Region(JSONObject data) {
+    Region(JSONObject data) {
         super(data);
     }
 

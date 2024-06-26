@@ -1,6 +1,6 @@
 package com.github.treescrub.spedran.requests.builders.category;
 
-import com.github.treescrub.spedran.data.category.Category;
+import com.github.treescrub.spedran.data.Category;
 import com.github.treescrub.spedran.requests.SingleResourceRequest;
 import kong.unirest.HttpMethod;
 

@@ -10,13 +10,13 @@ import kong.unirest.json.JSONObject;
 import java.util.Optional;
 
 /**
- * A specific level in a {@link com.github.treescrub.spedran.data.game.Game}.
+ * A specific level in a {@link Game}.
  */
 public class Level extends IdentifiableNamedResource {
     private final String weblink;
     private final String rules;
 
-    public Level(JSONObject data) {
+    Level(JSONObject data) {
         super(data);
 
         weblink = data.getString("weblink");

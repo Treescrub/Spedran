@@ -11,7 +11,7 @@ import kong.unirest.json.JSONObject;
  */
 public class Genre extends IdentifiableNamedResource {
 
-    public Genre(JSONObject data) {
+    Genre(JSONObject data) {
         super(data);
     }
 

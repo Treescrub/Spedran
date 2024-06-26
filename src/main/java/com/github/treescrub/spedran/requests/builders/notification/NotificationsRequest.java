@@ -1,6 +1,6 @@
 package com.github.treescrub.spedran.requests.builders.notification;
 
-import com.github.treescrub.spedran.data.notification.Notification;
+import com.github.treescrub.spedran.data.Notification;
 import com.github.treescrub.spedran.requests.ResourceCollectionRequest;
 import kong.unirest.HttpMethod;
 

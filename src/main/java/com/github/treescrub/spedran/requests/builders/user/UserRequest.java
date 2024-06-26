@@ -1,6 +1,6 @@
 package com.github.treescrub.spedran.requests.builders.user;
 
-import com.github.treescrub.spedran.data.user.User;
+import com.github.treescrub.spedran.data.User;
 import com.github.treescrub.spedran.requests.SingleResourceRequest;
 import kong.unirest.HttpMethod;
 

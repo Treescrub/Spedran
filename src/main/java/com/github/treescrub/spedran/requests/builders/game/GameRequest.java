@@ -1,6 +1,6 @@
 package com.github.treescrub.spedran.requests.builders.game;
 
-import com.github.treescrub.spedran.data.game.Game;
+import com.github.treescrub.spedran.data.Game;
 import com.github.treescrub.spedran.requests.SingleResourceRequest;
 import kong.unirest.HttpMethod;
 

@@ -9,7 +9,7 @@ import kong.unirest.json.JSONObject;
  */
 public class Developer extends IdentifiableNamedResource {
 
-    public Developer(JSONObject data) {
+    Developer(JSONObject data) {
         super(data);
     }
 

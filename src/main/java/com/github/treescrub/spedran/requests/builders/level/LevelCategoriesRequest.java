@@ -1,7 +1,7 @@
 package com.github.treescrub.spedran.requests.builders.level;
 
 import com.github.treescrub.spedran.data.Level;
-import com.github.treescrub.spedran.data.category.Category;
+import com.github.treescrub.spedran.data.Category;
 import com.github.treescrub.spedran.requests.ResourceCollectionRequest;
 import com.github.treescrub.spedran.requests.SortDirection;
 import kong.unirest.HttpMethod;

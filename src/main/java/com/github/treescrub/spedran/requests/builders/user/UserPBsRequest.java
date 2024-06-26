@@ -1,7 +1,7 @@
 package com.github.treescrub.spedran.requests.builders.user;
 
-import com.github.treescrub.spedran.data.leaderboard.LeaderboardRun;
-import com.github.treescrub.spedran.data.user.User;
+import com.github.treescrub.spedran.data.LeaderboardRun;
+import com.github.treescrub.spedran.data.User;
 import com.github.treescrub.spedran.requests.ResourceCollectionRequest;
 import kong.unirest.HttpMethod;
 

@@ -1,6 +1,6 @@
 package com.github.treescrub.spedran.requests.builders.variable;
 
-import com.github.treescrub.spedran.data.variables.Variable;
+import com.github.treescrub.spedran.data.Variable;
 import com.github.treescrub.spedran.requests.SingleResourceRequest;
 import kong.unirest.HttpMethod;
 

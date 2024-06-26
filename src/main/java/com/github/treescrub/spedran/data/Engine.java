@@ -9,7 +9,7 @@ import kong.unirest.json.JSONObject;
  */
 public class Engine extends IdentifiableNamedResource {
 
-    public Engine(JSONObject data) {
+    Engine(JSONObject data) {
         super(data);
     }
 

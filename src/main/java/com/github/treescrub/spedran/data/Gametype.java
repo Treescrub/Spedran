@@ -11,7 +11,7 @@ import kong.unirest.json.JSONObject;
  */
 public class Gametype extends IdentifiableNamedResource {
 
-    public Gametype(JSONObject data) {
+    Gametype(JSONObject data) {
         super(data);
     }
 

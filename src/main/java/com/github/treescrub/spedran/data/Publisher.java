@@ -11,7 +11,7 @@ import kong.unirest.json.JSONObject;
  */
 public class Publisher extends IdentifiableNamedResource {
 
-    public Publisher(JSONObject data) {
+    Publisher(JSONObject data) {
         super(data);
     }
 

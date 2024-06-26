@@ -1,14 +1,15 @@
 package com.github.treescrub.spedran;
 
 import com.github.treescrub.spedran.data.*;
-import com.github.treescrub.spedran.data.category.Category;
-import com.github.treescrub.spedran.data.game.Game;
-import com.github.treescrub.spedran.data.leaderboard.Leaderboard;
-import com.github.treescrub.spedran.data.leaderboard.LeaderboardRun;
-import com.github.treescrub.spedran.data.notification.Notification;
-import com.github.treescrub.spedran.data.run.Run;
-import com.github.treescrub.spedran.data.user.User;
-import com.github.treescrub.spedran.data.variables.Variable;
+import com.github.treescrub.spedran.data.Category;
+import com.github.treescrub.spedran.data.Game;
+import com.github.treescrub.spedran.data.Series;
+import com.github.treescrub.spedran.data.Leaderboard;
+import com.github.treescrub.spedran.data.LeaderboardRun;
+import com.github.treescrub.spedran.data.Notification;
+import com.github.treescrub.spedran.data.Run;
+import com.github.treescrub.spedran.data.User;
+import com.github.treescrub.spedran.data.Variable;
 import com.github.treescrub.spedran.requests.Requests;
 import com.github.treescrub.spedran.requests.builders.category.CategoryRecordsRequest;
 import com.github.treescrub.spedran.requests.builders.category.CategoryRequest;

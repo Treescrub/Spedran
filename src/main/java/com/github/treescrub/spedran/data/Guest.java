@@ -12,7 +12,7 @@ import java.util.Objects;
 public class Guest extends Resource {
     private final String name;
 
-    public Guest(JSONObject data) {
+    Guest(JSONObject data) {
         super(data);
 
         name = data.getString("name");

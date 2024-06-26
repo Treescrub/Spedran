@@ -13,7 +13,7 @@ import kong.unirest.json.JSONObject;
 public class Platform extends IdentifiableNamedResource {
     private final int released;
 
-    public Platform(JSONObject data) {
+    Platform(JSONObject data) {
         super(data);
 
         released = data.getInt("released");
