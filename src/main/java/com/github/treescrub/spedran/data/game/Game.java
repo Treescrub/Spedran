@@ -1,11 +1,11 @@
 package com.github.treescrub.spedran.data.game;
 
 import com.github.treescrub.spedran.Spedran;
-import com.github.treescrub.spedran.requests.game.*;
-import com.github.treescrub.spedran.requests.run.RunsRequest;
 import com.github.treescrub.spedran.data.IdentifiableResource;
 import com.github.treescrub.spedran.data.Names;
 import com.github.treescrub.spedran.data.ParseUtils;
+import com.github.treescrub.spedran.requests.builders.game.*;
+import com.github.treescrub.spedran.requests.builders.run.RunsRequest;
 import kong.unirest.json.JSONObject;
 
 import java.time.Instant;

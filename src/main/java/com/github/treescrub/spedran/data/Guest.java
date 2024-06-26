@@ -1,7 +1,7 @@
 package com.github.treescrub.spedran.data;
 
 import com.github.treescrub.spedran.Spedran;
-import com.github.treescrub.spedran.requests.run.RunsRequest;
+import com.github.treescrub.spedran.requests.builders.run.RunsRequest;
 import kong.unirest.json.JSONObject;
 
 import java.util.Objects;

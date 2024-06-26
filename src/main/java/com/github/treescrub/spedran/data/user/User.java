@@ -1,9 +1,9 @@
 package com.github.treescrub.spedran.data.user;
 
 import com.github.treescrub.spedran.Spedran;
-import com.github.treescrub.spedran.requests.game.GamesRequest;
-import com.github.treescrub.spedran.requests.run.RunsRequest;
-import com.github.treescrub.spedran.requests.user.UserPBsRequest;
+import com.github.treescrub.spedran.requests.builders.game.GamesRequest;
+import com.github.treescrub.spedran.requests.builders.run.RunsRequest;
+import com.github.treescrub.spedran.requests.builders.user.UserPBsRequest;
 import com.github.treescrub.spedran.data.IdentifiableResource;
 import com.github.treescrub.spedran.data.Link;
 import com.github.treescrub.spedran.data.Names;

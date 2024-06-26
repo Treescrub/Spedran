@@ -1,10 +1,10 @@
 package com.github.treescrub.spedran.data;
 
 import com.github.treescrub.spedran.Spedran;
-import com.github.treescrub.spedran.requests.level.LevelCategoriesRequest;
-import com.github.treescrub.spedran.requests.level.LevelRecordsRequest;
-import com.github.treescrub.spedran.requests.level.LevelVariablesRequest;
-import com.github.treescrub.spedran.requests.run.RunsRequest;
+import com.github.treescrub.spedran.requests.builders.level.LevelCategoriesRequest;
+import com.github.treescrub.spedran.requests.builders.level.LevelRecordsRequest;
+import com.github.treescrub.spedran.requests.builders.level.LevelVariablesRequest;
+import com.github.treescrub.spedran.requests.builders.run.RunsRequest;
 import kong.unirest.json.JSONObject;
 
 import java.util.Optional;
