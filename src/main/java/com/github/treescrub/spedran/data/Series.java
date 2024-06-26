@@ -1,6 +1,7 @@
 package com.github.treescrub.spedran.data;
 
 import com.github.treescrub.spedran.api.request.series.SeriesGamesRequest;
+import com.github.treescrub.spedran.data.game.GameAssets;
 import kong.unirest.json.JSONObject;
 
 import java.time.Instant;
@@ -23,6 +24,7 @@ public class Series extends IdentifiableResource {
     private final String discord;
     private final Map<String, String> moderators;
     private final Instant created;
+    private final GameAssets assets;
 
     public Series(JSONObject data) {
         super(data);
@@ -41,6 +43,7 @@ public class Series extends IdentifiableResource {
         } else {
             created = null;
         }
+        assets = new GameAssets(data.getJSONObject("assets"));
     }
 
     /**
@@ -104,6 +107,15 @@ public class Series extends IdentifiableResource {
      */
     public Optional<Instant> getCreationTime() {
         return Optional.ofNullable(created);
+    }
+
+    /**
+     * Gets the {@link GameAssets} for this series.
+     *
+     * @return a {@code GameAssets} object
+     */
+    public GameAssets getAssets() {
+        return assets;
     }
 
     @Override

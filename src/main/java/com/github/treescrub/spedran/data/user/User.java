@@ -29,6 +29,7 @@ public class User extends IdentifiableResource {
     private final Link youtube;
     private final Link twitter;
     private final Link speedrunsLive;
+    private final UserAssets assets;
 
     public User(JSONObject data) {
         super(data);
@@ -46,6 +47,7 @@ public class User extends IdentifiableResource {
         youtube = data.isNull("youtube") ? null : new Link(data.getJSONObject("youtube"));
         twitter = data.isNull("twitter") ? null : new Link(data.getJSONObject("twitter"));
         speedrunsLive = data.isNull("speedrunslive") ? null : new Link(data.getJSONObject("speedrunslive"));
+        assets = new UserAssets(data.getJSONObject("assets"));
     }
 
     /**
@@ -192,6 +194,15 @@ public class User extends IdentifiableResource {
      */
     public Optional<Link> getSpeedrunsLiveLink() {
         return Optional.ofNullable(speedrunsLive);
+    }
+
+    /**
+     * Gets the {@link UserAssets} for this user.
+     *
+     * @return a {@code UserAssets} object
+     */
+    public UserAssets getAssets() {
+        return assets;
     }
 
     @Override

@@ -33,6 +33,7 @@ public class Game extends IdentifiableResource {
     private final List<String> publishers;
     private final Map<String, String> moderators;
     private final Instant created;
+    private final GameAssets assets;
 
     public Game(JSONObject data) {
         super(data);
@@ -58,6 +59,7 @@ public class Game extends IdentifiableResource {
         }
         moderators = Collections.unmodifiableMap(tempModerators);
         created = !data.isNull("created") ? Instant.parse(data.getString("created")) : null;
+        assets = new GameAssets(data.getJSONObject("assets"));
     }
 
     /**
@@ -295,6 +297,15 @@ public class Game extends IdentifiableResource {
      */
     public Optional<Instant> getCreationTime() {
         return Optional.ofNullable(created);
+    }
+
+    /**
+     * Gets the {@link GameAssets} for this game.
+     *
+     * @return a {@code GameAssets} object
+     */
+    public GameAssets getAssets() {
+        return assets;
     }
 
     @Override
