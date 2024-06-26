@@ -42,7 +42,7 @@ class UserTest {
         JSONObject json = JSONLoader.getJsonTestFile("l4d/user/user");
         User user = new User(json);
 
-        assertEquals("https://www.speedrun.com/user/matthew_1919", user.getWeblink());
+        assertEquals("https://www.speedrun.com/user/DarootLeafstorm", user.getWeblink());
     }
 
     @Test
@@ -65,7 +65,7 @@ class UserTest {
     void getSignupTime() {
         JSONObject json = JSONLoader.getJsonTestFile("l4d/user/user");
         User user = new User(json);
-        Instant signupTime = Instant.parse("2021-03-09T01:31:51Z");
+        Instant signupTime = Instant.parse("2016-06-23T21:29:17Z");
 
         assertTrue(user.getSignupTime().isPresent());
         assertEquals(signupTime, user.getSignupTime().get());
@@ -84,7 +84,7 @@ class UserTest {
         JSONObject json = JSONLoader.getJsonTestFile("l4d/user/user");
         User user = new User(json);
 
-        assertTrue(user.getTwitchLink().isPresent());
+        assertFalse(user.getTwitchLink().isPresent());
     }
 
     @Test
