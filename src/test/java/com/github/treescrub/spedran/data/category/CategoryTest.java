@@ -1,7 +1,6 @@
-package com.github.treescrub.spedran.category;
+package com.github.treescrub.spedran.data.category;
 
 import com.github.treescrub.spedran.JSONLoader;
-import com.github.treescrub.spedran.data.category.Category;
 import kong.unirest.json.JSONObject;
 import org.junit.jupiter.api.Test;
 

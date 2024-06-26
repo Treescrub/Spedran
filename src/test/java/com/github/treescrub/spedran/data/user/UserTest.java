@@ -1,8 +1,6 @@
-package com.github.treescrub.spedran.user;
+package com.github.treescrub.spedran.data.user;
 
 import com.github.treescrub.spedran.JSONLoader;
-import com.github.treescrub.spedran.data.user.User;
-import com.github.treescrub.spedran.data.user.UserRole;
 import kong.unirest.json.JSONObject;
 import org.junit.jupiter.api.Test;
 

@@ -1,7 +1,6 @@
-package com.github.treescrub.spedran.user;
+package com.github.treescrub.spedran.data.user;
 
 import com.github.treescrub.spedran.JSONLoader;
-import com.github.treescrub.spedran.data.user.NameColor;
 import kong.unirest.json.JSONObject;
 import org.junit.jupiter.api.Test;
 

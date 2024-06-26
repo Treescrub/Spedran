@@ -1,7 +1,6 @@
-package com.github.treescrub.spedran.game;
+package com.github.treescrub.spedran.data.game;
 
 import com.github.treescrub.spedran.JSONLoader;
-import com.github.treescrub.spedran.data.game.GameRuleset;
 import com.github.treescrub.spedran.data.run.TimingType;
 import kong.unirest.json.JSONObject;
 import org.junit.jupiter.api.Test;

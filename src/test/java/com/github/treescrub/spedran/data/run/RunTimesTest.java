@@ -1,7 +1,6 @@
-package com.github.treescrub.spedran.run;
+package com.github.treescrub.spedran.data.run;
 
 import com.github.treescrub.spedran.JSONLoader;
-import com.github.treescrub.spedran.data.run.RunTimes;
 import kong.unirest.json.JSONObject;
 import org.junit.jupiter.api.Test;
 import java.time.Duration;

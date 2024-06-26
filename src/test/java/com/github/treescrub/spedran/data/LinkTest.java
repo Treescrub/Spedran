@@ -1,8 +1,8 @@
-package com.github.treescrub.spedran;
+package com.github.treescrub.spedran.data;
 
+import com.github.treescrub.spedran.JSONLoader;
 import kong.unirest.json.JSONObject;
 import org.junit.jupiter.api.Test;
-import com.github.treescrub.spedran.data.Link;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;

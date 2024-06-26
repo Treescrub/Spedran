@@ -1,8 +1,9 @@
-package com.github.treescrub.spedran;
+package com.github.treescrub.spedran.data;
 
+import com.github.treescrub.spedran.JSONLoader;
 import kong.unirest.json.JSONObject;
 import org.junit.jupiter.api.Test;
-import com.github.treescrub.spedran.data.Series;
+
 import java.time.Instant;
 
 import static org.junit.jupiter.api.Assertions.*;
