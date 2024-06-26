@@ -78,6 +78,7 @@
                 <configuration>
                     <failOnError>true</failOnError>
                     <failOnWarnings>false</failOnWarnings>
+                    <show>public</show>
                 </configuration>
             </plugin>
         </plugins>
