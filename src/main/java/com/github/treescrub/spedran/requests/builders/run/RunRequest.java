@@ -1,9 +1,8 @@
 package com.github.treescrub.spedran.requests.builders.run;
 
-import kong.unirest.HttpMethod;
-import kong.unirest.json.JSONObject;
-import com.github.treescrub.spedran.requests.SingleResourceRequest;
 import com.github.treescrub.spedran.data.run.Run;
+import com.github.treescrub.spedran.requests.SingleResourceRequest;
+import kong.unirest.HttpMethod;
 
 import java.util.Map;
 
@@ -17,7 +16,7 @@ public class RunRequest extends SingleResourceRequest<Run> {
     }
 
     @Override
-    protected Run parse(JSONObject data) {
-        return new Run(data);
+    protected Class<Run> getDataClass() {
+        return Run.class;
     }
 }

@@ -1,9 +1,8 @@
 package com.github.treescrub.spedran.requests.builders.series;
 
-import kong.unirest.HttpMethod;
-import kong.unirest.json.JSONObject;
-import com.github.treescrub.spedran.requests.SingleResourceRequest;
 import com.github.treescrub.spedran.data.Series;
+import com.github.treescrub.spedran.requests.SingleResourceRequest;
+import kong.unirest.HttpMethod;
 
 import java.util.Map;
 
@@ -17,7 +16,7 @@ public class SingleSeriesRequest extends SingleResourceRequest<Series> {
     }
 
     @Override
-    protected Series parse(JSONObject data) {
-        return new Series(data);
+    protected Class<Series> getDataClass() {
+        return Series.class;
     }
 }

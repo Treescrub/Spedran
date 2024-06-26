@@ -1,15 +1,13 @@
 package com.github.treescrub.spedran.requests.builders.game;
 
-import kong.unirest.HttpMethod;
-import kong.unirest.json.JSONObject;
-import com.github.treescrub.spedran.requests.ResourceCollectionRequest;
-import com.github.treescrub.spedran.requests.SortDirection;
 import com.github.treescrub.spedran.data.*;
 import com.github.treescrub.spedran.data.game.Game;
 import com.github.treescrub.spedran.data.user.User;
+import com.github.treescrub.spedran.requests.ResourceCollectionRequest;
+import com.github.treescrub.spedran.requests.SortDirection;
+import kong.unirest.HttpMethod;
 
 import java.util.Map;
-import java.util.function.Function;
 
 /**
  * A request builder to get all derived games (romhacks) for a given game.
@@ -305,7 +303,7 @@ public class GameRomhacksRequest extends ResourceCollectionRequest<Game> {
     }
 
     @Override
-    protected Function<JSONObject, Game> getConstructor() {
-        return Game::new;
+    protected Class<Game> getDataClass() {
+        return Game.class;
     }
 }

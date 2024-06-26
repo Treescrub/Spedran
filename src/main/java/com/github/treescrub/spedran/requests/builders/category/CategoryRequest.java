@@ -1,9 +1,8 @@
 package com.github.treescrub.spedran.requests.builders.category;
 
-import kong.unirest.HttpMethod;
-import kong.unirest.json.JSONObject;
-import com.github.treescrub.spedran.requests.SingleResourceRequest;
 import com.github.treescrub.spedran.data.category.Category;
+import com.github.treescrub.spedran.requests.SingleResourceRequest;
+import kong.unirest.HttpMethod;
 
 import java.util.Map;
 
@@ -17,7 +16,7 @@ public class CategoryRequest extends SingleResourceRequest<Category> {
     }
 
     @Override
-    protected Category parse(JSONObject data) {
-        return new Category(data);
+    protected Class<Category> getDataClass() {
+        return Category.class;
     }
 }

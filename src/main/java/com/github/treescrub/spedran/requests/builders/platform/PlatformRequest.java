@@ -1,9 +1,8 @@
 package com.github.treescrub.spedran.requests.builders.platform;
 
-import kong.unirest.HttpMethod;
-import kong.unirest.json.JSONObject;
-import com.github.treescrub.spedran.requests.SingleResourceRequest;
 import com.github.treescrub.spedran.data.Platform;
+import com.github.treescrub.spedran.requests.SingleResourceRequest;
+import kong.unirest.HttpMethod;
 
 import java.util.Map;
 
@@ -17,7 +16,7 @@ public class PlatformRequest extends SingleResourceRequest<Platform> {
     }
 
     @Override
-    protected Platform parse(JSONObject data) {
-        return new Platform(data);
+    protected Class<Platform> getDataClass() {
+        return Platform.class;
     }
 }

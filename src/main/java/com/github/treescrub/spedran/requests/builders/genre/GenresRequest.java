@@ -1,12 +1,9 @@
 package com.github.treescrub.spedran.requests.builders.genre;
 
-import kong.unirest.HttpMethod;
-import kong.unirest.json.JSONObject;
+import com.github.treescrub.spedran.data.Genre;
 import com.github.treescrub.spedran.requests.ResourceCollectionRequest;
 import com.github.treescrub.spedran.requests.SortDirection;
-import com.github.treescrub.spedran.data.Genre;
-
-import java.util.function.Function;
+import kong.unirest.HttpMethod;
 
 public class GenresRequest extends ResourceCollectionRequest<Genre> {
     public GenresRequest() {
@@ -24,7 +21,7 @@ public class GenresRequest extends ResourceCollectionRequest<Genre> {
     }
 
     @Override
-    protected Function<JSONObject, Genre> getConstructor() {
-        return Genre::new;
+    protected Class<Genre> getDataClass() {
+        return Genre.class;
     }
 }

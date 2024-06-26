@@ -1,12 +1,9 @@
 package com.github.treescrub.spedran.requests.builders.publisher;
 
-import kong.unirest.HttpMethod;
-import kong.unirest.json.JSONObject;
+import com.github.treescrub.spedran.data.Publisher;
 import com.github.treescrub.spedran.requests.ResourceCollectionRequest;
 import com.github.treescrub.spedran.requests.SortDirection;
-import com.github.treescrub.spedran.data.Publisher;
-
-import java.util.function.Function;
+import kong.unirest.HttpMethod;
 
 public class PublishersRequest extends ResourceCollectionRequest<Publisher> {
     public PublishersRequest() {
@@ -24,7 +21,7 @@ public class PublishersRequest extends ResourceCollectionRequest<Publisher> {
     }
 
     @Override
-    protected Function<JSONObject, Publisher> getConstructor() {
-        return Publisher::new;
+    protected Class<Publisher> getDataClass() {
+        return Publisher.class;
     }
 }

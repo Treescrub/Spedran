@@ -1,9 +1,8 @@
 package com.github.treescrub.spedran.requests.builders.engine;
 
-import kong.unirest.HttpMethod;
-import kong.unirest.json.JSONObject;
-import com.github.treescrub.spedran.requests.SingleResourceRequest;
 import com.github.treescrub.spedran.data.Engine;
+import com.github.treescrub.spedran.requests.SingleResourceRequest;
+import kong.unirest.HttpMethod;
 
 import java.util.Map;
 
@@ -17,7 +16,7 @@ public class EngineRequest extends SingleResourceRequest<Engine> {
     }
 
     @Override
-    protected Engine parse(JSONObject data) {
-        return new Engine(data);
+    protected Class<Engine> getDataClass() {
+        return Engine.class;
     }
 }

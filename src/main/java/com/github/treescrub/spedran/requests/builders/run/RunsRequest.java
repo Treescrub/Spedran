@@ -1,9 +1,5 @@
 package com.github.treescrub.spedran.requests.builders.run;
 
-import com.github.treescrub.spedran.requests.SortDirection;
-import kong.unirest.HttpMethod;
-import kong.unirest.json.JSONObject;
-import com.github.treescrub.spedran.requests.ResourceCollectionRequest;
 import com.github.treescrub.spedran.data.Guest;
 import com.github.treescrub.spedran.data.Level;
 import com.github.treescrub.spedran.data.Platform;
@@ -13,8 +9,9 @@ import com.github.treescrub.spedran.data.game.Game;
 import com.github.treescrub.spedran.data.run.Run;
 import com.github.treescrub.spedran.data.run.SubmissionStatus;
 import com.github.treescrub.spedran.data.user.User;
-
-import java.util.function.Function;
+import com.github.treescrub.spedran.requests.ResourceCollectionRequest;
+import com.github.treescrub.spedran.requests.SortDirection;
+import kong.unirest.HttpMethod;
 
 public class RunsRequest extends ResourceCollectionRequest<Run> {
     public RunsRequest() {
@@ -159,7 +156,7 @@ public class RunsRequest extends ResourceCollectionRequest<Run> {
     }
 
     @Override
-    protected Function<JSONObject, Run> getConstructor() {
-        return Run::new;
+    protected Class<Run> getDataClass() {
+        return Run.class;
     }
 }

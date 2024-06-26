@@ -1,9 +1,8 @@
 package com.github.treescrub.spedran.requests.builders.guest;
 
-import kong.unirest.HttpMethod;
-import kong.unirest.json.JSONObject;
-import com.github.treescrub.spedran.requests.SingleResourceRequest;
 import com.github.treescrub.spedran.data.Guest;
+import com.github.treescrub.spedran.requests.SingleResourceRequest;
+import kong.unirest.HttpMethod;
 
 import java.util.Map;
 
@@ -13,7 +12,7 @@ public class GuestRequest extends SingleResourceRequest<Guest> {
     }
 
     @Override
-    protected Guest parse(JSONObject data) {
-        return new Guest(data);
+    protected Class<Guest> getDataClass() {
+        return Guest.class;
     }
 }

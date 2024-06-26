@@ -7,12 +7,13 @@ import kong.unirest.JsonNode;
 import kong.unirest.json.JSONArray;
 import kong.unirest.json.JSONObject;
 
+import java.lang.reflect.Constructor;
+import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.CompletableFuture;
-import java.util.function.Function;
 
 public abstract class ResourceCollectionRequest<T extends Resource> extends ResourceRequest<List<T>> {
     private static final int MAX_ITEMS = 200;
@@ -54,7 +55,12 @@ public abstract class ResourceCollectionRequest<T extends Resource> extends Reso
             JSONArray data = body.getObject().getJSONArray("data");
 
             for(Object element : data) {
-                resources.add(getConstructor().apply((JSONObject) element));
+                try {
+                    resources.add(parse((JSONObject) element));
+                } catch (NoSuchMethodException | InvocationTargetException | InstantiationException |
+                         IllegalAccessException e) {
+                    throw new RuntimeException(e);
+                }
             }
         }
 
@@ -104,5 +110,12 @@ public abstract class ResourceCollectionRequest<T extends Resource> extends Reso
         setParameter("direction", direction.toParameter());
     }
 
-    protected abstract Function<JSONObject, T> getConstructor();
+    private T parse(JSONObject data) throws NoSuchMethodException, InvocationTargetException, InstantiationException, IllegalAccessException {
+        Class<T> dataClass = getDataClass();
+        Constructor<T> constructor = dataClass.getConstructor(JSONObject.class);
+
+        return constructor.newInstance(data);
+    }
+
+    protected abstract Class<T> getDataClass();
 }

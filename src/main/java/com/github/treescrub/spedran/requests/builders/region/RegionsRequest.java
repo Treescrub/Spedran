@@ -1,12 +1,9 @@
 package com.github.treescrub.spedran.requests.builders.region;
 
-import kong.unirest.HttpMethod;
-import kong.unirest.json.JSONObject;
+import com.github.treescrub.spedran.data.Region;
 import com.github.treescrub.spedran.requests.ResourceCollectionRequest;
 import com.github.treescrub.spedran.requests.SortDirection;
-import com.github.treescrub.spedran.data.Region;
-
-import java.util.function.Function;
+import kong.unirest.HttpMethod;
 
 public class RegionsRequest extends ResourceCollectionRequest<Region> {
     public RegionsRequest() {
@@ -24,7 +21,7 @@ public class RegionsRequest extends ResourceCollectionRequest<Region> {
     }
 
     @Override
-    protected Function<JSONObject, Region> getConstructor() {
-        return Region::new;
+    protected Class<Region> getDataClass() {
+        return Region.class;
     }
 }

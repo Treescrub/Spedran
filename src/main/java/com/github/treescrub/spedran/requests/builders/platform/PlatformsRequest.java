@@ -1,11 +1,8 @@
 package com.github.treescrub.spedran.requests.builders.platform;
 
-import kong.unirest.HttpMethod;
-import kong.unirest.json.JSONObject;
-import com.github.treescrub.spedran.requests.ResourceCollectionRequest;
 import com.github.treescrub.spedran.data.Platform;
-
-import java.util.function.Function;
+import com.github.treescrub.spedran.requests.ResourceCollectionRequest;
+import kong.unirest.HttpMethod;
 
 public class PlatformsRequest extends ResourceCollectionRequest<Platform> {
     public PlatformsRequest() {
@@ -23,7 +20,7 @@ public class PlatformsRequest extends ResourceCollectionRequest<Platform> {
     }
 
     @Override
-    protected Function<JSONObject, Platform> getConstructor() {
-        return Platform::new;
+    protected Class<Platform> getDataClass() {
+        return Platform.class;
     }
 }

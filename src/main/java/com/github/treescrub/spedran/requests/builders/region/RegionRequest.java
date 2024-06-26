@@ -1,9 +1,8 @@
 package com.github.treescrub.spedran.requests.builders.region;
 
-import kong.unirest.HttpMethod;
-import kong.unirest.json.JSONObject;
-import com.github.treescrub.spedran.requests.SingleResourceRequest;
 import com.github.treescrub.spedran.data.Region;
+import com.github.treescrub.spedran.requests.SingleResourceRequest;
+import kong.unirest.HttpMethod;
 
 import java.util.Map;
 
@@ -17,7 +16,7 @@ public class RegionRequest extends SingleResourceRequest<Region> {
     }
 
     @Override
-    protected Region parse(JSONObject data) {
-        return new Region(data);
+    protected Class<Region> getDataClass() {
+        return Region.class;
     }
 }

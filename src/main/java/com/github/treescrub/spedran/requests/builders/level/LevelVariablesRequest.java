@@ -1,14 +1,12 @@
 package com.github.treescrub.spedran.requests.builders.level;
 
-import kong.unirest.HttpMethod;
-import kong.unirest.json.JSONObject;
-import com.github.treescrub.spedran.requests.ResourceCollectionRequest;
-import com.github.treescrub.spedran.requests.SortDirection;
 import com.github.treescrub.spedran.data.Level;
 import com.github.treescrub.spedran.data.variables.Variable;
+import com.github.treescrub.spedran.requests.ResourceCollectionRequest;
+import com.github.treescrub.spedran.requests.SortDirection;
+import kong.unirest.HttpMethod;
 
 import java.util.Map;
-import java.util.function.Function;
 
 public class LevelVariablesRequest extends ResourceCollectionRequest<Variable> {
     public LevelVariablesRequest(String id) {
@@ -45,7 +43,7 @@ public class LevelVariablesRequest extends ResourceCollectionRequest<Variable> {
     }
 
     @Override
-    protected Function<JSONObject, Variable> getConstructor() {
-        return Variable::new;
+    protected Class<Variable> getDataClass() {
+        return Variable.class;
     }
 }

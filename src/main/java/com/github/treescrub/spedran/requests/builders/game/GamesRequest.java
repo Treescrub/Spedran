@@ -1,14 +1,11 @@
 package com.github.treescrub.spedran.requests.builders.game;
 
-import kong.unirest.HttpMethod;
-import kong.unirest.json.JSONObject;
-import com.github.treescrub.spedran.requests.ResourceCollectionRequest;
-import com.github.treescrub.spedran.requests.SortDirection;
 import com.github.treescrub.spedran.data.*;
 import com.github.treescrub.spedran.data.game.Game;
 import com.github.treescrub.spedran.data.user.User;
-
-import java.util.function.Function;
+import com.github.treescrub.spedran.requests.ResourceCollectionRequest;
+import com.github.treescrub.spedran.requests.SortDirection;
+import kong.unirest.HttpMethod;
 
 public class GamesRequest extends ResourceCollectionRequest<Game> {
     public static final int MAX_ITEMS_BULK = 1000;
@@ -145,7 +142,7 @@ public class GamesRequest extends ResourceCollectionRequest<Game> {
     }
 
     @Override
-    protected Function<JSONObject, Game> getConstructor() {
-        return Game::new;
+    protected Class<Game> getDataClass() {
+        return Game.class;
     }
 }

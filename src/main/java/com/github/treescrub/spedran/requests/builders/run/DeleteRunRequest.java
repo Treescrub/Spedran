@@ -1,10 +1,9 @@
 package com.github.treescrub.spedran.requests.builders.run;
 
-import com.github.treescrub.spedran.requests.ModifyResourceRequest;
 import com.github.treescrub.spedran.data.run.Run;
+import com.github.treescrub.spedran.requests.ModifyResourceRequest;
 import kong.unirest.HttpMethod;
 import kong.unirest.json.JSONElement;
-import kong.unirest.json.JSONObject;
 
 import java.util.Map;
 
@@ -18,8 +17,8 @@ public class DeleteRunRequest extends ModifyResourceRequest<Run> {
     }
 
     @Override
-    protected Run parse(JSONObject data) {
-        return new Run(data);
+    protected Class<Run> getDataClass() {
+        return Run.class;
     }
 
     @Override

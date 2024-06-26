@@ -1,9 +1,8 @@
 package com.github.treescrub.spedran.requests.builders.publisher;
 
-import kong.unirest.HttpMethod;
-import kong.unirest.json.JSONObject;
-import com.github.treescrub.spedran.requests.SingleResourceRequest;
 import com.github.treescrub.spedran.data.Publisher;
+import com.github.treescrub.spedran.requests.SingleResourceRequest;
+import kong.unirest.HttpMethod;
 
 import java.util.Map;
 
@@ -17,7 +16,7 @@ public class PublisherRequest extends SingleResourceRequest<Publisher> {
     }
 
     @Override
-    protected Publisher parse(JSONObject data) {
-        return new Publisher(data);
+    protected Class<Publisher> getDataClass() {
+        return Publisher.class;
     }
 }

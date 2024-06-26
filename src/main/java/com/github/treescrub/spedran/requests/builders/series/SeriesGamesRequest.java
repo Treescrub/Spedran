@@ -1,16 +1,14 @@
 package com.github.treescrub.spedran.requests.builders.series;
 
-import kong.unirest.HttpMethod;
-import kong.unirest.json.JSONObject;
-import com.github.treescrub.spedran.requests.builders.game.GamesRequest;
-import com.github.treescrub.spedran.requests.ResourceCollectionRequest;
-import com.github.treescrub.spedran.requests.SortDirection;
 import com.github.treescrub.spedran.data.*;
 import com.github.treescrub.spedran.data.game.Game;
 import com.github.treescrub.spedran.data.user.User;
+import com.github.treescrub.spedran.requests.ResourceCollectionRequest;
+import com.github.treescrub.spedran.requests.SortDirection;
+import com.github.treescrub.spedran.requests.builders.game.GamesRequest;
+import kong.unirest.HttpMethod;
 
 import java.util.Map;
-import java.util.function.Function;
 
 public class SeriesGamesRequest extends ResourceCollectionRequest<Game> {
     public SeriesGamesRequest(String id) {
@@ -147,9 +145,9 @@ public class SeriesGamesRequest extends ResourceCollectionRequest<Game> {
         setSortDirection(direction);
         return this;
     }
-    
+
     @Override
-    protected Function<JSONObject, Game> getConstructor() {
-        return Game::new;
+    protected Class<Game> getDataClass() {
+        return Game.class;
     }
 }

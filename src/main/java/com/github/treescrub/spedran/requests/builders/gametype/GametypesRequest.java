@@ -1,12 +1,9 @@
 package com.github.treescrub.spedran.requests.builders.gametype;
 
-import kong.unirest.HttpMethod;
-import kong.unirest.json.JSONObject;
+import com.github.treescrub.spedran.data.Gametype;
 import com.github.treescrub.spedran.requests.ResourceCollectionRequest;
 import com.github.treescrub.spedran.requests.SortDirection;
-import com.github.treescrub.spedran.data.Gametype;
-
-import java.util.function.Function;
+import kong.unirest.HttpMethod;
 
 public class GametypesRequest extends ResourceCollectionRequest<Gametype> {
     public GametypesRequest() {
@@ -24,7 +21,7 @@ public class GametypesRequest extends ResourceCollectionRequest<Gametype> {
     }
 
     @Override
-    protected Function<JSONObject, Gametype> getConstructor() {
-        return Gametype::new;
+    protected Class<Gametype> getDataClass() {
+        return Gametype.class;
     }
 }

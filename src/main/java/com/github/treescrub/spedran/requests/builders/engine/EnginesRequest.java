@@ -1,12 +1,9 @@
 package com.github.treescrub.spedran.requests.builders.engine;
 
-import kong.unirest.HttpMethod;
-import kong.unirest.json.JSONObject;
+import com.github.treescrub.spedran.data.Engine;
 import com.github.treescrub.spedran.requests.ResourceCollectionRequest;
 import com.github.treescrub.spedran.requests.SortDirection;
-import com.github.treescrub.spedran.data.Engine;
-
-import java.util.function.Function;
+import kong.unirest.HttpMethod;
 
 /**
  * A request builder to get all engines.
@@ -29,7 +26,7 @@ public class EnginesRequest extends ResourceCollectionRequest<Engine> {
     }
 
     @Override
-    protected Function<JSONObject, Engine> getConstructor() {
-        return Engine::new;
+    protected Class<Engine> getDataClass() {
+        return Engine.class;
     }
 }

@@ -1,13 +1,11 @@
 package com.github.treescrub.spedran.requests.builders.category;
 
-import kong.unirest.HttpMethod;
-import kong.unirest.json.JSONObject;
-import com.github.treescrub.spedran.requests.ResourceCollectionRequest;
 import com.github.treescrub.spedran.data.category.Category;
 import com.github.treescrub.spedran.data.leaderboard.Leaderboard;
+import com.github.treescrub.spedran.requests.ResourceCollectionRequest;
+import kong.unirest.HttpMethod;
 
 import java.util.Map;
-import java.util.function.Function;
 
 public class CategoryRecordsRequest extends ResourceCollectionRequest<Leaderboard> {
     public CategoryRecordsRequest(String id) {
@@ -53,7 +51,7 @@ public class CategoryRecordsRequest extends ResourceCollectionRequest<Leaderboar
     }
 
     @Override
-    protected Function<JSONObject, Leaderboard> getConstructor() {
-        return Leaderboard::new;
+    protected Class<Leaderboard> getDataClass() {
+        return Leaderboard.class;
     }
 }

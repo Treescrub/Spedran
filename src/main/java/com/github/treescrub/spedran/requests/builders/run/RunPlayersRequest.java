@@ -78,8 +78,8 @@ public class RunPlayersRequest extends ModifyResourceRequest<Run> {
     }
 
     @Override
-    protected Run parse(JSONObject data) {
-        return new Run(data);
+    protected Class<Run> getDataClass() {
+        return Run.class;
     }
 
     @Override

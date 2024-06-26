@@ -1,13 +1,11 @@
 package com.github.treescrub.spedran.requests.builders.game;
 
-import kong.unirest.HttpMethod;
-import kong.unirest.json.JSONObject;
-import com.github.treescrub.spedran.requests.ResourceCollectionRequest;
 import com.github.treescrub.spedran.data.game.Game;
 import com.github.treescrub.spedran.data.leaderboard.Leaderboard;
+import com.github.treescrub.spedran.requests.ResourceCollectionRequest;
+import kong.unirest.HttpMethod;
 
 import java.util.Map;
-import java.util.function.Function;
 
 /**
  * A request builder to get records for a given game.
@@ -77,7 +75,7 @@ public class GameRecordsRequest extends ResourceCollectionRequest<Leaderboard> {
     }
 
     @Override
-    protected Function<JSONObject, Leaderboard> getConstructor() {
-        return Leaderboard::new;
+    protected Class<Leaderboard> getDataClass() {
+        return Leaderboard.class;
     }
 }

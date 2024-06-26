@@ -1,12 +1,9 @@
 package com.github.treescrub.spedran.requests.builders.user;
 
-import kong.unirest.HttpMethod;
-import kong.unirest.json.JSONObject;
+import com.github.treescrub.spedran.data.user.User;
 import com.github.treescrub.spedran.requests.ResourceCollectionRequest;
 import com.github.treescrub.spedran.requests.SortDirection;
-import com.github.treescrub.spedran.data.user.User;
-
-import java.util.function.Function;
+import kong.unirest.HttpMethod;
 
 public class UsersRequest extends ResourceCollectionRequest<User> {
     public UsersRequest() {
@@ -71,7 +68,7 @@ public class UsersRequest extends ResourceCollectionRequest<User> {
     // TODO: not setting any query parameters will return a 400 (bad request), CompletableFuture.failedFuture
 
     @Override
-    protected Function<JSONObject, User> getConstructor() {
-        return User::new;
+    protected Class<User> getDataClass() {
+        return User.class;
     }
 }

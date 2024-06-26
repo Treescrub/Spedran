@@ -1,13 +1,11 @@
 package com.github.treescrub.spedran.requests.builders.user;
 
 import com.github.treescrub.spedran.data.leaderboard.LeaderboardRun;
-import kong.unirest.HttpMethod;
-import kong.unirest.json.JSONObject;
-import com.github.treescrub.spedran.requests.ResourceCollectionRequest;
 import com.github.treescrub.spedran.data.user.User;
+import com.github.treescrub.spedran.requests.ResourceCollectionRequest;
+import kong.unirest.HttpMethod;
 
 import java.util.Map;
-import java.util.function.Function;
 
 public class UserPBsRequest extends ResourceCollectionRequest<LeaderboardRun> {
     public UserPBsRequest(String id) {
@@ -34,7 +32,7 @@ public class UserPBsRequest extends ResourceCollectionRequest<LeaderboardRun> {
     }
 
     @Override
-    protected Function<JSONObject, LeaderboardRun> getConstructor() {
-        return LeaderboardRun::new;
+    protected Class<LeaderboardRun> getDataClass() {
+        return LeaderboardRun.class;
     }
 }

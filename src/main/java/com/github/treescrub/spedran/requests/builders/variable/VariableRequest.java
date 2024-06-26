@@ -1,9 +1,8 @@
 package com.github.treescrub.spedran.requests.builders.variable;
 
-import kong.unirest.HttpMethod;
-import kong.unirest.json.JSONObject;
-import com.github.treescrub.spedran.requests.SingleResourceRequest;
 import com.github.treescrub.spedran.data.variables.Variable;
+import com.github.treescrub.spedran.requests.SingleResourceRequest;
+import kong.unirest.HttpMethod;
 
 import java.util.Map;
 
@@ -17,7 +16,7 @@ public class VariableRequest extends SingleResourceRequest<Variable> {
     }
 
     @Override
-    protected Variable parse(JSONObject data) {
-        return new Variable(data);
+    protected Class<Variable> getDataClass() {
+        return Variable.class;
     }
 }

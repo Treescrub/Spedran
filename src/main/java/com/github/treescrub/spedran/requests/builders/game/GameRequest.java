@@ -1,9 +1,8 @@
 package com.github.treescrub.spedran.requests.builders.game;
 
-import kong.unirest.HttpMethod;
-import kong.unirest.json.JSONObject;
-import com.github.treescrub.spedran.requests.SingleResourceRequest;
 import com.github.treescrub.spedran.data.game.Game;
+import com.github.treescrub.spedran.requests.SingleResourceRequest;
+import kong.unirest.HttpMethod;
 
 import java.util.Map;
 
@@ -17,7 +16,7 @@ public class GameRequest extends SingleResourceRequest<Game> {
     }
 
     @Override
-    protected Game parse(JSONObject data) {
-        return new Game(data);
+    protected Class<Game> getDataClass() {
+        return Game.class;
     }
 }

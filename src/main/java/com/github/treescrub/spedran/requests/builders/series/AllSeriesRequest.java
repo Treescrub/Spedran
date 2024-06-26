@@ -1,13 +1,10 @@
 package com.github.treescrub.spedran.requests.builders.series;
 
-import kong.unirest.HttpMethod;
-import kong.unirest.json.JSONObject;
-import com.github.treescrub.spedran.requests.ResourceCollectionRequest;
-import com.github.treescrub.spedran.requests.SortDirection;
 import com.github.treescrub.spedran.data.Series;
 import com.github.treescrub.spedran.data.user.User;
-
-import java.util.function.Function;
+import com.github.treescrub.spedran.requests.ResourceCollectionRequest;
+import com.github.treescrub.spedran.requests.SortDirection;
+import kong.unirest.HttpMethod;
 
 public class AllSeriesRequest extends ResourceCollectionRequest<Series> {
     public AllSeriesRequest() {
@@ -59,7 +56,7 @@ public class AllSeriesRequest extends ResourceCollectionRequest<Series> {
     }
 
     @Override
-    protected Function<JSONObject, Series> getConstructor() {
-        return Series::new;
+    protected Class<Series> getDataClass() {
+        return Series.class;
     }
 }

@@ -1,8 +1,5 @@
 package com.github.treescrub.spedran.requests.builders.leaderboard;
 
-import kong.unirest.HttpMethod;
-import kong.unirest.json.JSONObject;
-import com.github.treescrub.spedran.requests.SingleResourceRequest;
 import com.github.treescrub.spedran.data.Level;
 import com.github.treescrub.spedran.data.Platform;
 import com.github.treescrub.spedran.data.Region;
@@ -11,6 +8,8 @@ import com.github.treescrub.spedran.data.game.Game;
 import com.github.treescrub.spedran.data.leaderboard.Leaderboard;
 import com.github.treescrub.spedran.data.run.TimingType;
 import com.github.treescrub.spedran.data.variables.Variable;
+import com.github.treescrub.spedran.requests.SingleResourceRequest;
+import kong.unirest.HttpMethod;
 
 import java.util.Map;
 
@@ -89,7 +88,7 @@ public class LeaderboardRequest extends SingleResourceRequest<Leaderboard> {
     }
 
     @Override
-    protected Leaderboard parse(JSONObject data) {
-        return new Leaderboard(data);
+    protected Class<Leaderboard> getDataClass() {
+        return Leaderboard.class;
     }
 }

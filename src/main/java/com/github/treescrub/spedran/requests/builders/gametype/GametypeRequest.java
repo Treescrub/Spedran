@@ -1,9 +1,8 @@
 package com.github.treescrub.spedran.requests.builders.gametype;
 
-import kong.unirest.HttpMethod;
-import kong.unirest.json.JSONObject;
-import com.github.treescrub.spedran.requests.SingleResourceRequest;
 import com.github.treescrub.spedran.data.Gametype;
+import com.github.treescrub.spedran.requests.SingleResourceRequest;
+import kong.unirest.HttpMethod;
 
 import java.util.Map;
 
@@ -17,7 +16,7 @@ public class GametypeRequest extends SingleResourceRequest<Gametype> {
     }
 
     @Override
-    protected Gametype parse(JSONObject data) {
-        return new Gametype(data);
+    protected Class<Gametype> getDataClass() {
+        return Gametype.class;
     }
 }

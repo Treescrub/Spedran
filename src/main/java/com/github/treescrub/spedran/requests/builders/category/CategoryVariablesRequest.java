@@ -1,14 +1,12 @@
 package com.github.treescrub.spedran.requests.builders.category;
 
-import kong.unirest.HttpMethod;
-import kong.unirest.json.JSONObject;
-import com.github.treescrub.spedran.requests.ResourceCollectionRequest;
-import com.github.treescrub.spedran.requests.SortDirection;
 import com.github.treescrub.spedran.data.category.Category;
 import com.github.treescrub.spedran.data.variables.Variable;
+import com.github.treescrub.spedran.requests.ResourceCollectionRequest;
+import com.github.treescrub.spedran.requests.SortDirection;
+import kong.unirest.HttpMethod;
 
 import java.util.Map;
-import java.util.function.Function;
 
 public class CategoryVariablesRequest extends ResourceCollectionRequest<Variable> {
     public CategoryVariablesRequest(String id) {
@@ -74,7 +72,7 @@ public class CategoryVariablesRequest extends ResourceCollectionRequest<Variable
     }
 
     @Override
-    protected Function<JSONObject, Variable> getConstructor() {
-        return Variable::new;
+    protected Class<Variable> getDataClass() {
+        return Variable.class;
     }
 }

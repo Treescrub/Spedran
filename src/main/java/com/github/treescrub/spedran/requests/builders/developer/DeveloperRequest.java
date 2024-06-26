@@ -1,9 +1,8 @@
 package com.github.treescrub.spedran.requests.builders.developer;
 
-import kong.unirest.HttpMethod;
-import kong.unirest.json.JSONObject;
-import com.github.treescrub.spedran.requests.SingleResourceRequest;
 import com.github.treescrub.spedran.data.Developer;
+import com.github.treescrub.spedran.requests.SingleResourceRequest;
+import kong.unirest.HttpMethod;
 
 import java.util.Map;
 
@@ -17,7 +16,7 @@ public class DeveloperRequest extends SingleResourceRequest<Developer> {
     }
 
     @Override
-    protected Developer parse(JSONObject data) {
-        return new Developer(data);
+    protected Class<Developer> getDataClass() {
+        return Developer.class;
     }
 }

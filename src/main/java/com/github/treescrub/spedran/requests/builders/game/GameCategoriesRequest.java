@@ -1,14 +1,12 @@
 package com.github.treescrub.spedran.requests.builders.game;
 
-import kong.unirest.HttpMethod;
-import kong.unirest.json.JSONObject;
-import com.github.treescrub.spedran.requests.ResourceCollectionRequest;
-import com.github.treescrub.spedran.requests.SortDirection;
 import com.github.treescrub.spedran.data.category.Category;
 import com.github.treescrub.spedran.data.game.Game;
+import com.github.treescrub.spedran.requests.ResourceCollectionRequest;
+import com.github.treescrub.spedran.requests.SortDirection;
+import kong.unirest.HttpMethod;
 
 import java.util.Map;
-import java.util.function.Function;
 
 /**
  * A request builder to get all categories of a given game.
@@ -77,7 +75,7 @@ public class GameCategoriesRequest extends ResourceCollectionRequest<Category> {
     }
 
     @Override
-    protected Function<JSONObject, Category> getConstructor() {
-        return Category::new;
+    protected Class<Category> getDataClass() {
+        return Category.class;
     }
 }

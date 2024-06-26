@@ -1,12 +1,9 @@
 package com.github.treescrub.spedran.requests.builders.developer;
 
-import kong.unirest.HttpMethod;
-import kong.unirest.json.JSONObject;
+import com.github.treescrub.spedran.data.Developer;
 import com.github.treescrub.spedran.requests.ResourceCollectionRequest;
 import com.github.treescrub.spedran.requests.SortDirection;
-import com.github.treescrub.spedran.data.Developer;
-
-import java.util.function.Function;
+import kong.unirest.HttpMethod;
 
 /**
  * A request builder to get all developers.
@@ -29,7 +26,7 @@ public class DevelopersRequest extends ResourceCollectionRequest<Developer> {
     }
 
     @Override
-    protected Function<JSONObject, Developer> getConstructor() {
-        return Developer::new;
+    protected Class<Developer> getDataClass() {
+        return Developer.class;
     }
 }

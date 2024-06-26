@@ -1,9 +1,8 @@
 package com.github.treescrub.spedran.requests.builders.genre;
 
-import kong.unirest.HttpMethod;
-import kong.unirest.json.JSONObject;
-import com.github.treescrub.spedran.requests.SingleResourceRequest;
 import com.github.treescrub.spedran.data.Genre;
+import com.github.treescrub.spedran.requests.SingleResourceRequest;
+import kong.unirest.HttpMethod;
 
 import java.util.Map;
 
@@ -17,7 +16,7 @@ public class GenreRequest extends SingleResourceRequest<Genre> {
     }
 
     @Override
-    protected Genre parse(JSONObject data) {
-        return new Genre(data);
+    protected Class<Genre> getDataClass() {
+        return Genre.class;
     }
 }
