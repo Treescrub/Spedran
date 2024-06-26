@@ -1,7 +1,7 @@
 package com.github.treescrub.spedran.data;
 
-import com.github.treescrub.spedran.api.Spedran;
-import com.github.treescrub.spedran.api.request.game.GamesRequest;
+import com.github.treescrub.spedran.Spedran;
+import com.github.treescrub.spedran.requests.game.GamesRequest;
 import kong.unirest.json.JSONObject;
 
 /**

@@ -4,7 +4,6 @@ import kong.unirest.HttpRequest;
 import kong.unirest.HttpResponse;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import com.github.treescrub.spedran.api.request.ResourceRequest;
 
 import java.util.Optional;
 import java.util.Queue;
@@ -13,17 +12,17 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.atomic.AtomicInteger;
 
-public class RequestQueue {
-    private static final Queue<ResourceRequest<?>> requestQueue = new ConcurrentLinkedQueue<>();
+class RequestQueue {
+    private final Queue<ResourceRequest<?>> requestQueue = new ConcurrentLinkedQueue<>();
     /**
      * Number of times we recently encountered a rate limit.
      * Decremented on successful request if we haven't hit a rate limit recently.
      */
-    private static final AtomicInteger rateLimitCount = new AtomicInteger(0);
+    private final AtomicInteger rateLimitCount = new AtomicInteger(0);
     /**
      * Total requests in queue.
      */
-    private static final AtomicInteger requestsInQueue = new AtomicInteger(0);
+    private final AtomicInteger requestsInQueue = new AtomicInteger(0);
     /**
      * HTTP status code used to indicate throttling/rate limiting.
      */
@@ -42,24 +41,24 @@ public class RequestQueue {
      */
     private static final double BACKOFF_OFFSET_CONSTANT = 0.5;
 
-    private static long lastRateLimit = 0;
+    private long lastRateLimit = 0;
 
-    private static final ExecutorService queueExecutor = Executors.newSingleThreadExecutor();
+    private final ExecutorService queueExecutor = Executors.newSingleThreadExecutor();
     private static final Logger logger = LogManager.getLogger(RequestQueue.class);
 
-    public static void queueRequest(ResourceRequest<?> request) {
+    public void queueRequest(ResourceRequest<?> request) {
         requestQueue.add(request);
         requestsInQueue.incrementAndGet();
 
         logger.debug("Request {} submitted to queue", request.getRequest().getUrl());
 
-        queueExecutor.submit(RequestQueue::executeUntilEmpty);
+        queueExecutor.submit(this::executeUntilEmpty);
     }
 
     /**
      * Execute all requests in the queue until the queue is empty.
      */
-    private static void executeUntilEmpty() {
+    private void executeUntilEmpty() {
         ResourceRequest<?> currentRequest = requestQueue.peek();
 
         while(currentRequest != null) {
@@ -90,7 +89,7 @@ public class RequestQueue {
     /**
      * Execute the next request and check the result.
      */
-    private static void executeRequest(ResourceRequest<?> resourceRequest) {
+    private void executeRequest(ResourceRequest<?> resourceRequest) {
         logger.debug("Executing request, {} left in queue", requestsInQueue.get());
 
         HttpRequest<?> httpRequest = resourceRequest.getRequest();
@@ -150,7 +149,7 @@ public class RequestQueue {
      *
      * @return should requests be delayed to prevent hitting rate limit
      */
-    private static boolean shouldRateLimit() {
+    private boolean shouldRateLimit() {
         return rateLimitCount.get() > 0;
     }
 
@@ -159,7 +158,7 @@ public class RequestQueue {
      *
      * @return delay in milliseconds
      */
-    private static int getRateLimitDelay() {
+    private int getRateLimitDelay() {
         return (int) (Math.pow(BACKOFF_EXPONENT_BASE, rateLimitCount.get() - 1) * 1000 * BACKOFF_OFFSET_CONSTANT);
     }
 }

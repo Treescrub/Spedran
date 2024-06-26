@@ -1,5 +1,6 @@
 package com.github.treescrub.spedran.data.run;
 
+import com.github.treescrub.spedran.Spedran;
 import kong.unirest.json.JSONObject;
 
 import java.util.Optional;
@@ -27,7 +28,7 @@ public class RunSystem {
      * @return the platform ID
      *
      * @see com.github.treescrub.spedran.data.Platform
-     * @see com.github.treescrub.spedran.api.Spedran#getPlatform(String)
+     * @see Spedran#getPlatform(String)
      */
     public String getPlatform() {
         return platform;
@@ -48,7 +49,7 @@ public class RunSystem {
      * @return an {@link Optional} with the region ID if applicable
      *
      * @see com.github.treescrub.spedran.data.Region
-     * @see com.github.treescrub.spedran.api.Spedran#getRegion(String)
+     * @see Spedran#getRegion(String)
      */
     public Optional<String> getRegion() {
         return Optional.ofNullable(region);

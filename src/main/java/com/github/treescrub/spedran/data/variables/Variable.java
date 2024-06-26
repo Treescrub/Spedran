@@ -1,5 +1,6 @@
 package com.github.treescrub.spedran.data.variables;
 
+import com.github.treescrub.spedran.Spedran;
 import com.github.treescrub.spedran.data.IdentifiableNamedResource;
 import com.github.treescrub.spedran.data.user.User;
 import kong.unirest.json.JSONObject;
@@ -45,7 +46,7 @@ public class Variable extends IdentifiableNamedResource {
      *
      * @return an {@link Optional} with the category ID
      *
-     * @see com.github.treescrub.spedran.api.Spedran#getCategory(String)
+     * @see Spedran#getCategory(String)
      */
     public Optional<String> getCategory() {
         return Optional.ofNullable(category);

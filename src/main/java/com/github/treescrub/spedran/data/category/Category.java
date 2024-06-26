@@ -1,9 +1,9 @@
 package com.github.treescrub.spedran.data.category;
 
-import com.github.treescrub.spedran.api.Spedran;
-import com.github.treescrub.spedran.api.request.category.CategoryRecordsRequest;
-import com.github.treescrub.spedran.api.request.category.CategoryVariablesRequest;
-import com.github.treescrub.spedran.api.request.run.RunsRequest;
+import com.github.treescrub.spedran.Spedran;
+import com.github.treescrub.spedran.requests.category.CategoryRecordsRequest;
+import com.github.treescrub.spedran.requests.category.CategoryVariablesRequest;
+import com.github.treescrub.spedran.requests.run.RunsRequest;
 import com.github.treescrub.spedran.data.IdentifiableNamedResource;
 import kong.unirest.json.JSONObject;
 

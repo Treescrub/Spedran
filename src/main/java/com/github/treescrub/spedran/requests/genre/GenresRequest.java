@@ -1,0 +1,30 @@
+package com.github.treescrub.spedran.requests.genre;
+
+import kong.unirest.HttpMethod;
+import kong.unirest.json.JSONObject;
+import com.github.treescrub.spedran.requests.ResourceCollectionRequest;
+import com.github.treescrub.spedran.requests.SortDirection;
+import com.github.treescrub.spedran.data.Genre;
+
+import java.util.function.Function;
+
+public class GenresRequest extends ResourceCollectionRequest<Genre> {
+    public GenresRequest() {
+        super(HttpMethod.GET, "genres");
+    }
+
+    public GenresRequest sortByName() {
+        setSortParameter("name");
+        return this;
+    }
+
+    public GenresRequest sortDirection(SortDirection direction) {
+        setSortDirection(direction);
+        return this;
+    }
+
+    @Override
+    protected Function<JSONObject, Genre> getConstructor() {
+        return Genre::new;
+    }
+}

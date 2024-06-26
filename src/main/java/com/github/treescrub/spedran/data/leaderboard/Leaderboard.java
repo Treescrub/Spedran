@@ -1,5 +1,6 @@
 package com.github.treescrub.spedran.data.leaderboard;
 
+import com.github.treescrub.spedran.Spedran;
 import com.github.treescrub.spedran.data.Resource;
 import com.github.treescrub.spedran.data.run.TimingType;
 import kong.unirest.json.JSONObject;
@@ -63,7 +64,7 @@ public class Leaderboard extends Resource {
      *
      * @return the game ID
      *
-     * @see com.github.treescrub.spedran.api.Spedran#getGame(String)
+     * @see Spedran#getGame(String)
      * @see com.github.treescrub.spedran.data.game.Game
      */
     public String getGame() {
@@ -75,7 +76,7 @@ public class Leaderboard extends Resource {
      *
      * @return the category ID
      *
-     * @see com.github.treescrub.spedran.api.Spedran#getCategory(String)
+     * @see Spedran#getCategory(String)
      * @see com.github.treescrub.spedran.data.category.Category
      */
     public String getCategory() {
@@ -87,7 +88,7 @@ public class Leaderboard extends Resource {
      *
      * @return an {@link Optional} containing the level ID, empty if no level was provided
      *
-     * @see com.github.treescrub.spedran.api.Spedran#getLevel(String)
+     * @see Spedran#getLevel(String)
      * @see com.github.treescrub.spedran.data.Level
      */
     public Optional<String> getLevel() {
@@ -99,7 +100,7 @@ public class Leaderboard extends Resource {
      *
      * @return an {@link Optional} containing the platform ID, empty if no platform was provided
      *
-     * @see com.github.treescrub.spedran.api.Spedran#getPlatform(String)
+     * @see Spedran#getPlatform(String)
      * @see com.github.treescrub.spedran.data.Platform
      */
     public Optional<String> getPlatform() {
@@ -111,7 +112,7 @@ public class Leaderboard extends Resource {
      *
      * @return an {@link Optional} with the region ID, empty if no region was provided
      *
-     * @see com.github.treescrub.spedran.api.Spedran#getRegion(String)
+     * @see Spedran#getRegion(String)
      * @see com.github.treescrub.spedran.data.Region
      */
     public Optional<String> getRegion() {

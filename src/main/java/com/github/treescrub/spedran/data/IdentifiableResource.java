@@ -7,7 +7,7 @@ import java.util.Objects;
 public abstract class IdentifiableResource extends Resource {
     protected final String id;
 
-    public IdentifiableResource(JSONObject data) {
+    protected IdentifiableResource(JSONObject data) {
         super(data);
 
         id = data.getString("id");

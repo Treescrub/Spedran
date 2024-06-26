@@ -1,6 +1,6 @@
 package com.github.treescrub.spedran.data;
 
-import com.github.treescrub.spedran.api.request.series.SeriesGamesRequest;
+import com.github.treescrub.spedran.requests.series.SeriesGamesRequest;
 import com.github.treescrub.spedran.data.game.GameAssets;
 import kong.unirest.json.JSONObject;
 

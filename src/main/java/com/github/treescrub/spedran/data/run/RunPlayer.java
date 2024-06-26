@@ -1,5 +1,6 @@
 package com.github.treescrub.spedran.data.run;
 
+import com.github.treescrub.spedran.Spedran;
 import kong.unirest.json.JSONObject;
 import com.github.treescrub.spedran.data.Link;
 
@@ -42,7 +43,7 @@ public class RunPlayer extends Link {
      *
      * @see com.github.treescrub.spedran.data.Guest
      * @see com.github.treescrub.spedran.data.user.User
-     * @see com.github.treescrub.spedran.api.Spedran#getUser(String)
+     * @see Spedran#getUser(String)
      */
     public String getId() {
         return id;

@@ -1,9 +1,9 @@
 package com.github.treescrub.spedran.data.run;
 
-import com.github.treescrub.spedran.api.Spedran;
-import com.github.treescrub.spedran.api.request.run.DeleteRunRequest;
-import com.github.treescrub.spedran.api.request.run.RunPlayersRequest;
-import com.github.treescrub.spedran.api.request.run.RunStatusRequest;
+import com.github.treescrub.spedran.Spedran;
+import com.github.treescrub.spedran.requests.run.DeleteRunRequest;
+import com.github.treescrub.spedran.requests.run.RunPlayersRequest;
+import com.github.treescrub.spedran.requests.run.RunStatusRequest;
 import com.github.treescrub.spedran.data.IdentifiableResource;
 import com.github.treescrub.spedran.data.Link;
 import kong.unirest.json.JSONObject;

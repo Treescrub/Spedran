@@ -1,5 +1,6 @@
 package com.github.treescrub.spedran.data.variables;
 
+import com.github.treescrub.spedran.Spedran;
 import kong.unirest.json.JSONObject;
 
 import java.util.Optional;
@@ -63,7 +64,7 @@ public class VariableScope {
      * @return an {@link Optional} with the level ID if the scope is limited to a single level
      *
      * @see com.github.treescrub.spedran.data.Level
-     * @see com.github.treescrub.spedran.api.Spedran#getLevel(String)
+     * @see Spedran#getLevel(String)
      */
     public Optional<String> getLevel() {
         return Optional.ofNullable(level);

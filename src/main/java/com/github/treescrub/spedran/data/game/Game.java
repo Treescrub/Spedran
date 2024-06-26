@@ -1,8 +1,8 @@
 package com.github.treescrub.spedran.data.game;
 
-import com.github.treescrub.spedran.api.Spedran;
-import com.github.treescrub.spedran.api.request.game.*;
-import com.github.treescrub.spedran.api.request.run.RunsRequest;
+import com.github.treescrub.spedran.Spedran;
+import com.github.treescrub.spedran.requests.game.*;
+import com.github.treescrub.spedran.requests.run.RunsRequest;
 import com.github.treescrub.spedran.data.IdentifiableResource;
 import com.github.treescrub.spedran.data.Names;
 import com.github.treescrub.spedran.data.ParseUtils;
@@ -198,7 +198,7 @@ public class Game extends IdentifiableResource {
      * @return a {@code List} of gametype IDs
      *
      * @see com.github.treescrub.spedran.data.Gametype
-     * @see com.github.treescrub.spedran.api.Spedran#getGametype(String)
+     * @see Spedran#getGametype(String)
      */
     public List<String> getGametypes() {
         return gametypes;
@@ -210,7 +210,7 @@ public class Game extends IdentifiableResource {
      * @return a {@code List} of platform IDs
      *
      * @see com.github.treescrub.spedran.data.Platform
-     * @see com.github.treescrub.spedran.api.Spedran#getPlatform(String)
+     * @see Spedran#getPlatform(String)
      */
     public List<String> getPlatforms() {
         return platforms;
@@ -222,7 +222,7 @@ public class Game extends IdentifiableResource {
      * @return a {@code List} of region IDs
      *
      * @see com.github.treescrub.spedran.data.Region
-     * @see com.github.treescrub.spedran.api.Spedran#getRegion(String)
+     * @see Spedran#getRegion(String)
      */
     public List<String> getRegions() {
         return regions;
@@ -234,7 +234,7 @@ public class Game extends IdentifiableResource {
      * @return a {@code List} of genre IDs
      *
      * @see com.github.treescrub.spedran.data.Genre
-     * @see com.github.treescrub.spedran.api.Spedran#getGenre(String)
+     * @see Spedran#getGenre(String)
      */
     public List<String> getGenres() {
         return genres;
@@ -246,7 +246,7 @@ public class Game extends IdentifiableResource {
      * @return a {@code List} of engine IDs
      *
      * @see com.github.treescrub.spedran.data.Engine
-     * @see com.github.treescrub.spedran.api.Spedran#getEngine(String)
+     * @see Spedran#getEngine(String)
      */
     public List<String> getEngines() {
         return engines;
@@ -258,7 +258,7 @@ public class Game extends IdentifiableResource {
      * @return a {@code List} of developer IDs
      *
      * @see com.github.treescrub.spedran.data.Developer
-     * @see com.github.treescrub.spedran.api.Spedran#getDeveloper(String)
+     * @see Spedran#getDeveloper(String)
      */
     public List<String> getDevelopers() {
         return developers;
@@ -270,7 +270,7 @@ public class Game extends IdentifiableResource {
      * @return a {@code List} of publisher IDs
      *
      * @see com.github.treescrub.spedran.data.Publisher
-     * @see com.github.treescrub.spedran.api.Spedran#getPublisher(String)
+     * @see Spedran#getPublisher(String)
      */
     public List<String> getPublishers() {
         return publishers;
@@ -282,7 +282,7 @@ public class Game extends IdentifiableResource {
      * @return a {@code Map} of user IDs to moderator types
      *
      * @see com.github.treescrub.spedran.data.user.User
-     * @see com.github.treescrub.spedran.api.Spedran#getUser(String)
+     * @see Spedran#getUser(String)
      */
     public Map<String, String> getModerators() {
         return moderators;

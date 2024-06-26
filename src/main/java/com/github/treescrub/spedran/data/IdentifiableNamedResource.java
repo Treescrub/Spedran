@@ -5,7 +5,7 @@ import kong.unirest.json.JSONObject;
 public abstract class IdentifiableNamedResource extends IdentifiableResource {
     protected final String name;
 
-    public IdentifiableNamedResource(JSONObject data) {
+    protected IdentifiableNamedResource(JSONObject data) {
         super(data);
 
         name = data.getString("name");

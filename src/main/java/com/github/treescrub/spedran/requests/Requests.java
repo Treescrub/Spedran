@@ -7,16 +7,19 @@ import org.apache.logging.log4j.Logger;
 import java.util.Optional;
 
 public class Requests {
-    public static final String BASE_URL = "https://www.speedrun.com/api/v1/";
+    static final String BASE_URL = "https://www.speedrun.com/api/v1/";
 
     private static String key;
     private static UnirestInstance unirestInstance;
     private static final RequestCache cache = new RequestCache();
+    private static final RequestQueue queue = new RequestQueue();
     private static final Logger logger = LogManager.getLogger(Requests.class);
 
     static {
         setup();
     }
+
+    private Requests() {}
 
     private static void setup() {
         unirestInstance = Unirest.spawnInstance();
@@ -25,13 +28,17 @@ public class Requests {
         unirestInstance.config().interceptor(new LoggingInterceptor());
     }
 
-    public static HttpRequestWithBody request(HttpMethod method, String url) {
+    static HttpRequestWithBody request(HttpMethod method, String url) {
         HttpRequestWithBody httpRequest = unirestInstance.request(method.name(), url);
         if(key != null) {
             httpRequest.header("X-Api-Key", key);
         }
 
         return httpRequest;
+    }
+
+    public static void sendRequest(ResourceRequest<?> request) {
+        queue.queueRequest(request);
     }
 
     public static void setKey(String newKey) {

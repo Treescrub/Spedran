@@ -5,9 +5,9 @@ import kong.unirest.JsonNode;
 import kong.unirest.json.JSONObject;
 
 public abstract class Resource {
-    public Resource(HttpResponse<JsonNode> data) {
+    protected Resource(HttpResponse<JsonNode> data) {
         this(data.getBody().getObject().getJSONObject("data"));
     }
 
-    public Resource(JSONObject data) {}
+    protected Resource(JSONObject data) {}
 }

@@ -9,7 +9,7 @@ import java.util.Optional;
 import java.util.concurrent.ConcurrentHashMap;
 
 class RequestCache {
-    static class CacheEntry {
+    private static class CacheEntry {
         long timestamp;
         HttpResponse<?> response;
 

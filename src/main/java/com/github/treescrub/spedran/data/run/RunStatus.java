@@ -1,5 +1,6 @@
 package com.github.treescrub.spedran.data.run;
 
+import com.github.treescrub.spedran.Spedran;
 import kong.unirest.json.JSONObject;
 
 import java.time.Instant;
@@ -41,7 +42,7 @@ public class RunStatus {
      * @return an {@link Optional} with the ID of the verifier
      *
      * @see com.github.treescrub.spedran.data.user.User
-     * @see com.github.treescrub.spedran.api.Spedran#getUser(String)
+     * @see Spedran#getUser(String)
      */
     public Optional<String> getExaminer() {
         return Optional.ofNullable(examiner);
