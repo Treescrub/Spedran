@@ -1,7 +1,7 @@
 package com.github.treescrub.spedran.data;
 
-import com.github.treescrub.spedran.api.Spedran;
-import com.github.treescrub.spedran.api.request.game.GamesRequest;
+import com.github.treescrub.spedran.Spedran;
+import com.github.treescrub.spedran.requests.builders.game.GamesRequest;
 import kong.unirest.json.JSONObject;
 
 /**
@@ -9,7 +9,7 @@ import kong.unirest.json.JSONObject;
  */
 public class Developer extends IdentifiableNamedResource {
 
-    public Developer(JSONObject data) {
+    Developer(JSONObject data) {
         super(data);
     }
 

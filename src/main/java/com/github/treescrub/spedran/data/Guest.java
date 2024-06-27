@@ -1,7 +1,7 @@
 package com.github.treescrub.spedran.data;
 
-import com.github.treescrub.spedran.api.Spedran;
-import com.github.treescrub.spedran.api.request.run.RunsRequest;
+import com.github.treescrub.spedran.Spedran;
+import com.github.treescrub.spedran.requests.builders.run.RunsRequest;
 import kong.unirest.json.JSONObject;
 
 import java.util.Objects;
@@ -12,7 +12,7 @@ import java.util.Objects;
 public class Guest extends Resource {
     private final String name;
 
-    public Guest(JSONObject data) {
+    Guest(JSONObject data) {
         super(data);
 
         name = data.getString("name");

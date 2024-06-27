@@ -1,22 +1,22 @@
 package com.github.treescrub.spedran.data;
 
-import com.github.treescrub.spedran.api.Spedran;
-import com.github.treescrub.spedran.api.request.level.LevelCategoriesRequest;
-import com.github.treescrub.spedran.api.request.level.LevelRecordsRequest;
-import com.github.treescrub.spedran.api.request.level.LevelVariablesRequest;
-import com.github.treescrub.spedran.api.request.run.RunsRequest;
+import com.github.treescrub.spedran.Spedran;
+import com.github.treescrub.spedran.requests.builders.LevelCategoriesRequest;
+import com.github.treescrub.spedran.requests.builders.LevelRecordsRequest;
+import com.github.treescrub.spedran.requests.builders.LevelVariablesRequest;
+import com.github.treescrub.spedran.requests.builders.run.RunsRequest;
 import kong.unirest.json.JSONObject;
 
 import java.util.Optional;
 
 /**
- * A specific level in a {@link com.github.treescrub.spedran.data.game.Game}.
+ * A specific level in a {@link Game}.
  */
 public class Level extends IdentifiableNamedResource {
     private final String weblink;
     private final String rules;
 
-    public Level(JSONObject data) {
+    Level(JSONObject data) {
         super(data);
 
         weblink = data.getString("weblink");

@@ -1,7 +1,6 @@
 package com.github.treescrub.spedran.data;
 
-import com.github.treescrub.spedran.api.request.series.SeriesGamesRequest;
-import com.github.treescrub.spedran.data.game.GameAssets;
+import com.github.treescrub.spedran.requests.builders.series.SeriesGamesRequest;
 import kong.unirest.json.JSONObject;
 
 import java.time.Instant;

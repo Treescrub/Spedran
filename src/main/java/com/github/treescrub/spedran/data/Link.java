@@ -11,7 +11,7 @@ public class Link {
     private final String uri;
     private final String rel;
 
-    public Link(JSONObject data) {
+    Link(JSONObject data) {
         uri = data.getString("uri");
         rel = data.optString("rel", null);
     }

@@ -1,8 +1,8 @@
 package com.github.treescrub.spedran.data;
 
-import com.github.treescrub.spedran.api.Spedran;
-import com.github.treescrub.spedran.api.request.game.GamesRequest;
-import com.github.treescrub.spedran.api.request.run.RunsRequest;
+import com.github.treescrub.spedran.Spedran;
+import com.github.treescrub.spedran.requests.builders.game.GamesRequest;
+import com.github.treescrub.spedran.requests.builders.run.RunsRequest;
 import kong.unirest.json.JSONObject;
 
 /**
@@ -13,7 +13,7 @@ import kong.unirest.json.JSONObject;
 public class Platform extends IdentifiableNamedResource {
     private final int released;
 
-    public Platform(JSONObject data) {
+    Platform(JSONObject data) {
         super(data);
 
         released = data.getInt("released");

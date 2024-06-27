@@ -6,7 +6,7 @@
 
     <groupId>com.github.treescrub</groupId>
     <artifactId>spedran</artifactId>
-    <version>0.18.0</version>
+    <version>0.19.0</version>
     <packaging>jar</packaging>
 
     <name>Spedran</name>
@@ -78,6 +78,7 @@
                 <configuration>
                     <failOnError>true</failOnError>
                     <failOnWarnings>false</failOnWarnings>
+                    <show>public</show>
                 </configuration>
             </plugin>
         </plugins>
