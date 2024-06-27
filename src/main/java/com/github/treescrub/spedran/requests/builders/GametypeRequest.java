@@ -1,4 +1,4 @@
-package com.github.treescrub.spedran.requests.builders.gametype;
+package com.github.treescrub.spedran.requests.builders;
 
 import com.github.treescrub.spedran.data.Gametype;
 import com.github.treescrub.spedran.requests.SingleResourceRequest;

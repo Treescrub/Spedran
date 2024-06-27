@@ -1,4 +1,4 @@
-package com.github.treescrub.spedran.requests.builders.guest;
+package com.github.treescrub.spedran.requests.builders;
 
 import com.github.treescrub.spedran.data.Guest;
 import com.github.treescrub.spedran.requests.SingleResourceRequest;

@@ -1,4 +1,4 @@
-package com.github.treescrub.spedran.requests.builders.region;
+package com.github.treescrub.spedran.requests.builders;
 
 import com.github.treescrub.spedran.data.Region;
 import com.github.treescrub.spedran.requests.ResourceCollectionRequest;

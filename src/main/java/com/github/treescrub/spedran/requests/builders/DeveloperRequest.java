@@ -1,4 +1,4 @@
-package com.github.treescrub.spedran.requests.builders.developer;
+package com.github.treescrub.spedran.requests.builders;
 
 import com.github.treescrub.spedran.data.Developer;
 import com.github.treescrub.spedran.requests.SingleResourceRequest;

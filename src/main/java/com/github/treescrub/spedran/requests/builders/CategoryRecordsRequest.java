@@ -1,4 +1,4 @@
-package com.github.treescrub.spedran.requests.builders.category;
+package com.github.treescrub.spedran.requests.builders;
 
 import com.github.treescrub.spedran.data.Category;
 import com.github.treescrub.spedran.data.Leaderboard;

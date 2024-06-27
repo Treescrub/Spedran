@@ -1,4 +1,4 @@
-package com.github.treescrub.spedran.requests.builders.level;
+package com.github.treescrub.spedran.requests.builders;
 
 import com.github.treescrub.spedran.data.Level;
 import com.github.treescrub.spedran.data.Leaderboard;

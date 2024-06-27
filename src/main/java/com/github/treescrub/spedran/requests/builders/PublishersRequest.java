@@ -1,4 +1,4 @@
-package com.github.treescrub.spedran.requests.builders.publisher;
+package com.github.treescrub.spedran.requests.builders;
 
 import com.github.treescrub.spedran.data.Publisher;
 import com.github.treescrub.spedran.requests.ResourceCollectionRequest;

@@ -1,4 +1,4 @@
-package com.github.treescrub.spedran.requests.builders.notification;
+package com.github.treescrub.spedran.requests.builders;
 
 import com.github.treescrub.spedran.data.Notification;
 import com.github.treescrub.spedran.requests.ResourceCollectionRequest;

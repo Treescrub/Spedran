@@ -1,4 +1,4 @@
-package com.github.treescrub.spedran.requests.builders.genre;
+package com.github.treescrub.spedran.requests.builders;
 
 import com.github.treescrub.spedran.data.Genre;
 import com.github.treescrub.spedran.requests.SingleResourceRequest;
