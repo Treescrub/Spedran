@@ -74,7 +74,7 @@ public class Game extends IdentifiableResource {
      * @return a {@code GameCategoriesRequest} builder
      */
     public GameCategoriesRequest getCategories() {
-        return new GameCategoriesRequest(this);
+        return Spedran.getGameCategories(id);
     }
 
     /**
@@ -83,7 +83,7 @@ public class Game extends IdentifiableResource {
      * @return a {@code GameLevelsRequest} builder
      */
     public GameLevelsRequest getLevels() {
-        return new GameLevelsRequest(this);
+        return Spedran.getGameLevels(id);
     }
 
     /**
@@ -92,7 +92,7 @@ public class Game extends IdentifiableResource {
      * @return a {@code GameRecordsRequest} builder
      */
     public GameRecordsRequest getRecords() {
-        return new GameRecordsRequest(this);
+        return Spedran.getGameRecords(id);
     }
 
     /**
@@ -101,7 +101,7 @@ public class Game extends IdentifiableResource {
      * @return a {@code GameRomhacksRequest} builder
      */
     public GameRomhacksRequest getRomhacks() {
-        return new GameRomhacksRequest(this);
+        return Spedran.getGameRomhacks(id);
     }
 
     /**
@@ -110,7 +110,7 @@ public class Game extends IdentifiableResource {
      * @return a {@code GameVariablesRequest} builder
      */
     public GameVariablesRequest getVariables() {
-        return new GameVariablesRequest(this);
+        return Spedran.getGameVariables(id);
     }
 
     /**

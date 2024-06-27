@@ -66,7 +66,7 @@ public class Run extends IdentifiableResource {
      * @see Spedran#setApiKey(String)
      */
     public DeleteRunRequest delete() {
-        return new DeleteRunRequest(this);
+        return Spedran.deleteRun(id);
     }
 
     /**
@@ -77,7 +77,7 @@ public class Run extends IdentifiableResource {
      * @return a {@code RunPlayersRequest} builder
      */
     public RunPlayersRequest setPlayers() {
-        return new RunPlayersRequest(this);
+        return Spedran.setRunPlayers(id);
     }
 
     /**
@@ -88,7 +88,7 @@ public class Run extends IdentifiableResource {
      * @return a request builder to set the status
      */
     public RunStatusRequest setStatus() {
-        return new RunStatusRequest(this);
+        return Spedran.setRunStatus(id);
     }
 
     /**

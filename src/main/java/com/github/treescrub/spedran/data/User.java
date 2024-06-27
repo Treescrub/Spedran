@@ -71,7 +71,7 @@ public class User extends IdentifiableResource {
      * @return a {@code UserPBsRequest} builder
      */
     public UserPBsRequest getPersonalBests() {
-        return new UserPBsRequest(this);
+        return Spedran.getUserPBs(id);
     }
 
     /**
