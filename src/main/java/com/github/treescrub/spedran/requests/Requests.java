@@ -37,7 +37,7 @@ public class Requests {
         return httpRequest;
     }
 
-    public static void sendRequest(ResourceRequest<?> request) {
+    static void sendRequest(ResourceRequest<?> request) {
         queue.queueRequest(request);
     }
 

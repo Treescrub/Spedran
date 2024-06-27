@@ -8,7 +8,7 @@ public class HttpRequestException extends Exception {
         super("Request to '" + url + "' with method " + method + " failed (" + statusCode + ": " + statusText + ")");
     }
 
-    public HttpRequestException(HttpResponse<?> httpResponse, HttpRequest<?> httpRequest) {
+    HttpRequestException(HttpResponse<?> httpResponse, HttpRequest<?> httpRequest) {
         this(httpResponse.getStatus(), httpResponse.getStatusText(), httpRequest.getHttpMethod().name(), httpRequest.getUrl());
     }
 }

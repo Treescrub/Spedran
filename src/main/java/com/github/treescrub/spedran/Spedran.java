@@ -22,6 +22,8 @@ import java.util.concurrent.CompletableFuture;
 public class Spedran {
     private static final Logger logger = LogManager.getLogger(Spedran.class);
 
+    private Spedran() {}
+
     /**
      * Sets the current API key.
      * The API key is not set if it is {@code null} or blank.

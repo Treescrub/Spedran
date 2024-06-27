@@ -12,7 +12,7 @@ public abstract class ModifyResourceRequest<T extends Resource> extends SingleRe
         super(method, url);
     }
 
-    public ModifyResourceRequest(HttpMethod method, String url, Map<String, Object> routeParameters) {
+    protected ModifyResourceRequest(HttpMethod method, String url, Map<String, Object> routeParameters) {
         super(method, url, routeParameters);
     }
 
