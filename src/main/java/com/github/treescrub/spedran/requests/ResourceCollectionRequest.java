@@ -15,6 +15,11 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.CompletableFuture;
 
+/**
+ * A request to get a collection of resources from the SRC API.
+ *
+ * @param <T> a class that represents resources that will be retrieved from the API and compiled into a list
+ */
 public abstract class ResourceCollectionRequest<T extends Resource> extends ResourceRequest<List<T>> {
     private static final int MAX_ITEMS = 200;
     private List<JsonNode> responseBodies = new ArrayList<>();
