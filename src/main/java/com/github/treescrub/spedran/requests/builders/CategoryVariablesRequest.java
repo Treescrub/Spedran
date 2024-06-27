@@ -8,6 +8,9 @@ import kong.unirest.HttpMethod;
 
 import java.util.Map;
 
+/**
+ * A request builder to get all {@link Variable}s for a given {@link Category}.
+ */
 public class CategoryVariablesRequest extends ResourceCollectionRequest<Variable> {
     public CategoryVariablesRequest(String id) {
         super(HttpMethod.GET, "categories/{id}/variables", Map.of("id", id));
@@ -61,10 +64,10 @@ public class CategoryVariablesRequest extends ResourceCollectionRequest<Variable
     }
 
     /**
-     * Sets the direction to sort the returned variables.
+     * Sets the direction (ascending or descending) of the sorting.
      *
-     * @param direction the direction to sort, either ascending or descending
-     * @return this object
+     * @param direction the sort direction
+     * @return this {@code UsersRequest} builder
      */
     public CategoryVariablesRequest sortDirection(SortDirection direction) {
         setSortDirection(direction);

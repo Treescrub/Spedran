@@ -14,7 +14,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 /**
- * A builder to set the players that participated in a {@link Run}.
+ * A request builder to set the players that participated in a {@link Run}.
  * <br>
  * Players will maintain the order that they were added.
  * <br>

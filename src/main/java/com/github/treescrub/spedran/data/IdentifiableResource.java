@@ -4,6 +4,9 @@ import kong.unirest.json.JSONObject;
 
 import java.util.Objects;
 
+/**
+ * A resource from the SRC API that has a unique ID.
+ */
 public abstract class IdentifiableResource extends Resource {
     protected final String id;
 

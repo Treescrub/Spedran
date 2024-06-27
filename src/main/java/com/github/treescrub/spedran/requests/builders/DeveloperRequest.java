@@ -6,6 +6,9 @@ import kong.unirest.HttpMethod;
 
 import java.util.Map;
 
+/**
+ * A request builder to get a single {@link Developer}.
+ */
 public class DeveloperRequest extends SingleResourceRequest<Developer> {
     public DeveloperRequest(String id) {
         super(HttpMethod.GET, "developers/{id}", Map.of("id", id));

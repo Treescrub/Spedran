@@ -10,8 +10,17 @@ import java.util.Optional;
  * If the style is a gradient, {@link NameStyle#getStartColor()} and {@link NameStyle#getEndColor()} can be identical.
  */
 public class NameStyle {
+    /**
+     * The styling type for a given name styling.
+     */
     public enum Style {
+        /**
+         * The name color is one solid color.
+         */
         SOLID,
+        /**
+         * The name color is a horizontal gradient, left to right.
+         */
         GRADIENT,
     }
 

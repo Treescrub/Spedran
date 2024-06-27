@@ -6,6 +6,9 @@ import kong.unirest.HttpMethod;
 
 import java.util.Map;
 
+/**
+ * A request builder to get a single {@link Platform}.
+ */
 public class PlatformRequest extends SingleResourceRequest<Platform> {
     public PlatformRequest(String id) {
         super(HttpMethod.GET, "platforms/{id}", Map.of("id", id));

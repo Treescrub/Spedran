@@ -10,7 +10,7 @@ import kong.unirest.HttpMethod;
 import java.util.Map;
 
 /**
- * A request builder to get all derived games (romhacks) for a given game.
+ * A request builder to get all derived {@link Game}s (romhacks) for a given {@code Game}.
  */
 public class GameRomhacksRequest extends ResourceCollectionRequest<Game> {
     public GameRomhacksRequest(String id) {
@@ -35,7 +35,7 @@ public class GameRomhacksRequest extends ResourceCollectionRequest<Game> {
     /**
      * Sets the abbreviation to filter for.
      *
-     * @param abbreviation
+     * @param abbreviation the game abbreviation to search for
      * @return this object
      */
     public GameRomhacksRequest abbreviation(String abbreviation) {

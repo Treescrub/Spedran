@@ -94,6 +94,11 @@ public abstract class ResourceCollectionRequest<T extends Resource> extends Reso
         return request.asJson();
     }
 
+    /**
+     * Starts executing the request and returns a {@link CompletableFuture} that will complete with the resulting list of resource objects.
+     *
+     * @return a {@code CompletableFuture} with a list of resources
+     */
     @Override
     public CompletableFuture<List<T>> complete() {
         applyQueryParameters();

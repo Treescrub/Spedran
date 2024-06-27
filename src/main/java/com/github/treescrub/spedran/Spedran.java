@@ -18,6 +18,9 @@ import org.apache.logging.log4j.Logger;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
 
+/**
+ * The main Spedran API.
+ */
 @SuppressWarnings("unused")
 public class Spedran {
     private static final Logger logger = LogManager.getLogger(Spedran.class);

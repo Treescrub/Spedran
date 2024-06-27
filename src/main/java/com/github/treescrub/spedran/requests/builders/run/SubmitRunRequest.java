@@ -21,6 +21,9 @@ import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
+/**
+ * A request builder to submit a {@link Run} to SRC.
+ */
 public class SubmitRunRequest extends ModifyResourceRequest<Run> {
     private enum VariableType {
         USER_DEFINED,

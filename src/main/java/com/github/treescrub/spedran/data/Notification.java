@@ -4,6 +4,9 @@ import kong.unirest.json.JSONObject;
 
 import java.time.Instant;
 
+/**
+ * A notification for an authenticated {@link User}.
+ */
 public class Notification extends IdentifiableResource {
     private final Instant creationTime;
     private final NotificationStatus status;

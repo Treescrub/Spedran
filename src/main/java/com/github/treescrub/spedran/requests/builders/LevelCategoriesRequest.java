@@ -8,6 +8,9 @@ import kong.unirest.HttpMethod;
 
 import java.util.Map;
 
+/**
+ * A request builder to get the possible {@link Category}s for a given {@link Level}.
+ */
 public class LevelCategoriesRequest extends ResourceCollectionRequest<Category> {
     public LevelCategoriesRequest(String id) {
         super(HttpMethod.GET, "levels/{id}/categories", Map.of("id", id));
@@ -17,26 +20,53 @@ public class LevelCategoriesRequest extends ResourceCollectionRequest<Category> 
         this(level.getId());
     }
 
+    /**
+     * Restricts whether miscellaneous categories should be in the results.
+     *
+     * @param includeMiscellaneous {@code true} to include miscellaneous categories, otherwise {@code false}
+     * @return this {@code LevelCategoriesRequest} builder
+     */
     public LevelCategoriesRequest miscellaneous(boolean includeMiscellaneous) {
         setParameter("miscellaneous", includeMiscellaneous);
         return this;
     }
 
+    /**
+     * Sorts the results alphanumerically by the category name.
+     *
+     * @return this {@code LevelCategoriesRequest} builder
+     */
     public LevelCategoriesRequest sortByName() {
         setSortParameter("name");
         return this;
     }
 
+    /**
+     * Sorts the results by the miscellaneous boolean flag.
+     *
+     * @return this {@code LevelCategoriesRequest} builder
+     */
     public LevelCategoriesRequest sortByMiscellaneous() {
         setSortParameter("miscellaneous");
         return this;
     }
 
+    /**
+     * Sorts the results by the moderator defined category position.
+     *
+     * @return this {@code LevelCategoriesRequest} builder
+     */
     public LevelCategoriesRequest sortByPosition() {
         setSortParameter("pos");
         return this;
     }
 
+    /**
+     * Sets the direction (ascending or descending) of the sorting.
+     *
+     * @param direction the sort direction
+     * @return this {@code UsersRequest} builder
+     */
     public LevelCategoriesRequest sortDirection(SortDirection direction) {
         setSortDirection(direction);
         return this;
