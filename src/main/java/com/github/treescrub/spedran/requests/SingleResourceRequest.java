@@ -48,7 +48,8 @@ public abstract class SingleResourceRequest<T extends Resource> extends Resource
 
     private T parse(JSONObject data) throws NoSuchMethodException, InvocationTargetException, InstantiationException, IllegalAccessException {
         Class<T> dataClass = getDataClass();
-        Constructor<T> constructor = dataClass.getConstructor(JSONObject.class);
+        Constructor<T> constructor = dataClass.getDeclaredConstructor(JSONObject.class);
+        constructor.setAccessible(true);
 
         return constructor.newInstance(data);
     }
