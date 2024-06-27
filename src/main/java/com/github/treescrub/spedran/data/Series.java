@@ -1,5 +1,6 @@
 package com.github.treescrub.spedran.data;
 
+import com.github.treescrub.spedran.Spedran;
 import com.github.treescrub.spedran.requests.builders.series.SeriesGamesRequest;
 import kong.unirest.json.JSONObject;
 
@@ -51,7 +52,7 @@ public class Series extends IdentifiableResource {
      * @return a {@code SeriesGamesRequest} builder
      */
     public SeriesGamesRequest getGames() {
-        return new SeriesGamesRequest(this);
+        return Spedran.getSeriesGames(id);
     }
 
     /**

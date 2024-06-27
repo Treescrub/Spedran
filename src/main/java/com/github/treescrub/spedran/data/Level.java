@@ -38,7 +38,7 @@ public class Level extends IdentifiableNamedResource {
      * @return a {@code LevelCategoriesRequest} builder
      */
     public LevelCategoriesRequest getCategories() {
-        return new LevelCategoriesRequest(this);
+        return Spedran.getLevelCategories(id);
     }
 
     /**
