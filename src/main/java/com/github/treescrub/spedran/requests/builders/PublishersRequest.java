@@ -30,7 +30,7 @@ public class PublishersRequest extends ResourceCollectionRequest<Publisher> {
      * Sets the direction (ascending or descending) of the sorting.
      *
      * @param direction the sort direction
-     * @return this {@code UsersRequest} builder
+     * @return this {@code PublishersRequest} builder
      */
     public PublishersRequest sortDirection(SortDirection direction) {
         setSortDirection(direction);
