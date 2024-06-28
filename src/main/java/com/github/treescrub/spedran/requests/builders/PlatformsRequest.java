@@ -2,6 +2,7 @@ package com.github.treescrub.spedran.requests.builders;
 
 import com.github.treescrub.spedran.data.Platform;
 import com.github.treescrub.spedran.requests.ResourceCollectionRequest;
+import com.github.treescrub.spedran.requests.SortDirection;
 import kong.unirest.HttpMethod;
 
 /**
@@ -29,6 +30,17 @@ public class PlatformsRequest extends ResourceCollectionRequest<Platform> {
      */
     public PlatformsRequest sortByReleaseYear() {
         setSortParameter("released");
+        return this;
+    }
+
+    /**
+     * Sets the direction (ascending or descending) of the sorting.
+     *
+     * @param direction the sort direction
+     * @return this {@code PlatformsRequest} builder
+     */
+    public PlatformsRequest sortDirection(SortDirection direction) {
+        setSortDirection(direction);
         return this;
     }
 
