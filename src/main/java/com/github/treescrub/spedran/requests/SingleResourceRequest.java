@@ -11,6 +11,11 @@ import java.lang.reflect.InvocationTargetException;
 import java.util.Map;
 import java.util.concurrent.CompletableFuture;
 
+/**
+ * A request to get a single resource from the SRC API.
+ *
+ * @param <T> a class that represents a resource that will be retrieved from the API
+ */
 public abstract class SingleResourceRequest<T extends Resource> extends ResourceRequest<T> {
     protected SingleResourceRequest(HttpMethod method, String url, Map<String, Object> routeParameters) {
         super(method, url, routeParameters);
@@ -20,6 +25,11 @@ public abstract class SingleResourceRequest<T extends Resource> extends Resource
         this(method, url, Map.of());
     }
 
+    /**
+     * Starts executing the request and returns a {@link CompletableFuture} that will complete with the resulting resource object.
+     *
+     * @return a {@code CompletableFuture} with the resource
+     */
     @Override
     public CompletableFuture<T> complete() {
         applyQueryParameters();

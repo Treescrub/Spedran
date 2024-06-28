@@ -11,6 +11,9 @@ import kong.unirest.json.JSONObject;
 
 import java.util.Map;
 
+/**
+ * A request builder to reject or verify a run.
+ */
 public class RunStatusRequest extends ModifyResourceRequest<VoidResource> {
     private SubmissionStatus statusType;
     private String rejectionReason;

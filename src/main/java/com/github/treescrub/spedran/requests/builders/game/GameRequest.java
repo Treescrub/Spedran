@@ -6,6 +6,9 @@ import kong.unirest.HttpMethod;
 
 import java.util.Map;
 
+/**
+ * A request builder to get a single {@link Game}.
+ */
 public class GameRequest extends SingleResourceRequest<Game> {
     public GameRequest(String id) {
         super(HttpMethod.GET, "games/{id}", Map.of("id", id));

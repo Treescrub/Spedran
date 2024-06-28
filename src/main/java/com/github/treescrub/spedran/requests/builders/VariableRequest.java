@@ -6,6 +6,9 @@ import kong.unirest.HttpMethod;
 
 import java.util.Map;
 
+/**
+ * A request builder to get a single {@link Variable}.
+ */
 public class VariableRequest extends SingleResourceRequest<Variable> {
     public VariableRequest(String id) {
         super(HttpMethod.GET, "variables/{id}", Map.of("id", id));

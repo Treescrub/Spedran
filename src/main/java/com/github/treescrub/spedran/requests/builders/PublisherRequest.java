@@ -6,6 +6,9 @@ import kong.unirest.HttpMethod;
 
 import java.util.Map;
 
+/**
+ * A request builder to get a single {@link Publisher}.
+ */
 public class PublisherRequest extends SingleResourceRequest<Publisher> {
     public PublisherRequest(String id) {
         super(HttpMethod.GET, "publishers/{id}", Map.of("id", id));

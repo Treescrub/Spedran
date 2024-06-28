@@ -6,6 +6,9 @@ import kong.unirest.HttpMethod;
 
 import java.util.Map;
 
+/**
+ * A request builder to get a single {@link Category}.
+ */
 public class CategoryRequest extends SingleResourceRequest<Category> {
     public CategoryRequest(String id) {
         super(HttpMethod.GET, "categories/{id}", Map.of("id", id));

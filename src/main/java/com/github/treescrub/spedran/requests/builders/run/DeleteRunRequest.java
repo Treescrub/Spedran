@@ -7,6 +7,9 @@ import kong.unirest.json.JSONElement;
 
 import java.util.Map;
 
+/**
+ * A request builder to delete a {@link Run} from SRC.
+ */
 public class DeleteRunRequest extends ModifyResourceRequest<Run> {
     public DeleteRunRequest(String id) {
         super(HttpMethod.DELETE, "runs/{id}", Map.of("id", id));

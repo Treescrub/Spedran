@@ -9,6 +9,9 @@ import java.util.Optional;
  * The scope that a {@link Variable} should apply or be visible in.
  */
 public class VariableScope {
+    /**
+     * The type of scope that a variable has.
+     */
     public enum ScopeType {
         /**
          * Applies to every run in the game.

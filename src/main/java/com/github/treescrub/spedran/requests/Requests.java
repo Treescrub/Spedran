@@ -6,6 +6,9 @@ import org.apache.logging.log4j.Logger;
 
 import java.util.Optional;
 
+/**
+ * Main request configuration and state.
+ */
 public class Requests {
     static final String BASE_URL = "https://www.speedrun.com/api/v1/";
 

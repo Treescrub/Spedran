@@ -11,6 +11,9 @@ import kong.unirest.HttpMethod;
 
 import java.util.Map;
 
+/**
+ * A request builder to get {@link Game}s in the given series matching the set filters.
+ */
 public class SeriesGamesRequest extends ResourceCollectionRequest<Game> {
     public SeriesGamesRequest(String id) {
         super(HttpMethod.GET, "series/{id}/games", Map.of("id", id));
@@ -19,7 +22,7 @@ public class SeriesGamesRequest extends ResourceCollectionRequest<Game> {
     public SeriesGamesRequest(Series series) {
         this(series.getId());
     }
-    
+
     public SeriesGamesRequest name(String name) {
         setParameter("name", name);
         return this;
@@ -34,13 +37,13 @@ public class SeriesGamesRequest extends ResourceCollectionRequest<Game> {
         setParameter("released", year);
         return this;
     }
-    
-    public SeriesGamesRequest  gameType(String id) {
+
+    public SeriesGamesRequest gameType(String id) {
         setParameter("gametype", id);
         return this;
     }
 
-    public SeriesGamesRequest  gameType(Gametype gametype) {
+    public SeriesGamesRequest gameType(Gametype gametype) {
         return gameType(gametype.getId());
     }
 
@@ -49,61 +52,61 @@ public class SeriesGamesRequest extends ResourceCollectionRequest<Game> {
         return this;
     }
 
-    public SeriesGamesRequest  platform(Platform platform) {
+    public SeriesGamesRequest platform(Platform platform) {
         return platform(platform.getId());
     }
 
-    public SeriesGamesRequest  region(String id) {
+    public SeriesGamesRequest region(String id) {
         setParameter("region", id);
         return this;
     }
 
-    public SeriesGamesRequest  region(Region region) {
+    public SeriesGamesRequest region(Region region) {
         return region(region.getId());
     }
 
-    public SeriesGamesRequest  genre(String id) {
+    public SeriesGamesRequest genre(String id) {
         setParameter("genre", id);
         return this;
     }
 
-    public SeriesGamesRequest  genre(Genre genre) {
+    public SeriesGamesRequest genre(Genre genre) {
         return genre(genre.getId());
     }
 
-    public SeriesGamesRequest  engine(String id) {
+    public SeriesGamesRequest engine(String id) {
         setParameter("engine", id);
         return this;
     }
 
-    public SeriesGamesRequest  engine(Engine engine) {
+    public SeriesGamesRequest engine(Engine engine) {
         return engine(engine.getId());
     }
 
-    public SeriesGamesRequest  developer(String id) {
+    public SeriesGamesRequest developer(String id) {
         setParameter("developer", id);
         return this;
     }
 
-    public SeriesGamesRequest  developer(Developer developer) {
+    public SeriesGamesRequest developer(Developer developer) {
         return developer(developer.getId());
     }
 
-    public SeriesGamesRequest  publisher(String id) {
+    public SeriesGamesRequest publisher(String id) {
         setParameter("publisher", id);
         return this;
     }
 
-    public SeriesGamesRequest  publisher(Publisher publisher) {
+    public SeriesGamesRequest publisher(Publisher publisher) {
         return publisher(publisher.getId());
     }
 
-    public SeriesGamesRequest  moderator(String id) {
+    public SeriesGamesRequest moderator(String id) {
         setParameter("moderator", id);
         return this;
     }
 
-    public SeriesGamesRequest  moderator(User user) {
+    public SeriesGamesRequest moderator(User user) {
         return moderator(user.getId());
     }
     

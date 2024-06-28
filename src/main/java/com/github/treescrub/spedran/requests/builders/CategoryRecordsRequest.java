@@ -7,6 +7,9 @@ import kong.unirest.HttpMethod;
 
 import java.util.Map;
 
+/**
+ * A request builder to get the top runs of a {@link Category}.
+ */
 public class CategoryRecordsRequest extends ResourceCollectionRequest<Leaderboard> {
     public CategoryRecordsRequest(String id) {
         super(HttpMethod.GET, "categories/{id}/records", Map.of("id", id));

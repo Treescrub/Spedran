@@ -1,12 +1,18 @@
 package com.github.treescrub.spedran.requests.builders.user;
 
+import com.github.treescrub.spedran.data.Game;
 import com.github.treescrub.spedran.data.LeaderboardRun;
+import com.github.treescrub.spedran.data.Run;
+import com.github.treescrub.spedran.data.Series;
 import com.github.treescrub.spedran.data.User;
 import com.github.treescrub.spedran.requests.ResourceCollectionRequest;
 import kong.unirest.HttpMethod;
 
 import java.util.Map;
 
+/**
+ * A request builder to get the personal best {@link Run}s of a {@link User}.
+ */
 public class UserPBsRequest extends ResourceCollectionRequest<LeaderboardRun> {
     public UserPBsRequest(String id) {
         super(HttpMethod.GET, "users/{id}/personal-bests", Map.of("id", id));
@@ -16,16 +22,34 @@ public class UserPBsRequest extends ResourceCollectionRequest<LeaderboardRun> {
         this(user.getId());
     }
 
+    /**
+     * Sets the minimum placement to restrict the results to.
+     *
+     * @param topPlace the top place to filter PBs by
+     * @return this {@code UserPBsRequest} builder
+     */
     public UserPBsRequest top(int topPlace) {
         setParameter("top", topPlace);
         return this;
     }
 
+    /**
+     * Restricts the results to the given {@link Series}.
+     *
+     * @param id the series ID
+     * @return this {@code UserPBsRequest} builder
+     */
     public UserPBsRequest series(String id) {
         setParameter("series", id);
         return this;
     }
 
+    /**
+     * Restricts the results to the given {@link Game}.
+     *
+     * @param id the game ID
+     * @return this {@code UserPBsRequest} builder
+     */
     public UserPBsRequest game(String id) {
         setParameter("game", id);
         return this;

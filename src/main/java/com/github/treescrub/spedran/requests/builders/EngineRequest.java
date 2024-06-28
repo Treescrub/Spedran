@@ -6,6 +6,9 @@ import kong.unirest.HttpMethod;
 
 import java.util.Map;
 
+/**
+ * A request builder to get a single {@link Engine}.
+ */
 public class EngineRequest extends SingleResourceRequest<Engine> {
     public EngineRequest(String id) {
         super(HttpMethod.GET, "engines/{id}", Map.of("id", id));

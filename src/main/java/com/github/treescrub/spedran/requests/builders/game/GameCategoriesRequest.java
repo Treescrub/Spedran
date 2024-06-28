@@ -9,7 +9,7 @@ import kong.unirest.HttpMethod;
 import java.util.Map;
 
 /**
- * A request builder to get all categories of a given game.
+ * A request builder to get all {@link Category}s of a given {@link Game}.
  */
 public class GameCategoriesRequest extends ResourceCollectionRequest<Category> {
     public GameCategoriesRequest(String id) {

@@ -2,6 +2,9 @@ package com.github.treescrub.spedran.data;
 
 import kong.unirest.json.JSONObject;
 
+/**
+ * A resource from the SRC API that has a unique ID and a name.
+ */
 public abstract class IdentifiableNamedResource extends IdentifiableResource {
     protected final String name;
 

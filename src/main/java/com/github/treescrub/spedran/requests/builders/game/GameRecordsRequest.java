@@ -8,7 +8,7 @@ import kong.unirest.HttpMethod;
 import java.util.Map;
 
 /**
- * A request builder to get records for a given game.
+ * A request builder to get records for a given {@link Game}.
  */
 public class GameRecordsRequest extends ResourceCollectionRequest<Leaderboard> {
     public GameRecordsRequest(String id) {
@@ -25,7 +25,7 @@ public class GameRecordsRequest extends ResourceCollectionRequest<Leaderboard> {
      * This will return more than {@code value} runs per leaderboard if there are ties.
      *
      * @param topPlaces the top places to filter for, clamped to {@code >= 1}
-     * @return
+     * @return this {@code GameRecordsRequest} builder
      */
     public GameRecordsRequest top(int topPlaces) {
         topPlaces = Math.max(topPlaces, 1);
@@ -43,7 +43,7 @@ public class GameRecordsRequest extends ResourceCollectionRequest<Leaderboard> {
      * All returns everything and is the default scope.
      *
      * @param recordsScope the scope to get records in
-     * @return this object
+     * @return this {@code GameRecordsRequest} builder
      */
     public GameRecordsRequest scope(String recordsScope) {
         setParameter("scope", recordsScope);
@@ -56,7 +56,7 @@ public class GameRecordsRequest extends ResourceCollectionRequest<Leaderboard> {
      * Defaults to {@code true}.
      *
      * @param includeMiscellaneous whether to include miscellaneous categories in the results
-     * @return this object
+     * @return this {@code GameRecordsRequest} builder
      */
     public GameRecordsRequest miscellaneous(boolean includeMiscellaneous) {
         setParameter("miscellaneous", includeMiscellaneous);
@@ -67,7 +67,7 @@ public class GameRecordsRequest extends ResourceCollectionRequest<Leaderboard> {
      * Sets whether record entries without any runs should be kept.
      *
      * @param skipEmptyRecords {@code true} to skip empty records; {@code false} otherwise
-     * @return this object
+     * @return this {@code GameRecordsRequest} builder
      */
     public GameRecordsRequest skipEmpty(boolean skipEmptyRecords) {
         setParameter("skip-empty", skipEmptyRecords);

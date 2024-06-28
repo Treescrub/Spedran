@@ -9,7 +9,7 @@ import kong.unirest.HttpMethod;
 import java.util.Map;
 
 /**
- * A request builder to get all levels of a given game.
+ * A request builder to get all {@link Level}s of a given {@link Game}.
  */
 public class GameLevelsRequest extends ResourceCollectionRequest<Level> {
     public GameLevelsRequest(String id) {
