@@ -1,10 +1,9 @@
 package com.github.treescrub.spedran.requests.builders.run;
 
-import com.github.treescrub.spedran.data.VoidResource;
-import com.github.treescrub.spedran.requests.InvalidBuilderStateException;
-import com.github.treescrub.spedran.requests.ModifyResourceRequest;
 import com.github.treescrub.spedran.data.Run;
 import com.github.treescrub.spedran.data.SubmissionStatus;
+import com.github.treescrub.spedran.requests.InvalidBuilderStateException;
+import com.github.treescrub.spedran.requests.ModifyResourceRequest;
 import kong.unirest.HttpMethod;
 import kong.unirest.json.JSONElement;
 import kong.unirest.json.JSONObject;
@@ -14,7 +13,7 @@ import java.util.Map;
 /**
  * A request builder to reject or verify a run.
  */
-public class RunStatusRequest extends ModifyResourceRequest<VoidResource> {
+public class RunStatusRequest extends ModifyResourceRequest<Run> {
     private SubmissionStatus statusType;
     private String rejectionReason;
 
@@ -51,8 +50,8 @@ public class RunStatusRequest extends ModifyResourceRequest<VoidResource> {
     }
 
     @Override
-    protected Class<VoidResource> getDataClass() {
-        return VoidResource.class;
+    protected Class<Run> getDataClass() {
+        return Run.class;
     }
 
     @Override
