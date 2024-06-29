@@ -22,7 +22,7 @@ import java.util.concurrent.CompletableFuture;
  */
 public abstract class ResourceCollectionRequest<T extends Resource> extends ResourceRequest<List<T>> {
     private static final int MAX_ITEMS = 200;
-    private List<JsonNode> responseBodies = new ArrayList<>();
+    private final List<JsonNode> responseBodies = new ArrayList<>();
 
     @SuppressWarnings("unused")
     protected ResourceCollectionRequest(HttpMethod method, String url, Map<String, Object> routeParameters) {
@@ -73,11 +73,6 @@ public abstract class ResourceCollectionRequest<T extends Resource> extends Reso
 
         // The API sometimes returns duplicate resources in a collection
         return removeDuplicates(resources);
-    }
-
-    @Override
-    protected void applyQueryParameters() {
-        super.applyQueryParameters();
     }
 
     @Override
