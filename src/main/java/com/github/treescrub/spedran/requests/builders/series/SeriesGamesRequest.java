@@ -1,9 +1,6 @@
 package com.github.treescrub.spedran.requests.builders.series;
 
 import com.github.treescrub.spedran.data.*;
-import com.github.treescrub.spedran.data.Game;
-import com.github.treescrub.spedran.data.Series;
-import com.github.treescrub.spedran.data.User;
 import com.github.treescrub.spedran.requests.ResourceCollectionRequest;
 import com.github.treescrub.spedran.requests.SortDirection;
 import com.github.treescrub.spedran.requests.builders.game.GamesRequest;
