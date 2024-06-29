@@ -10,10 +10,12 @@ import java.util.Map;
  * A request builder to get a single {@link Run}.
  */
 public class RunRequest extends SingleResourceRequest<Run> {
+    @SuppressWarnings("unused")
     public RunRequest(String id) {
         super(HttpMethod.GET, "runs/{id}", Map.of("id", id));
     }
 
+    @SuppressWarnings("unused")
     public RunRequest(Run run) {
         this(run.getId());
     }

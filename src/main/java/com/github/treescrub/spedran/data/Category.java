@@ -33,6 +33,7 @@ public class Category extends IdentifiableNamedResource {
      *
      * @return a {@code RunsRequest} builder
      */
+    @SuppressWarnings("unused")
     public RunsRequest getRuns() {
         return Spedran.getRuns().category(this);
     }
@@ -42,6 +43,7 @@ public class Category extends IdentifiableNamedResource {
      *
      * @return a {@code CategoryRecordsRequest} builder
      */
+    @SuppressWarnings("unused")
     public CategoryRecordsRequest getRecords() {
         return Spedran.getCategoryRecords(id);
     }
@@ -51,6 +53,7 @@ public class Category extends IdentifiableNamedResource {
      *
      * @return a {@code CategoryVariablesRequest} builder
      */
+    @SuppressWarnings("unused")
     public CategoryVariablesRequest getVariables() {
         return Spedran.getCategoryVariables(id);
     }

@@ -11,6 +11,7 @@ import kong.unirest.HttpMethod;
  * @see Spedran#setApiKey(String)
  */
 public class ProfileRequest extends SingleResourceRequest<User> {
+    @SuppressWarnings("unused")
     public ProfileRequest() {
         super(HttpMethod.GET, "profile");
     }

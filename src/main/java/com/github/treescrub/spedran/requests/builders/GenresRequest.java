@@ -11,6 +11,7 @@ import kong.unirest.HttpMethod;
  * Always sorts by name.
  */
 public class GenresRequest extends ResourceCollectionRequest<Genre> {
+    @SuppressWarnings("unused")
     public GenresRequest() {
         super(HttpMethod.GET, "genres");
     }
@@ -20,6 +21,7 @@ public class GenresRequest extends ResourceCollectionRequest<Genre> {
      *
      * @return this {@code GenresRequest} builder
      */
+    @SuppressWarnings("unused")
     public GenresRequest sortByName() {
         setSortParameter("name");
         return this;
@@ -31,6 +33,7 @@ public class GenresRequest extends ResourceCollectionRequest<Genre> {
      * @param direction the sort direction
      * @return this {@code UsersRequest} builder
      */
+    @SuppressWarnings("unused")
     public GenresRequest sortDirection(SortDirection direction) {
         setSortDirection(direction);
         return this;

@@ -43,6 +43,7 @@ public class GameAssets {
      *
      * @return a {@code Link} to an image
      */
+    @SuppressWarnings("unused")
     public Link getLogo() {
         return logo;
     }
@@ -52,6 +53,7 @@ public class GameAssets {
      *
      * @return a {@code Link} to an image
      */
+    @SuppressWarnings("unused")
     public Link getTinyCover() {
         return tinyCover;
     }
@@ -61,6 +63,7 @@ public class GameAssets {
      *
      * @return a {@code Link} to an image
      */
+    @SuppressWarnings("unused")
     public Link getSmallCover() {
         return smallCover;
     }
@@ -70,6 +73,7 @@ public class GameAssets {
      *
      * @return a {@code Link} to an image
      */
+    @SuppressWarnings("unused")
     public Link getMediumCover() {
         return mediumCover;
     }
@@ -79,6 +83,7 @@ public class GameAssets {
      *
      * @return a {@code Link} to an image
      */
+    @SuppressWarnings("unused")
     public Link getLargeCover() {
         return largeCover;
     }
@@ -88,6 +93,7 @@ public class GameAssets {
      *
      * @return a {@code Link} to an image
      */
+    @SuppressWarnings("unused")
     public Link getIcon() {
         return icon;
     }
@@ -97,6 +103,7 @@ public class GameAssets {
      *
      * @return a {@code Link} to an image
      */
+    @SuppressWarnings("unused")
     public Link getFirstTrophy() {
         return firstTrophy;
     }
@@ -106,6 +113,7 @@ public class GameAssets {
      *
      * @return a {@code Link} to an image
      */
+    @SuppressWarnings("unused")
     public Link getSecondTrophy() {
         return secondTrophy;
     }
@@ -115,6 +123,7 @@ public class GameAssets {
      *
      * @return a {@code Link} to an image
      */
+    @SuppressWarnings("unused")
     public Link getThirdTrophy() {
         return thirdTrophy;
     }
@@ -124,6 +133,7 @@ public class GameAssets {
      *
      * @return an {@link Optional} with a {@code Link} to an image, empty if a custom image is not set
      */
+    @SuppressWarnings("unused")
     public Optional<Link> getFourthTrophy() {
         return Optional.ofNullable(fourthTrophy);
     }
@@ -133,6 +143,7 @@ public class GameAssets {
      *
      * @return an {@link Optional} with a {@code Link} to an image, empty if a custom image is not set
      */
+    @SuppressWarnings("unused")
     public Optional<Link> getBackground() {
         return Optional.ofNullable(background);
     }
@@ -142,6 +153,7 @@ public class GameAssets {
      *
      * @return an {@link Optional} with a {@code Link} to an image, empty if a custom image is not set
      */
+    @SuppressWarnings("unused")
     public Optional<Link> getForeground() {
         return Optional.ofNullable(foreground);
     }

@@ -13,10 +13,12 @@ import java.util.concurrent.CompletableFuture;
  * @param <T> a class that represents a resource that will be retrieved from the API
  */
 public abstract class ModifyResourceRequest<T extends Resource> extends SingleResourceRequest<T> {
+    @SuppressWarnings("unused")
     protected ModifyResourceRequest(HttpMethod method, String url) {
         super(method, url);
     }
 
+    @SuppressWarnings("unused")
     protected ModifyResourceRequest(HttpMethod method, String url, Map<String, Object> routeParameters) {
         super(method, url, routeParameters);
     }

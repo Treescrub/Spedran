@@ -25,6 +25,7 @@ public class UserAssets {
      *
      * @return an {@link Optional} with a {@code Link} to an image, empty if a custom image is not set
      */
+    @SuppressWarnings("unused")
     public Optional<Link> getIcon() {
         return Optional.ofNullable(icon);
     }
@@ -36,6 +37,7 @@ public class UserAssets {
      *
      * @return an {@link Optional} with a {@code Link} to an image, empty if a custom image is not set
      */
+    @SuppressWarnings("unused")
     public Optional<Link> getSupporterIcon() {
         return Optional.ofNullable(supporterIcon);
     }
@@ -45,6 +47,7 @@ public class UserAssets {
      *
      * @return an {@link Optional} with a {@code Link} to an image, empty if a custom image is not set
      */
+    @SuppressWarnings("unused")
     public Optional<Link> getAvatar() {
         return Optional.ofNullable(avatar);
     }

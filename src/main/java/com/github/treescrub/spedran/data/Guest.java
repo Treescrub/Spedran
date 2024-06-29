@@ -9,6 +9,7 @@ import java.util.Objects;
 /**
  * A guest runner. Can be entered as a runner in a run by other users, but has no account.
  */
+@SuppressWarnings("unused")
 public class Guest extends Resource {
     private final String name;
 

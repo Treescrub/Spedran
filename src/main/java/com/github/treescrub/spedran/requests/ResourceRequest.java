@@ -15,6 +15,7 @@ abstract class ResourceRequest<T> {
     private Map<String, Object> queryParameters;
     protected boolean completed = false;
 
+    @SuppressWarnings("unused")
     protected ResourceRequest(HttpMethod method, String url, Map<String, Object> routeParameters) {
         request = Requests.request(method, url).routeParam(routeParameters);
         queryParameters = new HashMap<>();
@@ -37,6 +38,7 @@ abstract class ResourceRequest<T> {
 
     abstract HttpResponse<?> executeBlocking();
 
+    @SuppressWarnings("unused")
     protected ResourceRequest(HttpMethod method, String url) {
         this(method, url, Map.of());
     }
@@ -61,5 +63,6 @@ abstract class ResourceRequest<T> {
         request.queryString(queryParameters);
     }
 
+    @SuppressWarnings("unused")
     public abstract CompletableFuture<T> complete();
 }

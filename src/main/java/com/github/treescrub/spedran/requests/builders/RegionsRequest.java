@@ -12,6 +12,7 @@ import kong.unirest.HttpMethod;
  * Always sorts by name.
  */
 public class RegionsRequest extends ResourceCollectionRequest<Region> {
+    @SuppressWarnings("unused")
     public RegionsRequest() {
         super(HttpMethod.GET, "regions");
     }
@@ -21,6 +22,7 @@ public class RegionsRequest extends ResourceCollectionRequest<Region> {
      *
      * @return this {@code GenresRequest} builder
      */
+    @SuppressWarnings("unused")
     public RegionsRequest sortByName() {
         setSortParameter("name");
         return this;
@@ -32,6 +34,7 @@ public class RegionsRequest extends ResourceCollectionRequest<Region> {
      * @param direction the sort direction
      * @return this {@code UsersRequest} builder
      */
+    @SuppressWarnings("unused")
     public RegionsRequest sortDirection(SortDirection direction) {
         setSortDirection(direction);
         return this;

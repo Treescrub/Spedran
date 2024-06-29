@@ -27,6 +27,7 @@ public class Notification extends IdentifiableResource {
      *
      * @return an {@code Instant} with the time of notification creation
      */
+    @SuppressWarnings("unused")
     public Instant getCreationTime() {
         return creationTime;
     }
@@ -36,6 +37,7 @@ public class Notification extends IdentifiableResource {
      *
      * @return a {@code NotificationStatus}
      */
+    @SuppressWarnings("unused")
     public NotificationStatus getStatus() {
         return status;
     }
@@ -45,6 +47,7 @@ public class Notification extends IdentifiableResource {
      *
      * @return a {@code String} with the text
      */
+    @SuppressWarnings("unused")
     public String getNotificationText() {
         return notificationText;
     }
@@ -64,6 +67,7 @@ public class Notification extends IdentifiableResource {
      *
      * @return a {@code Link} for the relevant page
      */
+    @SuppressWarnings("unused")
     public Link getItemLink() {
         return itemLink;
     }

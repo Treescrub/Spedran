@@ -64,6 +64,7 @@ public class Game extends IdentifiableResource {
      *
      * @return a {@code RunsRequest} builder
      */
+    @SuppressWarnings("unused")
     public RunsRequest getRuns() {
         return Spedran.getRuns().game(this);
     }
@@ -73,6 +74,7 @@ public class Game extends IdentifiableResource {
      *
      * @return a {@code GameCategoriesRequest} builder
      */
+    @SuppressWarnings("unused")
     public GameCategoriesRequest getCategories() {
         return Spedran.getGameCategories(id);
     }
@@ -82,6 +84,7 @@ public class Game extends IdentifiableResource {
      *
      * @return a {@code GameLevelsRequest} builder
      */
+    @SuppressWarnings("unused")
     public GameLevelsRequest getLevels() {
         return Spedran.getGameLevels(id);
     }
@@ -91,6 +94,7 @@ public class Game extends IdentifiableResource {
      *
      * @return a {@code GameRecordsRequest} builder
      */
+    @SuppressWarnings("unused")
     public GameRecordsRequest getRecords() {
         return Spedran.getGameRecords(id);
     }
@@ -100,6 +104,7 @@ public class Game extends IdentifiableResource {
      *
      * @return a {@code GameRomhacksRequest} builder
      */
+    @SuppressWarnings("unused")
     public GameRomhacksRequest getRomhacks() {
         return Spedran.getGameRomhacks(id);
     }
@@ -109,6 +114,7 @@ public class Game extends IdentifiableResource {
      *
      * @return a {@code GameVariablesRequest} builder
      */
+    @SuppressWarnings("unused")
     public GameVariablesRequest getVariables() {
         return Spedran.getGameVariables(id);
     }
@@ -301,6 +307,7 @@ public class Game extends IdentifiableResource {
      *
      * @return a {@code GameAssets} object
      */
+    @SuppressWarnings("unused")
     public GameAssets getAssets() {
         return assets;
     }

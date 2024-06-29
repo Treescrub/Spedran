@@ -22,6 +22,7 @@ public class LeaderboardRun extends Resource {
      *
      * @return the placement of this run on the leaderboard
      */
+    @SuppressWarnings("unused")
     public int getPlace() {
         return place;
     }
@@ -31,6 +32,7 @@ public class LeaderboardRun extends Resource {
      *
      * @return the run
      */
+    @SuppressWarnings("unused")
     public Run getRun() {
         return run;
     }

@@ -9,6 +9,7 @@ import kong.unirest.HttpMethod;
  * A request builder to get the {@link Notification}s of the authenticated {@link User}.
  */
 public class NotificationsRequest extends ResourceCollectionRequest<Notification> {
+    @SuppressWarnings("unused")
     public NotificationsRequest() {
         super(HttpMethod.GET, "notifications");
     }

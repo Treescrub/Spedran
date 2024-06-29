@@ -18,6 +18,7 @@ import kong.unirest.HttpMethod;
  * A request builder to get all {@link Run}s matching the set filters.
  */
 public class RunsRequest extends ResourceCollectionRequest<Run> {
+    @SuppressWarnings("unused")
     public RunsRequest() {
         super(HttpMethod.GET, "runs");
     }
@@ -81,6 +82,7 @@ public class RunsRequest extends ResourceCollectionRequest<Run> {
      * @param user the verifier
      * @return this {@code RunsRequest} builder
      */
+    @SuppressWarnings("unused")
     public RunsRequest verifier(User user) {
         return verifier(user.getId());
     }
@@ -196,6 +198,7 @@ public class RunsRequest extends ResourceCollectionRequest<Run> {
      * @param isEmulated restrict based on emulator used
      * @return this {@code RunsRequest} builder
      */
+    @SuppressWarnings("unused")
     public RunsRequest emulated(boolean isEmulated) {
         setParameter("emulated", isEmulated);
         return this;
@@ -207,6 +210,7 @@ public class RunsRequest extends ResourceCollectionRequest<Run> {
      * @param submissionStatus the verification status to filter for
      * @return this {@code RunsRequest} builder
      */
+    @SuppressWarnings("unused")
     public RunsRequest status(SubmissionStatus submissionStatus) {
         setParameter("status", submissionStatus.name().toLowerCase());
         return this;
@@ -217,6 +221,7 @@ public class RunsRequest extends ResourceCollectionRequest<Run> {
      *
      * @return this {@code RunsRequest} builder
      */
+    @SuppressWarnings("unused")
     public RunsRequest sortByGame() {
         setSortParameter("game");
         return this;
@@ -227,6 +232,7 @@ public class RunsRequest extends ResourceCollectionRequest<Run> {
      *
      * @return this {@code RunsRequest} builder
      */
+    @SuppressWarnings("unused")
     public RunsRequest sortByCategory() {
         setSortParameter("category");
         return this;
@@ -237,6 +243,7 @@ public class RunsRequest extends ResourceCollectionRequest<Run> {
      *
      * @return this {@code RunsRequest} builder
      */
+    @SuppressWarnings("unused")
     public RunsRequest sortByLevel() {
         setSortParameter("level");
         return this;
@@ -247,6 +254,7 @@ public class RunsRequest extends ResourceCollectionRequest<Run> {
      *
      * @return this {@code RunsRequest} builder
      */
+    @SuppressWarnings("unused")
     public RunsRequest sortByPlatform() {
         setSortParameter("platform");
         return this;
@@ -257,6 +265,7 @@ public class RunsRequest extends ResourceCollectionRequest<Run> {
      *
      * @return this {@code RunsRequest} builder
      */
+    @SuppressWarnings("unused")
     public RunsRequest sortByRegion() {
         setSortParameter("region");
         return this;
@@ -267,6 +276,7 @@ public class RunsRequest extends ResourceCollectionRequest<Run> {
      *
      * @return this {@code RunsRequest} builder
      */
+    @SuppressWarnings("unused")
     public RunsRequest sortByEmulation() {
         setSortParameter("emulated");
         return this;
@@ -277,6 +287,7 @@ public class RunsRequest extends ResourceCollectionRequest<Run> {
      *
      * @return this {@code RunsRequest} builder
      */
+    @SuppressWarnings("unused")
     public RunsRequest sortByDate() {
         setSortParameter("date");
         return this;
@@ -287,6 +298,7 @@ public class RunsRequest extends ResourceCollectionRequest<Run> {
      *
      * @return this {@code RunsRequest} builder
      */
+    @SuppressWarnings("unused")
     public RunsRequest sortBySubmissionDate() {
         setSortParameter("submitted");
         return this;
@@ -297,6 +309,7 @@ public class RunsRequest extends ResourceCollectionRequest<Run> {
      *
      * @return this {@code RunsRequest} builder
      */
+    @SuppressWarnings("unused")
     public RunsRequest sortByVerificationStatus() {
         setSortParameter("status");
         return this;
@@ -307,6 +320,7 @@ public class RunsRequest extends ResourceCollectionRequest<Run> {
      *
      * @return this {@code RunsRequest} builder
      */
+    @SuppressWarnings("unused")
     public RunsRequest sortByVerificationDate() {
         setSortParameter("verify-date");
         return this;
@@ -318,6 +332,7 @@ public class RunsRequest extends ResourceCollectionRequest<Run> {
      * @param direction the sort direction
      * @return this {@code RunsRequest} builder
      */
+    @SuppressWarnings("unused")
     public RunsRequest sortDirection(SortDirection direction) {
         setSortDirection(direction);
         return this;

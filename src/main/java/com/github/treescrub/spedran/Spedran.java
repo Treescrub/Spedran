@@ -21,7 +21,6 @@ import java.util.concurrent.CompletableFuture;
 /**
  * The main Spedran API.
  */
-@SuppressWarnings("unused")
 public class Spedran {
     private static final Logger logger = LogManager.getLogger(Spedran.class);
 
@@ -33,6 +32,7 @@ public class Spedran {
      *
      * @param key SRC API key
      */
+    @SuppressWarnings("unused")
     public static void setApiKey(String key) {
         if(key == null) {
             logger.warn("Attempted to set SRC API key with a null string");
@@ -59,6 +59,7 @@ public class Spedran {
     /**
      * Clears the current API key.
      */
+    @SuppressWarnings("unused")
     public static void clearApiKey() {
         removeApiKey();
     }
@@ -66,6 +67,7 @@ public class Spedran {
     /**
      * Enable request caching.
      */
+    @SuppressWarnings("unused")
     public static void enableCache() {
         Requests.enableCache();
     }
@@ -73,6 +75,7 @@ public class Spedran {
     /**
      * Disable request caching.
      */
+    @SuppressWarnings("unused")
     public static void disableCache() {
         Requests.disableCache();
     }
@@ -82,6 +85,7 @@ public class Spedran {
      *
      * @param newTimeLimit the new time limit in milliseconds
      */
+    @SuppressWarnings("unused")
     public static void setCacheTimeLimit(long newTimeLimit) {
         Requests.setCacheTimeLimit(newTimeLimit);
     }
@@ -93,6 +97,7 @@ public class Spedran {
      *
      * @return a {@link CompletableFuture} of a {@code Game}
      */
+    @SuppressWarnings("unused")
     public static CompletableFuture<Game> getGame(String id) {
         return new GameRequest(id).complete();
     }
@@ -168,6 +173,7 @@ public class Spedran {
      *
      * @return a {@link CompletableFuture} of a {@code Run}
      */
+    @SuppressWarnings("unused")
     public static CompletableFuture<Run> getRun(String id) {
         return new RunRequest(id).complete();
     }
@@ -199,6 +205,7 @@ public class Spedran {
      *
      * @return a {@code SubmitRunRequest} builder
      */
+    @SuppressWarnings("unused")
     public static SubmitRunRequest submitRun() {
         return new SubmitRunRequest();
     }
@@ -230,6 +237,7 @@ public class Spedran {
      *
      * @return a {@link CompletableFuture} of a {@code Category}
      */
+    @SuppressWarnings("unused")
     public static CompletableFuture<Category> getCategory(String id) {
         return new CategoryRequest(id).complete();
     }
@@ -263,6 +271,7 @@ public class Spedran {
      *
      * @return a {@link CompletableFuture} of a {@code Level}
      */
+    @SuppressWarnings("unused")
     public static CompletableFuture<Level> getLevel(String id) {
         return new LevelRequest(id).complete();
     }
@@ -285,6 +294,7 @@ public class Spedran {
      *
      * @return a {@code LevelRecordsRequest} builder
      */
+    @SuppressWarnings("unused")
     public static LevelRecordsRequest getLevelRecords(String levelId) {
         return new LevelRecordsRequest(levelId);
     }
@@ -296,6 +306,7 @@ public class Spedran {
      *
      * @return a {@code LevelVariablesRequest} builder
      */
+    @SuppressWarnings("unused")
     public static LevelVariablesRequest getLevelVariables(String levelId) {
         return new LevelVariablesRequest(levelId);
     }
@@ -307,6 +318,7 @@ public class Spedran {
      *
      * @return a {@link CompletableFuture} of a {@code Variable}
      */
+    @SuppressWarnings("unused")
     public static CompletableFuture<Variable> getVariable(String id) {
         return new VariableRequest(id).complete();
     }
@@ -317,6 +329,7 @@ public class Spedran {
      * @return a {@link CompletableFuture} of the current authenticated {@code User}
      * @see Spedran#setApiKey(String)
      */
+    @SuppressWarnings("unused")
     public static CompletableFuture<User> getProfile() {
         return new ProfileRequest().complete();
     }
@@ -327,6 +340,7 @@ public class Spedran {
      * @return a {@link CompletableFuture} with a {@code List} of notifications
      * @see Spedran#setApiKey(String)
      */
+    @SuppressWarnings("unused")
     public static CompletableFuture<List<Notification>> getNotifications() {
         return new NotificationsRequest().complete();
     }
@@ -338,6 +352,7 @@ public class Spedran {
      *
      * @return a {@link CompletableFuture} of a {@code User}
      */
+    @SuppressWarnings("unused")
     public static CompletableFuture<User> getUser(String id) {
         return new UserRequest(id).complete();
     }
@@ -347,6 +362,7 @@ public class Spedran {
      *
      * @return a {@code UsersRequest} builder
      */
+    @SuppressWarnings("unused")
     public static UsersRequest getUsers() {
         return new UsersRequest();
     }
@@ -369,6 +385,7 @@ public class Spedran {
      *
      * @return a {@link CompletableFuture} of a {@code Guest}
      */
+    @SuppressWarnings("unused")
     public static CompletableFuture<Guest> getGuest(String name) {
         return new GuestRequest(name).complete();
     }
@@ -380,6 +397,7 @@ public class Spedran {
      *
      * @return a {@link CompletableFuture} of a {@code Genre}
      */
+    @SuppressWarnings("unused")
     public static CompletableFuture<Genre> getGenre(String id) {
         return new GenreRequest(id).complete();
     }
@@ -389,6 +407,7 @@ public class Spedran {
      *
      * @return a {@code GenresRequest} builder
      */
+    @SuppressWarnings("unused")
     public static GenresRequest getGenres() {
         return new GenresRequest();
     }
@@ -400,6 +419,7 @@ public class Spedran {
      *
      * @return a {@link CompletableFuture} of a {@code Engine}
      */
+    @SuppressWarnings("unused")
     public static CompletableFuture<Engine> getEngine(String id) {
         return new EngineRequest(id).complete();
     }
@@ -409,6 +429,7 @@ public class Spedran {
      *
      * @return a {@code EnginesRequest} builder
      */
+    @SuppressWarnings("unused")
     public static EnginesRequest getEngines() {
         return new EnginesRequest();
     }
@@ -420,6 +441,7 @@ public class Spedran {
      *
      * @return a {@link CompletableFuture} of a {@code Gametype}
      */
+    @SuppressWarnings("unused")
     public static CompletableFuture<Gametype> getGametype(String id) {
         return new GametypeRequest(id).complete();
     }
@@ -429,6 +451,7 @@ public class Spedran {
      *
      * @return a {@code GametypesRequest} builder
      */
+    @SuppressWarnings("unused")
     public static GametypesRequest getGametypes() {
         return new GametypesRequest();
     }
@@ -440,6 +463,7 @@ public class Spedran {
      *
      * @return a {@link CompletableFuture} of a {@code Developer}
      */
+    @SuppressWarnings("unused")
     public static CompletableFuture<Developer> getDeveloper(String id) {
         return new DeveloperRequest(id).complete();
     }
@@ -449,6 +473,7 @@ public class Spedran {
      *
      * @return a {@code DevelopersRequest} builder
      */
+    @SuppressWarnings("unused")
     public static DevelopersRequest getDevelopers() {
         return new DevelopersRequest();
     }
@@ -460,6 +485,7 @@ public class Spedran {
      *
      * @return a {@link CompletableFuture} of a {@code Region}
      */
+    @SuppressWarnings("unused")
     public static CompletableFuture<Region> getRegion(String id) {
         return new RegionRequest(id).complete();
     }
@@ -469,6 +495,7 @@ public class Spedran {
      *
      * @return a {@code RegionsRequest} builder
      */
+    @SuppressWarnings("unused")
     public static RegionsRequest getRegions() {
         return new RegionsRequest();
     }
@@ -480,6 +507,7 @@ public class Spedran {
      *
      * @return a {@link CompletableFuture} of a {@code Series}
      */
+    @SuppressWarnings("unused")
     public static CompletableFuture<Series> getSingleSeries(String id) {
         return new SingleSeriesRequest(id).complete();
     }
@@ -500,6 +528,7 @@ public class Spedran {
      *
      * @return a {@code AllSeriesRequest} builder
      */
+    @SuppressWarnings("unused")
     public static AllSeriesRequest getMultipleSeries() {
         return new AllSeriesRequest();
     }
@@ -511,6 +540,7 @@ public class Spedran {
      *
      * @return a {@link CompletableFuture} of a {@code Platform}
      */
+    @SuppressWarnings("unused")
     public static CompletableFuture<Platform> getPlatform(String id) {
         return new PlatformRequest(id).complete();
     }
@@ -520,6 +550,7 @@ public class Spedran {
      *
      * @return a {@code PlatformsRequest} builder
      */
+    @SuppressWarnings("unused")
     public static PlatformsRequest getPlatforms() {
         return new PlatformsRequest();
     }
@@ -531,6 +562,7 @@ public class Spedran {
      *
      * @return a {@link CompletableFuture} of a {@code Publisher}
      */
+    @SuppressWarnings("unused")
     public static CompletableFuture<Publisher> getPublisher(String id) {
         return new PublisherRequest(id).complete();
     }
@@ -540,6 +572,7 @@ public class Spedran {
      *
      * @return a {@code PublishersRequest} builder
      */
+    @SuppressWarnings("unused")
     public static PublishersRequest getPublishers() {
         return new PublishersRequest();
     }
@@ -553,6 +586,7 @@ public class Spedran {
      *
      * @return a {@code LeaderboardRequest} builder
      */
+    @SuppressWarnings("unused")
     public static LeaderboardRequest getLeaderboard(String gameId, String categoryId, String levelId) {
         return new LeaderboardRequest(gameId, categoryId, levelId);
     }
@@ -565,6 +599,7 @@ public class Spedran {
      *
      * @return a {@code LeaderboardRequest} builder
      */
+    @SuppressWarnings("unused")
     public static LeaderboardRequest getLeaderboard(String gameId, String categoryId) {
         return new LeaderboardRequest(gameId, categoryId);
     }
@@ -578,6 +613,7 @@ public class Spedran {
      *
      * @return a {@code LeaderboardRequest} builder
      */
+    @SuppressWarnings("unused")
     public static LeaderboardRequest getLeaderboard(Game game, Category category, Level level) {
         return new LeaderboardRequest(game, category, level);
     }
@@ -590,6 +626,7 @@ public class Spedran {
      *
      * @return a {@code LeaderboardRequest} builder
      */
+    @SuppressWarnings("unused")
     public static LeaderboardRequest getLeaderboard(Game game, Category category) {
         return new LeaderboardRequest(game, category);
     }

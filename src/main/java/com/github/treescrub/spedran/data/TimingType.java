@@ -7,6 +7,7 @@ package com.github.treescrub.spedran.data;
  * @see GameRuleset#getDefaultTime()
  * @see Leaderboard#getTiming()
  */
+@SuppressWarnings("unused")
 public enum TimingType {
     /**
      * The timing type that the leaderboard is sorted by.

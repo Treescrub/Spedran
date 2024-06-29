@@ -34,6 +34,7 @@ public class SubmitRunRequest extends ModifyResourceRequest<Run> {
         VariableType type;
         String value;
 
+        @SuppressWarnings("unused")
         public RunVariable(VariableType type, String value) {
             this.type = type;
             this.value = value;
@@ -54,6 +55,7 @@ public class SubmitRunRequest extends ModifyResourceRequest<Run> {
     private String splitsIO;
     private final Map<String, RunVariable> variables;
 
+    @SuppressWarnings("unused")
     public SubmitRunRequest() {
         super(HttpMethod.POST, "runs");
 
@@ -70,6 +72,7 @@ public class SubmitRunRequest extends ModifyResourceRequest<Run> {
      * @param category the category that the run is in
      * @return this builder object
      */
+    @SuppressWarnings("unused")
     public SubmitRunRequest category(Category category) {
         return category(category.getId());
     }
@@ -92,6 +95,7 @@ public class SubmitRunRequest extends ModifyResourceRequest<Run> {
      * @param level the level that the run is on
      * @return this builder object
      */
+    @SuppressWarnings("unused")
     public SubmitRunRequest level(Level level) {
         return level(level.getId());
     }
@@ -114,6 +118,7 @@ public class SubmitRunRequest extends ModifyResourceRequest<Run> {
      * @param runDate the date this run was ran on
      * @return this builder object
      */
+    @SuppressWarnings("unused")
     public SubmitRunRequest date(LocalDate runDate) {
         this.date = runDate;
 
@@ -126,6 +131,7 @@ public class SubmitRunRequest extends ModifyResourceRequest<Run> {
      * @param region the region of the game for the run
      * @return this builder object
      */
+    @SuppressWarnings("unused")
     public SubmitRunRequest region(Region region) {
         return region(region.getId());
     }
@@ -148,6 +154,7 @@ public class SubmitRunRequest extends ModifyResourceRequest<Run> {
      * @param platform the platform that this run was played on
      * @return this builder object
      */
+    @SuppressWarnings("unused")
     public SubmitRunRequest platform(Platform platform) {
         return platform(platform.getId());
     }
@@ -171,6 +178,7 @@ public class SubmitRunRequest extends ModifyResourceRequest<Run> {
      *
      * @return this builder object
      */
+    @SuppressWarnings("unused")
     public SubmitRunRequest verified() {
         this.verified = true;
 
@@ -183,6 +191,7 @@ public class SubmitRunRequest extends ModifyResourceRequest<Run> {
      * @param realTime a {@link Duration} with the RTA time
      * @return this builder object
      */
+    @SuppressWarnings("unused")
     public SubmitRunRequest realTime(Duration realTime) {
         times.put("realtime", realTime);
 
@@ -195,6 +204,7 @@ public class SubmitRunRequest extends ModifyResourceRequest<Run> {
      * @param realTimeNoLoads a {@link Duration} with the RTA no loads time
      * @return this builder object
      */
+    @SuppressWarnings("unused")
     public SubmitRunRequest realTimeNoLoads(Duration realTimeNoLoads) {
         times.put("realtime_noloads", realTimeNoLoads);
 
@@ -207,6 +217,7 @@ public class SubmitRunRequest extends ModifyResourceRequest<Run> {
      * @param ingameTime a {@link Duration} with the ingame time
      * @return this builder object
      */
+    @SuppressWarnings("unused")
     public SubmitRunRequest ingameTime(Duration ingameTime) {
         times.put("ingame", ingameTime);
 
@@ -219,6 +230,7 @@ public class SubmitRunRequest extends ModifyResourceRequest<Run> {
      * @param user a user that is a player in the run
      * @return this builder object
      */
+    @SuppressWarnings("unused")
     public SubmitRunRequest userPlayer(User user) {
         return userPlayer(user.getId());
     }
@@ -241,6 +253,7 @@ public class SubmitRunRequest extends ModifyResourceRequest<Run> {
      * @param guest a guest that is a player in the run
      * @return this builder object
      */
+    @SuppressWarnings("unused")
     public SubmitRunRequest guestPlayer(Guest guest) {
         return guestPlayer(guest.getName());
     }
@@ -263,6 +276,7 @@ public class SubmitRunRequest extends ModifyResourceRequest<Run> {
      * @param isEmulated whether an emulator was used
      * @return this builder object
      */
+    @SuppressWarnings("unused")
     public SubmitRunRequest emulated(boolean isEmulated) {
         this.isEmulated = isEmulated;
 
@@ -275,6 +289,7 @@ public class SubmitRunRequest extends ModifyResourceRequest<Run> {
      * @param videoUrl a {@code String} with a URL to a video hosting site
      * @return this builder object
      */
+    @SuppressWarnings("unused")
     public SubmitRunRequest video(String videoUrl) {
         this.videoUrl = videoUrl;
 
@@ -287,6 +302,7 @@ public class SubmitRunRequest extends ModifyResourceRequest<Run> {
      * @param comment a {@code String} with the custom comment
      * @return this builder object
      */
+    @SuppressWarnings("unused")
     public SubmitRunRequest comment(String comment) {
         this.comment = comment;
 
@@ -299,6 +315,7 @@ public class SubmitRunRequest extends ModifyResourceRequest<Run> {
      * @param splitsIO a {@code String} with an ID or URL to a splits.io page
      * @return this builder object
      */
+    @SuppressWarnings("unused")
     public SubmitRunRequest splitsIO(String splitsIO) {
         this.splitsIO = splitsIO;
 
@@ -312,6 +329,7 @@ public class SubmitRunRequest extends ModifyResourceRequest<Run> {
      * @param valueId the value ID to set for the variable
      * @return this builder object
      */
+    @SuppressWarnings("unused")
     public SubmitRunRequest variable(Variable variable, String valueId) {
         return variable(variable.getId(), valueId);
     }
@@ -336,6 +354,7 @@ public class SubmitRunRequest extends ModifyResourceRequest<Run> {
      * @param valueText the value to set for the variable
      * @return this builder object
      */
+    @SuppressWarnings("unused")
     public SubmitRunRequest customVariable(Variable variable, String valueText) {
         return customVariable(variable.getId(), valueText);
     }

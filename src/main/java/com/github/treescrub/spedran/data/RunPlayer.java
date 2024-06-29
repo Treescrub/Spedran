@@ -31,6 +31,7 @@ public class RunPlayer extends Link {
      * @see com.github.treescrub.spedran.data.Guest
      * @see User
      */
+    @SuppressWarnings("unused")
     public boolean isGuest() {
         return isGuest;
     }

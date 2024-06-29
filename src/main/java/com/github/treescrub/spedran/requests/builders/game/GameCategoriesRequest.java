@@ -12,10 +12,12 @@ import java.util.Map;
  * A request builder to get all {@link Category}s of a given {@link Game}.
  */
 public class GameCategoriesRequest extends ResourceCollectionRequest<Category> {
+    @SuppressWarnings("unused")
     public GameCategoriesRequest(String id) {
         super(HttpMethod.GET, "games/{id}/categories", Map.of("id", id));
     }
 
+    @SuppressWarnings("unused")
     public GameCategoriesRequest(Game game) {
         this(game.getId());
     }
@@ -27,6 +29,7 @@ public class GameCategoriesRequest extends ResourceCollectionRequest<Category> {
      * @param includeMiscellaneous whether to include miscellaneous categories in the results
      * @return this object
      */
+    @SuppressWarnings("unused")
     public GameCategoriesRequest miscellaneous(boolean includeMiscellaneous) {
         setParameter("miscellaneous", includeMiscellaneous);
         return this;
@@ -38,6 +41,7 @@ public class GameCategoriesRequest extends ResourceCollectionRequest<Category> {
      * @return this object
      * @see Category#getName()
      */
+    @SuppressWarnings("unused")
     public GameCategoriesRequest sortByName() {
         setSortParameter("name");
         return this;
@@ -48,6 +52,7 @@ public class GameCategoriesRequest extends ResourceCollectionRequest<Category> {
      * @return this object
      * @see Category#isMiscellaneous()
      */
+    @SuppressWarnings("unused")
     public GameCategoriesRequest sortByMiscellaneous() {
         setSortParameter("miscellaneous");
         return this;
@@ -58,6 +63,7 @@ public class GameCategoriesRequest extends ResourceCollectionRequest<Category> {
      *
      * @return this object
      */
+    @SuppressWarnings("unused")
     public GameCategoriesRequest sortByPosition() {
         setSortParameter("pos");
         return this;
@@ -69,6 +75,7 @@ public class GameCategoriesRequest extends ResourceCollectionRequest<Category> {
      * @param direction the direction to sort, either ascending or descending
      * @return this object
      */
+    @SuppressWarnings("unused")
     public GameCategoriesRequest sortDirection(SortDirection direction) {
         setSortDirection(direction);
         return this;

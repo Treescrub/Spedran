@@ -17,10 +17,12 @@ import java.util.concurrent.CompletableFuture;
  * @param <T> a class that represents a resource that will be retrieved from the API
  */
 public abstract class SingleResourceRequest<T extends Resource> extends ResourceRequest<T> {
+    @SuppressWarnings("unused")
     protected SingleResourceRequest(HttpMethod method, String url, Map<String, Object> routeParameters) {
         super(method, url, routeParameters);
     }
 
+    @SuppressWarnings("unused")
     protected SingleResourceRequest(HttpMethod method, String url) {
         this(method, url, Map.of());
     }

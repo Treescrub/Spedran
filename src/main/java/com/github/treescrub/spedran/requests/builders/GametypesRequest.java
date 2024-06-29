@@ -11,6 +11,7 @@ import kong.unirest.HttpMethod;
  * Always sorts by name.
  */
 public class GametypesRequest extends ResourceCollectionRequest<Gametype> {
+    @SuppressWarnings("unused")
     public GametypesRequest() {
         super(HttpMethod.GET, "gametypes");
     }
@@ -20,6 +21,7 @@ public class GametypesRequest extends ResourceCollectionRequest<Gametype> {
      *
      * @return this {@code GametypesRequest} builder
      */
+    @SuppressWarnings("unused")
     public GametypesRequest sortByName() {
         setSortParameter("name");
         return this;
@@ -31,6 +33,7 @@ public class GametypesRequest extends ResourceCollectionRequest<Gametype> {
      * @param direction the sort direction
      * @return this {@code UsersRequest} builder
      */
+    @SuppressWarnings("unused")
     public GametypesRequest sortDirection(SortDirection direction) {
         setSortDirection(direction);
         return this;
