@@ -11,6 +11,7 @@ import kong.unirest.HttpMethod;
  * Always sorts by name.
  */
 public class EnginesRequest extends ResourceCollectionRequest<Engine> {
+    @SuppressWarnings("unused")
     public EnginesRequest() {
         super(HttpMethod.GET, "engines");
     }
@@ -21,6 +22,7 @@ public class EnginesRequest extends ResourceCollectionRequest<Engine> {
      * @param direction the sort direction
      * @return this {@code UsersRequest} builder
      */
+    @SuppressWarnings("unused")
     public EnginesRequest sortDirection(SortDirection direction) {
         setSortDirection(direction);
         return this;

@@ -11,10 +11,12 @@ import java.util.Map;
  * A request builder to get records for a given {@link Game}.
  */
 public class GameRecordsRequest extends ResourceCollectionRequest<Leaderboard> {
+    @SuppressWarnings("unused")
     public GameRecordsRequest(String id) {
         super(HttpMethod.GET, "games/{id}/records", Map.of("id", id));
     }
 
+    @SuppressWarnings("unused")
     public GameRecordsRequest(Game game) {
         this(game.getId());
     }
@@ -27,6 +29,7 @@ public class GameRecordsRequest extends ResourceCollectionRequest<Leaderboard> {
      * @param topPlaces the top places to filter for, clamped to {@code >= 1}
      * @return this {@code GameRecordsRequest} builder
      */
+    @SuppressWarnings("unused")
     public GameRecordsRequest top(int topPlaces) {
         topPlaces = Math.max(topPlaces, 1);
         setParameter("top", topPlaces);
@@ -45,6 +48,7 @@ public class GameRecordsRequest extends ResourceCollectionRequest<Leaderboard> {
      * @param recordsScope the scope to get records in
      * @return this {@code GameRecordsRequest} builder
      */
+    @SuppressWarnings("unused")
     public GameRecordsRequest scope(String recordsScope) {
         setParameter("scope", recordsScope);
         return this;
@@ -58,6 +62,7 @@ public class GameRecordsRequest extends ResourceCollectionRequest<Leaderboard> {
      * @param includeMiscellaneous whether to include miscellaneous categories in the results
      * @return this {@code GameRecordsRequest} builder
      */
+    @SuppressWarnings("unused")
     public GameRecordsRequest miscellaneous(boolean includeMiscellaneous) {
         setParameter("miscellaneous", includeMiscellaneous);
         return this;
@@ -69,6 +74,7 @@ public class GameRecordsRequest extends ResourceCollectionRequest<Leaderboard> {
      * @param skipEmptyRecords {@code true} to skip empty records; {@code false} otherwise
      * @return this {@code GameRecordsRequest} builder
      */
+    @SuppressWarnings("unused")
     public GameRecordsRequest skipEmpty(boolean skipEmptyRecords) {
         setParameter("skip-empty", skipEmptyRecords);
         return this;

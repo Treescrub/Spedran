@@ -10,6 +10,7 @@ import kong.unirest.HttpMethod;
  * A request builder to get all {@link Series} matching the set filters.
  */
 public class AllSeriesRequest extends ResourceCollectionRequest<Series> {
+    @SuppressWarnings("unused")
     public AllSeriesRequest() {
         super(HttpMethod.GET, "series");
     }
@@ -20,6 +21,7 @@ public class AllSeriesRequest extends ResourceCollectionRequest<Series> {
      * @param name the {@code String} to search for
      * @return this {@code AllSeriesRequest} builder
      */
+    @SuppressWarnings("unused")
     public AllSeriesRequest name(String name) {
         setParameter("name", name);
         return this;
@@ -31,6 +33,7 @@ public class AllSeriesRequest extends ResourceCollectionRequest<Series> {
      * @param abbreviation the abbreviation to search for
      * @return this {@code AllSeriesRequest} builder
      */
+    @SuppressWarnings("unused")
     public AllSeriesRequest abbreviation(String abbreviation) {
         setParameter("abbreviation", abbreviation);
         return this;
@@ -53,6 +56,7 @@ public class AllSeriesRequest extends ResourceCollectionRequest<Series> {
      * @param user the user
      * @return this {@code AllSeriesRequest} builder
      */
+    @SuppressWarnings("unused")
     public AllSeriesRequest moderator(User user) {
         return moderator(user.getId());
     }
@@ -62,6 +66,7 @@ public class AllSeriesRequest extends ResourceCollectionRequest<Series> {
      *
      * @return this {@code AllSeriesRequest} builder
      */
+    @SuppressWarnings("unused")
     public AllSeriesRequest sortByInternationalName() {
         setSortParameter("name.int");
         return this;
@@ -72,6 +77,7 @@ public class AllSeriesRequest extends ResourceCollectionRequest<Series> {
      *
      * @return this {@code AllSeriesRequest} builder
      */
+    @SuppressWarnings("unused")
     public AllSeriesRequest sortByJapaneseName() {
         setSortParameter("name.jap");
         return this;
@@ -82,6 +88,7 @@ public class AllSeriesRequest extends ResourceCollectionRequest<Series> {
      *
      * @return this {@code AllSeriesRequest} builder
      */
+    @SuppressWarnings("unused")
     public AllSeriesRequest sortByAbbreviation() {
         setSortParameter("abbreviation");
         return this;
@@ -92,6 +99,7 @@ public class AllSeriesRequest extends ResourceCollectionRequest<Series> {
      *
      * @return this {@code AllSeriesRequest} builder
      */
+    @SuppressWarnings("unused")
     public AllSeriesRequest sortByCreationDate() {
         setSortParameter("created");
         return this;
@@ -103,6 +111,7 @@ public class AllSeriesRequest extends ResourceCollectionRequest<Series> {
      * @param direction the sort direction
      * @return this {@code AllSeriesRequest} builder
      */
+    @SuppressWarnings("unused")
     public AllSeriesRequest sortDirection(SortDirection direction) {
         setSortDirection(direction);
         return this;

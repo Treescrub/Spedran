@@ -11,6 +11,7 @@ import java.util.Map;
  * A request builder to get records for a given {@link Level}.
  */
 public class LevelRecordsRequest extends ResourceCollectionRequest<Leaderboard> {
+    @SuppressWarnings("unused")
     public LevelRecordsRequest(String id) {
         super(HttpMethod.GET, "levels/{id}/records", Map.of("id", id));
     }
@@ -27,6 +28,7 @@ public class LevelRecordsRequest extends ResourceCollectionRequest<Leaderboard> 
      * @param topPlaces the top places to filter for
      * @return this {@code LevelRecordsRequest} builder
      */
+    @SuppressWarnings("unused")
     public LevelRecordsRequest top(int topPlaces) {
         setParameter("top", topPlaces);
         return this;
@@ -37,6 +39,7 @@ public class LevelRecordsRequest extends ResourceCollectionRequest<Leaderboard> 
      *
      * @return this {@code LevelRecordsRequest} builder
      */
+    @SuppressWarnings("unused")
     public LevelRecordsRequest skipEmptyResults() {
         setParameter("skip-empty", true);
         return this;
@@ -47,6 +50,7 @@ public class LevelRecordsRequest extends ResourceCollectionRequest<Leaderboard> 
      *
      * @return this {@code LevelRecordsRequest} builder
      */
+    @SuppressWarnings("unused")
     public LevelRecordsRequest keepEmptyResults() {
         setParameter("skip-empty", false);
         return this;

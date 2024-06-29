@@ -13,6 +13,7 @@ class RequestCache {
         long timestamp;
         HttpResponse<?> response;
 
+        @SuppressWarnings("unused")
         CacheEntry(long timestamp, HttpResponse<?> response) {
             this.timestamp = timestamp;
             this.response = response;
@@ -24,6 +25,7 @@ class RequestCache {
     private volatile boolean disabled = false;
     private final Map<String, CacheEntry> cachedRequests;
 
+    @SuppressWarnings("unused")
     RequestCache() {
         cachedRequests = new ConcurrentHashMap<>();
     }

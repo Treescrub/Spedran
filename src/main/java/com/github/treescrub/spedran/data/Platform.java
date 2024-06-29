@@ -24,6 +24,7 @@ public class Platform extends IdentifiableNamedResource {
      *
      * @return a {@code GamesRequest} builder
      */
+    @SuppressWarnings("unused")
     public GamesRequest getGames() {
         return Spedran.getGames().platform(this);
     }
@@ -33,6 +34,7 @@ public class Platform extends IdentifiableNamedResource {
      *
      * @return a {@code RunsRequest} builder
      */
+    @SuppressWarnings("unused")
     public RunsRequest getRuns() {
         return Spedran.getRuns().platform(this);
     }

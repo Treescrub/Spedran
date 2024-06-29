@@ -23,6 +23,7 @@ public class Region extends IdentifiableNamedResource {
      *
      * @return a {@code GamesRequest} builder
      */
+    @SuppressWarnings("unused")
     public GamesRequest getGames() {
         return Spedran.getGames().region(this);
     }
@@ -32,6 +33,7 @@ public class Region extends IdentifiableNamedResource {
      *
      * @return a {@code RunsRequest} builder
      */
+    @SuppressWarnings("unused")
     public RunsRequest getRuns() {
         return Spedran.getRuns().region(this);
     }

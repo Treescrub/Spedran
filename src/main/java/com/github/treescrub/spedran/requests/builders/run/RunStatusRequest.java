@@ -17,10 +17,12 @@ public class RunStatusRequest extends ModifyResourceRequest<Run> {
     private SubmissionStatus statusType;
     private String rejectionReason;
 
+    @SuppressWarnings("unused")
     public RunStatusRequest(String id) {
         super(HttpMethod.PUT, "runs/{id}/status", Map.of("id", id));
     }
 
+    @SuppressWarnings("unused")
     public RunStatusRequest(Run run) {
         this(run.getId());
     }
@@ -30,6 +32,7 @@ public class RunStatusRequest extends ModifyResourceRequest<Run> {
      *
      * @return this builder object
      */
+    @SuppressWarnings("unused")
     public RunStatusRequest verify() {
         statusType = SubmissionStatus.VERIFIED;
 
@@ -42,6 +45,7 @@ public class RunStatusRequest extends ModifyResourceRequest<Run> {
      * @param reason a {@code String} with the reason for this run being rejected
      * @return this builder object
      */
+    @SuppressWarnings("unused")
     public RunStatusRequest reject(String reason) {
         statusType = SubmissionStatus.REJECTED;
         rejectionReason = reason;

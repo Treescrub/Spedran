@@ -9,6 +9,7 @@ import kong.unirest.HttpMethod;
  * A request builder to get all {@link User}s matching the set filters.
  */
 public class UsersRequest extends ResourceCollectionRequest<User> {
+    @SuppressWarnings("unused")
     public UsersRequest() {
         super(HttpMethod.GET, "users");
     }
@@ -21,6 +22,7 @@ public class UsersRequest extends ResourceCollectionRequest<User> {
      * @param name the name to search for
      * @return this {@code UsersRequest} builder
      */
+    @SuppressWarnings("unused")
     public UsersRequest lookup(String name) {
         setParameter("lookup", name);
         return this;
@@ -34,6 +36,7 @@ public class UsersRequest extends ResourceCollectionRequest<User> {
      * @param name the substring to search for, must be at least 3 characters long
      * @return this {@code UsersRequest} builder
      */
+    @SuppressWarnings("unused")
     public UsersRequest name(String name) {
         setParameter("name", name);
         return this;
@@ -47,6 +50,7 @@ public class UsersRequest extends ResourceCollectionRequest<User> {
      * @param twitch the Twitch username
      * @return this {@code UsersRequest} builder
      */
+    @SuppressWarnings("unused")
     public UsersRequest twitch(String twitch) {
         setParameter("twitch", twitch);
         return this;
@@ -60,6 +64,7 @@ public class UsersRequest extends ResourceCollectionRequest<User> {
      * @param hitbox the Hitbox username
      * @return this {@code UsersRequest} builder
      */
+    @SuppressWarnings("unused")
     public UsersRequest hitbox(String hitbox) {
         setParameter("hitbox", hitbox);
         return this;
@@ -73,6 +78,7 @@ public class UsersRequest extends ResourceCollectionRequest<User> {
      * @param twitter the Twitter handle
      * @return this {@code UsersRequest} builder
      */
+    @SuppressWarnings("unused")
     public UsersRequest twitter(String twitter) {
         setParameter("twitter", twitter);
         return this;
@@ -86,6 +92,7 @@ public class UsersRequest extends ResourceCollectionRequest<User> {
      * @param speedrunsLive the SpeedRunsLive username
      * @return this {@code UsersRequest} builder
      */
+    @SuppressWarnings("unused")
     public UsersRequest speedrunsLive(String speedrunsLive) {
         setParameter("speedrunslive", speedrunsLive);
         return this;
@@ -96,6 +103,7 @@ public class UsersRequest extends ResourceCollectionRequest<User> {
      *
      * @return this {@code UsersRequest} builder
      */
+    @SuppressWarnings("unused")
     public UsersRequest sortByInternationalName() {
         setSortParameter("name.int");
         return this;
@@ -106,6 +114,7 @@ public class UsersRequest extends ResourceCollectionRequest<User> {
      *
      * @return this {@code UsersRequest} builder
      */
+    @SuppressWarnings("unused")
     public UsersRequest sortByJapaneseName() {
         setSortParameter("name.jap");
         return this;
@@ -116,6 +125,7 @@ public class UsersRequest extends ResourceCollectionRequest<User> {
      *
      * @return this {@code UsersRequest} builder
      */
+    @SuppressWarnings("unused")
     public UsersRequest sortBySignupDate() {
         setSortParameter("signup");
         return this;
@@ -128,6 +138,7 @@ public class UsersRequest extends ResourceCollectionRequest<User> {
      *
      * @return this {@code UsersRequest} builder
      */
+    @SuppressWarnings("unused")
     public UsersRequest sortByRole() {
         setSortParameter("role");
         return this;
@@ -139,6 +150,7 @@ public class UsersRequest extends ResourceCollectionRequest<User> {
      * @param direction the sort direction
      * @return this {@code UsersRequest} builder
      */
+    @SuppressWarnings("unused")
     public UsersRequest sortDirection(SortDirection direction) {
         setSortDirection(direction);
         return this;

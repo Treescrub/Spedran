@@ -12,6 +12,7 @@ import kong.unirest.HttpMethod;
  * Always sorts by name.
  */
 public class PublishersRequest extends ResourceCollectionRequest<Publisher> {
+    @SuppressWarnings("unused")
     public PublishersRequest() {
         super(HttpMethod.GET, "publishers");
     }
@@ -21,6 +22,7 @@ public class PublishersRequest extends ResourceCollectionRequest<Publisher> {
      *
      * @return this {@code GenresRequest} builder
      */
+    @SuppressWarnings("unused")
     public PublishersRequest sortByName() {
         setSortParameter("name");
         return this;
@@ -32,6 +34,7 @@ public class PublishersRequest extends ResourceCollectionRequest<Publisher> {
      * @param direction the sort direction
      * @return this {@code PublishersRequest} builder
      */
+    @SuppressWarnings("unused")
     public PublishersRequest sortDirection(SortDirection direction) {
         setSortDirection(direction);
         return this;

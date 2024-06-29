@@ -19,6 +19,7 @@ public abstract class IdentifiableNamedResource extends IdentifiableResource {
      *
      * @return the resource's name
      */
+    @SuppressWarnings("unused")
     public String getName() {
         return name;
     }

@@ -12,10 +12,12 @@ import java.util.Map;
  * A request builder to get all the {@link Variable}s of a {@link Game}.
  */
 public class GameVariablesRequest extends ResourceCollectionRequest<Variable> {
+    @SuppressWarnings("unused")
     public GameVariablesRequest(String id) {
         super(HttpMethod.GET, "games/{id}/variables", Map.of("id", id));
     }
 
+    @SuppressWarnings("unused")
     public GameVariablesRequest(Game game) {
         this(game.getId());
     }
@@ -25,6 +27,7 @@ public class GameVariablesRequest extends ResourceCollectionRequest<Variable> {
      *
      * @return this {@code GameVariablesRequest} builder
      */
+    @SuppressWarnings("unused")
     public GameVariablesRequest sortByName() {
         setSortParameter("name");
         return this;
@@ -35,6 +38,7 @@ public class GameVariablesRequest extends ResourceCollectionRequest<Variable> {
      *
      * @return this {@code GameVariablesRequest} builder
      */
+    @SuppressWarnings("unused")
     public GameVariablesRequest sortByMandatory() {
         setSortParameter("mandatory");
         return this;
@@ -45,6 +49,7 @@ public class GameVariablesRequest extends ResourceCollectionRequest<Variable> {
      *
      * @return this {@code GameVariablesRequest} builder
      */
+    @SuppressWarnings("unused")
     public GameVariablesRequest sortByUserDefined() {
         setSortParameter("user-defined");
         return this;
@@ -55,6 +60,7 @@ public class GameVariablesRequest extends ResourceCollectionRequest<Variable> {
      *
      * @return this {@code GameVariablesRequest} builder
      */
+    @SuppressWarnings("unused")
     public GameVariablesRequest sortByPosition() {
         setSortParameter("pos");
         return this;
@@ -66,6 +72,7 @@ public class GameVariablesRequest extends ResourceCollectionRequest<Variable> {
      * @param direction the sort direction
      * @return this {@code GamesRequest} builder
      */
+    @SuppressWarnings("unused")
     public GameVariablesRequest sortDirection(SortDirection direction) {
         setSortDirection(direction);
         return this;

@@ -13,6 +13,7 @@ import kong.unirest.HttpMethod;
 public class GamesRequest extends ResourceCollectionRequest<Game> {
     public static final int MAX_ITEMS_BULK = 1000;
 
+    @SuppressWarnings("unused")
     public GamesRequest() {
         super(HttpMethod.GET, "games");
     }
@@ -23,6 +24,7 @@ public class GamesRequest extends ResourceCollectionRequest<Game> {
      * @param name the {@code String} to search for
      * @return this {@code GamesRequest} builder
      */
+    @SuppressWarnings("unused")
     public GamesRequest name(String name) {
         setParameter("name", name);
         return this;
@@ -34,6 +36,7 @@ public class GamesRequest extends ResourceCollectionRequest<Game> {
      * @param abbreviation the abbreviation to search for
      * @return this {@code GamesRequest} builder
      */
+    @SuppressWarnings("unused")
     public GamesRequest abbreviation(String abbreviation) {
         setParameter("abbreviation", abbreviation);
         return this;
@@ -45,6 +48,7 @@ public class GamesRequest extends ResourceCollectionRequest<Game> {
      * @param year the year a game was released
      * @return this {@code GamesRequest} builder
      */
+    @SuppressWarnings("unused")
     public GamesRequest releaseYear(int year) {
         setParameter("released", year);
         return this;
@@ -228,6 +232,7 @@ public class GamesRequest extends ResourceCollectionRequest<Game> {
      *
      * @return this {@code GamesRequest} builder
      */
+    @SuppressWarnings("unused")
     public GamesRequest sortByInternationalName() {
         setSortParameter("name.int");
         return this;
@@ -238,6 +243,7 @@ public class GamesRequest extends ResourceCollectionRequest<Game> {
      *
      * @return this {@code GamesRequest} builder
      */
+    @SuppressWarnings("unused")
     public GamesRequest sortByJapaneseName() {
         setSortParameter("name.jap");
         return this;
@@ -248,6 +254,7 @@ public class GamesRequest extends ResourceCollectionRequest<Game> {
      *
      * @return this {@code GamesRequest} builder
      */
+    @SuppressWarnings("unused")
     public GamesRequest sortByAbbreviation() {
         setSortParameter("abbreviation");
         return this;
@@ -258,6 +265,7 @@ public class GamesRequest extends ResourceCollectionRequest<Game> {
      *
      * @return this {@code GamesRequest} builder
      */
+    @SuppressWarnings("unused")
     public GamesRequest sortByReleaseDate() {
         setSortParameter("released");
         return this;
@@ -268,6 +276,7 @@ public class GamesRequest extends ResourceCollectionRequest<Game> {
      *
      * @return this {@code GamesRequest} builder
      */
+    @SuppressWarnings("unused")
     public GamesRequest sortByCreationDate() {
         setSortParameter("created");
         return this;
@@ -278,6 +287,7 @@ public class GamesRequest extends ResourceCollectionRequest<Game> {
      *
      * @return this {@code GamesRequest} builder
      */
+    @SuppressWarnings("unused")
     public GamesRequest sortByNameSimilarity() {
         setSortParameter("similarity");
         return this;
@@ -289,6 +299,7 @@ public class GamesRequest extends ResourceCollectionRequest<Game> {
      * @param direction the sort direction
      * @return this {@code GamesRequest} builder
      */
+    @SuppressWarnings("unused")
     public GamesRequest sortDirection(SortDirection direction) {
         setSortDirection(direction);
         return this;

@@ -23,12 +23,14 @@ import java.util.Map;
 public class RunPlayersRequest extends ModifyResourceRequest<Run> {
     private final Map<String, String> runPlayers;
 
+    @SuppressWarnings("unused")
     public RunPlayersRequest(String id) {
         super(HttpMethod.PUT, "runs/{id}/players", Map.of("id", id));
 
         runPlayers = new LinkedHashMap<>();
     }
 
+    @SuppressWarnings("unused")
     public RunPlayersRequest(Run run) {
         this(run.getId());
     }
@@ -39,6 +41,7 @@ public class RunPlayersRequest extends ModifyResourceRequest<Run> {
      * @param user the user to add to the list of players
      * @return this builder object
      */
+    @SuppressWarnings("unused")
     public RunPlayersRequest addUser(User user) {
         return addUser(user.getId());
     }
@@ -61,6 +64,7 @@ public class RunPlayersRequest extends ModifyResourceRequest<Run> {
      * @param guest the guest to add to the list of players
      * @return this builder object
      */
+    @SuppressWarnings("unused")
     public RunPlayersRequest addGuest(Guest guest) {
         return addGuest(guest.getName());
     }

@@ -3,6 +3,7 @@ package com.github.treescrub.spedran.requests;
 /**
  * The sorting direction for requests of collections of resources.
  */
+@SuppressWarnings("unused")
 public enum SortDirection {
     /**
      * The list will be sorted from the lowest values at the start of the list to the highest at the end of the list.

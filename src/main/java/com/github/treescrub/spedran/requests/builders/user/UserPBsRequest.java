@@ -14,10 +14,12 @@ import java.util.Map;
  * A request builder to get the personal best {@link Run}s of a {@link User}.
  */
 public class UserPBsRequest extends ResourceCollectionRequest<LeaderboardRun> {
+    @SuppressWarnings("unused")
     public UserPBsRequest(String id) {
         super(HttpMethod.GET, "users/{id}/personal-bests", Map.of("id", id));
     }
 
+    @SuppressWarnings("unused")
     public UserPBsRequest(User user) {
         this(user.getId());
     }
@@ -28,6 +30,7 @@ public class UserPBsRequest extends ResourceCollectionRequest<LeaderboardRun> {
      * @param topPlace the top place to filter PBs by
      * @return this {@code UserPBsRequest} builder
      */
+    @SuppressWarnings("unused")
     public UserPBsRequest top(int topPlace) {
         setParameter("top", topPlace);
         return this;
@@ -39,6 +42,7 @@ public class UserPBsRequest extends ResourceCollectionRequest<LeaderboardRun> {
      * @param id the series ID
      * @return this {@code UserPBsRequest} builder
      */
+    @SuppressWarnings("unused")
     public UserPBsRequest series(String id) {
         setParameter("series", id);
         return this;
@@ -50,6 +54,7 @@ public class UserPBsRequest extends ResourceCollectionRequest<LeaderboardRun> {
      * @param id the game ID
      * @return this {@code UserPBsRequest} builder
      */
+    @SuppressWarnings("unused")
     public UserPBsRequest game(String id) {
         setParameter("game", id);
         return this;

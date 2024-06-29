@@ -12,6 +12,7 @@ import java.util.Map;
  * A request builder to get all the {@link Variable}s of a {@link Level}.
  */
 public class LevelVariablesRequest extends ResourceCollectionRequest<Variable> {
+    @SuppressWarnings("unused")
     public LevelVariablesRequest(String id) {
         super(HttpMethod.GET, "levels/{id}/variables", Map.of("id", id));
     }
@@ -25,6 +26,7 @@ public class LevelVariablesRequest extends ResourceCollectionRequest<Variable> {
      *
      * @return this {@code LevelVariablesRequest} builder
      */
+    @SuppressWarnings("unused")
     public LevelVariablesRequest sortByName() {
         setSortParameter("name");
         return this;
@@ -35,6 +37,7 @@ public class LevelVariablesRequest extends ResourceCollectionRequest<Variable> {
      *
      * @return this {@code LevelVariablesRequest} builder
      */
+    @SuppressWarnings("unused")
     public LevelVariablesRequest sortByMandatory() {
         setSortParameter("mandatory");
         return this;
@@ -45,6 +48,7 @@ public class LevelVariablesRequest extends ResourceCollectionRequest<Variable> {
      *
      * @return this {@code LevelVariablesRequest} builder
      */
+    @SuppressWarnings("unused")
     public LevelVariablesRequest sortByUserDefined() {
         setSortParameter("user-defined");
         return this;
@@ -55,6 +59,7 @@ public class LevelVariablesRequest extends ResourceCollectionRequest<Variable> {
      *
      * @return this {@code LevelVariablesRequest} builder
      */
+    @SuppressWarnings("unused")
     public LevelVariablesRequest sortByPosition() {
         setSortParameter("pos");
         return this;
@@ -66,6 +71,7 @@ public class LevelVariablesRequest extends ResourceCollectionRequest<Variable> {
      * @param direction the sort direction
      * @return this {@code LevelVariablesRequest} builder
      */
+    @SuppressWarnings("unused")
     public LevelVariablesRequest sortDirection(SortDirection direction) {
         setSortDirection(direction);
         return this;

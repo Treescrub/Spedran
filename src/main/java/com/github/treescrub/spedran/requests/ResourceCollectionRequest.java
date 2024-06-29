@@ -24,11 +24,13 @@ public abstract class ResourceCollectionRequest<T extends Resource> extends Reso
     private static final int MAX_ITEMS = 200;
     private List<JsonNode> responseBodies = new ArrayList<>();
 
+    @SuppressWarnings("unused")
     protected ResourceCollectionRequest(HttpMethod method, String url, Map<String, Object> routeParameters) {
         super(method, url, routeParameters);
         setParameter("max", MAX_ITEMS);
     }
 
+    @SuppressWarnings("unused")
     protected ResourceCollectionRequest(HttpMethod method, String url) {
         this(method, url, Map.of());
     }

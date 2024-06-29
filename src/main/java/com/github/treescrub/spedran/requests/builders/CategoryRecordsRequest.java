@@ -11,10 +11,12 @@ import java.util.Map;
  * A request builder to get the top runs of a {@link Category}.
  */
 public class CategoryRecordsRequest extends ResourceCollectionRequest<Leaderboard> {
+    @SuppressWarnings("unused")
     public CategoryRecordsRequest(String id) {
         super(HttpMethod.GET, "categories/{id}/records", Map.of("id", id));
     }
 
+    @SuppressWarnings("unused")
     public CategoryRecordsRequest(Category category) {
         this(category.getId());
     }
@@ -27,6 +29,7 @@ public class CategoryRecordsRequest extends ResourceCollectionRequest<Leaderboar
      * @param value the top places to filter for, clamped to {@code >= 1}
      * @return this object
      */
+    @SuppressWarnings("unused")
     public CategoryRecordsRequest topPlaces(int value) {
         value = Math.max(value, 1);
         setParameter("top", value);
@@ -38,6 +41,7 @@ public class CategoryRecordsRequest extends ResourceCollectionRequest<Leaderboar
      *
      * @return this object
      */
+    @SuppressWarnings("unused")
     public CategoryRecordsRequest skipEmptyResults() {
         setParameter("skip-empty", true);
         return this;
@@ -48,6 +52,7 @@ public class CategoryRecordsRequest extends ResourceCollectionRequest<Leaderboar
      *
      * @return this object
      */
+    @SuppressWarnings("unused")
     public CategoryRecordsRequest keepEmptyResults() {
         setParameter("skip-empty", false);
         return this;

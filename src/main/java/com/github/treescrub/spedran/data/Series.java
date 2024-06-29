@@ -51,6 +51,7 @@ public class Series extends IdentifiableResource {
      *
      * @return a {@code SeriesGamesRequest} builder
      */
+    @SuppressWarnings("unused")
     public SeriesGamesRequest getGames() {
         return Spedran.getSeriesGames(id);
     }
@@ -114,6 +115,7 @@ public class Series extends IdentifiableResource {
      *
      * @return a {@code GameAssets} object
      */
+    @SuppressWarnings("unused")
     public GameAssets getAssets() {
         return assets;
     }

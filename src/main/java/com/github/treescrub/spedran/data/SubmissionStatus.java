@@ -6,6 +6,7 @@ package com.github.treescrub.spedran.data;
  * @see Run
  * @see Run#getStatus()
  */
+@SuppressWarnings("unused")
 public enum SubmissionStatus {
     /**
      * The run is currently in the verification queue.

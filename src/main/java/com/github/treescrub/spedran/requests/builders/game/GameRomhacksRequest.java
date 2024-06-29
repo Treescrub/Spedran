@@ -13,10 +13,12 @@ import java.util.Map;
  * A request builder to get all derived {@link Game}s (romhacks) for a given {@code Game}.
  */
 public class GameRomhacksRequest extends ResourceCollectionRequest<Game> {
+    @SuppressWarnings("unused")
     public GameRomhacksRequest(String id) {
         super(HttpMethod.GET, "games/{id}/derived-games", Map.of("id", id));
     }
 
+    @SuppressWarnings("unused")
     public GameRomhacksRequest(Game game) {
         this(game.getId());
     }
@@ -27,6 +29,7 @@ public class GameRomhacksRequest extends ResourceCollectionRequest<Game> {
      * @param name search query
      * @return this object
      */
+    @SuppressWarnings("unused")
     public GameRomhacksRequest name(String name) {
         setParameter("name", name);
         return this;
@@ -38,6 +41,7 @@ public class GameRomhacksRequest extends ResourceCollectionRequest<Game> {
      * @param abbreviation the game abbreviation to search for
      * @return this object
      */
+    @SuppressWarnings("unused")
     public GameRomhacksRequest abbreviation(String abbreviation) {
         setParameter("abbreviation", abbreviation);
         return this;
@@ -49,6 +53,7 @@ public class GameRomhacksRequest extends ResourceCollectionRequest<Game> {
      * @param year release year
      * @return this object
      */
+    @SuppressWarnings("unused")
     public GameRomhacksRequest releaseYear(int year) {
         setParameter("released", year);
         return this;
@@ -71,6 +76,7 @@ public class GameRomhacksRequest extends ResourceCollectionRequest<Game> {
      * @param gametype the gametype
      * @return this object
      */
+    @SuppressWarnings("unused")
     public GameRomhacksRequest gameType(Gametype gametype) {
         return gameType(gametype.getId());
     }
@@ -92,6 +98,7 @@ public class GameRomhacksRequest extends ResourceCollectionRequest<Game> {
      * @param platform the platform
      * @return this object
      */
+    @SuppressWarnings("unused")
     public GameRomhacksRequest platform(Platform platform) {
         return platform(platform.getId());
     }
@@ -113,6 +120,7 @@ public class GameRomhacksRequest extends ResourceCollectionRequest<Game> {
      * @param region the region
      * @return this object
      */
+    @SuppressWarnings("unused")
     public GameRomhacksRequest region(Region region) {
         return region(region.getId());
     }
@@ -134,6 +142,7 @@ public class GameRomhacksRequest extends ResourceCollectionRequest<Game> {
      * @param genre the genre
      * @return this object
      */
+    @SuppressWarnings("unused")
     public GameRomhacksRequest genre(Genre genre) {
         return genre(genre.getId());
     }
@@ -155,6 +164,7 @@ public class GameRomhacksRequest extends ResourceCollectionRequest<Game> {
      * @param engine the engine
      * @return this object
      */
+    @SuppressWarnings("unused")
     public GameRomhacksRequest engine(Engine engine) {
         return engine(engine.getId());
     }
@@ -176,6 +186,7 @@ public class GameRomhacksRequest extends ResourceCollectionRequest<Game> {
      * @param developer the developer
      * @return this object
      */
+    @SuppressWarnings("unused")
     public GameRomhacksRequest developer(Developer developer) {
         return developer(developer.getId());
     }
@@ -197,6 +208,7 @@ public class GameRomhacksRequest extends ResourceCollectionRequest<Game> {
      * @param publisher the publisher
      * @return this object
      */
+    @SuppressWarnings("unused")
     public GameRomhacksRequest publisher(Publisher publisher) {
         return publisher(publisher.getId());
     }
@@ -218,6 +230,7 @@ public class GameRomhacksRequest extends ResourceCollectionRequest<Game> {
      * @param user the user
      * @return this object
      */
+    @SuppressWarnings("unused")
     public GameRomhacksRequest moderator(User user) {
         return moderator(user.getId());
     }
@@ -229,6 +242,7 @@ public class GameRomhacksRequest extends ResourceCollectionRequest<Game> {
      * @see Game#getNames()
      * @see Names#getInternationalName()
      */
+    @SuppressWarnings("unused")
     public GameRomhacksRequest sortByInternationalName() {
         setSortParameter("name.int");
         return this;
@@ -241,6 +255,7 @@ public class GameRomhacksRequest extends ResourceCollectionRequest<Game> {
      * @see Game#getNames()
      * @see Names#getJapaneseName()
      */
+    @SuppressWarnings("unused")
     public GameRomhacksRequest sortByJapaneseName() {
         setSortParameter("name.jap");
         return this;
@@ -252,6 +267,7 @@ public class GameRomhacksRequest extends ResourceCollectionRequest<Game> {
      * @return this object
      * @see Game#getAbbreviation()
      */
+    @SuppressWarnings("unused")
     public GameRomhacksRequest sortByAbbreviation() {
         setSortParameter("abbreviation");
         return this;
@@ -263,6 +279,7 @@ public class GameRomhacksRequest extends ResourceCollectionRequest<Game> {
      * @return this object
      * @see Game#getReleaseDate()
      */
+    @SuppressWarnings("unused")
     public GameRomhacksRequest sortByReleaseDate() {
         setSortParameter("released");
         return this;
@@ -274,6 +291,7 @@ public class GameRomhacksRequest extends ResourceCollectionRequest<Game> {
      * @return this object
      * @see Game#getCreationTime()
      */
+    @SuppressWarnings("unused")
     public GameRomhacksRequest sortByCreationDate() {
         setSortParameter("created");
         return this;
@@ -286,6 +304,7 @@ public class GameRomhacksRequest extends ResourceCollectionRequest<Game> {
      *
      * @return this object
      */
+    @SuppressWarnings("unused")
     public GameRomhacksRequest sortByNameSimilarity() {
         setSortParameter("similarity");
         return this;
@@ -297,6 +316,7 @@ public class GameRomhacksRequest extends ResourceCollectionRequest<Game> {
      * @param direction the direction to sort, either ascending or descending
      * @return this object
      */
+    @SuppressWarnings("unused")
     public GameRomhacksRequest sortDirection(SortDirection direction) {
         setSortDirection(direction);
         return this;

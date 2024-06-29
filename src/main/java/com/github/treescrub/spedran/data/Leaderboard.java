@@ -53,6 +53,7 @@ public class Leaderboard extends Resource {
      *
      * @return a link to the leaderboard on SRC
      */
+    @SuppressWarnings("unused")
     public String getWeblink() {
         return weblink;
     }
@@ -65,6 +66,7 @@ public class Leaderboard extends Resource {
      * @see Spedran#getGame(String)
      * @see Game
      */
+    @SuppressWarnings("unused")
     public String getGame() {
         return game;
     }
@@ -77,6 +79,7 @@ public class Leaderboard extends Resource {
      * @see Spedran#getCategory(String)
      * @see Category
      */
+    @SuppressWarnings("unused")
     public String getCategory() {
         return category;
     }
@@ -89,6 +92,7 @@ public class Leaderboard extends Resource {
      * @see Spedran#getLevel(String)
      * @see com.github.treescrub.spedran.data.Level
      */
+    @SuppressWarnings("unused")
     public Optional<String> getLevel() {
         return Optional.ofNullable(level);
     }
@@ -101,6 +105,7 @@ public class Leaderboard extends Resource {
      * @see Spedran#getPlatform(String)
      * @see com.github.treescrub.spedran.data.Platform
      */
+    @SuppressWarnings("unused")
     public Optional<String> getPlatform() {
         return Optional.ofNullable(platform);
     }
@@ -113,6 +118,7 @@ public class Leaderboard extends Resource {
      * @see Spedran#getRegion(String)
      * @see com.github.treescrub.spedran.data.Region
      */
+    @SuppressWarnings("unused")
     public Optional<String> getRegion() {
         return Optional.ofNullable(region);
     }
@@ -122,6 +128,7 @@ public class Leaderboard extends Resource {
      *
      * @return {@code false} if runs using an emulator were filtered out, otherwise {@code true}
      */
+    @SuppressWarnings("unused")
     public Optional<Boolean> getEmulators() {
         return Optional.ofNullable(emulators);
     }
@@ -131,6 +138,7 @@ public class Leaderboard extends Resource {
      *
      * @return {@code true} if the 'videos only' filter was set, otherwise {@code false}
      */
+    @SuppressWarnings("unused")
     public boolean isVideoOnly() {
         return videoOnly;
     }
@@ -142,6 +150,7 @@ public class Leaderboard extends Resource {
      *
      * @see TimingType
      */
+    @SuppressWarnings("unused")
     public TimingType getTiming() {
         return timing;
     }
@@ -153,6 +162,7 @@ public class Leaderboard extends Resource {
      *
      * @see Variable
      */
+    @SuppressWarnings("unused")
     public Map<String, String> getValues() {
         return values;
     }
@@ -165,6 +175,7 @@ public class Leaderboard extends Resource {
      *
      * @see LeaderboardRun
      */
+    @SuppressWarnings("unused")
     public List<LeaderboardRun> getRuns() {
         return runs;
     }

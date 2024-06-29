@@ -12,10 +12,12 @@ import java.util.Map;
  * A request builder to get all {@link Level}s of a given {@link Game}.
  */
 public class GameLevelsRequest extends ResourceCollectionRequest<Level> {
+    @SuppressWarnings("unused")
     public GameLevelsRequest(String id) {
         super(HttpMethod.GET, "games/{id}/levels", Map.of("id", id));
     }
 
+    @SuppressWarnings("unused")
     public GameLevelsRequest(Game game) {
         this(game.getId());
     }
@@ -26,6 +28,7 @@ public class GameLevelsRequest extends ResourceCollectionRequest<Level> {
      * @return this object
      * @see Level#getName()
      */
+    @SuppressWarnings("unused")
     public GameLevelsRequest sortByName() {
         setSortParameter("name");
         return this;
@@ -36,6 +39,7 @@ public class GameLevelsRequest extends ResourceCollectionRequest<Level> {
      *
      * @return this object
      */
+    @SuppressWarnings("unused")
     public GameLevelsRequest sortByPosition() {
         setSortParameter("pos");
         return this;
@@ -47,6 +51,7 @@ public class GameLevelsRequest extends ResourceCollectionRequest<Level> {
      * @param direction the direction to sort, either ascending or descending
      * @return this object
      */
+    @SuppressWarnings("unused")
     public GameLevelsRequest sortDirection(SortDirection direction) {
         setSortDirection(direction);
         return this;

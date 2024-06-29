@@ -12,6 +12,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.atomic.AtomicInteger;
 
+@SuppressWarnings("unused")
 class RequestQueue {
     private final Queue<ResourceRequest<?>> requestQueue = new ConcurrentLinkedQueue<>();
     /**

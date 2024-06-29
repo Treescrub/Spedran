@@ -5,6 +5,7 @@ package com.github.treescrub.spedran.data;
  * <br>
  * These roles are site wide, they are not affiliated with a specific leaderboard.
  */
+@SuppressWarnings("unused")
 public enum UserRole {
     /**
      * The default role for a normal user.

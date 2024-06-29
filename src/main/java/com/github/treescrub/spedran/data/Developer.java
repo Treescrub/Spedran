@@ -18,6 +18,7 @@ public class Developer extends IdentifiableNamedResource {
      *
      * @return a {@code GamesRequest} builder
      */
+    @SuppressWarnings("unused")
     public GamesRequest getGames() {
         return Spedran.getGames().developer(this);
     }

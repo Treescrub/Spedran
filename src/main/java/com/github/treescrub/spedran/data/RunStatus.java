@@ -64,6 +64,7 @@ public class RunStatus {
      *
      * @return the reason for rejection
      */
+    @SuppressWarnings("unused")
     public Optional<String> getReason() {
         return Optional.ofNullable(reason);
     }

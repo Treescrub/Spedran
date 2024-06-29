@@ -10,10 +10,12 @@ import java.util.Map;
  * A request builder to get a single {@link Platform}.
  */
 public class PlatformRequest extends SingleResourceRequest<Platform> {
+    @SuppressWarnings("unused")
     public PlatformRequest(String id) {
         super(HttpMethod.GET, "platforms/{id}", Map.of("id", id));
     }
 
+    @SuppressWarnings("unused")
     public PlatformRequest(Platform platform) {
         this(platform.getId());
     }

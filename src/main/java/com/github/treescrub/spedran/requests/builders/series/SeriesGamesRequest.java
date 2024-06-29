@@ -15,10 +15,12 @@ import java.util.Map;
  * A request builder to get {@link Game}s in the given {@link Series} matching the set filters.
  */
 public class SeriesGamesRequest extends ResourceCollectionRequest<Game> {
+    @SuppressWarnings("unused")
     public SeriesGamesRequest(String id) {
         super(HttpMethod.GET, "series/{id}/games", Map.of("id", id));
     }
 
+    @SuppressWarnings("unused")
     public SeriesGamesRequest(Series series) {
         this(series.getId());
     }
@@ -29,6 +31,7 @@ public class SeriesGamesRequest extends ResourceCollectionRequest<Game> {
      * @param name the {@code String} to search for
      * @return this {@code GamesRequest} builder
      */
+    @SuppressWarnings("unused")
     public SeriesGamesRequest name(String name) {
         setParameter("name", name);
         return this;
@@ -40,6 +43,7 @@ public class SeriesGamesRequest extends ResourceCollectionRequest<Game> {
      * @param abbreviation the abbreviation to search for
      * @return this {@code GamesRequest} builder
      */
+    @SuppressWarnings("unused")
     public SeriesGamesRequest abbreviation(String abbreviation) {
         setParameter("abbreviation", abbreviation);
         return this;
@@ -51,6 +55,7 @@ public class SeriesGamesRequest extends ResourceCollectionRequest<Game> {
      * @param year the year a game was released
      * @return this {@code GamesRequest} builder
      */
+    @SuppressWarnings("unused")
     public SeriesGamesRequest releaseYear(int year) {
         setParameter("released", year);
         return this;
@@ -73,6 +78,7 @@ public class SeriesGamesRequest extends ResourceCollectionRequest<Game> {
      * @param gametype the gametype
      * @return this {@code GamesRequest} builder
      */
+    @SuppressWarnings("unused")
     public SeriesGamesRequest gameType(Gametype gametype) {
         return gameType(gametype.getId());
     }
@@ -94,6 +100,7 @@ public class SeriesGamesRequest extends ResourceCollectionRequest<Game> {
      * @param platform the platform
      * @return this {@code GamesRequest} builder
      */
+    @SuppressWarnings("unused")
     public SeriesGamesRequest platform(Platform platform) {
         return platform(platform.getId());
     }
@@ -115,6 +122,7 @@ public class SeriesGamesRequest extends ResourceCollectionRequest<Game> {
      * @param region the region
      * @return this {@code GamesRequest} builder
      */
+    @SuppressWarnings("unused")
     public SeriesGamesRequest region(Region region) {
         return region(region.getId());
     }
@@ -136,6 +144,7 @@ public class SeriesGamesRequest extends ResourceCollectionRequest<Game> {
      * @param genre the genre
      * @return this {@code GamesRequest} builder
      */
+    @SuppressWarnings("unused")
     public SeriesGamesRequest genre(Genre genre) {
         return genre(genre.getId());
     }
@@ -157,6 +166,7 @@ public class SeriesGamesRequest extends ResourceCollectionRequest<Game> {
      * @param engine the engine
      * @return this {@code GamesRequest} builder
      */
+    @SuppressWarnings("unused")
     public SeriesGamesRequest engine(Engine engine) {
         return engine(engine.getId());
     }
@@ -178,6 +188,7 @@ public class SeriesGamesRequest extends ResourceCollectionRequest<Game> {
      * @param developer the developer
      * @return this {@code GamesRequest} builder
      */
+    @SuppressWarnings("unused")
     public SeriesGamesRequest developer(Developer developer) {
         return developer(developer.getId());
     }
@@ -199,6 +210,7 @@ public class SeriesGamesRequest extends ResourceCollectionRequest<Game> {
      * @param publisher the publisher
      * @return this {@code GamesRequest} builder
      */
+    @SuppressWarnings("unused")
     public SeriesGamesRequest publisher(Publisher publisher) {
         return publisher(publisher.getId());
     }
@@ -220,10 +232,11 @@ public class SeriesGamesRequest extends ResourceCollectionRequest<Game> {
      * @param user the user
      * @return this {@code GamesRequest} builder
      */
+    @SuppressWarnings("unused")
     public SeriesGamesRequest moderator(User user) {
         return moderator(user.getId());
     }
-    
+
     public SeriesGamesRequest asBulk() {
         setParameter("max", GamesRequest.MAX_ITEMS_BULK);
         return this;
@@ -234,6 +247,7 @@ public class SeriesGamesRequest extends ResourceCollectionRequest<Game> {
      *
      * @return this {@code GamesRequest} builder
      */
+    @SuppressWarnings("unused")
     public SeriesGamesRequest sortByInternationalName() {
         setSortParameter("name.int");
         return this;
@@ -244,6 +258,7 @@ public class SeriesGamesRequest extends ResourceCollectionRequest<Game> {
      *
      * @return this {@code GamesRequest} builder
      */
+    @SuppressWarnings("unused")
     public SeriesGamesRequest sortByJapaneseName() {
         setSortParameter("name.jap");
         return this;
@@ -254,6 +269,7 @@ public class SeriesGamesRequest extends ResourceCollectionRequest<Game> {
      *
      * @return this {@code GamesRequest} builder
      */
+    @SuppressWarnings("unused")
     public SeriesGamesRequest sortByAbbreviation() {
         setSortParameter("abbreviation");
         return this;
@@ -264,6 +280,7 @@ public class SeriesGamesRequest extends ResourceCollectionRequest<Game> {
      *
      * @return this {@code GamesRequest} builder
      */
+    @SuppressWarnings("unused")
     public SeriesGamesRequest sortByReleaseDate() {
         setSortParameter("released");
         return this;
@@ -274,6 +291,7 @@ public class SeriesGamesRequest extends ResourceCollectionRequest<Game> {
      *
      * @return this {@code GamesRequest} builder
      */
+    @SuppressWarnings("unused")
     public SeriesGamesRequest sortByCreationDate() {
         setSortParameter("created");
         return this;
@@ -284,6 +302,7 @@ public class SeriesGamesRequest extends ResourceCollectionRequest<Game> {
      *
      * @return this {@code GamesRequest} builder
      */
+    @SuppressWarnings("unused")
     public SeriesGamesRequest sortByNameSimilarity() {
         setSortParameter("similarity");
         return this;
@@ -295,6 +314,7 @@ public class SeriesGamesRequest extends ResourceCollectionRequest<Game> {
      * @param direction the sort direction
      * @return this {@code GamesRequest} builder
      */
+    @SuppressWarnings("unused")
     public SeriesGamesRequest sortDirection(SortDirection direction) {
         setSortDirection(direction);
         return this;

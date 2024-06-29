@@ -10,10 +10,12 @@ import java.util.Map;
  * A request builder to get a specific {@link Leaderboard}.
  */
 public class LeaderboardRequest extends SingleResourceRequest<Leaderboard> {
+    @SuppressWarnings("unused")
     public LeaderboardRequest(String game, String category) {
         super(HttpMethod.GET, "leaderboards/{game}/category/{category}", Map.of("game", game, "category", category));
     }
 
+    @SuppressWarnings("unused")
     public LeaderboardRequest(String game, String category, String level) {
         super(HttpMethod.GET, "leaderboards/{game}/level/{level}/{category}", Map.of("game", game, "category", category, "level", level));
     }
@@ -26,6 +28,7 @@ public class LeaderboardRequest extends SingleResourceRequest<Leaderboard> {
         this(game.getId(), category.getId(), level.getId());
     }
 
+    @SuppressWarnings("unused")
     public LeaderboardRequest top(int topPlaces) {
         setParameter("top", topPlaces);
         return this;
@@ -48,6 +51,7 @@ public class LeaderboardRequest extends SingleResourceRequest<Leaderboard> {
      * @param platform the platform
      * @return this {@code LeaderboardRequest} builder
      */
+    @SuppressWarnings("unused")
     public LeaderboardRequest platform(Platform platform) {
         return platform(platform.getId());
     }
@@ -69,6 +73,7 @@ public class LeaderboardRequest extends SingleResourceRequest<Leaderboard> {
      * @param region the region
      * @return this {@code LeaderboardRequest} builder
      */
+    @SuppressWarnings("unused")
     public LeaderboardRequest region(Region region) {
         return region(region.getId());
     }
@@ -78,6 +83,7 @@ public class LeaderboardRequest extends SingleResourceRequest<Leaderboard> {
      *
      * @return this {@code LeaderboardRequest} builder
      */
+    @SuppressWarnings("unused")
     public LeaderboardRequest onlyEmulators() {
         setParameter("emulators", true);
         return this;
@@ -88,6 +94,7 @@ public class LeaderboardRequest extends SingleResourceRequest<Leaderboard> {
      *
      * @return this {@code LeaderboardRequest} builder
      */
+    @SuppressWarnings("unused")
     public LeaderboardRequest onlyRealDevices() {
         setParameter("emulators", false);
         return this;
@@ -98,6 +105,7 @@ public class LeaderboardRequest extends SingleResourceRequest<Leaderboard> {
      *
      * @return this {@code LeaderboardRequest} builder
      */
+    @SuppressWarnings("unused")
     public LeaderboardRequest videosOnly() {
         setParameter("video-only", true);
         return this;
@@ -109,6 +117,7 @@ public class LeaderboardRequest extends SingleResourceRequest<Leaderboard> {
      * @param timingType the type to sort by
      * @return this {@code LeaderboardRequest} builder
      */
+    @SuppressWarnings("unused")
     public LeaderboardRequest timing(TimingType timingType) {
         setParameter("timing", timingType.name().toLowerCase());
         return this;
@@ -120,6 +129,7 @@ public class LeaderboardRequest extends SingleResourceRequest<Leaderboard> {
      * @param date the date in ISO 8601 format
      * @return this {@code LeaderboardRequest} builder
      */
+    @SuppressWarnings("unused")
     public LeaderboardRequest beforeDate(String date) {
         setParameter("date", date);
         return this;
@@ -144,6 +154,7 @@ public class LeaderboardRequest extends SingleResourceRequest<Leaderboard> {
      * @param valueId the variable value ID
      * @return this {@code LeaderboardRequest} builder
      */
+    @SuppressWarnings("unused")
     public LeaderboardRequest variable(Variable variable, String valueId) {
         return variable(variable.getId(), valueId);
     }

@@ -3,6 +3,7 @@ package com.github.treescrub.spedran.data;
 /**
  * The read status of a notification.
  */
+@SuppressWarnings("unused")
 public enum NotificationStatus {
     /**
      * The notification has been marked as read.

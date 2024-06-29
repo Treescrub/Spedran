@@ -10,10 +10,12 @@ import java.util.Map;
  * A request builder to get a single {@link Level}.
  */
 public class LevelRequest extends SingleResourceRequest<Level> {
+    @SuppressWarnings("unused")
     public LevelRequest(String id) {
         super(HttpMethod.GET, "levels/{id}", Map.of("id", id));
     }
 
+    @SuppressWarnings("unused")
     public LevelRequest(Level level) {
         this(level.getId());
     }
