@@ -31,8 +31,8 @@ public class SubmitRunRequest extends ModifyResourceRequest<Run> {
     }
 
     private static class RunVariable {
-        VariableType type;
-        String value;
+        final VariableType type;
+        final String value;
 
         @SuppressWarnings("unused")
         public RunVariable(VariableType type, String value) {

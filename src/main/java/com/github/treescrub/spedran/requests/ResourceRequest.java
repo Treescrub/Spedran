@@ -11,8 +11,8 @@ import java.util.concurrent.CompletableFuture;
 
 abstract class ResourceRequest<T> {
     protected HttpRequestWithBody request;
-    protected CompletableFuture<T> result;
-    private Map<String, Object> queryParameters;
+    protected final CompletableFuture<T> result;
+    private final Map<String, Object> queryParameters;
     protected boolean completed = false;
 
     @SuppressWarnings("unused")

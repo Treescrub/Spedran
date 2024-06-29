@@ -10,8 +10,8 @@ import java.util.concurrent.ConcurrentHashMap;
 
 class RequestCache {
     private static class CacheEntry {
-        long timestamp;
-        HttpResponse<?> response;
+        final long timestamp;
+        final HttpResponse<?> response;
 
         @SuppressWarnings("unused")
         CacheEntry(long timestamp, HttpResponse<?> response) {
