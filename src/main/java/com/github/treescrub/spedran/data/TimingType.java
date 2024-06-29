@@ -24,5 +24,5 @@ public enum TimingType {
     /**
      * The real world time but loads are removed from the total time.
      */
-    REALTIME_NOLOADS;
+    REALTIME_NOLOADS
 }
