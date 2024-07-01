@@ -29,7 +29,8 @@ public class UserLocation {
     }
 
     /**
-     * Gets the {@link LocationInfo} for the region of the country
+     * Gets the {@link LocationInfo} for the region of the country.
+     * <br><br>
      * The region code is custom and specific to SRC.
      *
      * @return an {@link Optional} with the region location info

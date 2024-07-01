@@ -40,6 +40,8 @@ public class RunVideos {
 
     /**
      * Gets the video links mentioned in the run.
+     * <br>
+     * If the main video section contains a valid video link, it will be at the end of the returned list.
      *
      * @return a {@code List} of {@link Link}s to videos
      */

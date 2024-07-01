@@ -60,34 +60,34 @@ public class Variable extends IdentifiableNamedResource {
     }
 
     /**
-     * If the {@link User} submitting a run is required to set a value for this variable, returns {@code true}, otherwise {@code false}.
+     * Gets whether the {@link User} submitting a run is required to set a value for this variable.
      *
-     * @return whether the submitter of a run needs to set a value for this variable
+     * @return {@code true} if this variable is required, {@code false} otherwise
      */
     public boolean isMandatory() {
         return mandatory;
     }
 
     /**
-     * If the {@link User} submitting a run can enter custom values, returns {@code true}, otherwise {@code false}.
+     * Gets whether the {@link User} submitting a run can enter custom values for this variable.
      *
-     * @return whether the submitter of a run can enter custom values
+     * @return {@code true} if this variable can have custom values, {@code false} otherwise
      */
     public boolean isUserDefined() {
         return userDefined;
     }
 
     /**
-     * If this variable is used to display runs for the leaderboard, returns {@code true}, otherwise {@code false}.
+     * Gets whether this variable having different values prevents runs from being obsoleted.
      *
-     * @return whether this variable can prevent a run from being considered obsolete
+     * @return {@code true} if runs will be obsolete even if they have different values for this variable, {@code false} otherwise
      */
     public boolean isObsoleting() {
         return obsoletes;
     }
 
     /**
-     * A {@link Map} to map variable value IDs to a {@link VariableValue}.
+     * Gets a {@link Map} to map variable value IDs to a {@link VariableValue}.
      *
      * @return a {@code Map} with keys being variable value IDs, and values being {@code VariableValue}
      */
@@ -105,9 +105,9 @@ public class Variable extends IdentifiableNamedResource {
     }
 
     /**
-     * If this variable should be handled as a subcategory, returns {@code true}, otherwise {@code false}.
+     * Gets whether this variable is handled as a subcategory.
      *
-     * @return whether this variable is a subcategory
+     * @return {@code true} if this variable is a subcategory, {@code false} otherwise
      */
     public boolean isSubcategory() {
         return isSubcategory;

@@ -28,9 +28,9 @@ public class Names {
     }
 
     /**
-     * Gets the japanese name for this item.
+     * Gets the Japanese name for this item.
      *
-     * @return an {@link Optional} with the japanese name, or empty if no japanese name.
+     * @return an {@link Optional} with the Japanese name, or empty if no Japanese name.
      */
     public Optional<String> getJapaneseName() {
         return Optional.ofNullable(japanese);

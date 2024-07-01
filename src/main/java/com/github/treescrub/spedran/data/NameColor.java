@@ -5,9 +5,9 @@ import kong.unirest.json.JSONObject;
 import java.awt.*;
 
 /**
- * Represents a color preset.
+ * Represents a color preset for a user's name.
  * <br>
- * Has light and dark hex color codes for light and dark backgrounds.
+ * Has light and dark colors for light and dark backgrounds.
  */
 public class NameColor {
     private final Color light;
@@ -19,7 +19,7 @@ public class NameColor {
     }
 
     /**
-     * Gets the {@link Color} for use on light backgrounds.
+     * Gets the color for use on light backgrounds.
      *
      * @return a {@code Color} object with color info
      */
@@ -28,7 +28,7 @@ public class NameColor {
     }
 
     /**
-     * Gets the {@link Color} for use on dark backgrounds.
+     * Gets the color for use on dark backgrounds.
      *
      * @return a {@code Color} object with color info
      */

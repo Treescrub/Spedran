@@ -195,7 +195,7 @@ public class Run extends IdentifiableResource {
     }
 
     /**
-     *
+     * Gets the times for this run in each timing category.
      *
      * @return a {@link RunTimes} object that has timing info
      */
@@ -204,7 +204,7 @@ public class Run extends IdentifiableResource {
     }
 
     /**
-     *
+     * Gets the system that this run was played on.
      *
      * @return a {@link RunSystem} object that has system info
      */
@@ -213,7 +213,7 @@ public class Run extends IdentifiableResource {
     }
 
     /**
-     *
+     * Gets a link to the API of a splits hosting site. Currently only supports {@code Splits.io}.
      *
      * @return an {@link Optional} with a {@link Link} that contains info about splits
      */

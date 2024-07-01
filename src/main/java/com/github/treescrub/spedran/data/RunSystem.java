@@ -35,7 +35,7 @@ public class RunSystem {
     }
 
     /**
-     * Was the run played on an emulator.
+     * Gets whether the run was played on an emulator.
      *
      * @return whether the run was played on emulator
      */

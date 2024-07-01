@@ -27,7 +27,7 @@ public class RunStatus {
     }
 
     /**
-     * Returns the {@link SubmissionStatus} type.
+     * Gets the submission status type.
      *
      * @return a {@code SubmissionStatus}
      */
@@ -36,7 +36,8 @@ public class RunStatus {
     }
 
     /**
-     * Returns the ID of the verifier.
+     * Gets the ID of the verifier.
+     * <br><br>
      * Only exists if status is {@link SubmissionStatus#VERIFIED} or {@link SubmissionStatus#REJECTED}.
      *
      * @return an {@link Optional} with the ID of the verifier
@@ -49,7 +50,8 @@ public class RunStatus {
     }
 
     /**
-     * Returns the time of verification.
+     * Gets the time that the run was verified.
+     * <br><br>
      * Only exists if the status is {@link SubmissionStatus#VERIFIED}.
      *
      * @return an {@link Optional} with the {@link Instant} of verification
@@ -60,6 +62,7 @@ public class RunStatus {
 
     /**
      * Gets the verifier supplied reason for rejection.
+     * <br><br>
      * Only exists if the status is {@link SubmissionStatus#REJECTED}.
      *
      * @return the reason for rejection

@@ -24,7 +24,7 @@ public class RunPlayer extends Link {
     }
 
     /**
-     * Returns {@code true} if this runner is a guest, otherwise {@code false} if this runner is a user.
+     * Gets whether this runner is a guest.
      *
      * @return whether this runner is a guest
      *
@@ -37,7 +37,7 @@ public class RunPlayer extends Link {
     }
 
     /**
-     * If this runner is a guest, returns their username. Otherwise, if this runner is a user, returns their user ID.
+     * Gets the {@link User} ID if this runner is a user, otherwise gets the {@link Guest}'s name.
      *
      * @return a {@code String} with the user ID or guest name
      *

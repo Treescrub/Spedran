@@ -75,7 +75,7 @@ public class NameStyle {
     }
 
     /**
-     * Gets the start or rightmost color when {@link NameStyle#getStyle()} is {@link Style#GRADIENT}.
+     * Gets the end or rightmost color when {@link NameStyle#getStyle()} is {@link Style#GRADIENT}.
      *
      * @return the ending {@link NameColor}
      */

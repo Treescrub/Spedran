@@ -5,7 +5,7 @@ import kong.unirest.json.JSONObject;
 import java.time.Instant;
 
 /**
- * A notification for an authenticated {@link User}.
+ * A notification on SRC for an authenticated {@link User}.
  */
 public class Notification extends IdentifiableResource {
     private final Instant creationTime;
@@ -23,7 +23,7 @@ public class Notification extends IdentifiableResource {
     }
 
     /**
-     * Gets the {@link Instant} that the notification was created.
+     * Gets the time that the notification was created.
      *
      * @return an {@code Instant} with the time of notification creation
      */
@@ -33,7 +33,7 @@ public class Notification extends IdentifiableResource {
     }
 
     /**
-     * Gets the current {@link NotificationStatus} of the notification.
+     * Gets the current status of the notification.
      *
      * @return a {@code NotificationStatus}
      */
@@ -53,7 +53,7 @@ public class Notification extends IdentifiableResource {
     }
 
     /**
-     * Gets a {@link Link} with the type of notification and URL of the relevant page.
+     * Gets a link with the type of notification and URL of the relevant page.
      * <br><br>
      * {@link Link#getRelation()} will be one of:
      * <ul>

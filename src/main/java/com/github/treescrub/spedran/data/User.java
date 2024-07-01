@@ -78,7 +78,7 @@ public class User extends IdentifiableResource {
     }
 
     /**
-     * Returns the {@link Names} for this user.
+     * Gets the {@link Names} for this user.
      *
      * @return a {@code Names} with this user's names
      */
@@ -87,7 +87,7 @@ public class User extends IdentifiableResource {
     }
 
     /**
-     * Returns {@code true} if this user has their name color animated, otherwise {@code false}.
+     * Gets whether this user has the name color supporter animation enabled.
      *
      * @return whether this user has the supporter animation
      */
