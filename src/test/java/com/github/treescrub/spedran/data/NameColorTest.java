@@ -4,6 +4,8 @@ import com.github.treescrub.spedran.JSONLoader;
 import kong.unirest.json.JSONObject;
 import org.junit.jupiter.api.Test;
 
+import java.awt.*;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class NameColorTest {
@@ -13,7 +15,7 @@ class NameColorTest {
         JSONObject json = JSONLoader.getJsonTestFile("l4d/user/namecolor");
         NameColor nameColor = new NameColor(json);
 
-        assertEquals("#000000", nameColor.getLight());
+        assertEquals(Color.decode("#000000"), nameColor.getLight());
     }
 
     @Test
@@ -21,6 +23,6 @@ class NameColorTest {
         JSONObject json = JSONLoader.getJsonTestFile("l4d/user/namecolor");
         NameColor nameColor = new NameColor(json);
 
-        assertEquals("#FFFFFF", nameColor.getDark());
+        assertEquals(Color.decode("#FFFFFF"), nameColor.getDark());
     }
 }

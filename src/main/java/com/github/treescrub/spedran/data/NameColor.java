@@ -2,35 +2,37 @@ package com.github.treescrub.spedran.data;
 
 import kong.unirest.json.JSONObject;
 
+import java.awt.*;
+
 /**
  * Represents a color preset.
  * <br>
  * Has light and dark hex color codes for light and dark backgrounds.
  */
 public class NameColor {
-    private final String light;
-    private final String dark;
+    private final Color light;
+    private final Color dark;
 
     NameColor(JSONObject data) {
-        light = data.getString("light");
-        dark = data.getString("dark");
+        light = Color.decode(data.getString("light"));
+        dark = Color.decode(data.getString("dark"));
     }
 
     /**
-     * Gets the hex color code for use on light backgrounds.
+     * Gets the {@link Color} for use on light backgrounds.
      *
-     * @return a hex color code starting with {@code #}
+     * @return a {@code Color} object with color info
      */
-    public String getLight() {
+    public Color getLight() {
         return light;
     }
 
     /**
-     * Gets the hex color code for use on dark backgrounds.
+     * Gets the {@link Color} for use on dark backgrounds.
      *
-     * @return a hex color code starting with {@code #}
+     * @return a {@code Color} object with color info
      */
-    public String getDark() {
+    public Color getDark() {
         return dark;
     }
 
