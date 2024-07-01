@@ -61,6 +61,14 @@ public class Requests {
     }
 
     /**
+     * Shuts down background threads.
+     */
+    public static void shutDown() {
+        unirestInstance.shutDown();
+        queue.shutDown();
+    }
+
+    /**
      * Enable request caching.
      */
     public static void enableCache() {
