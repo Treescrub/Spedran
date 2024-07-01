@@ -10,6 +10,7 @@ import java.util.Queue;
 import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 
 @SuppressWarnings("unused")
@@ -43,17 +44,36 @@ class RequestQueue {
     private static final double BACKOFF_OFFSET_CONSTANT = 0.5;
 
     private long lastRateLimit = 0;
+    private final AtomicBoolean isShutDown = new AtomicBoolean(false);
 
     private final ExecutorService queueExecutor = Executors.newSingleThreadExecutor();
     private static final Logger logger = LogManager.getLogger(RequestQueue.class);
 
     public void queueRequest(ResourceRequest<?> request) {
+        if(isShutDown.get()) {
+            logger.warn("Request queue is shut down, but a request was submitted");
+            return;
+        }
+
         requestQueue.add(request);
         requestsInQueue.incrementAndGet();
 
         logger.debug("Request {} submitted to queue", request.getRequest().getUrl());
 
         queueExecutor.submit(this::executeUntilEmpty);
+    }
+
+    /**
+     * Shuts down this request queue.
+     * When shut down, requests already in the queue will be executed but new requests won't be accepted.
+     */
+    public void shutDown() {
+        logger.info("Shutting down");
+
+        synchronized(isShutDown) {
+            isShutDown.set(true);
+            queueExecutor.shutdown();
+        }
     }
 
     /**

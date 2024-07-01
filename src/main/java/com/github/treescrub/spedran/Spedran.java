@@ -65,6 +65,14 @@ public class Spedran {
     }
 
     /**
+     * Shuts down all work threads, allowing the application to exit.
+     */
+    @SuppressWarnings("unused")
+    public static void shutDown() {
+        Requests.shutDown();
+    }
+
+    /**
      * Enable request caching.
      */
     @SuppressWarnings("unused")
