@@ -9,7 +9,7 @@ import java.util.Optional;
  * <br><br>
  * This class is immutable and thread-safe.
  */
-class Link {
+public class Link {
     private final String uri;
     private final String rel;
 
