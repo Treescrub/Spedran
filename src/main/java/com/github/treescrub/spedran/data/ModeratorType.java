@@ -4,7 +4,7 @@ public enum ModeratorType {
     SUPER_MODERATOR,
     MODERATOR;
 
-    ModeratorType fromAPI(String apiName) {
+    static ModeratorType fromAPI(String apiName) {
         switch(apiName) {
             case "moderator":
                 return MODERATOR;
