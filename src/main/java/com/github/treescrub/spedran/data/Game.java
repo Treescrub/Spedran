@@ -201,7 +201,7 @@ public class Game extends IdentifiableResource {
     /**
      * Gets a {@code List} of all gametype IDs that describe this game.
      *
-     * @return a {@code List} of gametype IDs
+     * @return an unmodifiable {@code List} of gametype IDs
      *
      * @see com.github.treescrub.spedran.data.Gametype
      * @see Spedran#getGametype(String)
@@ -213,7 +213,7 @@ public class Game extends IdentifiableResource {
     /**
      * Gets a {@code List} of platform IDs that this game is on.
      *
-     * @return a {@code List} of platform IDs
+     * @return an unmodifiable {@code List} of platform IDs
      *
      * @see com.github.treescrub.spedran.data.Platform
      * @see Spedran#getPlatform(String)
@@ -225,7 +225,7 @@ public class Game extends IdentifiableResource {
     /**
      * Gets a {@code List} of region IDs that this game is in.
      *
-     * @return a {@code List} of region IDs
+     * @return an unmodifiable {@code List} of region IDs
      *
      * @see com.github.treescrub.spedran.data.Region
      * @see Spedran#getRegion(String)
@@ -237,7 +237,7 @@ public class Game extends IdentifiableResource {
     /**
      * Gets a {@code List} of genre IDs that this game is in.
      *
-     * @return a {@code List} of genre IDs
+     * @return an unmodifiable {@code List} of genre IDs
      *
      * @see com.github.treescrub.spedran.data.Genre
      * @see Spedran#getGenre(String)
@@ -249,7 +249,7 @@ public class Game extends IdentifiableResource {
     /**
      * Gets a {@code List} of engine IDs that this game runs in.
      *
-     * @return a {@code List} of engine IDs
+     * @return an unmodifiable {@code List} of engine IDs
      *
      * @see com.github.treescrub.spedran.data.Engine
      * @see Spedran#getEngine(String)
@@ -261,7 +261,7 @@ public class Game extends IdentifiableResource {
     /**
      * Gets a {@code List} of developer IDs that developed this game.
      *
-     * @return a {@code List} of developer IDs
+     * @return an unmodifiable {@code List} of developer IDs
      *
      * @see com.github.treescrub.spedran.data.Developer
      * @see Spedran#getDeveloper(String)
@@ -273,7 +273,7 @@ public class Game extends IdentifiableResource {
     /**
      * Gets a {@code List} of publisher IDs that published this game.
      *
-     * @return a {@code List} of publisher IDs
+     * @return an unmodifiable {@code List} of publisher IDs
      *
      * @see com.github.treescrub.spedran.data.Publisher
      * @see Spedran#getPublisher(String)
@@ -285,7 +285,7 @@ public class Game extends IdentifiableResource {
     /**
      * Gets a {@code Map} of user IDs as keys and moderator types as values.
      *
-     * @return a {@code Map} of user IDs to moderator types
+     * @return an unmodifiable {@code Map} of user IDs to moderator types
      *
      * @see User
      * @see Spedran#getUser(String)

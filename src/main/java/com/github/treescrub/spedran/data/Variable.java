@@ -91,7 +91,7 @@ public class Variable extends IdentifiableNamedResource {
     /**
      * Gets a {@link Map} to map variable value IDs to a {@link VariableValue}.
      *
-     * @return a {@code Map} with keys being variable value IDs, and values being {@code VariableValue}
+     * @return an unmodifiable {@code Map} with keys being variable value IDs, and values being {@code VariableValue}
      */
     public Map<String, VariableValue> getValues() {
         return values;

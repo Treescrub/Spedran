@@ -73,7 +73,7 @@ public class GameRuleset {
     /**
      * Gets a {@code List} of allowed {@link TimingType}s that a run can have.
      *
-     * @return a {@code List} of {@code TimingType}s
+     * @return an unmodifiable {@code List} of {@code TimingType}s
      */
     public List<TimingType> getRunTimes() {
         return runTimes;

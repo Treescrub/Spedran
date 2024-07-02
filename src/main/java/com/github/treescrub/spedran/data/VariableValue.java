@@ -59,7 +59,7 @@ public class VariableValue {
      * <br>
      * Currently, the only flag is {@code miscellaneous}.
      *
-     * @return a {@code Map} of flags, empty if variable is not a subcategory
+     * @return an unmodifiable {@code Map} of flags, empty if variable is not a subcategory
      */
     public Map<String, Boolean> getFlags() {
         return flags;

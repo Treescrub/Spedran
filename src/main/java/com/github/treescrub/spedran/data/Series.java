@@ -98,7 +98,7 @@ public class Series extends IdentifiableResource {
     /**
      * Gets a {@code Map} of user IDs as keys and moderator types as values.
      *
-     * @return a {@code Map} of user IDs to moderator types
+     * @return an unmodifiable {@code Map} of user IDs to moderator types
      *
      * @see User
      * @see Spedran#getUser(String)

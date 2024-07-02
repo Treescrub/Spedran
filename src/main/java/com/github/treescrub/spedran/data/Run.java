@@ -172,7 +172,7 @@ public class Run extends IdentifiableResource {
     /**
      * Gets a {@code List} of the runners of this run.
      *
-     * @return a {@code List} of the runners
+     * @return an unmodifiable {@code List} of the runners
      */
     public List<RunPlayer> getPlayers() {
         return players;
@@ -226,7 +226,7 @@ public class Run extends IdentifiableResource {
     /**
      * Returns a {@link Map} with each key being a variable ID, and the corresponding value being the variable value ID.
      *
-     * @return a {@link Map} between variable IDs and variable value IDs
+     * @return an unmodifiable {@link Map} between variable IDs and variable value IDs
      */
     public Map<String, String> getVariableValues() {
         return values;

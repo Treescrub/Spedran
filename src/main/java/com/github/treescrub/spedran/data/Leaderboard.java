@@ -160,7 +160,7 @@ public class Leaderboard extends Resource {
     /**
      * Gets a mapping of variable IDs to variable value IDs.
      *
-     * @return a {@code Map} with keys being variable IDs and values being variable values
+     * @return an unmodifiable {@code Map} with keys being variable IDs and values being variable values
      *
      * @see Variable
      */
@@ -173,7 +173,7 @@ public class Leaderboard extends Resource {
      * Gets all runs on the leaderboard.
      * Runs are sorted by place on the leaderboard.
      *
-     * @return a {@code List} with all runs on this leaderboard
+     * @return an unmodifiable {@code List} with all runs on this leaderboard
      *
      * @see LeaderboardRun
      */
