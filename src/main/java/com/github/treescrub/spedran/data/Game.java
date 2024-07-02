@@ -30,7 +30,7 @@ public class Game extends IdentifiableResource {
     private final List<String> engines;
     private final List<String> developers;
     private final List<String> publishers;
-    private final Map<String, String> moderators;
+    private final Map<String, ModeratorType> moderators;
     private final Instant created;
     private final GameAssets assets;
 
@@ -52,9 +52,10 @@ public class Game extends IdentifiableResource {
         engines = ParseUtils.getStringList(data.getJSONArray("engines"));
         developers = ParseUtils.getStringList(data.getJSONArray("developers"));
         publishers = ParseUtils.getStringList(data.getJSONArray("publishers"));
-        Map<String, String> tempModerators = new HashMap<>();
+        Map<String, ModeratorType> tempModerators = new HashMap<>();
         for(String key : data.getJSONObject("moderators").keySet()) {
-            tempModerators.put(key, data.getJSONObject("moderators").getString(key));
+            ModeratorType type = ModeratorType.fromAPI(data.getJSONObject("moderators").getString(key));
+            tempModerators.put(key, type);
         }
         moderators = Collections.unmodifiableMap(tempModerators);
         created = !data.isNull("created") ? Instant.parse(data.getString("created")) : null;
@@ -289,7 +290,7 @@ public class Game extends IdentifiableResource {
      * @see User
      * @see Spedran#getUser(String)
      */
-    public Map<String, String> getModerators() {
+    public Map<String, ModeratorType> getModerators() {
         return moderators;
     }
 
