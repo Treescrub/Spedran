@@ -24,7 +24,7 @@ public class Series extends IdentifiableResource {
     private final String abbreviation;
     private final String weblink;
     private final String discord;
-    private final Map<String, String> moderators;
+    private final Map<String, ModeratorType> moderators;
     private final Instant created;
     private final GameAssets assets;
 
@@ -35,9 +35,10 @@ public class Series extends IdentifiableResource {
         abbreviation = data.getString("abbreviation");
         weblink = data.getString("weblink");
         discord = data.optString("discord", null);
-        Map<String, String> tempModerators = new HashMap<>();
+        Map<String, ModeratorType> tempModerators = new HashMap<>();
         for(String key : data.getJSONObject("moderators").keySet()) {
-            tempModerators.put(key, data.getJSONObject("moderators").getString(key));
+            ModeratorType type = ModeratorType.fromAPI(data.getJSONObject("moderators").getString(key));
+            tempModerators.put(key, type);
         }
         moderators = Collections.unmodifiableMap(tempModerators);
         if(!data.isNull("created")) {
@@ -95,11 +96,14 @@ public class Series extends IdentifiableResource {
     }
 
     /**
-     * Gets a {@code Map} of moderator user IDs to their moderator role (either {@code moderator} or {@code super-moderator}).
+     * Gets a {@code Map} of user IDs as keys and moderator types as values.
      *
-     * @return a {@link Map} with user IDs as keys and role as values
+     * @return a {@code Map} of user IDs to moderator types
+     *
+     * @see User
+     * @see Spedran#getUser(String)
      */
-    public Map<String, String> getModerators() {
+    public Map<String, ModeratorType> getModerators() {
         return moderators;
     }
 
