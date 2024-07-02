@@ -139,7 +139,7 @@ class GameTest {
 
         assertFalse(game.getModerators().isEmpty());
         assertTrue(game.getModerators().containsKey("qjoq74l8"));
-        assertEquals("moderator", game.getModerators().get("qjoq74l8"));
+        assertEquals(ModeratorType.MODERATOR, game.getModerators().get("qjoq74l8"));
     }
 
     @Test
