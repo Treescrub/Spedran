@@ -6,6 +6,8 @@ import kong.unirest.json.JSONObject;
 /**
  * Has information about a specific runner.
  * Only makes sense in the context of a run.
+ * <br><br>
+ * This class is immutable and thread-safe.
  */
 public class RunPlayer extends Link {
     private final String id;

@@ -8,6 +8,8 @@ import java.util.Optional;
 
 /**
  * The verification status of a {@link Run} on SRC.
+ * <br><br>
+ * This class is immutable and thread-safe.
  */
 public class RunStatus {
     private final SubmissionStatus submissionStatus;

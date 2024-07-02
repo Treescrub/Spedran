@@ -7,6 +7,8 @@ import java.util.Optional;
 
 /**
  * Contains platform and region info, as well as if the run used an emulator.
+ * <br><br>
+ * This class is immutable and thread-safe.
  *
  * @see com.github.treescrub.spedran.data.Platform
  * @see com.github.treescrub.spedran.data.Region

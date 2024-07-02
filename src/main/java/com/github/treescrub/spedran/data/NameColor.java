@@ -8,6 +8,8 @@ import java.awt.*;
  * Represents a color preset for a user's name.
  * <br>
  * Has light and dark colors for light and dark backgrounds.
+ * <br><br>
+ * This class is immutable and thread-safe.
  */
 public class NameColor {
     private final Color light;

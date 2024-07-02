@@ -8,6 +8,8 @@ import kong.unirest.json.JSONObject;
  * A genre of game.
  * <br>
  * For example: FPS, platformer, and so on.
+ * <br><br>
+ * This class is immutable and thread-safe.
  */
 public class Genre extends IdentifiableNamedResource {
 

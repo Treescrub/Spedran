@@ -10,6 +10,8 @@ import java.util.Optional;
 
 /**
  * A moderator defined variable for which a value can be set on a {@link Run}.
+ * <br><br>
+ * This class is immutable and thread-safe.
  */
 public class Variable extends IdentifiableNamedResource {
     private final String category;

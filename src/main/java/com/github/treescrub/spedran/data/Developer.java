@@ -6,6 +6,8 @@ import kong.unirest.json.JSONObject;
 
 /**
  * The developer of a game.
+ * <br><br>
+ * This class is immutable and thread-safe.
  */
 public class Developer extends IdentifiableNamedResource {
 

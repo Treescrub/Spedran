@@ -11,6 +11,8 @@ import java.util.Optional;
  * A value for a {@link Variable}.
  * <br>
  * Contains info about the value label. Also has rules text and flags if the variable is a subcategory.
+ * <br><br>
+ * This class is immutable and thread-safe.
  */
 public class VariableValue {
     private final String label;

@@ -6,6 +6,8 @@ import java.util.Objects;
 
 /**
  * Contains a location code and {@link Names} for a location in the world.
+ * <br><br>
+ * This class is immutable and thread-safe.
  */
 public class LocationInfo {
     private final String code;

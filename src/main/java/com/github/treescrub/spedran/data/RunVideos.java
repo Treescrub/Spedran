@@ -13,6 +13,8 @@ import java.util.Optional;
  * Includes the main video section and videos linked in the description.
  * <br>
  * If the main video section contains more than just a video link, {@link RunVideos#text} is set.
+ * <br><br>
+ * This class is immutable and thread-safe.
  */
 public class RunVideos {
     private final String text;

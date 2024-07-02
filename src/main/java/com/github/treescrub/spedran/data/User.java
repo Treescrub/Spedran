@@ -11,6 +11,8 @@ import java.util.Optional;
 
 /**
  * Represents a user on SRC.
+ * <br><br>
+ * This class is immutable and thread-safe.
  */
 public class User extends IdentifiableResource {
     private final Names names;

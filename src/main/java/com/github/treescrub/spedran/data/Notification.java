@@ -6,6 +6,8 @@ import java.time.Instant;
 
 /**
  * A notification on SRC for an authenticated {@link User}.
+ * <br><br>
+ * This class is immutable and thread-safe.
  */
 public class Notification extends IdentifiableResource {
     private final Instant creationTime;

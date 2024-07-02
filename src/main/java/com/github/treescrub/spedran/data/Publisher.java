@@ -8,6 +8,8 @@ import kong.unirest.json.JSONObject;
  * A publisher of games.
  * <br>
  * For example: Bethesda Softworks, Valve, Nintendo, and so on.
+ * <br><br>
+ * This class is immutable and thread-safe.
  */
 public class Publisher extends IdentifiableNamedResource {
 

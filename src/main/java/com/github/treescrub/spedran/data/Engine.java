@@ -6,6 +6,8 @@ import kong.unirest.json.JSONObject;
 
 /**
  * The game engine used in a game.
+ * <br><br>
+ * This class is immutable and thread-safe.
  */
 public class Engine extends IdentifiableNamedResource {
 

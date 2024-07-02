@@ -9,6 +9,8 @@ import java.util.List;
 /**
  * A set of moderator specified rules that define how runs can be submitted for a specific {@link Game}.
  * These are not rules in the sense of moderating the leaderboard, but rather as restrictions when submitting a run.
+ * <br><br>
+ * This class is immutable and thread-safe.
  */
 public class GameRuleset {
     private final boolean showMilliseconds;

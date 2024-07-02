@@ -8,6 +8,8 @@ import java.util.Optional;
  * A {@link User}s location in the world as set by the user.
  * <br>
  * Has country info and may have region info.
+ * <br><br>
+ * This class is immutable and thread-safe.
  */
 public class UserLocation {
     private final LocationInfo country;

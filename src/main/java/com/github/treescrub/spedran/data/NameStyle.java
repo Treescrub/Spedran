@@ -8,6 +8,8 @@ import java.util.Optional;
  * Describes how the name for a {@link User} should be colored.
  * <br>
  * If the style is a gradient, {@link NameStyle#getStartColor()} and {@link NameStyle#getEndColor()} can be identical.
+ * <br><br>
+ * This class is immutable and thread-safe.
  */
 public class NameStyle {
     /**

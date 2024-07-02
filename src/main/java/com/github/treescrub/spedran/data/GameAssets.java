@@ -8,6 +8,8 @@ import java.util.Optional;
  * A collection of {@link Link}s to customized images for a {@link Game} or {@link Series}.
  * <br><br>
  * Everything but the cover image can be seen and changed in the Settings menu for a game/series, under Theme.
+ * <br><br>
+ * This class is immutable and thread-safe.
  */
 public class GameAssets {
     private final Link logo;

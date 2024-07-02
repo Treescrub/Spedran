@@ -11,6 +11,8 @@ import java.util.*;
 
 /**
  * A game which has a leaderboard on SRC.
+ * <br><br>
+ * This class is immutable and thread-safe.
  */
 public class Game extends IdentifiableResource {
     private final Names names;

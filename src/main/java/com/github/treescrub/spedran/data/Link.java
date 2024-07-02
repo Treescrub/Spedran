@@ -6,6 +6,8 @@ import java.util.Optional;
 
 /**
  * A link consisting of a URI and optionally a relation.
+ * <br><br>
+ * This class is immutable and thread-safe.
  */
 class Link {
     private final String uri;

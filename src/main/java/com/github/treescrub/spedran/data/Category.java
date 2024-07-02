@@ -10,6 +10,8 @@ import kong.unirest.json.JSONObject;
  * A category of runs which has its own specific rules.
  * <br>
  * Common category names are {@code Any%}, {@code 100%}, and so on.
+ * <br><br>
+ * This class is immutable and thread-safe.
  */
 public class Category extends IdentifiableNamedResource {
     private final String weblink;

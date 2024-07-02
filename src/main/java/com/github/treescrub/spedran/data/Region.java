@@ -11,6 +11,8 @@ import kong.unirest.json.JSONObject;
  * Name consists of a shortened country or region name and either {@code NTSC} or {@code PAL}.
  * <br>
  * For example: {@code USA / NTSC}.
+ * <br><br>
+ * This class is immutable and thread-safe.
  */
 public class Region extends IdentifiableNamedResource {
 

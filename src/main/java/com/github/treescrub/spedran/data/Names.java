@@ -6,6 +6,8 @@ import java.util.Optional;
 
 /**
  * Contains international, Japanese, and Twitch names.
+ * <br><br>
+ * This class is immutable and thread-safe.
  */
 public class Names {
     private final String international;

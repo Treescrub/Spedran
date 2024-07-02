@@ -11,6 +11,8 @@ import java.util.Optional;
 
 /**
  * A specific level in a {@link Game}.
+ * <br><br>
+ * This class is immutable and thread-safe.
  */
 public class Level extends IdentifiableNamedResource {
     private final String weblink;

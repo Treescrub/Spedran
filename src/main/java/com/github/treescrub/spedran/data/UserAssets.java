@@ -6,6 +6,8 @@ import java.util.Optional;
 
 /**
  * A collection of {@link Link}s to custom icon and avatar images for a {@link User}.
+ * <br><br>
+ * This class is immutable and thread-safe.
  */
 public class UserAssets {
     private final Link icon;

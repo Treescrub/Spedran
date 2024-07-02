@@ -7,7 +7,10 @@ import kong.unirest.json.JSONObject;
 import java.util.Objects;
 
 /**
- * A guest runner. Can be entered as a runner in a run by other users, but has no account.
+ * A guest runner.
+ * Can be entered as a runner in a run by other users, but has no account.
+ * <br><br>
+ * This class is immutable and thread-safe.
  */
 @SuppressWarnings("unused")
 public class Guest extends Resource {

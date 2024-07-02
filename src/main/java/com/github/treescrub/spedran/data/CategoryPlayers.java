@@ -4,6 +4,8 @@ import kong.unirest.json.JSONObject;
 
 /**
  * Contains the rules for how many players can participate in the category.
+ * <br><br>
+ * This class is immutable and thread-safe.
  */
 public class CategoryPlayers {
     private final boolean isExact;

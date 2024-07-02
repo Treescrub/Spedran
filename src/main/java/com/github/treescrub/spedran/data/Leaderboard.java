@@ -8,6 +8,8 @@ import java.util.*;
 /**
  * A collection of runs sorted by ranking as they would appear on SRC.
  * Does not contain obsoleted runs.
+ * <br><br>
+ * This class is immutable and thread-safe.
  */
 public class Leaderboard extends Resource {
     private final String weblink;

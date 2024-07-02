@@ -7,6 +7,8 @@ import java.util.Optional;
 
 /**
  * Contains info of all times set for a run.
+ * <br><br>
+ * This class is immutable and thread-safe.
  *
  * @see Run
  * @see Run#getRunTimes()

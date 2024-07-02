@@ -16,6 +16,8 @@ import java.util.Optional;
  * For example: Super Mario, Sonic, Doom, Halo, and so on.
  * <br>
  * The special series named {@code N/A} is a placeholder when a game is not part of a series.
+ * <br><br>
+ * This class is immutable and thread-safe.
  */
 public class Series extends IdentifiableResource {
     private final Names names;

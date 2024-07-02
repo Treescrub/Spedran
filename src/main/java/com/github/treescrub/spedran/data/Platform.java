@@ -9,6 +9,8 @@ import kong.unirest.json.JSONObject;
  * A platform which a game can be run on.
  * <br>
  * For example: PC, Xbox 360, Game Boy Advance, Amazon Fire TV, and so on.
+ * <br><br>
+ * This class is immutable and thread-safe.
  */
 public class Platform extends IdentifiableNamedResource {
     private final int released;

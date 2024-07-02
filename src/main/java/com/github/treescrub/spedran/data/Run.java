@@ -12,6 +12,8 @@ import java.util.*;
 
 /**
  * A speedrun on SRC.
+ * <br><br>
+ * This class is immutable and thread-safe.
  */
 public class Run extends IdentifiableResource {
     private final String weblink;

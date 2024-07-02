@@ -7,6 +7,8 @@ import java.util.Optional;
 
 /**
  * The scope that a {@link Variable} should apply or be visible in.
+ * <br><br>
+ * This class is immutable and thread-safe.
  */
 public class VariableScope {
     /**

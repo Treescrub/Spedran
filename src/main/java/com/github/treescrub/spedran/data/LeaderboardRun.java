@@ -4,6 +4,8 @@ import kong.unirest.json.JSONObject;
 
 /**
  * A run on a leaderboard. Has a place on the leaderboard and the associated run.
+ * <br><br>
+ * This class is immutable and thread-safe.
  */
 public class LeaderboardRun extends Resource {
     private final int place;

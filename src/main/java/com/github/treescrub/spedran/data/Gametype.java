@@ -8,6 +8,8 @@ import kong.unirest.json.JSONObject;
  * Represents different types of unofficial games.
  * <br>
  * For example: ROM hacks, mods, category extensions, and so on.
+ * <br><br>
+ * This class is immutable and thread-safe.
  */
 public class Gametype extends IdentifiableNamedResource {
 
