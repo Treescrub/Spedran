@@ -7,7 +7,7 @@ import java.util.Optional;
 /**
  * A link consisting of a URI and optionally a relation.
  */
-public class Link {
+class Link {
     private final String uri;
     private final String rel;
 
@@ -26,7 +26,7 @@ public class Link {
      * @param data the JSON data
      * @return a {@code Link}, null if not a valid {@code Link}
      */
-    public static Link getLinkOrNull(JSONObject data) {
+    static Link getLinkOrNull(JSONObject data) {
         if(isEmpty(data)) {
             return null;
         } else {
