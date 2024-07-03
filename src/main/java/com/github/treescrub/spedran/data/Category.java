@@ -75,7 +75,7 @@ public class Category extends IdentifiableNamedResource {
      *
      * @return {@code true} if this category is per level, otherwise {@code false}
      */
-    public Boolean isPerLevel() {
+    public boolean isPerLevel() {
         return isPerLevel;
     }
 
