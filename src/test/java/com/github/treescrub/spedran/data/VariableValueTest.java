@@ -30,5 +30,6 @@ class VariableValueTest {
         VariableValue variableValue = new VariableValue(json);
 
         assertTrue(variableValue.getFlags().isEmpty());
+        assertThrows(UnsupportedOperationException.class, () -> variableValue.getFlags().clear());
     }
 }

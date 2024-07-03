@@ -46,6 +46,7 @@ class GameRulesetTest {
         GameRuleset ruleset = new GameRuleset(json);
 
         assertTrue(ruleset.getRunTimes().contains(TimingType.REALTIME));
+        assertThrows(UnsupportedOperationException.class, () -> ruleset.getRunTimes().clear());
     }
 
     @Test

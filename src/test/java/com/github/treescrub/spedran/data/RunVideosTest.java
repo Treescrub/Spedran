@@ -5,6 +5,7 @@ import kong.unirest.json.JSONObject;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class RunVideosTest {
 
@@ -22,5 +23,6 @@ class RunVideosTest {
         RunVideos runVideos = new RunVideos(json);
 
         assertFalse(runVideos.getLinks().isEmpty());
+        assertThrows(UnsupportedOperationException.class, () -> runVideos.getLinks().clear());
     }
 }

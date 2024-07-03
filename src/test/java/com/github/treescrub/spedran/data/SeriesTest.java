@@ -52,6 +52,7 @@ class SeriesTest {
         assertNotNull(series.getModerators());
         assertTrue(series.getModerators().containsKey("68wk1gl8"));
         assertEquals(ModeratorType.SUPER_MODERATOR, series.getModerators().get("68wk1gl8"));
+        assertThrows(UnsupportedOperationException.class, () -> series.getModerators().clear());
     }
 
     @Test
