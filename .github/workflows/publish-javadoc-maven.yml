@@ -17,5 +17,6 @@ jobs:
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           javadoc-branch: javadoc
+          target-folder: javadoc
           java-version: 11
           project: maven
