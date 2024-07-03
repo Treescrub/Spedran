@@ -54,6 +54,7 @@ class VariableTest {
         Variable variable = new Variable(json);
 
         assertFalse(variable.getValues().isEmpty());
+        assertThrows(UnsupportedOperationException.class, () -> variable.getValues().clear());
     }
 
     @Test

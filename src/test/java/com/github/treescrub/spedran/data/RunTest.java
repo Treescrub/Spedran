@@ -75,6 +75,7 @@ class RunTest {
         Run run = new Run(json);
 
         assertFalse(run.getPlayers().isEmpty());
+        assertThrows(UnsupportedOperationException.class, () -> run.getPlayers().clear());
     }
 
     @Test
@@ -103,6 +104,7 @@ class RunTest {
         Run run = new Run(json);
 
         assertNotNull(run.getRunTimes());
+        assertThrows(UnsupportedOperationException.class, () -> run.getVariableValues().clear());
     }
 
     @Test

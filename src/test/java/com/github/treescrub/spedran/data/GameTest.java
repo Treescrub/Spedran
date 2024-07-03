@@ -82,6 +82,7 @@ class GameTest {
         Game game = new Game(json);
 
         assertTrue(game.getGametypes().isEmpty());
+        assertThrows(UnsupportedOperationException.class, () -> game.getGametypes().clear());
     }
 
     @Test
@@ -90,6 +91,7 @@ class GameTest {
         Game game = new Game(json);
 
         assertFalse(game.getPlatforms().isEmpty());
+        assertThrows(UnsupportedOperationException.class, () -> game.getPlatforms().clear());
     }
 
     @Test
@@ -98,6 +100,7 @@ class GameTest {
         Game game = new Game(json);
 
         assertTrue(game.getRegions().isEmpty());
+        assertThrows(UnsupportedOperationException.class, () -> game.getRegions().clear());
     }
 
     @Test
@@ -106,6 +109,7 @@ class GameTest {
         Game game = new Game(json);
 
         assertFalse(game.getGenres().isEmpty());
+        assertThrows(UnsupportedOperationException.class, () -> game.getGenres().clear());
     }
 
     @Test
@@ -114,6 +118,7 @@ class GameTest {
         Game game = new Game(json);
 
         assertFalse(game.getEngines().isEmpty());
+        assertThrows(UnsupportedOperationException.class, () -> game.getEngines().clear());
     }
 
     @Test
@@ -122,6 +127,7 @@ class GameTest {
         Game game = new Game(json);
 
         assertFalse(game.getDevelopers().isEmpty());
+        assertThrows(UnsupportedOperationException.class, () -> game.getDevelopers().clear());
     }
 
     @Test
@@ -130,6 +136,7 @@ class GameTest {
         Game game = new Game(json);
 
         assertFalse(game.getPublishers().isEmpty());
+        assertThrows(UnsupportedOperationException.class, () -> game.getPublishers().clear());
     }
 
     @Test
@@ -140,6 +147,7 @@ class GameTest {
         assertFalse(game.getModerators().isEmpty());
         assertTrue(game.getModerators().containsKey("qjoq74l8"));
         assertEquals(ModeratorType.MODERATOR, game.getModerators().get("qjoq74l8"));
+        assertThrows(UnsupportedOperationException.class, () -> game.getModerators().clear());
     }
 
     @Test
