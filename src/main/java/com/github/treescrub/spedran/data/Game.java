@@ -16,8 +16,8 @@ import java.util.*;
  */
 public class Game extends IdentifiableResource {
     private final Names names;
-    private final Integer boostReceived;
-    private final Integer boostDistinctDonors;
+    private final int boostReceived;
+    private final int boostDistinctDonors;
     private final String abbreviation;
     private final String weblink;
     private final String discord;
@@ -138,7 +138,7 @@ public class Game extends IdentifiableResource {
      *
      * @see <a href="https://www.speedrun.com/supporter/faq">SRC Supporter FAQ</a>
      */
-    public Integer getBoostsReceived() {
+    public int getBoostsReceived() {
         return boostReceived;
     }
 
@@ -149,7 +149,7 @@ public class Game extends IdentifiableResource {
      *
      * @see <a href="https://www.speedrun.com/supporter/faq">SRC Supporter FAQ</a>
      */
-    public Integer getDistinctBoosters() {
+    public int getDistinctBoosters() {
         return boostDistinctDonors;
     }
 
