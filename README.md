@@ -23,6 +23,10 @@ public class GetUserName {
 
 ## Usage
 
+## Documentation
+
+See the [Javadocs](https://treescrub.github.io/Spedran/javadoc/).
+
 ## License
 
 Distributed under the MIT license, see `LICENSE.txt`.
