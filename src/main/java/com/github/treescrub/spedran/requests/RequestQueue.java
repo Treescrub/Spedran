@@ -55,8 +55,10 @@ class RequestQueue {
             return;
         }
 
-        requestQueue.add(request);
-        requestsInQueue.incrementAndGet();
+        synchronized(requestQueue) {
+            requestQueue.add(request);
+            requestsInQueue.incrementAndGet();
+        }
 
         logger.debug("Request {} submitted to queue", request.getRequest().getUrl());
 
@@ -97,7 +99,7 @@ class RequestQueue {
 
             synchronized(requestQueue) {
                 // If all API requests for the current request are finished, remove from queue
-                if (currentRequest.isCompleted()) {
+                if(currentRequest.isCompleted()) {
                     requestQueue.remove();
                     requestsInQueue.decrementAndGet();
                 }
@@ -126,6 +128,7 @@ class RequestQueue {
             // Execute the blocking resource request and get the response from the API.
             response = resourceRequest.executeBlocking();
 
+            // Add the fresh response to the cache
             Requests.addCachedResponse(httpRequest.getUrl(), response);
         }
 
@@ -134,8 +137,8 @@ class RequestQueue {
 
             // Reduce the delay because it's been a while since we hit a rate limit
             if(millisecondsSinceLastRateLimit >= BACKOFF_REDUCE_DELAY_MS) {
-                synchronized (rateLimitCount) {
-                    if (rateLimitCount.get() > 0) {
+                synchronized(rateLimitCount) {
+                    if(rateLimitCount.get() > 0) {
                         logger.debug("Reducing rate limit delay");
                         rateLimitCount.decrementAndGet();
                     }
