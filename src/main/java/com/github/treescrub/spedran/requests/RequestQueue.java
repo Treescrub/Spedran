@@ -102,6 +102,8 @@ class RequestQueue {
                 if(currentRequest.isCompleted()) {
                     requestQueue.remove();
                     requestsInQueue.decrementAndGet();
+
+                    logger.debug("Removing '{}' from queue as completed", currentRequest.getRequest().getUrl());
                 }
 
                 currentRequest = requestQueue.peek();
@@ -113,7 +115,7 @@ class RequestQueue {
      * Execute the next request and check the result.
      */
     private void executeRequest(ResourceRequest<?> resourceRequest) {
-        logger.debug("Executing request, {} left in queue", requestsInQueue.get());
+        logger.debug("Executing request to '{}', {} left in queue", resourceRequest.getRequest().getUrl(), requestsInQueue.get());
 
         HttpRequest<?> httpRequest = resourceRequest.getRequest();
         HttpResponse<?> response;
@@ -122,14 +124,15 @@ class RequestQueue {
         if(cachedResponse.isPresent()) {
             // Skip querying the API and just use the cached response.
             response = cachedResponse.get();
-
             logger.debug("Using cached response for '{}'", httpRequest.getUrl());
         } else {
             // Execute the blocking resource request and get the response from the API.
             response = resourceRequest.executeBlocking();
 
-            // Add the fresh response to the cache
-            Requests.addCachedResponse(httpRequest.getUrl(), response);
+            if(response.getStatus() != RATELIMIT_CODE) {
+                // Add the fresh response to the cache
+                Requests.addCachedResponse(httpRequest.getUrl(), response);
+            }
         }
 
         if(response.isSuccess()) {
@@ -150,13 +153,10 @@ class RequestQueue {
             resourceRequest.finishRequest(response.getBody());
         } else {
             if(response.getStatus() == RATELIMIT_CODE) {
-                // Add the request back to the end of the queue.
-                requestQueue.add(resourceRequest);
-
                 rateLimitCount.incrementAndGet();
                 lastRateLimit = System.currentTimeMillis();
 
-                logger.debug("Hit rate limit");
+                logger.debug("Hit rate limit on '{}'", httpRequest.getUrl());
 
                 return;
             }
