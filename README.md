@@ -9,6 +9,18 @@ Almost entirely limited to only reading data with only a few exceptions related 
 
 ## Quick Start
 
+```java
+public class GetUserName {
+  public static void main(String[] args) {
+    // Get a user with an ID
+    User user = Spedran.getUser("zx721w08").join();
+
+    // Print the user's name
+    System.out.println(user.getNames().getInternationalName());
+  }
+}
+```
+
 ## Usage
 
 ## License
