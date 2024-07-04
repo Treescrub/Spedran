@@ -25,8 +25,12 @@ public class Requests {
     private Requests() {}
 
     private static void setup() {
+        String version = Requests.class.getPackage().getImplementationVersion();
+
+        logger.info("Got version '{}' from manifest", version);
+
         unirestInstance = Unirest.spawnInstance();
-        unirestInstance.config().addDefaultHeader("User-Agent", "Spedran/1.0");
+        unirestInstance.config().addDefaultHeader("User-Agent", "Spedran/" + version);
         unirestInstance.config().defaultBaseUrl(BASE_URL);
         unirestInstance.config().interceptor(new LoggingInterceptor());
     }

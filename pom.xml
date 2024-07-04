@@ -63,6 +63,9 @@
                             <Built-By>Treescrub</Built-By>
                             <Multi-Release>true</Multi-Release>
                         </manifestEntries>
+                        <manifest>
+                            <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+                        </manifest>
                     </archive>
                 </configuration>
             </plugin>
