@@ -10,11 +10,19 @@ import java.util.Queue;
 import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 
 @SuppressWarnings("unused")
 class RequestQueue {
+    private static class QueueThreadFactory implements ThreadFactory {
+        @Override
+        public Thread newThread(Runnable r) {
+            return new Thread(r, "Spedran RequestQueue Executor");
+        }
+    }
+
     private final Queue<ResourceRequest<?>> requestQueue = new ConcurrentLinkedQueue<>();
     /**
      * Number of times we recently encountered a rate limit.
@@ -46,7 +54,7 @@ class RequestQueue {
     private long lastRateLimit = 0;
     private final AtomicBoolean isShutDown = new AtomicBoolean(false);
 
-    private final ExecutorService queueExecutor = Executors.newSingleThreadExecutor();
+    private final ExecutorService queueExecutor = Executors.newSingleThreadExecutor(new QueueThreadFactory());
     private static final Logger logger = LogManager.getLogger(RequestQueue.class);
 
     public void queueRequest(ResourceRequest<?> request) {
