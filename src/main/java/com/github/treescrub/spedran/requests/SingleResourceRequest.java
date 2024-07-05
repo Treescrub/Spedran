@@ -55,7 +55,7 @@ public abstract class SingleResourceRequest<T extends Resource> extends Resource
             } catch (NoSuchMethodException | InvocationTargetException | InstantiationException | IllegalAccessException e) {
                 throw new RuntimeException(e);
             }
-        });
+        }, Requests.forkJoinPool);
     }
 
     private T parse(JSONObject data) throws NoSuchMethodException, InvocationTargetException, InstantiationException, IllegalAccessException {
