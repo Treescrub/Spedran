@@ -5,12 +5,28 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import java.util.Optional;
+import java.util.concurrent.ForkJoinPool;
+import java.util.concurrent.ForkJoinWorkerThread;
+import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * Main request configuration and state.
  */
 public class Requests {
+    private static class RequestThreadFactory implements ForkJoinPool.ForkJoinWorkerThreadFactory {
+        private final AtomicInteger count = new AtomicInteger(0);
+
+        @Override
+        public ForkJoinWorkerThread newThread(ForkJoinPool pool) {
+            ForkJoinWorkerThread newThread = ForkJoinPool.defaultForkJoinWorkerThreadFactory.newThread(pool);
+            newThread.setName("Spedran ForkJoin-" + count.getAndIncrement());
+
+            return newThread;
+        }
+    }
+
     static final String BASE_URL = "https://www.speedrun.com/api/v1/";
+    static final ForkJoinPool forkJoinPool = new ForkJoinPool(ForkJoinPool.getCommonPoolParallelism(), new RequestThreadFactory(), null, true);
 
     private static String key;
     private static UnirestInstance unirestInstance;
