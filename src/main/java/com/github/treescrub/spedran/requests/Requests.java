@@ -4,7 +4,9 @@ import kong.unirest.*;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import java.io.IOException;
 import java.util.Optional;
+import java.util.Properties;
 import java.util.concurrent.ForkJoinPool;
 import java.util.concurrent.ForkJoinWorkerThread;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -41,9 +43,16 @@ public class Requests {
     private Requests() {}
 
     private static void setup() {
-        String version = Requests.class.getPackage().getImplementationVersion();
+        String version = "UNKNOWN";
+        try {
+            Properties properties = new Properties();
+            properties.load(Requests.class.getClassLoader().getResourceAsStream("project.properties"));
+            version = properties.getProperty("version");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
-        logger.info("Got version '{}' from manifest", version);
+        logger.info("Got version '{}' from properties", version);
 
         unirestInstance = Unirest.spawnInstance();
         unirestInstance.config().addDefaultHeader("User-Agent", "Spedran/" + version);
