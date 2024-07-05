@@ -6,7 +6,7 @@
 
     <groupId>com.github.treescrub</groupId>
     <artifactId>spedran</artifactId>
-    <version>0.25.4</version>
+    <version>0.25.5</version>
     <packaging>jar</packaging>
 
     <name>Spedran</name>
