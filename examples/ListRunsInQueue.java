@@ -3,7 +3,6 @@ import com.github.treescrub.spedran.data.Game;
 import com.github.treescrub.spedran.data.Run;
 import com.github.treescrub.spedran.data.SubmissionStatus;
 
-import java.time.Instant;
 import java.util.List;
 
 class ListRunsInQueue {
