@@ -73,6 +73,9 @@
                             <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
                         </manifest>
                     </archive>
+                    <excludes>
+                        <exclude>examples/**</exclude>
+                    </excludes>
                 </configuration>
             </plugin>
             <plugin>
