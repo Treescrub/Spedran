@@ -35,7 +35,7 @@ public class Leaderboard extends Resource {
         region = data.isNull("region") ? null : data.getString("region");
         emulators = data.isNull("emulators") ? null : data.getBoolean("emulators");
         videoOnly = data.getBoolean("video-only");
-        timing = TimingType.valueOf(data.getString("timing").toUpperCase());
+        timing = data.isNull("timing") ? null : TimingType.valueOf(data.getString("timing").toUpperCase());
         Map<String, String> tempValues = new HashMap<>();
         for(String key : data.getJSONObject("values").keySet()) {
             tempValues.put(key, data.getString(key));
@@ -148,13 +148,13 @@ public class Leaderboard extends Resource {
     /**
      * Gets the {@code TimingType} that was used to sort the runs from {@link Leaderboard#getRuns()}.
      *
-     * @return the {@code TimingType} that the runs were sorted by
+     * @return the {@code TimingType} that the runs were sorted by, empty if not specified
      *
      * @see TimingType
      */
     @SuppressWarnings("unused")
-    public TimingType getTiming() {
-        return timing;
+    public Optional<TimingType> getTiming() {
+        return Optional.ofNullable(timing);
     }
 
     /**
