@@ -17,6 +17,8 @@ import java.util.concurrent.CompletableFuture;
 
 /**
  * A request to get a collection of resources from the SRC API.
+ * <br>
+ * Limited to 10,000 items.
  *
  * @param <T> a class that represents resources that will be retrieved from the API and compiled into a list
  */
