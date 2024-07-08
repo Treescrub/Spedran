@@ -22,6 +22,7 @@ import java.util.concurrent.CompletableFuture;
  */
 public abstract class ResourceCollectionRequest<T extends Resource> extends ResourceRequest<List<T>> {
     private static final int MAX_ITEMS = 200;
+    private static final int MAX_COLLECTION_SIZE = 10000;
     private final List<JsonNode> responseBodies = new ArrayList<>();
 
     @SuppressWarnings("unused")
@@ -82,9 +83,13 @@ public abstract class ResourceCollectionRequest<T extends Resource> extends Reso
         String nextLink = extractPaginationLink(jsonBody.getObject());
 
         if(nextLink == null) {
-            completed = true;
-            // Complete async so that we aren't on the same thread as the RequestQueue
-            result.completeAsync(this::collectResources, Requests.forkJoinPool);
+            markCompleted();
+            return;
+        }
+
+        // If we are at the size limit, mark as completed
+        if(responseBodies.size() * MAX_ITEMS >= MAX_COLLECTION_SIZE) {
+            markCompleted();
             return;
         }
 
@@ -94,6 +99,12 @@ public abstract class ResourceCollectionRequest<T extends Resource> extends Reso
     @Override
     HttpResponse<?> executeBlocking() {
         return request.asJson();
+    }
+
+    private void markCompleted() {
+        completed = true;
+        // Complete async so that we aren't on the same thread as the RequestQueue
+        result.completeAsync(this::collectResources, Requests.forkJoinPool);
     }
 
     /**
