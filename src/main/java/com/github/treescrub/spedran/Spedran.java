@@ -12,8 +12,8 @@ import com.github.treescrub.spedran.requests.builders.user.ProfileRequest;
 import com.github.treescrub.spedran.requests.builders.user.UserPBsRequest;
 import com.github.treescrub.spedran.requests.builders.user.UserRequest;
 import com.github.treescrub.spedran.requests.builders.user.UsersRequest;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
@@ -22,7 +22,7 @@ import java.util.concurrent.CompletableFuture;
  * The main Spedran API.
  */
 public class Spedran {
-    private static final Logger logger = LogManager.getLogger(Spedran.class);
+    private static final Logger logger = LoggerFactory.getLogger(Spedran.class);
 
     private Spedran() {}
 
