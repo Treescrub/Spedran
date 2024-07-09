@@ -1,8 +1,8 @@
 package com.github.treescrub.spedran.requests;
 
 import kong.unirest.HttpResponse;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.Map;
 import java.util.Optional;
@@ -20,7 +20,7 @@ class RequestCache {
         }
     }
 
-    private static final Logger logger = LogManager.getLogger(RequestCache.class);
+    private static final Logger logger = LoggerFactory.getLogger(RequestCache.class);
     private volatile long cacheTimeLimitMs = 1000L;
     private volatile boolean disabled = false;
     private final Map<String, CacheEntry> cachedRequests;

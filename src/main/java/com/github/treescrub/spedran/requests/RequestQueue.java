@@ -2,8 +2,8 @@ package com.github.treescrub.spedran.requests;
 
 import kong.unirest.HttpRequest;
 import kong.unirest.HttpResponse;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.Optional;
 import java.util.Queue;
@@ -55,7 +55,7 @@ class RequestQueue {
     private final AtomicBoolean isShutDown = new AtomicBoolean(false);
 
     private final ExecutorService queueExecutor = Executors.newSingleThreadExecutor(new QueueThreadFactory());
-    private static final Logger logger = LogManager.getLogger(RequestQueue.class);
+    private static final Logger logger = LoggerFactory.getLogger(RequestQueue.class);
 
     public void queueRequest(ResourceRequest<?> request) {
         if(isShutDown.get()) {

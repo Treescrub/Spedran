@@ -1,12 +1,12 @@
 package com.github.treescrub.spedran.requests;
 
 import kong.unirest.*;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 @SuppressWarnings("unused")
 class LoggingInterceptor implements Interceptor {
-    private static final Logger LOGGER = LogManager.getLogger(LoggingInterceptor.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(LoggingInterceptor.class);
 
     private static String getShortenedUrl(String fullUrl) {
         if(!fullUrl.startsWith(Requests.BASE_URL)) {
