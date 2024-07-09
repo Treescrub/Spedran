@@ -49,7 +49,7 @@ public class Requests {
             properties.load(Requests.class.getClassLoader().getResourceAsStream("project.properties"));
             version = properties.getProperty("version");
         } catch (IOException e) {
-            e.printStackTrace();
+            logger.warn("Failed to load version", e);
         }
 
         logger.info("Got version '{}' from properties", version);
