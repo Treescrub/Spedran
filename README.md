@@ -7,8 +7,11 @@ For readability and brevity, Speedrun.com will be abbreviated as SRC in the docu
 
 ## Quick Start
 
+Here's a very simple example on how to use Spedran.
+
 ```java
 public class GetUserName {
+    
   public static void main(String[] args) {
     // Get a user with an ID
     User user = Spedran.getUser("zx721w08").join();
@@ -16,29 +19,48 @@ public class GetUserName {
     // Print the user's name
     System.out.println(user.getNames().getInternationalName());
   }
+  
 }
 ```
 
+## Installation
+
+### Maven
+```xml
+<dependency>
+    <groupId>com.github.treescrub</groupId>
+    <artifactId>spedran</artifactId>
+    <version>0.27.1</version>
+</dependency>
+```
+
+### Gradle
+
+At some point.
+
 ## Usage
 
-See the [examples](examples) for some simple example usage.
+See the [examples](examples) directory for examples.
 
 ## Documentation
 
-See the [Javadocs](https://treescrub.github.io/Spedran/javadoc/).
+See the [Javadocs](https://treescrub.github.io/Spedran/javadoc/) for documentation.
 
 ## Development
 
-### Dependencies
+### Requirements
 
-* Maven
+* Maven 3
 * JDK 11
 
-### Quick Start
+### Setup
 
-1. Clone the repo.
-2. Make changes.
-3. Use `mvn test` to compile and test the library. 
+1. Clone the repo
+    ```
+    git clone https://github.com/Treescrub/Spedran.git
+    ```
+2. Make changes in your preferred editor.
+3. Use `mvn test` in the project root to compile and test the library. 
 
 ## License
 
