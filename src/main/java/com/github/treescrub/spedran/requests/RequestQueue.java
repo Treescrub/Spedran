@@ -40,16 +40,16 @@ class RequestQueue {
     /**
      * The base of the exponent for exponential backoff.
      */
-    private static final double BACKOFF_EXPONENT_BASE = 2.0;
+    private static volatile double backoffExponentBase = 2.0;
     /**
      * Time between rate limited requests before exponential backoff is reduced.
      * In milliseconds.
      */
-    private static final long BACKOFF_REDUCE_DELAY_MS = 30 * 1000;
+    private static volatile long backoffReduceDelayMs = 30 * 1000;
     /**
      * Constant to multiply backoff time by in order to offset initial delay.
      */
-    private static final double BACKOFF_OFFSET_CONSTANT = 0.5;
+    private static volatile double backoffOffsetConstant = 0.5;
 
     private long lastRateLimit = 0;
     private final AtomicBoolean isShutDown = new AtomicBoolean(false);
@@ -147,7 +147,7 @@ class RequestQueue {
             long millisecondsSinceLastRateLimit = System.currentTimeMillis() - lastRateLimit;
 
             // Reduce the delay because it's been a while since we hit a rate limit
-            if(millisecondsSinceLastRateLimit >= BACKOFF_REDUCE_DELAY_MS) {
+            if(millisecondsSinceLastRateLimit >= backoffReduceDelayMs) {
                 synchronized(rateLimitCount) {
                     if(rateLimitCount.get() > 0) {
                         logger.debug("Reducing rate limit delay");
@@ -177,6 +177,21 @@ class RequestQueue {
     }
 
     /**
+     * Sets the values for exponential backoff.
+     * <br>
+     * The backoff time is calculated as {@code base^count * constant} where {@code count} is the current rate limit count.
+     *
+     * @param base the exponent base
+     * @param reduceDelay the minimum time in milliseconds before the rate can be increased after hitting a rate limit
+     * @param constant a constant factor to multiply the backoff time by
+     */
+    public static void setBackoff(double base, long reduceDelay, double constant) {
+        backoffExponentBase = base;
+        backoffReduceDelayMs = reduceDelay;
+        backoffOffsetConstant = constant;
+    }
+
+    /**
      * Should requests be delayed due to hitting a recent rate limit.
      *
      * @return should requests be delayed to prevent hitting rate limit
@@ -191,6 +206,6 @@ class RequestQueue {
      * @return delay in milliseconds
      */
     private int getRateLimitDelay() {
-        return (int) (Math.pow(BACKOFF_EXPONENT_BASE, rateLimitCount.get() - 1) * 1000 * BACKOFF_OFFSET_CONSTANT);
+        return (int) (Math.pow(backoffExponentBase, rateLimitCount.get() - 1) * 1000 * backoffOffsetConstant);
     }
 }
