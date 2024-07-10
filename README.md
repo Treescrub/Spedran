@@ -1,11 +1,9 @@
 # Spedran
 
 Spedran (past tense of speedrun) is a simple library to interact with Speedrun.com's REST API.
-It uses Optionals for optional fields and CompletableFutures for asynchronous retrieval of data.
+It uses [Optionals](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Optional.html) for optional fields and [CompletableFutures](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/concurrent/CompletableFuture.html) for asynchronous requests.
 
-For readability and brevity, Speedrun.com will be abbreviated as SRC.
-
-Almost entirely limited to only reading data with only a few exceptions related to run moderation/verification.
+For readability and brevity, Speedrun.com will be abbreviated as SRC in the documentation.
 
 ## Quick Start
 
@@ -23,13 +21,28 @@ public class GetUserName {
 
 ## Usage
 
+See the [examples](examples) for some simple example usage.
+
 ## Documentation
 
 See the [Javadocs](https://treescrub.github.io/Spedran/javadoc/).
 
+## Development
+
+### Dependencies
+
+* Maven
+* JDK 11
+
+### Quick Start
+
+1. Clone the repo.
+2. Make changes.
+3. Use `mvn test` to compile and test the library. 
+
 ## License
 
-Distributed under the MIT license, see `LICENSE.txt`.
+Distributed under the MIT license, see [`LICENSE.txt`](LICENSE.txt).
 
 ## Resources
 
