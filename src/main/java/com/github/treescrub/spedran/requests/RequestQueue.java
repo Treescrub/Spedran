@@ -40,16 +40,16 @@ class RequestQueue {
     /**
      * The base of the exponent for exponential backoff.
      */
-    private static volatile double backoffExponentBase = 2.0;
+    private volatile double backoffExponentBase = 2.0;
     /**
      * Time between rate limited requests before exponential backoff is reduced.
      * In milliseconds.
      */
-    private static volatile long backoffReduceDelayMs = 30 * 1000;
+    private volatile long backoffReduceDelayMs = 30 * 1000;
     /**
      * Constant to multiply backoff time by in order to offset initial delay.
      */
-    private static volatile double backoffOffsetConstant = 0.5;
+    private volatile double backoffOffsetConstant = 0.5;
 
     private long lastRateLimit = 0;
     private final AtomicBoolean isShutDown = new AtomicBoolean(false);
