@@ -51,7 +51,9 @@ class RequestQueue {
      */
     private volatile double backoffOffsetConstant = 0.5;
 
-    private long lastRateLimit = 0;
+    private final Object backoffMutex = new Object();
+
+    private volatile long lastRateLimit = 0;
     private final AtomicBoolean isShutDown = new AtomicBoolean(false);
 
     private final ExecutorService queueExecutor = Executors.newSingleThreadExecutor(new QueueThreadFactory());
@@ -93,13 +95,15 @@ class RequestQueue {
         ResourceRequest<?> currentRequest = requestQueue.peek();
 
         while(currentRequest != null) {
-            if(shouldRateLimit()) {
-                logger.debug("Sleeping for {}ms because of rate limit", getRateLimitDelay());
+            synchronized(backoffMutex) {
+                if(shouldRateLimit()) {
+                    logger.debug("Sleeping for {}ms because of rate limit", getRateLimitDelay());
 
-                try {
-                    Thread.sleep(getRateLimitDelay());
-                } catch (InterruptedException e) {
-                    logger.warn("Interrupted while sleeping for rate limit", e);
+                    try {
+                        Thread.sleep(getRateLimitDelay());
+                    } catch (InterruptedException e) {
+                        logger.warn("Interrupted while sleeping for rate limit", e);
+                    }
                 }
             }
 
@@ -144,25 +148,27 @@ class RequestQueue {
         }
 
         if(response.isSuccess()) {
-            long millisecondsSinceLastRateLimit = System.currentTimeMillis() - lastRateLimit;
+            synchronized(backoffMutex) {
+                long millisecondsSinceLastRateLimit = System.currentTimeMillis() - lastRateLimit;
 
-            // Reduce the delay because it's been a while since we hit a rate limit
-            if(millisecondsSinceLastRateLimit >= backoffReduceDelayMs) {
-                synchronized(rateLimitCount) {
+                // Reduce the delay because it's been a while since we hit a rate limit
+                if(millisecondsSinceLastRateLimit >= backoffReduceDelayMs) {
                     if(rateLimitCount.get() > 0) {
                         logger.debug("Reducing rate limit delay");
                         rateLimitCount.decrementAndGet();
                     }
-                }
 
-                lastRateLimit = System.currentTimeMillis();
+                    lastRateLimit = System.currentTimeMillis();
+                }
             }
 
             resourceRequest.finishRequest(response.getBody());
         } else {
             if(response.getStatus() == RATELIMIT_CODE) {
-                rateLimitCount.incrementAndGet();
-                lastRateLimit = System.currentTimeMillis();
+                synchronized(backoffMutex) {
+                    rateLimitCount.incrementAndGet();
+                    lastRateLimit = System.currentTimeMillis();
+                }
 
                 logger.debug("Hit rate limit on '{}'", httpRequest.getUrl());
 
@@ -185,10 +191,12 @@ class RequestQueue {
      * @param reduceDelay the minimum time in milliseconds before the rate can be increased after hitting a rate limit
      * @param constant a constant factor to multiply the backoff time by
      */
-    public static void setBackoff(double base, long reduceDelay, double constant) {
-        backoffExponentBase = base;
-        backoffReduceDelayMs = reduceDelay;
-        backoffOffsetConstant = constant;
+    public void setBackoff(double base, long reduceDelay, double constant) {
+        synchronized(backoffMutex) {
+            backoffExponentBase = base;
+            backoffReduceDelayMs = reduceDelay;
+            backoffOffsetConstant = constant;
+        }
     }
 
     /**
