@@ -125,4 +125,17 @@ public class Requests {
 
         logger.debug("Setting request cache time limit to {}ms", newTimeLimit);
     }
+
+    /**
+     * Sets the values for exponential backoff.
+     * <br>
+     * The backoff time is calculated as {@code base^count * constant} where {@code count} is the current rate limit count.
+     *
+     * @param base the exponent base
+     * @param reduceDelay the minimum time in milliseconds before the rate can be increased after hitting a rate limit
+     * @param constant a constant factor to multiply the backoff time by
+     */
+    public static void setBackoffValues(double base, long reduceDelay, double constant) {
+        queue.setBackoff(base, reduceDelay, constant);
+    }
 }

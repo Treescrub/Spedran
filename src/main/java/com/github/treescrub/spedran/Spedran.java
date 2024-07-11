@@ -99,6 +99,20 @@ public class Spedran {
     }
 
     /**
+     * Sets the values for exponential backoff.
+     * <br>
+     * The backoff time is calculated as {@code base^count * constant} where {@code count} is the current rate limit count.
+     *
+     * @param base the exponent base
+     * @param reduceDelay the minimum time in milliseconds before the rate can be increased after hitting a rate limit
+     * @param constant a constant factor to multiply the backoff time by
+     */
+    @SuppressWarnings("unused")
+    public static void setBackoffValues(double base, long reduceDelay, double constant) {
+        Requests.setBackoffValues(base, reduceDelay, constant);
+    }
+
+    /**
      * Gets the {@link Game} that corresponds to the provided {@code id} asynchronously.
      *
      * @param id the ID of the game to get. can be the game's abbreviation as well
