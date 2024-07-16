@@ -93,6 +93,7 @@ public class Requests {
      * Shuts down background threads.
      */
     public static void shutDown() {
+        logger.info("Shutting Spedran down...");
         unirestInstance.shutDown();
         queue.shutDown();
     }
@@ -136,6 +137,8 @@ public class Requests {
      * @param constant a constant factor to multiply the backoff time by
      */
     public static void setBackoffValues(double base, long reduceDelay, double constant) {
+        logger.info("Setting custom backoff values: base={}, reduceDelay={}, constant={}", base, reduceDelay, constant);
+
         queue.setBackoff(base, reduceDelay, constant);
     }
 }
