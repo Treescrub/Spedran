@@ -6,6 +6,8 @@ import kong.unirest.HttpResponse;
 import kong.unirest.JsonNode;
 import kong.unirest.json.JSONArray;
 import kong.unirest.json.JSONObject;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
@@ -26,6 +28,8 @@ public abstract class ResourceCollectionRequest<T extends Resource> extends Reso
     private static final int MAX_ITEMS = 200;
     private static final int MAX_COLLECTION_SIZE = 10000;
     private final List<JsonNode> responseBodies = new ArrayList<>();
+
+    private static final Logger logger = LoggerFactory.getLogger(ResourceCollectionRequest.class);
 
     @SuppressWarnings("unused")
     protected ResourceCollectionRequest(HttpMethod method, String url, Map<String, Object> routeParameters) {
@@ -91,6 +95,7 @@ public abstract class ResourceCollectionRequest<T extends Resource> extends Reso
 
         // If we are at the size limit, mark as completed
         if(responseBodies.size() * MAX_ITEMS >= MAX_COLLECTION_SIZE) {
+            logger.debug("Hit size limit");
             markCompleted();
             return;
         }
