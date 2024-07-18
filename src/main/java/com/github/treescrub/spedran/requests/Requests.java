@@ -93,6 +93,7 @@ public class Requests {
      * Shuts down background threads.
      */
     public static void shutDown() {
+        logger.info("Shutting Spedran down...");
         unirestInstance.shutDown();
         queue.shutDown();
     }
@@ -103,7 +104,7 @@ public class Requests {
     public static void enableCache() {
         cache.enable();
 
-        logger.debug("Enabling request cache");
+        logger.info("Enabling request cache");
     }
 
     /**
@@ -112,7 +113,7 @@ public class Requests {
     public static void disableCache() {
         cache.disable();
 
-        logger.debug("Disabling request cache");
+        logger.info("Disabling request cache");
     }
 
     /**
@@ -123,7 +124,7 @@ public class Requests {
     public static void setCacheTimeLimit(long newTimeLimit) {
         cache.setTimeLimit(newTimeLimit);
 
-        logger.debug("Setting request cache time limit to {}ms", newTimeLimit);
+        logger.info("Setting request cache time limit to {}ms", newTimeLimit);
     }
 
     /**
@@ -136,6 +137,8 @@ public class Requests {
      * @param constant a constant factor to multiply the backoff time by
      */
     public static void setBackoffValues(double base, long reduceDelay, double constant) {
+        logger.info("Setting custom backoff values: base={}, reduceDelay={}, constant={}", base, reduceDelay, constant);
+
         queue.setBackoff(base, reduceDelay, constant);
     }
 }
