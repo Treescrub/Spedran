@@ -28,9 +28,9 @@ public class GetUserName {
 ### Maven
 ```xml
 <dependency>
-    <groupId>com.github.treescrub</groupId>
+    <groupId>com.treescrub</groupId>
     <artifactId>spedran</artifactId>
-    <version>0.27.1</version>
+    <version>0.28.1</version>
 </dependency>
 ```
 
