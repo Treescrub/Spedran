@@ -36,7 +36,15 @@ public class GetUserName {
 
 ### Gradle
 
-At some point.
+```groovy
+repositories {
+   mavenCentral()
+}
+
+dependencies {
+   implementation 'com.treescrub:spedran:0.28.1'
+}
+```
 
 ## Usage
 
