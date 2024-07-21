@@ -1,7 +1,7 @@
-import com.github.treescrub.spedran.Spedran;
-import com.github.treescrub.spedran.data.Leaderboard;
-import com.github.treescrub.spedran.data.LeaderboardRun;
-import com.github.treescrub.spedran.data.Run;
+import com.treescrub.spedran.Spedran;
+import com.treescrub.spedran.data.Leaderboard;
+import com.treescrub.spedran.data.LeaderboardRun;
+import com.treescrub.spedran.data.Run;
 
 import java.time.Duration;
 import java.util.List;

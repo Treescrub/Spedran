@@ -1,7 +1,7 @@
-import com.github.treescrub.spedran.Spedran;
-import com.github.treescrub.spedran.data.Game;
-import com.github.treescrub.spedran.data.Run;
-import com.github.treescrub.spedran.data.SubmissionStatus;
+import com.treescrub.spedran.Spedran;
+import com.treescrub.spedran.data.Game;
+import com.treescrub.spedran.data.Run;
+import com.treescrub.spedran.data.SubmissionStatus;
 
 import java.util.List;
 

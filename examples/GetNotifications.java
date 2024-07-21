@@ -1,8 +1,8 @@
-import com.github.treescrub.spedran.Spedran;
-import com.github.treescrub.spedran.data.Link;
-import com.github.treescrub.spedran.data.Notification;
-import com.github.treescrub.spedran.data.NotificationStatus;
-import com.github.treescrub.spedran.data.User;
+import com.treescrub.spedran.Spedran;
+import com.treescrub.spedran.data.Link;
+import com.treescrub.spedran.data.Notification;
+import com.treescrub.spedran.data.NotificationStatus;
+import com.treescrub.spedran.data.User;
 
 import java.time.Instant;
 import java.util.List;
