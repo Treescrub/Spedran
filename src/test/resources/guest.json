@@ -1,0 +1,13 @@
+{
+  "name": "test",
+  "links": [
+    {
+      "rel": "self",
+      "uri": "https://www.speedrun.com/api/v1/guests/test"
+    },
+    {
+      "rel": "runs",
+      "uri": "https://www.speedrun.com/api/v1/runs?guest=test"
+    }
+  ]
+}
