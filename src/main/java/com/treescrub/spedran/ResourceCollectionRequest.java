@@ -1,6 +1,7 @@
-package com.treescrub.spedran.requests;
+package com.treescrub.spedran;
 
 import com.treescrub.spedran.data.Resource;
+import com.treescrub.spedran.requests.SortDirection;
 import kong.unirest.HttpMethod;
 import kong.unirest.HttpResponse;
 import kong.unirest.JsonNode;

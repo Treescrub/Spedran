@@ -5,7 +5,7 @@ import com.treescrub.spedran.data.LeaderboardRun;
 import com.treescrub.spedran.data.Run;
 import com.treescrub.spedran.data.Series;
 import com.treescrub.spedran.data.User;
-import com.treescrub.spedran.requests.ResourceCollectionRequest;
+import com.treescrub.spedran.ResourceCollectionRequest;
 import kong.unirest.HttpMethod;
 
 import java.util.Map;

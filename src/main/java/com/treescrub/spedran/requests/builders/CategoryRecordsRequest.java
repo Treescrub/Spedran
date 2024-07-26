@@ -2,7 +2,7 @@ package com.treescrub.spedran.requests.builders;
 
 import com.treescrub.spedran.data.Category;
 import com.treescrub.spedran.data.Leaderboard;
-import com.treescrub.spedran.requests.ResourceCollectionRequest;
+import com.treescrub.spedran.ResourceCollectionRequest;
 import kong.unirest.HttpMethod;
 
 import java.util.Map;

@@ -1,6 +1,7 @@
-package com.treescrub.spedran.requests;
+package com.treescrub.spedran;
 
 import com.treescrub.spedran.data.Resource;
+import com.treescrub.spedran.requests.InvalidBuilderStateException;
 import kong.unirest.HttpMethod;
 import kong.unirest.json.JSONElement;
 

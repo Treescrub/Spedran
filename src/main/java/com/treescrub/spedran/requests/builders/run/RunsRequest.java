@@ -10,7 +10,7 @@ import com.treescrub.spedran.data.Run;
 import com.treescrub.spedran.data.RunSystem;
 import com.treescrub.spedran.data.SubmissionStatus;
 import com.treescrub.spedran.data.User;
-import com.treescrub.spedran.requests.ResourceCollectionRequest;
+import com.treescrub.spedran.ResourceCollectionRequest;
 import com.treescrub.spedran.requests.SortDirection;
 import kong.unirest.HttpMethod;
 

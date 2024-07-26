@@ -2,7 +2,7 @@ package com.treescrub.spedran.requests.builders.game;
 
 import com.treescrub.spedran.data.Level;
 import com.treescrub.spedran.data.Game;
-import com.treescrub.spedran.requests.ResourceCollectionRequest;
+import com.treescrub.spedran.ResourceCollectionRequest;
 import com.treescrub.spedran.requests.SortDirection;
 import kong.unirest.HttpMethod;
 

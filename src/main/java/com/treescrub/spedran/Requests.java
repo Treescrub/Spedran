@@ -1,4 +1,4 @@
-package com.treescrub.spedran.requests;
+package com.treescrub.spedran;
 
 import kong.unirest.*;
 import org.slf4j.Logger;
@@ -14,7 +14,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 /**
  * Main request configuration and state.
  */
-public class Requests {
+class Requests {
     private static class RequestThreadFactory implements ForkJoinPool.ForkJoinWorkerThreadFactory {
         private final AtomicInteger count = new AtomicInteger(0);
 
@@ -73,11 +73,11 @@ public class Requests {
         queue.queueRequest(request);
     }
 
-    public static void setKey(String newKey) {
+    static void setKey(String newKey) {
         key = newKey;
     }
 
-    public static void clearKey() {
+    static void clearKey() {
         key = null;
     }
 
@@ -92,7 +92,7 @@ public class Requests {
     /**
      * Shuts down background threads.
      */
-    public static void shutDown() {
+    static void shutDown() {
         logger.info("Shutting Spedran down...");
         unirestInstance.shutDown();
         queue.shutDown();
@@ -101,7 +101,7 @@ public class Requests {
     /**
      * Enable request caching.
      */
-    public static void enableCache() {
+    static void enableCache() {
         cache.enable();
 
         logger.info("Enabling request cache");
@@ -110,7 +110,7 @@ public class Requests {
     /**
      * Disable request caching.
      */
-    public static void disableCache() {
+    static void disableCache() {
         cache.disable();
 
         logger.info("Disabling request cache");
@@ -121,7 +121,7 @@ public class Requests {
      *
      * @param newTimeLimit the new time limit in milliseconds
      */
-    public static void setCacheTimeLimit(long newTimeLimit) {
+    static void setCacheTimeLimit(long newTimeLimit) {
         cache.setTimeLimit(newTimeLimit);
 
         logger.info("Setting request cache time limit to {}ms", newTimeLimit);
@@ -136,7 +136,7 @@ public class Requests {
      * @param reduceDelay the minimum time in milliseconds before the rate can be increased after hitting a rate limit
      * @param constant a constant factor to multiply the backoff time by
      */
-    public static void setBackoffValues(double base, long reduceDelay, double constant) {
+    static void setBackoffValues(double base, long reduceDelay, double constant) {
         logger.info("Setting custom backoff values: base={}, reduceDelay={}, constant={}", base, reduceDelay, constant);
 
         queue.setBackoff(base, reduceDelay, constant);
