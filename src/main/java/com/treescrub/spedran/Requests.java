@@ -46,7 +46,7 @@ class Requests {
         String version = "UNKNOWN";
         try {
             Properties properties = new Properties();
-            properties.load(Requests.class.getClassLoader().getResourceAsStream("project.properties"));
+            properties.load(Requests.class.getClassLoader().getResourceAsStream("spedran.properties"));
             version = properties.getProperty("version");
         } catch (IOException e) {
             logger.warn("Failed to load version", e);
