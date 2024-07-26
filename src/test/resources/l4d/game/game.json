@@ -5,7 +5,7 @@
     "japanese": null,
     "twitch": "Left 4 Dead 2"
   },
-  "boostReceived": 10,
+  "boostReceived": 11,
   "boostDistinctDonors": 4,
   "abbreviation": "l4d2",
   "weblink": "https://www.speedrun.com/l4d2",
@@ -49,46 +49,46 @@
   "moderators": {
     "68wk1gl8": "super-moderator",
     "v8l434rj": "super-moderator",
-    "98rm993j": "super-moderator",
-    "qjoq74l8": "moderator",
-    "zxzevrrx": "moderator",
+    "zx721w08": "moderator",
+    "98rm993j": "moderator",
     "j4r0d0w8": "super-moderator",
-    "xkm1206j": "super-moderator"
+    "x3m4pd78": "super-moderator",
+    "xkm73z7j": "super-moderator"
   },
   "created": null,
   "assets": {
     "logo": {
-      "uri": "https://www.speedrun.com/themeasset/68q122rp/logo?v=c717a0c"
+      "uri": "https://www.speedrun.com/static/theme/68q122rp/logo?v=c717a0c"
     },
     "cover-tiny": {
-      "uri": "https://www.speedrun.com/gameasset/9dowpe1p/cover?v=7b4712e"
+      "uri": "https://www.speedrun.com/static/game/9dowpe1p/cover?v=7b4712e"
     },
     "cover-small": {
-      "uri": "https://www.speedrun.com/gameasset/9dowpe1p/cover?v=7b4712e"
+      "uri": "https://www.speedrun.com/static/game/9dowpe1p/cover?v=7b4712e"
     },
     "cover-medium": {
-      "uri": "https://www.speedrun.com/gameasset/9dowpe1p/cover?v=7b4712e"
+      "uri": "https://www.speedrun.com/static/game/9dowpe1p/cover?v=7b4712e"
     },
     "cover-large": {
-      "uri": "https://www.speedrun.com/gameasset/9dowpe1p/cover?v=7b4712e"
+      "uri": "https://www.speedrun.com/static/game/9dowpe1p/cover?v=7b4712e"
     },
     "icon": {
-      "uri": "https://www.speedrun.com/themeasset/68q122rp/favicon?v=ad6f2ef"
+      "uri": "https://www.speedrun.com/static/theme/68q122rp/favicon?v=ad6f2ef"
     },
     "trophy-1st": {
-      "uri": "https://www.speedrun.com/themeasset/68q122rp/1st?v=0e9d8ee"
+      "uri": "https://www.speedrun.com/static/theme/68q122rp/1st?v=0e9d8ee"
     },
     "trophy-2nd": {
-      "uri": "https://www.speedrun.com/themeasset/68q122rp/2nd?v=aa0f425"
+      "uri": "https://www.speedrun.com/static/theme/68q122rp/2nd?v=aa0f425"
     },
     "trophy-3rd": {
-      "uri": "https://www.speedrun.com/themeasset/68q122rp/3rd?v=38513e4"
+      "uri": "https://www.speedrun.com/static/theme/68q122rp/3rd?v=38513e4"
     },
     "trophy-4th": {
       "uri": null
     },
     "background": {
-      "uri": "https://www.speedrun.com/themeasset/68q122rp/background?v=e461fae"
+      "uri": "https://www.speedrun.com/static/theme/68q122rp/background?v=e461fae"
     },
     "foreground": {
       "uri": null

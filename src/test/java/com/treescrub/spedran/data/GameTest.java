@@ -23,7 +23,7 @@ class GameTest {
         JSONObject json = JSONLoader.getJsonTestFile("l4d/game/game");
         Game game = new Game(json);
 
-        assertEquals(10, game.getBoostsReceived());
+        assertEquals(11, game.getBoostsReceived());
     }
 
     @Test
@@ -145,8 +145,8 @@ class GameTest {
         Game game = new Game(json);
 
         assertFalse(game.getModerators().isEmpty());
-        assertTrue(game.getModerators().containsKey("qjoq74l8"));
-        assertEquals(ModeratorType.MODERATOR, game.getModerators().get("qjoq74l8"));
+        assertTrue(game.getModerators().containsKey("98rm993j"));
+        assertEquals(ModeratorType.MODERATOR, game.getModerators().get("98rm993j"));
         assertThrows(UnsupportedOperationException.class, () -> game.getModerators().clear());
     }
 
