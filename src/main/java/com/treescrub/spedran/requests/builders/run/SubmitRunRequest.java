@@ -1,7 +1,7 @@
 package com.treescrub.spedran.requests.builders.run;
 
 import com.treescrub.spedran.requests.InvalidBuilderStateException;
-import com.treescrub.spedran.requests.ModifyResourceRequest;
+import com.treescrub.spedran.ModifyResourceRequest;
 import com.treescrub.spedran.data.Guest;
 import com.treescrub.spedran.data.Level;
 import com.treescrub.spedran.data.Platform;

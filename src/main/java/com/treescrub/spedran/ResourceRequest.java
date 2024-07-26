@@ -1,4 +1,4 @@
-package com.treescrub.spedran.requests;
+package com.treescrub.spedran;
 
 import kong.unirest.HttpMethod;
 import kong.unirest.HttpRequest;

@@ -2,7 +2,7 @@ package com.treescrub.spedran.requests.builders.user;
 
 import com.treescrub.spedran.Spedran;
 import com.treescrub.spedran.data.User;
-import com.treescrub.spedran.requests.SingleResourceRequest;
+import com.treescrub.spedran.SingleResourceRequest;
 import kong.unirest.HttpMethod;
 
 /**

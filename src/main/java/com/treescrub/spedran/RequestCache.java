@@ -1,4 +1,4 @@
-package com.treescrub.spedran.requests;
+package com.treescrub.spedran;
 
 import kong.unirest.HttpResponse;
 import org.slf4j.Logger;

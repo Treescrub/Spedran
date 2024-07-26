@@ -6,7 +6,7 @@
 
     <groupId>com.treescrub</groupId>
     <artifactId>spedran</artifactId>
-    <version>0.29.1</version>
+    <version>0.30.0</version>
     <packaging>jar</packaging>
 
     <name>Spedran</name>
