@@ -8,7 +8,7 @@ import kong.unirest.HttpResponse;
  */
 public class HttpRequestException extends Exception {
     @SuppressWarnings("unused")
-    public HttpRequestException(int statusCode, String statusText, String method, String url) {
+    HttpRequestException(int statusCode, String statusText, String method, String url) {
         super("Request to '" + url + "' with method " + method + " failed (" + statusCode + ": " + statusText + ")");
     }
 
