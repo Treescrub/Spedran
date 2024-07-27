@@ -12,19 +12,18 @@ Here's a very simple example on how to use Spedran.
 ```java
 public class GetUserName {
     
-  public static void main(String[] args) {
-    // Get a user with an ID
-    User user = Spedran.getUser("zx721w08").join();
+    public static void main(String[] args) {
+        // Get a user with an ID
+        User user = Spedran.getUser("zx721w08").join();
 
-    // Print the user's name
-    System.out.println(user.getNames().getInternationalName());
-  }
+        // Print the user's name
+        System.out.println(user.getNames().getInternationalName());
+    }
   
 }
 ```
 
 ## Installation
-
 ### Maven
 ```xml
 <dependency>
@@ -38,11 +37,11 @@ public class GetUserName {
 
 ```groovy
 repositories {
-   mavenCentral()
+    mavenCentral()
 }
 
 dependencies {
-   implementation 'com.treescrub:spedran:0.29.0'
+    implementation 'com.treescrub:spedran:0.29.0'
 }
 ```
 
