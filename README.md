@@ -7,7 +7,7 @@ For readability and brevity, Speedrun.com will be abbreviated as SRC in the docu
 
 ## Quick Start
 
-Here's a very simple example on how to use Spedran.
+Here's a very simple example on how to use Spedran to get the name of a user by ID.
 
 ```java
 public class GetUserName {
@@ -18,18 +18,23 @@ public class GetUserName {
 
         // Print the user's name
         System.out.println(user.getNames().getInternationalName());
+        
+        // Shut down the library to allow the application to exit
+        Spedran.shutDown();
     }
   
 }
 ```
 
 ## Installation
+
 ### Maven
+
 ```xml
 <dependency>
     <groupId>com.treescrub</groupId>
     <artifactId>spedran</artifactId>
-    <version>0.29.0</version>
+    <version>0.30.1</version>
 </dependency>
 ```
 
@@ -41,13 +46,13 @@ repositories {
 }
 
 dependencies {
-    implementation 'com.treescrub:spedran:0.29.0'
+    implementation 'com.treescrub:spedran:0.30.1'
 }
 ```
 
 ## Usage
 
-See the [examples](examples) directory for examples.
+See the [examples](examples) directory for example programs.
 
 ## Documentation
 
@@ -57,7 +62,7 @@ See the [Javadocs](https://treescrub.github.io/Spedran/javadoc/) for documentati
 
 ### Requirements
 
-* Maven 3
+* Maven 3.0 or greater
 * JDK 11
 
 ### Setup
@@ -71,7 +76,7 @@ See the [Javadocs](https://treescrub.github.io/Spedran/javadoc/) for documentati
 
 ## License
 
-Distributed under the MIT license, see [`LICENSE.txt`](LICENSE.txt).
+Distributed under the MIT license, see [`LICENSE.txt`](LICENSE.txt) for more details.
 
 ## Resources
 
