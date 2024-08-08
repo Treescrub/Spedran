@@ -10,8 +10,8 @@ class LoggingInterceptor implements Interceptor {
 
     private static String getShortenedUrl(String fullUrl) {
         if(!fullUrl.startsWith(Requests.BASE_URL)) {
-            LOGGER.error("URL '{}' does not start with base url '{}'", fullUrl, Requests.BASE_URL);
-            return null;
+            LOGGER.warn("URL '{}' does not start with base url '{}'", fullUrl, Requests.BASE_URL);
+            return fullUrl;
         }
 
         return fullUrl.substring(Requests.BASE_URL.length());
@@ -28,6 +28,7 @@ class LoggingInterceptor implements Interceptor {
     public void onResponse(HttpResponse<?> response, HttpRequestSummary request, Config config) {
         if(!response.isSuccess()) {
             LOGGER.warn("{} request to '{}' failed with '{}: {}'", request.getHttpMethod(), getShortenedUrl(request.getUrl()), response.getStatus(), response.getStatusText());
+            return;
         }
 
         LOGGER.debug("Received response from {} request to '{}'", request.getHttpMethod(), getShortenedUrl(request.getUrl()));
@@ -37,7 +38,7 @@ class LoggingInterceptor implements Interceptor {
 
     @Override
     public HttpResponse<?> onFail(Exception e, HttpRequestSummary request, Config config) throws UnirestException {
-        LOGGER.warn("{} request to {} failed to send", request.getHttpMethod(), getShortenedUrl(request.getUrl()));
+        LOGGER.warn("{} request to '{}' failed to send", request.getHttpMethod(), getShortenedUrl(request.getUrl()));
 
         return Interceptor.super.onFail(e, request, config);
     }
