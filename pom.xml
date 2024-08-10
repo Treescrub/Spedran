@@ -62,7 +62,7 @@
 
     <profiles>
         <profile>
-            <id>central</id>
+            <id>Deploy to Maven Central</id>
             <build>
                 <plugins>
                     <plugin>
