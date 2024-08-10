@@ -4,6 +4,7 @@ on:
   push:
     paths:
       - src/main/java/**.java
+      - pom.xml
     branches:
       - master
       - main
