@@ -16,7 +16,7 @@ public class UserAssets {
 
     UserAssets(JSONObject data) {
         icon = Link.getLinkOrNull(data.getJSONObject("icon"));
-        supporterIcon = data.isNull("supporterIcon") ? null : new Link(data.getJSONObject("supporterIcon"));
+        supporterIcon = data.isNull("supporterIcon") ? null : Link.getLinkOrNull(data.getJSONObject("supporterIcon"));
         avatar = Link.getLinkOrNull(data.getJSONObject("image"));
     }
 
