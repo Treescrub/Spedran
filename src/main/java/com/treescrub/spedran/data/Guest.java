@@ -27,7 +27,7 @@ public class Guest extends Resource {
      *
      * @return a {@code RunsRequest} builder
      */
-    public RunsRequest getRuns() {
+    public RunsRequest fetchRuns() {
         return Spedran.getRuns().guest(this);
     }
 

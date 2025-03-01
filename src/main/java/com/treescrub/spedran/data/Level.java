@@ -31,7 +31,7 @@ public class Level extends IdentifiableNamedResource {
      * @return a {@code RunsRequest} builder
      */
     @SuppressWarnings("unused")
-    public RunsRequest getRuns() {
+    public RunsRequest fetchRuns() {
         return Spedran.getRuns().level(this);
     }
 
@@ -41,7 +41,7 @@ public class Level extends IdentifiableNamedResource {
      * @return a {@code LevelCategoriesRequest} builder
      */
     @SuppressWarnings("unused")
-    public LevelCategoriesRequest getCategories() {
+    public LevelCategoriesRequest fetchCategories() {
         return Spedran.getLevelCategories(id);
     }
 
@@ -51,7 +51,7 @@ public class Level extends IdentifiableNamedResource {
      * @return a {@code LevelRecordsRequest} builder
      */
     @SuppressWarnings("unused")
-    public LevelRecordsRequest getRecords() {
+    public LevelRecordsRequest fetchRecords() {
         return new LevelRecordsRequest(this);
     }
 
@@ -61,7 +61,7 @@ public class Level extends IdentifiableNamedResource {
      * @return a {@code LevelVariablesRequest} builder
      */
     @SuppressWarnings("unused")
-    public LevelVariablesRequest getVariables() {
+    public LevelVariablesRequest fetchVariables() {
         return new LevelVariablesRequest(this);
     }
 

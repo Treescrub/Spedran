@@ -55,7 +55,7 @@ public class User extends IdentifiableResource {
      * @return a {@code RunsRequest} builder
      */
     @SuppressWarnings("unused")
-    public RunsRequest getRuns() {
+    public RunsRequest fetchRuns() {
         return Spedran.getRuns().user(this);
     }
 
@@ -65,7 +65,7 @@ public class User extends IdentifiableResource {
      * @return a {@code GamesRequest} builder
      */
     @SuppressWarnings("unused")
-    public GamesRequest getGamesModerated() {
+    public GamesRequest fetchGamesModerated() {
         return Spedran.getGames().moderator(this);
     }
 
@@ -75,7 +75,7 @@ public class User extends IdentifiableResource {
      * @return a {@code UserPBsRequest} builder
      */
     @SuppressWarnings("unused")
-    public UserPBsRequest getPersonalBests() {
+    public UserPBsRequest fetchPersonalBests() {
         return Spedran.getUserPBs(id);
     }
 
