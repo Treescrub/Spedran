@@ -55,7 +55,7 @@ public class Series extends IdentifiableResource {
      * @return a {@code SeriesGamesRequest} builder
      */
     @SuppressWarnings("unused")
-    public SeriesGamesRequest getGames() {
+    public SeriesGamesRequest fetchGames() {
         return Spedran.getSeriesGames(id);
     }
 
