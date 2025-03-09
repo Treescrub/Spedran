@@ -23,7 +23,7 @@ public class Run extends IdentifiableResource {
     private final RunVideos videos;
     private final String comment;
     private final RunStatus status;
-    private final List<RunPlayer> players;
+    private final List<Player> players;
     private final LocalDate date;
     private final Instant submitted;
     private final RunTimes times;
@@ -41,9 +41,9 @@ public class Run extends IdentifiableResource {
         videos = data.isNull("videos") ? null : new RunVideos(data.getJSONObject("videos"));
         comment = data.optString("comment", null);
         status = new RunStatus(data.getJSONObject("status"));
-        List<RunPlayer> tempPlayers = new ArrayList<>();
+        List<Player> tempPlayers = new ArrayList<>();
         for(int i = 0; i < data.getJSONArray("players").length(); i++) {
-            tempPlayers.add(new RunPlayer(data.getJSONArray("players").getJSONObject(i)));
+            tempPlayers.add(new Player(data.getJSONArray("players").getJSONObject(i)));
         }
         players = Collections.unmodifiableList(tempPlayers);
         date = data.isNull("date") ? null : LocalDate.parse(data.getString("date"));
@@ -174,7 +174,7 @@ public class Run extends IdentifiableResource {
      *
      * @return an unmodifiable {@code List} of the runners
      */
-    public List<RunPlayer> getPlayers() {
+    public List<Player> getPlayers() {
         return players;
     }
 
