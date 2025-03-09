@@ -1,0 +1,132 @@
+{
+  "id": "category_id",
+  "name": "category_name",
+  "weblink": "category_weblink",
+  "type": "per-game",
+  "rules": "category_rules",
+  "players": {
+    "type": "exactly",
+    "value": 1
+  },
+  "miscellaneous": false,
+  "variables": {
+    "data": [
+      {
+        "id": "variable_id",
+        "name": "variable_name",
+        "category": "variable_category_id",
+        "scope": {
+          "type": "full-game"
+        },
+        "mandatory": true,
+        "user-defined": false,
+        "obsoletes": true,
+        "values": {
+          "_note": "`choices` is deprecated, please use `values` instead",
+          "choices": {
+            "variable_value_id": "variable_choice_text"
+          },
+          "values": {
+            "variable_value_id": {
+              "label": "variable_choice_text",
+              "rules": null,
+              "flags": {
+                "miscellaneous": null
+              }
+            }
+          },
+          "default": "variable_value_id"
+        },
+        "is-subcategory": true
+      }
+    ]
+  },
+  "game": {
+    "data": {
+      "id": "game_id",
+      "names": {
+        "international": "International Name",
+        "japanese": null,
+        "twitch": "Twitch Name"
+      },
+      "boostReceived": 999,
+      "boostDistinctDonors": 1,
+      "abbreviation": "abbreviation",
+      "weblink": "game_weblink",
+      "discord": "discord",
+      "released": 2000,
+      "release-date": "2000-1-1",
+      "ruleset": {
+        "show-milliseconds": true,
+        "require-verification": true,
+        "require-video": true,
+        "run-times": [
+          "realtime"
+        ],
+        "default-time": "realtime",
+        "emulators-allowed": false
+      },
+      "romhack": false,
+      "gametypes": [],
+      "platforms": [
+        "platform_id"
+      ],
+      "regions": [],
+      "genres": [
+        "genre_id"
+      ],
+      "engines": [
+        "engine_id"
+      ],
+      "developers": [
+        "developer_id"
+      ],
+      "publishers": [
+        "publisher_id"
+      ],
+      "moderators": {
+        "supermod_id": "super-moderator",
+        "mod_id": "moderator"
+      },
+      "created": null,
+      "assets": {
+        "logo": {
+          "uri": "logo_uri"
+        },
+        "cover-tiny": {
+          "uri": "cover_tiny_uri"
+        },
+        "cover-small": {
+          "uri": "cover_small_uri"
+        },
+        "cover-medium": {
+          "uri": "cover_medium_uri"
+        },
+        "cover-large": {
+          "uri": "cover_large_uri"
+        },
+        "icon": {
+          "uri": "icon_uri"
+        },
+        "trophy-1st": {
+          "uri": "trophy_1st_uri"
+        },
+        "trophy-2nd": {
+          "uri": "trophy_2nd_uri"
+        },
+        "trophy-3rd": {
+          "uri": "trophy_3rd_uri"
+        },
+        "trophy-4th": {
+          "uri": null
+        },
+        "background": {
+          "uri": "background_uri"
+        },
+        "foreground": {
+          "uri": null
+        }
+      }
+    }
+  }
+}

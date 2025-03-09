@@ -1,0 +1,241 @@
+{
+  "id": "game_id",
+  "names": {
+    "international": "International Name",
+    "japanese": null,
+    "twitch": "Twitch Name"
+  },
+  "boostReceived": 999,
+  "boostDistinctDonors": 1,
+  "abbreviation": "abbreviation",
+  "weblink": "game_weblink",
+  "discord": "discord",
+  "released": 2000,
+  "release-date": "2000-1-1",
+  "ruleset": {
+    "show-milliseconds": true,
+    "require-verification": true,
+    "require-video": true,
+    "run-times": [
+      "realtime"
+    ],
+    "default-time": "realtime",
+    "emulators-allowed": false
+  },
+  "romhack": false,
+  "gametypes": {
+    "data": []
+  },
+  "platforms": {
+    "data": [
+      {
+        "id": "platform_id",
+        "name": "platform_name",
+        "released": 1970
+      }
+    ]
+  },
+  "regions": {
+    "data": [
+      {
+        "id": "region_id",
+        "name": "region_name"
+      }
+    ]
+  },
+  "genres": {
+    "data": [
+      {
+        "id": "genre_id",
+        "name": "genre_name"
+      }
+    ]
+  },
+  "engines": {
+    "data": [
+      {
+        "id": "engine_id",
+        "name": "engine_name"
+      }
+    ]
+  },
+  "developers": {
+    "data": [
+      {
+        "id": "developer_id",
+        "name": "developer_name"
+      }
+    ]
+  },
+  "publishers": {
+    "data": [
+      {
+        "id": "publisher_id",
+        "name": "publisher_name"
+      }
+    ]
+  },
+  "moderators": {
+    "data": [
+      {
+        "rel": "user",
+        "id": "player_id",
+        "names": {
+          "international": "player_international_name",
+          "japanese": null
+        },
+        "supporterAnimation": false,
+        "pronouns": null,
+        "weblink": "player_weblink",
+        "name-style": {
+          "style": "gradient",
+          "color-from": {
+            "light": "#000000",
+            "dark": "#FFFFFF"
+          },
+          "color-to": {
+            "light": "#000000",
+            "dark": "#FFFFFF"
+          }
+        },
+        "role": "user",
+        "signup": "2000-01-01T00:00:00Z",
+        "location": {
+          "country": {
+            "code": "player_location_code",
+            "names": {
+              "international": "player_location_name",
+              "japanese": null
+            }
+          },
+          "region": {
+            "code": "player_region_code",
+            "names": {
+              "international": "player_region_name",
+              "japanese": null
+            }
+          }
+        },
+        "twitch": {
+          "uri": "player_twitch_link"
+        },
+        "hitbox": null,
+        "youtube": {
+          "uri": "player_youtube_link"
+        },
+        "twitter": {
+          "uri": "player_twitter_link"
+        },
+        "speedrunslive": {
+          "uri": "player_speedrunslive_link"
+        },
+        "assets": {
+          "icon": {
+            "uri": null
+          },
+          "supporterIcon": null,
+          "image": {
+            "uri": "player_image_link"
+          }
+        }
+      }
+    ]
+  },
+  "created": null,
+  "assets": {
+    "logo": {
+      "uri": "logo_uri"
+    },
+    "cover-tiny": {
+      "uri": "cover_tiny_uri"
+    },
+    "cover-small": {
+      "uri": "cover_small_uri"
+    },
+    "cover-medium": {
+      "uri": "cover_medium_uri"
+    },
+    "cover-large": {
+      "uri": "cover_large_uri"
+    },
+    "icon": {
+      "uri": "icon_uri"
+    },
+    "trophy-1st": {
+      "uri": "trophy_1st_uri"
+    },
+    "trophy-2nd": {
+      "uri": "trophy_2nd_uri"
+    },
+    "trophy-3rd": {
+      "uri": "trophy_3rd_uri"
+    },
+    "trophy-4th": {
+      "uri": null
+    },
+    "background": {
+      "uri": "background_uri"
+    },
+    "foreground": {
+      "uri": null
+    }
+  },
+  "levels": {
+    "data": [
+      {
+        "id": "level_id",
+        "name": "level_name",
+        "weblink": "level_weblink",
+        "rules": "level_rules"
+      }
+    ]
+  },
+  "categories": {
+    "data": [
+      {
+        "id": "category_id",
+        "name": "category_name",
+        "weblink": "category_weblink",
+        "type": "per-game",
+        "rules": "category_rules",
+        "players": {
+          "type": "exactly",
+          "value": 1
+        },
+        "miscellaneous": false
+      }
+    ]
+  },
+  "variables": {
+    "data": [
+      {
+        "id": "variable_id",
+        "name": "variable_name",
+        "category": "variable_category_id",
+        "scope": {
+          "type": "full-game"
+        },
+        "mandatory": true,
+        "user-defined": false,
+        "obsoletes": true,
+        "values": {
+          "_note": "`choices` is deprecated, please use `values` instead",
+          "choices": {
+            "variable_value_id": "variable_choice_text"
+          },
+          "values": {
+            "variable_value_id": {
+              "label": "variable_choice_text",
+              "rules": null,
+              "flags": {
+                "miscellaneous": null
+              }
+            }
+          },
+          "default": "variable_value_id"
+        },
+        "is-subcategory": true
+      }
+    ]
+  }
+}

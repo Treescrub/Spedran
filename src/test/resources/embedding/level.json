@@ -1,0 +1,54 @@
+{
+  "id": "level_id",
+  "name": "level_name",
+  "weblink": "level_weblink",
+  "rules": "level_rules",
+  "categories": {
+    "data": [
+      {
+        "id": "category_id",
+        "name": "category_name",
+        "weblink": "category_weblink",
+        "type": "per-game",
+        "rules": "category_rules",
+        "players": {
+          "type": "exactly",
+          "value": 1
+        },
+        "miscellaneous": false
+      }
+    ]
+  },
+  "variables": {
+    "data": [
+      {
+        "id": "variable_id",
+        "name": "variable_name",
+        "category": "variable_category_id",
+        "scope": {
+          "type": "full-game"
+        },
+        "mandatory": true,
+        "user-defined": false,
+        "obsoletes": true,
+        "values": {
+          "_note": "`choices` is deprecated, please use `values` instead",
+          "choices": {
+            "variable_value_id": "variable_choice_text"
+          },
+          "values": {
+            "variable_value_id": {
+              "label": "variable_choice_text",
+              "rules": null,
+              "flags": {
+                "miscellaneous": null
+              }
+            }
+          },
+          "default": "variable_value_id"
+        },
+        "is-subcategory": true
+      }
+    ]
+  }
+}

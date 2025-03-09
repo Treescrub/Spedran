@@ -1,0 +1,227 @@
+{
+  "id": "run_id",
+  "weblink": "run_link",
+  "game": {
+    "data": {
+      "id": "game_id",
+      "names": {
+        "international": "International Name",
+        "japanese": null,
+        "twitch": "Twitch Name"
+      },
+      "boostReceived": 999,
+      "boostDistinctDonors": 1,
+      "abbreviation": "abbreviation",
+      "weblink": "game_weblink",
+      "discord": "discord",
+      "released": 2000,
+      "release-date": "2000-1-1",
+      "ruleset": {
+        "show-milliseconds": true,
+        "require-verification": true,
+        "require-video": true,
+        "run-times": [
+          "realtime"
+        ],
+        "default-time": "realtime",
+        "emulators-allowed": false
+      },
+      "romhack": false,
+      "gametypes": [],
+      "platforms": [
+        "platform_id"
+      ],
+      "regions": [],
+      "genres": [
+        "genre_id"
+      ],
+      "engines": [
+        "engine_id"
+      ],
+      "developers": [
+        "developer_id"
+      ],
+      "publishers": [
+        "publisher_id"
+      ],
+      "moderators": {
+        "supermod_id": "super-moderator",
+        "mod_id": "moderator"
+      },
+      "created": null,
+      "assets": {
+        "logo": {
+          "uri": "logo_uri"
+        },
+        "cover-tiny": {
+          "uri": "cover_tiny_uri"
+        },
+        "cover-small": {
+          "uri": "cover_small_uri"
+        },
+        "cover-medium": {
+          "uri": "cover_medium_uri"
+        },
+        "cover-large": {
+          "uri": "cover_large_uri"
+        },
+        "icon": {
+          "uri": "icon_uri"
+        },
+        "trophy-1st": {
+          "uri": "trophy_1st_uri"
+        },
+        "trophy-2nd": {
+          "uri": "trophy_2nd_uri"
+        },
+        "trophy-3rd": {
+          "uri": "trophy_3rd_uri"
+        },
+        "trophy-4th": {
+          "uri": null
+        },
+        "background": {
+          "uri": "background_uri"
+        },
+        "foreground": {
+          "uri": null
+        }
+      }
+    }
+  },
+  "level": {
+    "data": {
+      "id": "level_id",
+      "name": "level_name",
+      "weblink": "level_weblink",
+      "rules": "level_rules"
+    }
+  },
+  "category": {
+    "data": {
+      "id": "category_id",
+      "name": "category_name",
+      "weblink": "category_weblink",
+      "type": "per-game",
+      "rules": "category_rules",
+      "players": {
+        "type": "exactly",
+        "value": 1
+      },
+      "miscellaneous": false
+    }
+  },
+  "videos": {
+    "links": [
+      {
+        "uri": "run_uri"
+      }
+    ]
+  },
+  "comment": "run_comment",
+  "status": {
+    "status": "verified",
+    "examiner": "examiner_id",
+    "verify-date": "2000-01-01T00:00:00Z"
+  },
+  "players": {
+    "data": [
+      {
+        "rel": "user",
+        "id": "player_id",
+        "names": {
+          "international": "player_international_name",
+          "japanese": null
+        },
+        "supporterAnimation": false,
+        "pronouns": null,
+        "weblink": "player_weblink",
+        "name-style": {
+          "style": "gradient",
+          "color-from": {
+            "light": "#000000",
+            "dark": "#FFFFFF"
+          },
+          "color-to": {
+            "light": "#000000",
+            "dark": "#FFFFFF"
+          }
+        },
+        "role": "user",
+        "signup": "2000-01-01T00:00:00Z",
+        "location": {
+          "country": {
+            "code": "player_location_code",
+            "names": {
+              "international": "player_location_name",
+              "japanese": null
+            }
+          },
+          "region": {
+            "code": "player_region_code",
+            "names": {
+              "international": "player_region_name",
+              "japanese": null
+            }
+          }
+        },
+        "twitch": {
+          "uri": "player_twitch_link"
+        },
+        "hitbox": null,
+        "youtube": {
+          "uri": "player_youtube_link"
+        },
+        "twitter": {
+          "uri": "player_twitter_link"
+        },
+        "speedrunslive": {
+          "uri": "player_speedrunslive_link"
+        },
+        "assets": {
+          "icon": {
+            "uri": null
+          },
+          "supporterIcon": null,
+          "image": {
+            "uri": "player_image_link"
+          }
+        }
+      }
+    ]
+  },
+  "date": "2000-01-01",
+  "submitted": "2000-01-01T00:00:00Z",
+  "times": {
+    "primary": "PT1H23M45S",
+    "primary_t": 12345,
+    "realtime": "PT1H23M45S",
+    "realtime_t": 12345,
+    "realtime_noloads": null,
+    "realtime_noloads_t": 0,
+    "ingame": null,
+    "ingame_t": 0
+  },
+  "system": {
+    "platform": "platform_id",
+    "emulated": false,
+    "region": "region_id"
+  },
+  "splits": null,
+  "values": {
+    "run_variable_id": "run_variable_value_id"
+  },
+  "region": {
+    "data": {
+      "id": "region_id",
+      "name": "region_name"
+    }
+  },
+  "platform": {
+    "data": {
+      "id": "platform_id",
+      "name": "platform_name",
+      "released": 1970
+    }
+  }
+}
