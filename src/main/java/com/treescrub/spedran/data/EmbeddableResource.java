@@ -23,6 +23,15 @@ public class EmbeddableResource<T extends IdentifiableResource> {
     }
 
     /**
+     * Returns true if the resource is embedded.
+     *
+     * @return whether the resource is embedded
+     */
+    public boolean isEmbedded() {
+        return embeddedResource != null;
+    }
+
+    /**
      * Gets the ID for this embeddable resource.
      *
      * @return the resource ID
