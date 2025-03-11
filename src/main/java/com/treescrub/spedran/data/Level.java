@@ -84,10 +84,24 @@ public class Level extends IdentifiableNamedResource {
         return Optional.ofNullable(rules);
     }
 
+    /**
+     * Gets a {@code List} of applicable categories for this level as an {@link Optional}.
+     *
+     * @return an {@link Optional} containing the applicable categories, empty if not embedded
+     *
+     * @see Category
+     */
     public Optional<List<Category>> getCategories() {
         return null;
     }
 
+    /**
+     * Gets a {@code List} of applicable variables for this level as an {@link Optional}.
+     *
+     * @return an {@link Optional} containing the applicable variables, empty if not embedded
+     *
+     * @see Variable
+     */
     public Optional<List<Variable>> getVariables() {
         return null;
     }

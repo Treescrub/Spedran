@@ -214,10 +214,24 @@ public class Run extends IdentifiableResource {
         return system;
     }
 
+    /**
+     * Gets the region for this run as an {@link Optional}.
+     *
+     * @return an {@link Optional} containing the region, empty if not embedded
+     *
+     * @see Region
+     */
     public Optional<Region> getRegion() {
         return null;
     }
 
+    /**
+     * Gets the platform for this run as an {@link Optional}.
+     *
+     * @return an {@link Optional} containing the platform, empty if not embedded
+     *
+     * @see Platform
+     */
     public Optional<Platform> getPlatform() {
         return null;
     }

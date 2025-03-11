@@ -112,6 +112,13 @@ public class Leaderboard extends Resource {
         return Optional.ofNullable(platform);
     }
 
+    /**
+     * Gets a {@code List} of platforms used in this leaderboard as an {@link Optional}.
+     *
+     * @return an {@link Optional} containing the platforms, empty if not embedded
+     *
+     * @see Platform
+     */
     public Optional<List<Platform>> getPlatforms() {
         return null;
     }
@@ -129,6 +136,13 @@ public class Leaderboard extends Resource {
         return Optional.ofNullable(region);
     }
 
+    /**
+     * Gets a {@code List} of regions used in this leaderboard as an {@link Optional}.
+     *
+     * @return an {@link Optional} containing the regions, empty if not embedded
+     *
+     * @see Region
+     */
     public Optional<List<Region>> getRegions() {
         return null;
     }
@@ -190,10 +204,24 @@ public class Leaderboard extends Resource {
         return runs;
     }
 
+    /**
+     * Gets a {@code List} of variables applicable to this leaderboard as an {@link Optional}.
+     *
+     * @return an {@link Optional} containing the applicable variables, empty if not embedded
+     *
+     * @see Variable
+     */
     public Optional<List<Variable>> getVariables() {
         return null;
     }
 
+    /**
+     * Gets a {@code List} of all players in this leaderboard as an {@link Optional}.
+     *
+     * @return an {@link Optional} containing the players, empty if not embedded
+     *
+     * @see Platform
+     */
     public Optional<List<Player>> getPlayers() {
         return null;
     }

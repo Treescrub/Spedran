@@ -109,10 +109,24 @@ public class Category extends IdentifiableNamedResource {
         return miscellaneous;
     }
 
+    /**
+     * Gets the game as an {@link Optional}.
+     *
+     * @return an {@link Optional} containing the game, empty if not embedded
+     *
+     * @see Game
+     */
     public Optional<Game> getGame() {
         return null;
     }
 
+    /**
+     * Gets a {@code List} of variables applicable to this category as an {@link Optional}.
+     *
+     * @return an {@link Optional} containing the applicable variables, empty if not embedded
+     *
+     * @see Variable
+     */
     public Optional<List<Variable>> getVariables() {
         return null;
     }
