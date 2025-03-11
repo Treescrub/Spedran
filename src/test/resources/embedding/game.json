@@ -76,70 +76,7 @@
     ]
   },
   "moderators": {
-    "data": [
-      {
-        "rel": "user",
-        "id": "player_id",
-        "names": {
-          "international": "player_international_name",
-          "japanese": null
-        },
-        "supporterAnimation": false,
-        "pronouns": null,
-        "weblink": "player_weblink",
-        "name-style": {
-          "style": "gradient",
-          "color-from": {
-            "light": "#000000",
-            "dark": "#FFFFFF"
-          },
-          "color-to": {
-            "light": "#000000",
-            "dark": "#FFFFFF"
-          }
-        },
-        "role": "user",
-        "signup": "2000-01-01T00:00:00Z",
-        "location": {
-          "country": {
-            "code": "player_location_code",
-            "names": {
-              "international": "player_location_name",
-              "japanese": null
-            }
-          },
-          "region": {
-            "code": "player_region_code",
-            "names": {
-              "international": "player_region_name",
-              "japanese": null
-            }
-          }
-        },
-        "twitch": {
-          "uri": "player_twitch_link"
-        },
-        "hitbox": null,
-        "youtube": {
-          "uri": "player_youtube_link"
-        },
-        "twitter": {
-          "uri": "player_twitter_link"
-        },
-        "speedrunslive": {
-          "uri": "player_speedrunslive_link"
-        },
-        "assets": {
-          "icon": {
-            "uri": null
-          },
-          "supporterIcon": null,
-          "image": {
-            "uri": "player_image_link"
-          }
-        }
-      }
-    ]
+    "user_id": "moderator"
   },
   "created": null,
   "assets": {
