@@ -69,8 +69,8 @@ public class Leaderboard extends Resource {
      * @see Game
      */
     @SuppressWarnings("unused")
-    public String getGame() {
-        return game;
+    public EmbeddableResource<Game> getGame() {
+        return null;
     }
 
     /**
@@ -82,8 +82,8 @@ public class Leaderboard extends Resource {
      * @see Category
      */
     @SuppressWarnings("unused")
-    public String getCategory() {
-        return category;
+    public EmbeddableResource<Category> getCategory() {
+        return null;
     }
 
     /**
@@ -95,8 +95,8 @@ public class Leaderboard extends Resource {
      * @see Level
      */
     @SuppressWarnings("unused")
-    public Optional<String> getLevel() {
-        return Optional.ofNullable(level);
+    public Optional<EmbeddableResource<Level>> getLevel() {
+        return null;
     }
 
     /**
@@ -112,6 +112,10 @@ public class Leaderboard extends Resource {
         return Optional.ofNullable(platform);
     }
 
+    public Optional<List<Platform>> getPlatforms() {
+        return null;
+    }
+
     /**
      * Gets the region ID as an {@link Optional}.
      *
@@ -123,6 +127,10 @@ public class Leaderboard extends Resource {
     @SuppressWarnings("unused")
     public Optional<String> getRegion() {
         return Optional.ofNullable(region);
+    }
+
+    public Optional<List<Region>> getRegions() {
+        return null;
     }
 
     /**
@@ -180,6 +188,14 @@ public class Leaderboard extends Resource {
     @SuppressWarnings("unused")
     public List<LeaderboardRun> getRuns() {
         return runs;
+    }
+
+    public Optional<List<Variable>> getVariables() {
+        return null;
+    }
+
+    public Optional<List<Player>> getPlayers() {
+        return null;
     }
 
     @Override

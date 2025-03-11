@@ -199,87 +199,87 @@ public class Game extends IdentifiableResource {
     }
 
     /**
-     * Gets a {@code List} of all gametype IDs that describe this game.
+     * Gets a {@code List} of all gametypes that describe this game.
      *
-     * @return an unmodifiable {@code List} of gametype IDs
+     * @return an unmodifiable {@code List} of gametypes
      *
      * @see Gametype
      * @see Spedran#getGametype(String)
      */
-    public List<String> getGametypes() {
-        return gametypes;
+    public List<EmbeddableResource<Gametype>> getGametypes() {
+        return null;
     }
 
     /**
-     * Gets a {@code List} of platform IDs that this game is on.
+     * Gets a {@code List} of platforms that this game is on.
      *
-     * @return an unmodifiable {@code List} of platform IDs
+     * @return an unmodifiable {@code List} of platforms
      *
      * @see Platform
      * @see Spedran#getPlatform(String)
      */
-    public List<String> getPlatforms() {
-        return platforms;
+    public List<EmbeddableResource<Platform>> getPlatforms() {
+        return null;
     }
 
     /**
-     * Gets a {@code List} of region IDs that this game is in.
+     * Gets a {@code List} of regions that this game is in.
      *
-     * @return an unmodifiable {@code List} of region IDs
+     * @return an unmodifiable {@code List} of regions
      *
      * @see Region
      * @see Spedran#getRegion(String)
      */
-    public List<String> getRegions() {
-        return regions;
+    public List<EmbeddableResource<Region>> getRegions() {
+        return null;
     }
 
     /**
-     * Gets a {@code List} of genre IDs that this game is in.
+     * Gets a {@code List} of genres that this game is in.
      *
-     * @return an unmodifiable {@code List} of genre IDs
+     * @return an unmodifiable {@code List} of genres
      *
      * @see Genre
      * @see Spedran#getGenre(String)
      */
-    public List<String> getGenres() {
-        return genres;
+    public List<EmbeddableResource<Genre>> getGenres() {
+        return null;
     }
 
     /**
-     * Gets a {@code List} of engine IDs that this game runs in.
+     * Gets a {@code List} of engines that this game runs in.
      *
-     * @return an unmodifiable {@code List} of engine IDs
+     * @return an unmodifiable {@code List} of engines
      *
      * @see Engine
      * @see Spedran#getEngine(String)
      */
-    public List<String> getEngines() {
-        return engines;
+    public List<EmbeddableResource<Engine>> getEngines() {
+        return null;
     }
 
     /**
-     * Gets a {@code List} of developer IDs that developed this game.
+     * Gets a {@code List} of developers that developed this game.
      *
-     * @return an unmodifiable {@code List} of developer IDs
+     * @return an unmodifiable {@code List} of developers
      *
      * @see Developer
      * @see Spedran#getDeveloper(String)
      */
-    public List<String> getDevelopers() {
-        return developers;
+    public List<EmbeddableResource<Developer>> getDevelopers() {
+        return null;
     }
 
     /**
-     * Gets a {@code List} of publisher IDs that published this game.
+     * Gets a {@code List} of publishers that published this game.
      *
-     * @return an unmodifiable {@code List} of publisher IDs
+     * @return an unmodifiable {@code List} of publishers
      *
      * @see Publisher
      * @see Spedran#getPublisher(String)
      */
-    public List<String> getPublishers() {
-        return publishers;
+    public List<EmbeddableResource<Publisher>> getPublishers() {
+        return null;
     }
 
     /**
@@ -313,6 +313,33 @@ public class Game extends IdentifiableResource {
     @SuppressWarnings("unused")
     public GameAssets getAssets() {
         return assets;
+    }
+
+    /**
+     * Gets a {@code List} of all variables for this game, if it was embedded.
+     *
+     * @return an {@link Optional} with a {@code List} of this game's variables
+     */
+    public Optional<List<Variable>> getVariables() {
+        return null;
+    }
+
+    /**
+     * Gets a {@code List} of all levels for this game, if it was embedded.
+     *
+     * @return an {@link Optional} with a {@code List} of this game's levels
+     */
+    public Optional<List<Level>> getLevels() {
+        return null;
+    }
+
+    /**
+     * Gets a {@code List} of all categories for this game, if it was embedded.
+     *
+     * @return an {@link Optional} with a {@code List} of this game's categories
+     */
+    public Optional<List<Category>> getCategories() {
+        return null;
     }
 
     @Override

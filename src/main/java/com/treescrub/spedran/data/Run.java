@@ -113,8 +113,8 @@ public class Run extends IdentifiableResource {
      * @see Game
      * @see Spedran#getGame(String)
      */
-    public String getGame() {
-        return game;
+    public EmbeddableResource<Game> getGame() {
+        return null;
     }
 
     /**
@@ -126,8 +126,8 @@ public class Run extends IdentifiableResource {
      * @see Level
      * @see Spedran#getLevel(String)
      */
-    public Optional<String> getLevel() {
-        return Optional.ofNullable(level);
+    public Optional<EmbeddableResource<Level>> getLevel() {
+        return null;
     }
 
     /**
@@ -138,8 +138,8 @@ public class Run extends IdentifiableResource {
      * @see Category
      * @see Spedran#getCategory(String)
      */
-    public String getCategory() {
-        return category;
+    public EmbeddableResource<Category> getCategory() {
+        return null;
     }
 
     /**
@@ -212,6 +212,14 @@ public class Run extends IdentifiableResource {
      */
     public RunSystem getSystem() {
         return system;
+    }
+
+    public Optional<Region> getRegion() {
+        return null;
+    }
+
+    public Optional<Platform> getPlatform() {
+        return null;
     }
 
     /**

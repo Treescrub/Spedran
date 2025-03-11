@@ -32,4 +32,20 @@ class LevelTest {
         assertTrue(level.getRules().isPresent());
         assertEquals("rules", level.getRules().get());
     }
+
+    @Test
+    void getCategories() {
+        JSONObject json = JSONLoader.getJsonTestFile("embedding/level");
+        Level level = new Level(json);
+
+        assertTrue(level.getCategories().isPresent());
+    }
+
+    @Test
+    void getVariables() {
+        JSONObject json = JSONLoader.getJsonTestFile("embedding/level");
+        Level level = new Level(json);
+
+        assertTrue(level.getVariables().isPresent());
+    }
 }

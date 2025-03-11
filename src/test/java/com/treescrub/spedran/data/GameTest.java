@@ -157,4 +157,37 @@ class GameTest {
 
         assertFalse(game.getCreationTime().isPresent());
     }
+
+    @Test
+    void getVariables() {
+        JSONObject json = JSONLoader.getJsonTestFile("embedding/game");
+        Game game = new Game(json);
+
+        assertTrue(game.getVariables().isPresent());
+        assertEquals(1, game.getVariables().get().size());
+        Variable variable = game.getVariables().get().get(0);
+        assertEquals("variable_id", variable.getId());
+    }
+
+    @Test
+    void getLevels() {
+        JSONObject json = JSONLoader.getJsonTestFile("embedding/game");
+        Game game = new Game(json);
+
+        assertTrue(game.getLevels().isPresent());
+        assertEquals(1, game.getLevels().get().size());
+        Level level = game.getLevels().get().get(0);
+        assertEquals("level_id", level.getId());
+    }
+
+    @Test
+    void getCategories() {
+        JSONObject json = JSONLoader.getJsonTestFile("embedding/game");
+        Game game = new Game(json);
+
+        assertTrue(game.getCategories().isPresent());
+        assertEquals(1, game.getCategories().get().size());
+        Category category = game.getCategories().get().get(0);
+        assertEquals("category_id", category.getId());
+    }
 }

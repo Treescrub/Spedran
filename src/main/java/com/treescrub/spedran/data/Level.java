@@ -7,6 +7,7 @@ import com.treescrub.spedran.requests.builders.LevelVariablesRequest;
 import com.treescrub.spedran.requests.builders.run.RunsRequest;
 import kong.unirest.json.JSONObject;
 
+import java.util.List;
 import java.util.Optional;
 
 /**
@@ -81,6 +82,14 @@ public class Level extends IdentifiableNamedResource {
      */
     public Optional<String> getRules() {
         return Optional.ofNullable(rules);
+    }
+
+    public Optional<List<Category>> getCategories() {
+        return null;
+    }
+
+    public Optional<List<Variable>> getVariables() {
+        return null;
     }
 
     @Override

@@ -6,6 +6,9 @@ import com.treescrub.spedran.requests.builders.CategoryVariablesRequest;
 import com.treescrub.spedran.requests.builders.run.RunsRequest;
 import kong.unirest.json.JSONObject;
 
+import java.util.List;
+import java.util.Optional;
+
 /**
  * A category of runs which has its own specific rules.
  * <br>
@@ -104,6 +107,14 @@ public class Category extends IdentifiableNamedResource {
      */
     public boolean isMiscellaneous() {
         return miscellaneous;
+    }
+
+    public Optional<Game> getGame() {
+        return null;
+    }
+
+    public Optional<List<Variable>> getVariables() {
+        return null;
     }
 
     @Override

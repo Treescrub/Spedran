@@ -24,7 +24,8 @@ class RunTest {
         JSONObject json = JSONLoader.getJsonTestFile("l4d/run/run");
         Run run = new Run(json);
 
-        assertEquals("9dowpe1p", run.getGame());
+        assertFalse(run.getGame().isEmbedded());
+        assertEquals("9dowpe1p", run.getGame().getId());
     }
 
     @Test
@@ -33,7 +34,8 @@ class RunTest {
         Run run = new Run(json);
 
         assertTrue(run.getLevel().isPresent());
-        assertEquals("5d77z5dy", run.getLevel().get());
+        assertFalse(run.getLevel().get().isEmbedded());
+        assertEquals("5d77z5dy", run.getLevel().get().getId());
     }
 
     @Test
@@ -41,7 +43,8 @@ class RunTest {
         JSONObject json = JSONLoader.getJsonTestFile("l4d/run/run");
         Run run = new Run(json);
 
-        assertEquals("824m5e25", run.getCategory());
+        assertFalse(run.getCategory().isEmbedded());
+        assertEquals("824m5e25", run.getCategory().getId());
     }
 
     @Test
@@ -76,6 +79,9 @@ class RunTest {
 
         assertFalse(run.getPlayers().isEmpty());
         assertThrows(UnsupportedOperationException.class, () -> run.getPlayers().clear());
+        assertTrue(run.getPlayers().get(0).isUser());
+        assertTrue(run.getPlayers().get(0).getUser().isPresent());
+        assertEquals("xz749vej", run.getPlayers().get(0).getUser().get().getId());
     }
 
     @Test
@@ -130,5 +136,21 @@ class RunTest {
 
         assertTrue(run.getVariableValues().containsKey("wl30jvl1"));
         assertEquals("klrjykmq", run.getVariableValues().get("wl30jvl1"));
+    }
+
+    @Test
+    void getRegion() {
+        JSONObject json = JSONLoader.getJsonTestFile("l4d/run/run");
+        Run run = new Run(json);
+
+        assertTrue(run.getRegion().isPresent());
+    }
+
+    @Test
+    void getPlatform() {
+        JSONObject json = JSONLoader.getJsonTestFile("l4d/run/run");
+        Run run = new Run(json);
+
+        assertTrue(run.getPlatform().isEmpty());
     }
 }

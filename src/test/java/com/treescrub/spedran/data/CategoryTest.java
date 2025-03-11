@@ -49,4 +49,20 @@ class CategoryTest {
 
         assertFalse(category.isMiscellaneous());
     }
+
+    @Test
+    void embeddedGamePresent() {
+        JSONObject json = JSONLoader.getJsonTestFile("embedding/category");
+        Category category = new Category(json);
+
+        assertTrue(category.getGame().isPresent());
+    }
+
+    @Test
+    void embeddedVariablePresent() {
+        JSONObject json = JSONLoader.getJsonTestFile("embedding/category");
+        Category category = new Category(json);
+
+        assertTrue(category.getVariables().isPresent());
+    }
 }
