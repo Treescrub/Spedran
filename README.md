@@ -34,7 +34,7 @@ public class GetUserName {
 <dependency>
     <groupId>com.treescrub</groupId>
     <artifactId>spedran</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.2</version>
 </dependency>
 ```
 
@@ -46,7 +46,7 @@ repositories {
 }
 
 dependencies {
-    implementation 'com.treescrub:spedran:1.0.0'
+    implementation 'com.treescrub:spedran:1.0.2'
 }
 ```
 
