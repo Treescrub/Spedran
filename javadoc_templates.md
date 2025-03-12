@@ -31,6 +31,45 @@ Text in square brackets (`[` and `]`) are optional text that is recommended if a
  */
 ```
 
+### Embedded resource getters
+
+```java
+/**
+ * Returns an {@link EmbeddableResource} containing this <THIS_LOWERCASE>'s <OTHER_RESOURCE_LOWERCASE>.
+ *
+ * @return the resource of the <OTHER_RESOURCE_LOWERCASE> this <THIS_LOWERCASE> belongs to. only an ID if not embedded, otherwise the full resource
+ *
+ * @see <OTHER_RESOURCE>
+ * @see Spedran#get<OTHER_RESOURCE>(String)
+ */
+```
+
+### Embedded resource list getters
+
+```java
+/**
+ * Gets a {@code List} of {@link EmbeddableResource} <OTHER_RESOURCE_LOWERCASE_PLURAL> that this <THIS_LOWERCASE> is <PART_OF/IN/INCLUDES>.
+ *
+ * @return an unmodifiable {@code List} of <OTHER_RESOURCE_LOWERCASE_PLURAL>
+ *
+ * @see <OTHER_RESOURCE>
+ * @see Spedran#get<OTHER_RESOURCE>(String)
+ */
+```
+
+### Optional embedded resource getters
+
+```java
+/**
+ * Gets the <OTHER_RESOURCE_LOWERCASE> for this <THIS_LOWERCASE> as an {@link Optional}.
+ * The {@code Optional} is empty if the <OTHER_RESOURCE_LOWERCASE> was not embedded.
+ *
+ * @return an {@link Optional} containing the <OTHER_RESOURCE_LOWERCASE>
+ *
+ * @see <OTHER_RESOURCE>
+ */
+```
+
 ### External resource fetch methods
 
 ```java
