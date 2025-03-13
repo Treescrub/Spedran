@@ -112,15 +112,15 @@ public class Spedran {
     }
 
     /**
-     * Gets the {@link Game} that corresponds to the provided {@code id} asynchronously.
+     * Gets a {@link GameRequest} builder to request the specified {@link Game}.
      *
      * @param id the ID of the game to get. can be the game's abbreviation as well
      *
-     * @return a {@link CompletableFuture} of a {@code Game}
+     * @return a {@code GameRequest} builder
      */
     @SuppressWarnings("unused")
-    public static CompletableFuture<Game> getGame(String id) {
-        return new GameRequest(id).complete();
+    public static GameRequest getGame(String id) {
+        return new GameRequest(id);
     }
 
     /**
@@ -188,15 +188,15 @@ public class Spedran {
     }
 
     /**
-     * Gets the {@link Run} that corresponds to the provided {@code id} asynchronously.
+     * Gets a {@link RunRequest} builder to request the specified {@link Run}.
      *
      * @param id the ID of the run to get
      *
-     * @return a {@link CompletableFuture} of a {@code Run}
+     * @return a {@code RunRequest} builder
      */
     @SuppressWarnings("unused")
-    public static CompletableFuture<Run> getRun(String id) {
-        return new RunRequest(id).complete();
+    public static RunRequest getRun(String id) {
+        return new RunRequest(id);
     }
 
     /**
@@ -252,15 +252,15 @@ public class Spedran {
     }
 
     /**
-     * Gets the {@link Category} that corresponds to the provided {@code id} asynchronously.
+     * Gets a {@link CategoryRequest} builder to request the specified {@link Category}.
      *
      * @param id the ID of the category to get
      *
-     * @return a {@link CompletableFuture} of a {@code Category}
+     * @return a {@code CategoryRequest} builder
      */
     @SuppressWarnings("unused")
-    public static CompletableFuture<Category> getCategory(String id) {
-        return new CategoryRequest(id).complete();
+    public static CategoryRequest getCategory(String id) {
+        return new CategoryRequest(id);
     }
 
     /**
@@ -286,15 +286,15 @@ public class Spedran {
     }
 
     /**
-     * Gets the {@link Level} that corresponds to the provided {@code id} asynchronously.
+     * Gets a {@link LevelRequest} builder to request the specified {@link Level}.
      *
      * @param id the ID of the level to get
      *
-     * @return a {@link CompletableFuture} of a {@code Level}
+     * @return a {@code LevelRequest} builder
      */
     @SuppressWarnings("unused")
-    public static CompletableFuture<Level> getLevel(String id) {
-        return new LevelRequest(id).complete();
+    public static LevelRequest getLevel(String id) {
+        return new LevelRequest(id);
     }
 
     /**

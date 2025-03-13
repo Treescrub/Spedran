@@ -10,7 +10,7 @@ class ListRunsInQueue {
         String gameAbbreviation = "celeste";
 
         // Get the game using the abbreviation
-        Game game = Spedran.getGame(gameAbbreviation).join();
+        Game game = Spedran.getGame(gameAbbreviation).complete().join();
 
         // Get a list of new runs, sorted by the submission time
         List<Run> runsInQueue = Spedran.getRuns()

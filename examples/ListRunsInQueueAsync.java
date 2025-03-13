@@ -7,7 +7,7 @@ class ListRunsInQueueAsync {
         String gameAbbreviation = "celeste";
 
         // Get the game using the abbreviation
-        Spedran.getGame(gameAbbreviation).thenAcceptAsync(game -> {
+        Spedran.getGame(gameAbbreviation).complete().thenAcceptAsync(game -> {
             // Get a list of new runs, sorted by the submission time
             Spedran.getRuns()
                     .game(game)
