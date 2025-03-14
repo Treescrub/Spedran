@@ -140,7 +140,7 @@ class RunTest {
 
     @Test
     void getRegion() {
-        JSONObject json = JSONLoader.getJsonTestFile("l4d/run/run");
+        JSONObject json = JSONLoader.getJsonTestFile("embedding/run");
         Run run = new Run(json);
 
         assertTrue(run.getRegion().isPresent());
@@ -148,9 +148,9 @@ class RunTest {
 
     @Test
     void getPlatform() {
-        JSONObject json = JSONLoader.getJsonTestFile("l4d/run/run");
+        JSONObject json = JSONLoader.getJsonTestFile("embedding/run");
         Run run = new Run(json);
 
-        assertTrue(run.getPlatform().isEmpty());
+        assertTrue(run.getPlatform().isPresent());
     }
 }
