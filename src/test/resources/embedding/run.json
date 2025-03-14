@@ -15,7 +15,7 @@
       "weblink": "game_weblink",
       "discord": "discord",
       "released": 2000,
-      "release-date": "2000-1-1",
+      "release-date": "2000-01-01",
       "ruleset": {
         "show-milliseconds": true,
         "require-verification": true,
