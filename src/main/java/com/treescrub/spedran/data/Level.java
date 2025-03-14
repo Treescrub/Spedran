@@ -18,12 +18,16 @@ import java.util.Optional;
 public class Level extends IdentifiableNamedResource {
     private final String weblink;
     private final String rules;
+    private final List<Category> categories;
+    private final List<Variable> variables;
 
     Level(JSONObject data) {
         super(data);
 
         weblink = data.getString("weblink");
         rules = data.optString("rules", null);
+        categories = ParseUtils.getEmbeddedResourceList(data, "categories", Category::new);
+        variables = ParseUtils.getEmbeddedResourceList(data, "variables", Variable::new);
     }
 
     /**
@@ -92,7 +96,7 @@ public class Level extends IdentifiableNamedResource {
      * @see Category
      */
     public Optional<List<Category>> getCategories() {
-        return null;
+        return Optional.ofNullable(categories);
     }
 
     /**
@@ -103,7 +107,7 @@ public class Level extends IdentifiableNamedResource {
      * @see Variable
      */
     public Optional<List<Variable>> getVariables() {
-        return null;
+        return Optional.ofNullable(variables);
     }
 
     @Override

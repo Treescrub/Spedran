@@ -13,9 +13,9 @@ import java.util.*;
  */
 public class Leaderboard extends Resource {
     private final String weblink;
-    private final String game;
-    private final String category;
-    private final String level;
+    private final EmbeddableResource<Game> game;
+    private final EmbeddableResource<Category> category;
+    private final EmbeddableResource<Level> level;
     private final String platform;
     private final String region;
     private final Boolean emulators;
@@ -23,14 +23,18 @@ public class Leaderboard extends Resource {
     private final TimingType timing;
     private final Map<String, String> values;
     private final List<LeaderboardRun> runs;
+    private final List<Platform> platforms;
+    private final List<Player> players;
+    private final List<Region> regions;
+    private final List<Variable> variables;
 
     Leaderboard(JSONObject data) {
         super(data);
 
         weblink = data.getString("weblink");
-        game = data.getString("game");
-        category = data.getString("category");
-        level = data.isNull("level") ? null : data.getString("level");
+        game = ParseUtils.getEmbeddableResource(data, "game", Game::new);
+        category = ParseUtils.getEmbeddableResource(data, "category", Category::new);
+        level = ParseUtils.getEmbeddableResource(data, "level", Level::new);
         platform = data.isNull("platform") ? null : data.getString("platform");
         region = data.isNull("region") ? null : data.getString("region");
         emulators = data.isNull("emulators") ? null : data.getBoolean("emulators");
@@ -47,6 +51,10 @@ public class Leaderboard extends Resource {
             tempRuns.add(new LeaderboardRun(runData));
         }
         runs = Collections.unmodifiableList(tempRuns);
+        platforms = ParseUtils.getEmbeddedResourceList(data, "platforms", Platform::new);
+        players = ParseUtils.getEmbeddedResourceList(data, "players", Player::new);
+        regions = ParseUtils.getEmbeddedResourceList(data, "regions", Region::new);
+        variables = ParseUtils.getEmbeddedResourceList(data, "variables", Variable::new);
     }
 
     /**
@@ -70,7 +78,7 @@ public class Leaderboard extends Resource {
      */
     @SuppressWarnings("unused")
     public EmbeddableResource<Game> getGame() {
-        return null;
+        return game;
     }
 
     /**
@@ -83,7 +91,7 @@ public class Leaderboard extends Resource {
      */
     @SuppressWarnings("unused")
     public EmbeddableResource<Category> getCategory() {
-        return null;
+        return category;
     }
 
     /**
@@ -96,7 +104,7 @@ public class Leaderboard extends Resource {
      */
     @SuppressWarnings("unused")
     public Optional<EmbeddableResource<Level>> getLevel() {
-        return null;
+        return Optional.ofNullable(level);
     }
 
     /**
@@ -120,7 +128,7 @@ public class Leaderboard extends Resource {
      * @see Platform
      */
     public Optional<List<Platform>> getPlatforms() {
-        return null;
+        return Optional.ofNullable(platforms);
     }
 
     /**
@@ -144,7 +152,7 @@ public class Leaderboard extends Resource {
      * @see Region
      */
     public Optional<List<Region>> getRegions() {
-        return null;
+        return Optional.ofNullable(regions);
     }
 
     /**
@@ -212,7 +220,7 @@ public class Leaderboard extends Resource {
      * @see Variable
      */
     public Optional<List<Variable>> getVariables() {
-        return null;
+        return Optional.ofNullable(variables);
     }
 
     /**
@@ -223,7 +231,7 @@ public class Leaderboard extends Resource {
      * @see Platform
      */
     public Optional<List<Player>> getPlayers() {
-        return null;
+        return Optional.ofNullable(players);
     }
 
     @Override

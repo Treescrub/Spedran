@@ -23,16 +23,19 @@ public class Game extends IdentifiableResource {
     private final String discord;
     private final LocalDate releaseDate;
     private final GameRuleset ruleset;
-    private final List<String> gametypes;
-    private final List<String> platforms;
-    private final List<String> regions;
-    private final List<String> genres;
-    private final List<String> engines;
-    private final List<String> developers;
-    private final List<String> publishers;
+    private final List<EmbeddableResource<Gametype>> gametypes;
+    private final List<EmbeddableResource<Platform>> platforms;
+    private final List<EmbeddableResource<Region>> regions;
+    private final List<EmbeddableResource<Genre>> genres;
+    private final List<EmbeddableResource<Engine>> engines;
+    private final List<EmbeddableResource<Developer>> developers;
+    private final List<EmbeddableResource<Publisher>> publishers;
     private final Map<String, ModeratorType> moderators;
     private final Instant created;
     private final GameAssets assets;
+    private final List<Variable> variables;
+    private final List<Level> levels;
+    private final List<Category> categories;
 
     Game(JSONObject data) {
         super(data);
@@ -45,13 +48,13 @@ public class Game extends IdentifiableResource {
         discord = data.getString("discord").isEmpty() ? null : data.getString("discord");
         releaseDate = LocalDate.parse(data.getString("release-date"));
         ruleset = new GameRuleset(data.getJSONObject("ruleset"));
-        gametypes = ParseUtils.getStringList(data.getJSONArray("gametypes"));
-        platforms = ParseUtils.getStringList(data.getJSONArray("platforms"));
-        regions = ParseUtils.getStringList(data.getJSONArray("regions"));
-        genres = ParseUtils.getStringList(data.getJSONArray("genres"));
-        engines = ParseUtils.getStringList(data.getJSONArray("engines"));
-        developers = ParseUtils.getStringList(data.getJSONArray("developers"));
-        publishers = ParseUtils.getStringList(data.getJSONArray("publishers"));
+        gametypes = ParseUtils.getEmbeddableResourceList(data.get("gametypes"), Gametype::new);
+        platforms = ParseUtils.getEmbeddableResourceList(data.get("platforms"), Platform::new);
+        regions = ParseUtils.getEmbeddableResourceList(data.get("regions"), Region::new);
+        genres = ParseUtils.getEmbeddableResourceList(data.get("genres"), Genre::new);
+        engines = ParseUtils.getEmbeddableResourceList(data.get("engines"), Engine::new);
+        developers = ParseUtils.getEmbeddableResourceList(data.get("developers"), Developer::new);
+        publishers = ParseUtils.getEmbeddableResourceList(data.get("publishers"), Publisher::new);
         Map<String, ModeratorType> tempModerators = new HashMap<>();
         for(String key : data.getJSONObject("moderators").keySet()) {
             ModeratorType type = ModeratorType.fromAPI(data.getJSONObject("moderators").getString(key));
@@ -60,6 +63,9 @@ public class Game extends IdentifiableResource {
         moderators = Collections.unmodifiableMap(tempModerators);
         created = !data.isNull("created") ? Instant.parse(data.getString("created")) : null;
         assets = new GameAssets(data.getJSONObject("assets"));
+        variables = ParseUtils.getEmbeddedResourceList(data, "variables", Variable::new);
+        levels = ParseUtils.getEmbeddedResourceList(data,"levels", Level::new);
+        categories = ParseUtils.getEmbeddedResourceList(data, "categories", Category::new);
     }
 
     /**
@@ -207,7 +213,7 @@ public class Game extends IdentifiableResource {
      * @see Spedran#getGametype(String)
      */
     public List<EmbeddableResource<Gametype>> getGametypes() {
-        return null;
+        return gametypes;
     }
 
     /**
@@ -219,7 +225,7 @@ public class Game extends IdentifiableResource {
      * @see Spedran#getPlatform(String)
      */
     public List<EmbeddableResource<Platform>> getPlatforms() {
-        return null;
+        return platforms;
     }
 
     /**
@@ -231,7 +237,7 @@ public class Game extends IdentifiableResource {
      * @see Spedran#getRegion(String)
      */
     public List<EmbeddableResource<Region>> getRegions() {
-        return null;
+        return regions;
     }
 
     /**
@@ -243,7 +249,7 @@ public class Game extends IdentifiableResource {
      * @see Spedran#getGenre(String)
      */
     public List<EmbeddableResource<Genre>> getGenres() {
-        return null;
+        return genres;
     }
 
     /**
@@ -255,7 +261,7 @@ public class Game extends IdentifiableResource {
      * @see Spedran#getEngine(String)
      */
     public List<EmbeddableResource<Engine>> getEngines() {
-        return null;
+        return engines;
     }
 
     /**
@@ -267,7 +273,7 @@ public class Game extends IdentifiableResource {
      * @see Spedran#getDeveloper(String)
      */
     public List<EmbeddableResource<Developer>> getDevelopers() {
-        return null;
+        return developers;
     }
 
     /**
@@ -279,7 +285,7 @@ public class Game extends IdentifiableResource {
      * @see Spedran#getPublisher(String)
      */
     public List<EmbeddableResource<Publisher>> getPublishers() {
-        return null;
+        return publishers;
     }
 
     /**
@@ -321,7 +327,7 @@ public class Game extends IdentifiableResource {
      * @return an {@link Optional} with a {@code List} of this game's variables
      */
     public Optional<List<Variable>> getVariables() {
-        return null;
+        return Optional.ofNullable(variables);
     }
 
     /**
@@ -330,7 +336,7 @@ public class Game extends IdentifiableResource {
      * @return an {@link Optional} with a {@code List} of this game's levels
      */
     public Optional<List<Level>> getLevels() {
-        return null;
+        return Optional.ofNullable(levels);
     }
 
     /**
@@ -339,7 +345,7 @@ public class Game extends IdentifiableResource {
      * @return an {@link Optional} with a {@code List} of this game's categories
      */
     public Optional<List<Category>> getCategories() {
-        return null;
+        return Optional.ofNullable(categories);
     }
 
     @Override

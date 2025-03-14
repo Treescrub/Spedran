@@ -4,6 +4,7 @@ import com.treescrub.spedran.Spedran;
 import com.treescrub.spedran.requests.builders.run.DeleteRunRequest;
 import com.treescrub.spedran.requests.builders.run.RunPlayersRequest;
 import com.treescrub.spedran.requests.builders.run.RunStatusRequest;
+import kong.unirest.json.JSONArray;
 import kong.unirest.json.JSONObject;
 
 import java.time.Instant;
@@ -17,9 +18,9 @@ import java.util.*;
  */
 public class Run extends IdentifiableResource {
     private final String weblink;
-    private final String game;
-    private final String level;
-    private final String category;
+    private final EmbeddableResource<Game> game;
+    private final EmbeddableResource<Level> level;
+    private final EmbeddableResource<Category> category;
     private final RunVideos videos;
     private final String comment;
     private final RunStatus status;
@@ -30,22 +31,32 @@ public class Run extends IdentifiableResource {
     private final RunSystem system;
     private final Link splits;
     private final Map<String, String> values;
+    private final Platform platform;
+    private final Region region;
 
     Run(JSONObject data) {
         super(data);
 
         weblink = data.getString("weblink");
-        game = data.getString("game");
-        level = data.optString("level", null);
-        category = data.getString("category");
+        game = ParseUtils.getEmbeddableResource(data, "game", Game::new);
+        level = ParseUtils.getEmbeddableResource(data, "level", Level::new);
+        category = ParseUtils.getEmbeddableResource(data, "category", Category::new);
         videos = data.isNull("videos") ? null : new RunVideos(data.getJSONObject("videos"));
         comment = data.optString("comment", null);
         status = new RunStatus(data.getJSONObject("status"));
-        List<Player> tempPlayers = new ArrayList<>();
-        for(int i = 0; i < data.getJSONArray("players").length(); i++) {
-            tempPlayers.add(new Player(data.getJSONArray("players").getJSONObject(i)));
+        {
+            List<Player> tempPlayers = new ArrayList<>();
+            JSONArray array;
+            if(data.get("players") instanceof JSONArray) {
+                array = data.getJSONArray("players");
+            } else {
+                array = data.getJSONObject("players").getJSONArray("data");
+            }
+            for(int i = 0; i < array.length(); i++) {
+                tempPlayers.add(new Player(array.getJSONObject(i)));
+            }
+            players = Collections.unmodifiableList(tempPlayers);
         }
-        players = Collections.unmodifiableList(tempPlayers);
         date = data.isNull("date") ? null : LocalDate.parse(data.getString("date"));
         submitted = data.isNull("submitted") ? null : Instant.parse(data.getString("submitted"));
         times = new RunTimes(data.getJSONObject("times"));
@@ -56,6 +67,8 @@ public class Run extends IdentifiableResource {
             tempValues.put(key, data.getJSONObject("values").getString(key));
         }
         values = Collections.unmodifiableMap(tempValues);
+        region = ParseUtils.getEmbeddedResource(data, "region", Region::new);
+        platform = ParseUtils.getEmbeddedResource(data, "platform", Platform::new);
     }
 
     /**
@@ -114,7 +127,7 @@ public class Run extends IdentifiableResource {
      * @see Spedran#getGame(String)
      */
     public EmbeddableResource<Game> getGame() {
-        return null;
+        return game;
     }
 
     /**
@@ -127,7 +140,7 @@ public class Run extends IdentifiableResource {
      * @see Spedran#getLevel(String)
      */
     public Optional<EmbeddableResource<Level>> getLevel() {
-        return null;
+        return Optional.ofNullable(level);
     }
 
     /**
@@ -139,7 +152,7 @@ public class Run extends IdentifiableResource {
      * @see Spedran#getCategory(String)
      */
     public EmbeddableResource<Category> getCategory() {
-        return null;
+        return category;
     }
 
     /**
@@ -222,7 +235,7 @@ public class Run extends IdentifiableResource {
      * @see Region
      */
     public Optional<Region> getRegion() {
-        return null;
+        return Optional.ofNullable(region);
     }
 
     /**
@@ -233,7 +246,7 @@ public class Run extends IdentifiableResource {
      * @see Platform
      */
     public Optional<Platform> getPlatform() {
-        return null;
+        return Optional.ofNullable(platform);
     }
 
     /**

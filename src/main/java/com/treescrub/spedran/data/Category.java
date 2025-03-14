@@ -6,6 +6,7 @@ import com.treescrub.spedran.requests.builders.CategoryVariablesRequest;
 import com.treescrub.spedran.requests.builders.run.RunsRequest;
 import kong.unirest.json.JSONObject;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -22,6 +23,8 @@ public class Category extends IdentifiableNamedResource {
     private final String rules;
     private final CategoryPlayers players;
     private final boolean miscellaneous;
+    private final Game game;
+    private final List<Variable> variables;
 
     Category(JSONObject data) {
         super(data);
@@ -31,6 +34,15 @@ public class Category extends IdentifiableNamedResource {
         rules = data.getString("rules");
         players = new CategoryPlayers(data.getJSONObject("players"));
         miscellaneous = data.getBoolean("miscellaneous");
+        game = data.has("game") ? new Game(data.getJSONObject("game").getJSONObject("data")) : null;
+        if(data.has("variables")) {
+            variables = new ArrayList<>();
+            for(Object variableData : data.getJSONObject("variables").getJSONArray("data")) {
+                variables.add(new Variable((JSONObject) variableData));
+            }
+        } else {
+            variables = null;
+        }
     }
 
     /**
@@ -117,7 +129,7 @@ public class Category extends IdentifiableNamedResource {
      * @see Game
      */
     public Optional<Game> getGame() {
-        return null;
+        return Optional.ofNullable(game);
     }
 
     /**
@@ -128,7 +140,7 @@ public class Category extends IdentifiableNamedResource {
      * @see Variable
      */
     public Optional<List<Variable>> getVariables() {
-        return null;
+        return Optional.ofNullable(variables);
     }
 
     @Override
