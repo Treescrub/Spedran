@@ -26,16 +26,38 @@ public class CategoryRequest extends SingleResourceRequest<Category> {
         return Category.class;
     }
 
+    /**
+     * Embed this category's game.
+     *
+     * @return this object
+     *
+     * @see Category#getGame()
+     */
     public CategoryRequest embedGame() {
         addEmbed("game");
         return this;
     }
 
+    /**
+     * Embeds this category's game and any provided embeds for the game.
+     *
+     * @param builder the embed builder for the game
+     * @return this object
+     *
+     * @see Category#getGame()
+     */
     public CategoryRequest embedGame(GameEmbedBuilder builder) {
         addEmbed(builder.getEmbedStrings(), "game");
         return this;
     }
 
+    /**
+     * Embed this category's variables.
+     *
+     * @return this object
+     *
+     * @see Category#getVariables()
+     */
     public CategoryRequest embedVariables() {
         addEmbed("variables");
         return this;

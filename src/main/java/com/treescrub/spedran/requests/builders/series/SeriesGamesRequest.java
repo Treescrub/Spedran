@@ -241,61 +241,147 @@ public class SeriesGamesRequest extends ResourceCollectionRequest<Game> {
         return this;
     }
 
+    /**
+     * Embed the levels for each game.
+     *
+     * @return this object
+     *
+     * @see Game#getLevels()
+     */
     public SeriesGamesRequest embedLevels() {
         addEmbed("levels");
         return this;
     }
 
+    /**
+     * Embed the levels for each game and any provided embeds for the levels.
+     *
+     * @param builder the embed builder for the levels
+     * @return this object
+     *
+     * @see Game#getLevels()
+     */
     public SeriesGamesRequest embedLevels(LevelEmbedBuilder builder) {
         addEmbed(builder.getEmbedStrings(), "levels");
         return this;
     }
 
+    /**
+     * Embed the categories for each game.
+     *
+     * @return this object
+     *
+     * @see Game#getCategories()
+     */
     public SeriesGamesRequest embedCategories() {
         addEmbed("categories");
         return this;
     }
 
+    /**
+     * Embed the categories for each game and any provided embeds for the categories.
+     *
+     * @param builder the embed builder for the categories
+     * @return this object
+     *
+     * @see Game#getCategories()
+     */
     public SeriesGamesRequest embedCategories(CategoryEmbedBuilder builder) {
         addEmbed(builder.getEmbedStrings(), "categories");
         return this;
     }
 
+    /**
+     * Embed the gametypes for each game.
+     *
+     * @return this object
+     *
+     * @see Game#getGametypes()
+     */
     public SeriesGamesRequest embedGametypes() {
         addEmbed("gametypes");
         return this;
     }
 
+    /**
+     * Embed the platforms for each game.
+     *
+     * @return this object
+     *
+     * @see Game#getPlatforms()
+     */
     public SeriesGamesRequest embedPlatforms() {
         addEmbed("platforms");
         return this;
     }
 
+    /**
+     * Embed the regions for each game.
+     *
+     * @return this object
+     *
+     * @see Game#getRegions()
+     */
     public SeriesGamesRequest embedRegions() {
         addEmbed("regions");
         return this;
     }
 
+    /**
+     * Embed the genres for each game.
+     *
+     * @return this object
+     *
+     * @see Game#getGenres()
+     */
     public SeriesGamesRequest embedGenres() {
         addEmbed("genres");
         return this;
     }
 
+    /**
+     * Embed the engines for each game.
+     *
+     * @return this object
+     *
+     * @see Game#getEngines()
+     */
     public SeriesGamesRequest embedEngines() {
         addEmbed("engines");
         return this;
     }
 
+    /**
+     * Embed the developers for each game.
+     *
+     * @return this object
+     *
+     * @see Game#getDevelopers()
+     */
     public SeriesGamesRequest embedDevelopers() {
         addEmbed("developers");
         return this;
     }
 
+    /**
+     * Embed the publishers for each game.
+     *
+     * @return this object
+     *
+     * @see Game#getPublishers()
+     */
     public SeriesGamesRequest embedPublishers() {
         addEmbed("publishers");
         return this;
     }
 
+    /**
+     * Embed the variables for each game.
+     *
+     * @return this object
+     *
+     * @see Game#getVariables()
+     */
     public SeriesGamesRequest embedVariables() {
         addEmbed("variables");
         return this;

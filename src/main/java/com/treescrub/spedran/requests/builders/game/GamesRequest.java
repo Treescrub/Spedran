@@ -227,61 +227,147 @@ public class GamesRequest extends ResourceCollectionRequest<Game> {
         return this;
     }
 
+    /**
+     * Embed the levels for each game.
+     *
+     * @return this object
+     *
+     * @see Game#getLevels()
+     */
     public GamesRequest embedLevels() {
         addEmbed("levels");
         return this;
     }
 
+    /**
+     * Embed the levels for each game and any provided embeds for the levels.
+     *
+     * @param builder the embed builder for the levels
+     * @return this object
+     *
+     * @see Game#getLevels()
+     */
     public GamesRequest embedLevels(LevelEmbedBuilder builder) {
         addEmbed(builder.getEmbedStrings(), "levels");
         return this;
     }
 
+    /**
+     * Embed the categories for each game.
+     *
+     * @return this object
+     *
+     * @see Game#getCategories()
+     */
     public GamesRequest embedCategories() {
         addEmbed("categories");
         return this;
     }
 
+    /**
+     * Embed the categories for each game and any provided embeds for the categories.
+     *
+     * @param builder the embed builder for the categories
+     * @return this object
+     *
+     * @see Game#getCategories()
+     */
     public GamesRequest embedCategories(CategoryEmbedBuilder builder) {
         addEmbed(builder.getEmbedStrings(), "categories");
         return this;
     }
 
+    /**
+     * Embed the gametypes for each game.
+     *
+     * @return this object
+     *
+     * @see Game#getGametypes()
+     */
     public GamesRequest embedGametypes() {
         addEmbed("gametypes");
         return this;
     }
 
+    /**
+     * Embed the platforms for each game.
+     *
+     * @return this object
+     *
+     * @see Game#getPlatforms()
+     */
     public GamesRequest embedPlatforms() {
         addEmbed("platforms");
         return this;
     }
 
+    /**
+     * Embed the regions for each game.
+     *
+     * @return this object
+     *
+     * @see Game#getRegions()
+     */
     public GamesRequest embedRegions() {
         addEmbed("regions");
         return this;
     }
 
+    /**
+     * Embed the genres for each game.
+     *
+     * @return this object
+     *
+     * @see Game#getGenres()
+     */
     public GamesRequest embedGenres() {
         addEmbed("genres");
         return this;
     }
 
+    /**
+     * Embed the engines for each game.
+     *
+     * @return this object
+     *
+     * @see Game#getEngines()
+     */
     public GamesRequest embedEngines() {
         addEmbed("engines");
         return this;
     }
 
+    /**
+     * Embed the developers for each game.
+     *
+     * @return this object
+     *
+     * @see Game#getDevelopers()
+     */
     public GamesRequest embedDevelopers() {
         addEmbed("developers");
         return this;
     }
 
+    /**
+     * Embed the publishers for each game.
+     *
+     * @return this object
+     *
+     * @see Game#getPublishers()
+     */
     public GamesRequest embedPublishers() {
         addEmbed("publishers");
         return this;
     }
 
+    /**
+     * Embed the variables for each game.
+     *
+     * @return this object
+     *
+     * @see Game#getVariables()
+     */
     public GamesRequest embedVariables() {
         addEmbed("variables");
         return this;

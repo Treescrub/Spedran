@@ -1,5 +1,6 @@
 package com.treescrub.spedran.requests.builders.game;
 
+import com.treescrub.spedran.data.Category;
 import com.treescrub.spedran.data.Level;
 import com.treescrub.spedran.data.Game;
 import com.treescrub.spedran.ResourceCollectionRequest;
@@ -23,16 +24,38 @@ public class GameLevelsRequest extends ResourceCollectionRequest<Level> {
         this(game.getId());
     }
 
+    /**
+     * Embed the categories for each level.
+     *
+     * @return this object
+     *
+     * @see Level#getCategories()
+     */
     public GameLevelsRequest embedCategories() {
         addEmbed("categories");
         return this;
     }
 
+    /**
+     * Embeds the categories for each level and any provided embeds for the category.
+     *
+     * @param builder the embed builder for the category
+     * @return this object
+     *
+     * @see Level#getCategories()
+     */
     public GameLevelsRequest embedCategories(CategoryEmbedBuilder builder) {
         addEmbed(builder.getEmbedStrings(), "categories");
         return this;
     }
 
+    /**
+     * Embed the applicable variables for each level.
+     *
+     * @return this object
+     *
+     * @see Level#getVariables()
+     */
     public GameLevelsRequest embedVariables() {
         addEmbed("variables");
         return this;

@@ -35,16 +35,38 @@ public class LevelCategoriesRequest extends ResourceCollectionRequest<Category> 
         return this;
     }
 
+    /**
+     * Embed the game for each category.
+     *
+     * @return this object
+     *
+     * @see Category#getGame()
+     */
     public LevelCategoriesRequest embedGame() {
         addEmbed("game");
         return this;
     }
 
+    /**
+     * Embeds the game for each category and any provided embeds for the category.
+     *
+     * @param builder the embed builder for the category
+     * @return this object
+     *
+     * @see Category#getGame()
+     */
     public LevelCategoriesRequest embedGame(GameEmbedBuilder builder) {
         addEmbed(builder.getEmbedStrings(), "game");
         return this;
     }
 
+    /**
+     * Embed the applicable variables for each category.
+     *
+     * @return this object
+     *
+     * @see Category#getVariables()
+     */
     public LevelCategoriesRequest embedVariables() {
         addEmbed("variables");
         return this;

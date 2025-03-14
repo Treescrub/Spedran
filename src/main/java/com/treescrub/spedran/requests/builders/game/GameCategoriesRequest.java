@@ -36,16 +36,38 @@ public class GameCategoriesRequest extends ResourceCollectionRequest<Category> {
         return this;
     }
 
+    /**
+     * Embed the game for each category.
+     *
+     * @return this object
+     *
+     * @see Category#getGame()
+     */
     public GameCategoriesRequest embedGame() {
         addEmbed("game");
         return this;
     }
 
+    /**
+     * Embeds the game for each category and any provided embeds for the game.
+     *
+     * @param builder the embed builder for the game
+     * @return this object
+     *
+     * @see Category#getGame()
+     */
     public GameCategoriesRequest embedGame(GameEmbedBuilder builder) {
         addEmbed(builder.getEmbedStrings(), "game");
         return this;
     }
 
+    /**
+     * Embed the variables for each category.
+     *
+     * @return this object
+     *
+     * @see Category#getVariables()
+     */
     public GameCategoriesRequest embedVariables() {
         addEmbed("variables");
         return this;

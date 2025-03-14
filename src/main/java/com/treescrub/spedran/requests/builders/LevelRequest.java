@@ -26,16 +26,38 @@ public class LevelRequest extends SingleResourceRequest<Level> {
         return Level.class;
     }
 
+    /**
+     * Embed this level's categories.
+     *
+     * @return this object
+     *
+     * @see Level#getCategories()
+     */
     public LevelRequest embedCategories() {
         addEmbed("categories");
         return this;
     }
 
+    /**
+     * Embeds this level's categories and any provided embeds for the categories.
+     *
+     * @param builder the embed builder for the categories
+     * @return this object
+     *
+     * @see Level#getCategories()
+     */
     public LevelRequest embedCategories(CategoryEmbedBuilder builder) {
         addEmbed(builder.getEmbedStrings(), "categories");
         return this;
     }
 
+    /**
+     * Embed this level's applicable variables.
+     *
+     * @return this object
+     *
+     * @see Level#getVariables()
+     */
     public LevelRequest embedVariables() {
         addEmbed("variables");
         return this;

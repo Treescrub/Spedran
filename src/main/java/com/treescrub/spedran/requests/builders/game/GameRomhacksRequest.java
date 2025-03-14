@@ -235,61 +235,147 @@ public class GameRomhacksRequest extends ResourceCollectionRequest<Game> {
         return moderator(user.getId());
     }
 
+    /**
+     * Embed the levels for each game.
+     *
+     * @return this object
+     *
+     * @see Game#getLevels()
+     */
     public GameRomhacksRequest embedLevels() {
         addEmbed("levels");
         return this;
     }
 
+    /**
+     * Embed the levels for each game and any provided embeds for the levels.
+     *
+     * @param builder the embed builder for the levels
+     * @return this object
+     *
+     * @see Game#getLevels()
+     */
     public GameRomhacksRequest embedLevels(LevelEmbedBuilder builder) {
         addEmbed(builder.getEmbedStrings(), "levels");
         return this;
     }
 
+    /**
+     * Embed the categories for each game.
+     *
+     * @return this object
+     *
+     * @see Game#getCategories()
+     */
     public GameRomhacksRequest embedCategories() {
         addEmbed("categories");
         return this;
     }
 
+    /**
+     * Embed the categories for each game and any provided embeds for the categories.
+     *
+     * @param builder the embed builder for the categories
+     * @return this object
+     *
+     * @see Game#getCategories()
+     */
     public GameRomhacksRequest embedCategories(CategoryEmbedBuilder builder) {
         addEmbed(builder.getEmbedStrings(), "categories");
         return this;
     }
 
+    /**
+     * Embed the gametypes for each game.
+     *
+     * @return this object
+     *
+     * @see Game#getGametypes()
+     */
     public GameRomhacksRequest embedGametypes() {
         addEmbed("gametypes");
         return this;
     }
 
+    /**
+     * Embed the platforms for each game.
+     *
+     * @return this object
+     *
+     * @see Game#getPlatforms()
+     */
     public GameRomhacksRequest embedPlatforms() {
         addEmbed("platforms");
         return this;
     }
 
+    /**
+     * Embed the regions for each game.
+     *
+     * @return this object
+     *
+     * @see Game#getRegions()
+     */
     public GameRomhacksRequest embedRegions() {
         addEmbed("regions");
         return this;
     }
 
+    /**
+     * Embed the genres for each game.
+     *
+     * @return this object
+     *
+     * @see Game#getGenres()
+     */
     public GameRomhacksRequest embedGenres() {
         addEmbed("genres");
         return this;
     }
 
+    /**
+     * Embed the engines for each game.
+     *
+     * @return this object
+     *
+     * @see Game#getEngines()
+     */
     public GameRomhacksRequest embedEngines() {
         addEmbed("engines");
         return this;
     }
 
+    /**
+     * Embed the developers for each game.
+     *
+     * @return this object
+     *
+     * @see Game#getDevelopers()
+     */
     public GameRomhacksRequest embedDevelopers() {
         addEmbed("developers");
         return this;
     }
 
+    /**
+     * Embed the publishers for each game.
+     *
+     * @return this object
+     *
+     * @see Game#getPublishers()
+     */
     public GameRomhacksRequest embedPublishers() {
         addEmbed("publishers");
         return this;
     }
 
+    /**
+     * Embed the variables for each game.
+     *
+     * @return this object
+     *
+     * @see Game#getVariables()
+     */
     public GameRomhacksRequest embedVariables() {
         addEmbed("variables");
         return this;

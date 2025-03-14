@@ -219,46 +219,112 @@ public class RunsRequest extends ResourceCollectionRequest<Run> {
         return this;
     }
 
+    /**
+     * Embed the game for each run.
+     *
+     * @return this object
+     *
+     * @see Run#getGame()
+     */
     public RunsRequest embedGame() {
         addEmbed("game");
         return this;
     }
 
+    /**
+     * Embeds the game for each run and any provided embeds for the game.
+     *
+     * @param builder the embed builder for the game
+     * @return this object
+     *
+     * @see Run#getGame()
+     */
     public RunsRequest embedGame(GameEmbedBuilder builder) {
         addEmbed(builder.getEmbedStrings(), "game");
         return this;
     }
 
+    /**
+     * Embed the category for each run.
+     *
+     * @return this object
+     *
+     * @see Run#getCategory()
+     */
     public RunsRequest embedCategory() {
         addEmbed("category");
         return this;
     }
 
+    /**
+     * Embeds the category for each run and any provided embeds for the category.
+     *
+     * @param builder the embed builder for the category
+     * @return this object
+     *
+     * @see Run#getCategory()
+     */
     public RunsRequest embedCategory(CategoryEmbedBuilder builder) {
         addEmbed(builder.getEmbedStrings(), "category");
         return this;
     }
 
+    /**
+     * Embed the level for each run.
+     *
+     * @return this object
+     *
+     * @see Run#getLevel()
+     */
     public RunsRequest embedLevel() {
         addEmbed("level");
         return this;
     }
 
+    /**
+     * Embeds the level for each run and any provided embeds for the level.
+     *
+     * @param builder the embed builder for the level
+     * @return this object
+     *
+     * @see Run#getLevel()
+     */
     public RunsRequest embedLevel(LevelEmbedBuilder builder) {
         addEmbed(builder.getEmbedStrings(), "level");
         return this;
     }
 
+    /**
+     * Embed the players for each run.
+     *
+     * @return this object
+     *
+     * @see Run#getPlayers()
+     */
     public RunsRequest embedPlayers() {
         addEmbed("players");
         return this;
     }
 
+    /**
+     * Embed the region for each run.
+     *
+     * @return this object
+     *
+     * @see Run#getRegion()
+     */
     public RunsRequest embedRegion() {
         addEmbed("region");
         return this;
     }
 
+    /**
+     * Embed the platform for each run.
+     *
+     * @return this object
+     *
+     * @see Run#getPlatform()
+     */
     public RunsRequest embedPlatform() {
         addEmbed("platform");
         return this;

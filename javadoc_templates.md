@@ -59,12 +59,26 @@ Text in square brackets (`[` and `]`) are optional text that is recommended if a
 
 ### Optional embedded resource getters
 
+#### Single
+
 ```java
 /**
  * Gets the <OTHER_RESOURCE_LOWERCASE> for this <THIS_LOWERCASE> as an {@link Optional}.
  * The {@code Optional} is empty if the <OTHER_RESOURCE_LOWERCASE> was not embedded.
  *
  * @return an {@link Optional} containing the <OTHER_RESOURCE_LOWERCASE>
+ *
+ * @see <OTHER_RESOURCE>
+ */
+```
+
+#### List
+
+```java
+/**
+ * Gets a {@code List} of <OTHER_RESOURCE_LOWERCASE_PLURAL> applicable to this <THIS_LOWERCASE> as an {@link Optional}.
+ *
+ * @return an {@link Optional} containing the applicable <OTHER_RESOURCE_LOWERCASE_PLURAL>, empty if not embedded
  *
  * @see <OTHER_RESOURCE>
  */
@@ -122,6 +136,62 @@ Text in square brackets (`[` and `]`) are optional text that is recommended if a
 ```
 
 ## Request builders
+
+### Embed methods
+
+#### One level embed
+
+##### Single item request
+
+```java
+/**
+ * Embed this <THIS_LOWERCASE>'s <OTHER_RESOURCE_LOWERCASE>.
+ *
+ * @return this object
+ * 
+ * @see <THIS>#get<OTHER_RESOURCE>()
+ */
+```
+
+##### Collection request
+
+```java
+/**
+ * Embed the <OTHER_RESOURCE_LOWERCASE> for each <THIS_LOWERCASE>.
+ *
+ * @return this object
+ *
+ * @see <THIS>#get<OTHER_RESOURCE>()
+ */
+```
+
+#### Two level embed
+
+##### Single item request
+
+```java
+/**
+ * Embeds this <THIS_LOWERCASE>'s <OTHER_RESOURCE_LOWERCASE> and any provided embeds for the <OTHER_RESOURCE_LOWERCASE>.
+ *
+ * @param builder the embed builder for the <OTHER_RESOURCE_LOWERCASE>
+ * @return this object
+ * 
+ * @see <THIS>#get<OTHER_RESOURCE>()
+ */
+```
+
+##### Collection request
+
+```java
+/**
+ * Embeds the <OTHER_RESOURCE_LOWERCASE> for each <THIS_LOWERCASE> and any provided embeds for the <OTHER_RESOURCE_LOWERCASE>.
+ *
+ * @param builder the embed builder for the <OTHER_RESOURCE_LOWERCASE>
+ * @return this object
+ * 
+ * @see <THIS>#get<OTHER_RESOURCE>()
+ */
+```
 
 ### Sort* methods
 

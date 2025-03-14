@@ -162,51 +162,124 @@ public class LeaderboardRequest extends SingleResourceRequest<Leaderboard> {
         return variable(variable.getId(), valueId);
     }
 
+    /**
+     * Embeds the game used to filter this leaderboard.
+     *
+     * @return this object
+     *
+     * @see Leaderboard#getGame()
+     */
     public LeaderboardRequest embedGame() {
         addEmbed("game");
         return this;
     }
 
+    /**
+     * Embeds the game used to filter this leaderboard and any provided embeds for the game.
+     *
+     * @param builder the embed builder for the game
+     * @return this object
+     *
+     * @see Leaderboard#getGame()
+     */
     public LeaderboardRequest embedGame(GameEmbedBuilder builder) {
         addEmbed(builder.getEmbedStrings(), "game");
         return this;
     }
 
+    /**
+     * Embeds the category used to filter this leaderboard.
+     *
+     * @return this object
+     *
+     * @see Leaderboard#getCategory()
+     */
     public LeaderboardRequest embedCategory() {
         addEmbed("category");
         return this;
     }
 
+    /**
+     * Embeds the category used to filter this leaderboard and any provided embeds for the category.
+     *
+     * @param builder the embed builder for the category
+     * @return this object
+     *
+     * @see Leaderboard#getCategory()
+     */
     public LeaderboardRequest embedCategory(CategoryEmbedBuilder builder) {
         addEmbed(builder.getEmbedStrings(), "category");
         return this;
     }
 
+    /**
+     * Embeds the level used to filter this leaderboard.
+     *
+     * @return this object
+     *
+     * @see Leaderboard#getLevel()
+     */
     public LeaderboardRequest embedLevel() {
         addEmbed("level");
         return this;
     }
 
+    /**
+     * Embeds the level used to filter this leaderboard and any provided embeds for the level.
+     *
+     * @param builder the embed builder for the level
+     * @return this object
+     *
+     * @see Leaderboard#getLevel()
+     */
     public LeaderboardRequest embedLevel(LevelEmbedBuilder builder) {
         addEmbed(builder.getEmbedStrings(), "level");
         return this;
     }
 
+    /**
+     * Embeds the players that participated in this leaderboard.
+     *
+     * @return this object
+     *
+     * @see Leaderboard#getPlayers()
+     */
     public LeaderboardRequest embedPlayers() {
         addEmbed("players");
         return this;
     }
 
+    /**
+     * Embeds the regions that were used in this leaderboard.
+     *
+     * @return this object
+     *
+     * @see Leaderboard#getRegions()
+     */
     public LeaderboardRequest embedRegions() {
         addEmbed("regions");
         return this;
     }
 
+    /**
+     * Embeds the platforms that were used in this leaderboard.
+     *
+     * @return this object
+     *
+     * @see Leaderboard#getPlatforms()
+     */
     public LeaderboardRequest embedPlatforms() {
         addEmbed("platforms");
         return this;
     }
 
+    /**
+     * Embeds the applicable variables for the filtered levels/categories for this leaderboard.
+     *
+     * @return this object
+     *
+     * @see Leaderboard#getVariables()
+     */
     public LeaderboardRequest embedVariables() {
         addEmbed("variables");
         return this;
