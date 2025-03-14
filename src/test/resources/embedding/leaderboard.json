@@ -110,19 +110,8 @@
       "rules": "level_rules"
     }
   },
-  "platform": {
-    "data": {
-      "id": "platform_id",
-      "name": "platform_name",
-      "released": 1970
-    }
-  },
-  "region": {
-    "data": {
-      "id": "region_id",
-      "name": "region_name"
-    }
-  },
+  "platform": "platform_id",
+  "region": "region_id",
   "emulators": null,
   "video-only": false,
   "timing": "realtime",
@@ -149,15 +138,13 @@
           "examiner": "examiner_id",
           "verify-date": "2000-01-01T00:00:00Z"
         },
-        "players": {
-          "data": [
-            {
-              "rel": "user",
-              "id": "player_id",
-              "uri": "https://www.speedrun.com/api/v1/users/player_id"
-            }
-          ]
-        },
+        "players": [
+          {
+            "rel": "user",
+            "id": "player_id",
+            "uri": "https://www.speedrun.com/api/v1/users/player_id"
+          }
+        ],
         "date": "2000-01-01",
         "submitted": "2000-01-01T00:00:00Z",
         "times": {
