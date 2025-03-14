@@ -2,6 +2,7 @@ package com.treescrub.spedran.requests.builders;
 
 import com.treescrub.spedran.data.Category;
 import com.treescrub.spedran.SingleResourceRequest;
+import com.treescrub.spedran.requests.builders.embed.GameEmbedBuilder;
 import kong.unirest.HttpMethod;
 
 import java.util.Map;
@@ -23,5 +24,20 @@ public class CategoryRequest extends SingleResourceRequest<Category> {
     @Override
     protected Class<Category> getDataClass() {
         return Category.class;
+    }
+
+    public CategoryRequest embedGame() {
+        addEmbed("game");
+        return this;
+    }
+
+    public CategoryRequest embedGame(GameEmbedBuilder builder) {
+        addEmbed(builder.getEmbedStrings(), "game");
+        return this;
+    }
+
+    public CategoryRequest embedVariables() {
+        addEmbed("variables");
+        return this;
     }
 }

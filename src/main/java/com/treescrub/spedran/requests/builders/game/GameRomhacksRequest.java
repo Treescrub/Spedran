@@ -3,6 +3,8 @@ package com.treescrub.spedran.requests.builders.game;
 import com.treescrub.spedran.ResourceCollectionRequest;
 import com.treescrub.spedran.requests.SortDirection;
 import com.treescrub.spedran.data.*;
+import com.treescrub.spedran.requests.builders.embed.CategoryEmbedBuilder;
+import com.treescrub.spedran.requests.builders.embed.LevelEmbedBuilder;
 import kong.unirest.HttpMethod;
 
 import java.util.Map;
@@ -231,6 +233,66 @@ public class GameRomhacksRequest extends ResourceCollectionRequest<Game> {
     @SuppressWarnings("unused")
     public GameRomhacksRequest moderator(User user) {
         return moderator(user.getId());
+    }
+
+    public GameRomhacksRequest embedLevel() {
+        addEmbed("level");
+        return this;
+    }
+
+    public GameRomhacksRequest embedLevel(LevelEmbedBuilder builder) {
+        addEmbed(builder.getEmbedStrings(), "level");
+        return this;
+    }
+
+    public GameRomhacksRequest embedCategories() {
+        addEmbed("categories");
+        return this;
+    }
+
+    public GameRomhacksRequest embedCategories(CategoryEmbedBuilder builder) {
+        addEmbed(builder.getEmbedStrings(), "categories");
+        return this;
+    }
+
+    public GameRomhacksRequest embedGametypes() {
+        addEmbed("gametypes");
+        return this;
+    }
+
+    public GameRomhacksRequest embedPlatforms() {
+        addEmbed("platforms");
+        return this;
+    }
+
+    public GameRomhacksRequest embedRegions() {
+        addEmbed("regions");
+        return this;
+    }
+
+    public GameRomhacksRequest embedGenres() {
+        addEmbed("genres");
+        return this;
+    }
+
+    public GameRomhacksRequest embedEngines() {
+        addEmbed("engines");
+        return this;
+    }
+
+    public GameRomhacksRequest embedDevelopers() {
+        addEmbed("developers");
+        return this;
+    }
+
+    public GameRomhacksRequest embedPublishers() {
+        addEmbed("publishers");
+        return this;
+    }
+
+    public GameRomhacksRequest embedVariables() {
+        addEmbed("variables");
+        return this;
     }
 
     /**

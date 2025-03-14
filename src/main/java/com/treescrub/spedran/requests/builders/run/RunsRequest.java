@@ -12,6 +12,9 @@ import com.treescrub.spedran.data.SubmissionStatus;
 import com.treescrub.spedran.data.User;
 import com.treescrub.spedran.ResourceCollectionRequest;
 import com.treescrub.spedran.requests.SortDirection;
+import com.treescrub.spedran.requests.builders.embed.CategoryEmbedBuilder;
+import com.treescrub.spedran.requests.builders.embed.GameEmbedBuilder;
+import com.treescrub.spedran.requests.builders.embed.LevelEmbedBuilder;
 import kong.unirest.HttpMethod;
 
 /**
@@ -213,6 +216,51 @@ public class RunsRequest extends ResourceCollectionRequest<Run> {
     @SuppressWarnings("unused")
     public RunsRequest status(SubmissionStatus submissionStatus) {
         setParameter("status", submissionStatus.name().toLowerCase());
+        return this;
+    }
+
+    public RunsRequest embedGame() {
+        addEmbed("game");
+        return this;
+    }
+
+    public RunsRequest embedGame(GameEmbedBuilder builder) {
+        addEmbed(builder.getEmbedStrings(), "game");
+        return this;
+    }
+
+    public RunsRequest embedCategory() {
+        addEmbed("category");
+        return this;
+    }
+
+    public RunsRequest embedCategory(CategoryEmbedBuilder builder) {
+        addEmbed(builder.getEmbedStrings(), "category");
+        return this;
+    }
+
+    public RunsRequest embedLevel() {
+        addEmbed("level");
+        return this;
+    }
+
+    public RunsRequest embedLevel(LevelEmbedBuilder builder) {
+        addEmbed(builder.getEmbedStrings(), "level");
+        return this;
+    }
+
+    public RunsRequest embedPlayers() {
+        addEmbed("players");
+        return this;
+    }
+
+    public RunsRequest embedRegion() {
+        addEmbed("region");
+        return this;
+    }
+
+    public RunsRequest embedPlatform() {
+        addEmbed("platform");
         return this;
     }
 

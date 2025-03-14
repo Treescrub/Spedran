@@ -4,6 +4,7 @@ import com.treescrub.spedran.data.Level;
 import com.treescrub.spedran.data.Game;
 import com.treescrub.spedran.ResourceCollectionRequest;
 import com.treescrub.spedran.requests.SortDirection;
+import com.treescrub.spedran.requests.builders.embed.CategoryEmbedBuilder;
 import kong.unirest.HttpMethod;
 
 import java.util.Map;
@@ -20,6 +21,21 @@ public class GameLevelsRequest extends ResourceCollectionRequest<Level> {
     @SuppressWarnings("unused")
     public GameLevelsRequest(Game game) {
         this(game.getId());
+    }
+
+    public GameLevelsRequest embedCategories() {
+        addEmbed("categories");
+        return this;
+    }
+
+    public GameLevelsRequest embedCategories(CategoryEmbedBuilder builder) {
+        addEmbed(builder.getEmbedStrings(), "categories");
+        return this;
+    }
+
+    public GameLevelsRequest embedVariables() {
+        addEmbed("variables");
+        return this;
     }
 
     /**

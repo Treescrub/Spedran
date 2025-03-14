@@ -6,6 +6,9 @@ import com.treescrub.spedran.data.Run;
 import com.treescrub.spedran.data.Series;
 import com.treescrub.spedran.data.User;
 import com.treescrub.spedran.ResourceCollectionRequest;
+import com.treescrub.spedran.requests.builders.embed.CategoryEmbedBuilder;
+import com.treescrub.spedran.requests.builders.embed.GameEmbedBuilder;
+import com.treescrub.spedran.requests.builders.embed.LevelEmbedBuilder;
 import kong.unirest.HttpMethod;
 
 import java.util.Map;
@@ -57,6 +60,56 @@ public class UserPBsRequest extends ResourceCollectionRequest<LeaderboardRun> {
     @SuppressWarnings("unused")
     public UserPBsRequest game(String id) {
         setParameter("game", id);
+        return this;
+    }
+
+    public UserPBsRequest embedGame() {
+        addEmbed("game");
+        return this;
+    }
+
+    public UserPBsRequest embedGame(GameEmbedBuilder builder) {
+        addEmbed(builder.getEmbedStrings(), "game");
+        return this;
+    }
+
+    public UserPBsRequest embedCategory() {
+        addEmbed("category");
+        return this;
+    }
+
+    public UserPBsRequest embedCategory(CategoryEmbedBuilder builder) {
+        addEmbed(builder.getEmbedStrings(), "category");
+        return this;
+    }
+
+    public UserPBsRequest embedLevel() {
+        addEmbed("level");
+        return this;
+    }
+
+    public UserPBsRequest embedLevel(LevelEmbedBuilder builder) {
+        addEmbed(builder.getEmbedStrings(), "level");
+        return this;
+    }
+
+    public UserPBsRequest embedPlayers() {
+        addEmbed("players");
+        return this;
+    }
+
+    public UserPBsRequest embedRegions() {
+        addEmbed("regions");
+        return this;
+    }
+
+    public UserPBsRequest embedPlatforms() {
+        addEmbed("platforms");
+        return this;
+    }
+
+    public UserPBsRequest embedVariables() {
+        addEmbed("variables");
         return this;
     }
 

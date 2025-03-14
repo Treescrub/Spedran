@@ -3,6 +3,9 @@ package com.treescrub.spedran.requests.builders;
 import com.treescrub.spedran.data.Category;
 import com.treescrub.spedran.data.Leaderboard;
 import com.treescrub.spedran.ResourceCollectionRequest;
+import com.treescrub.spedran.requests.builders.embed.CategoryEmbedBuilder;
+import com.treescrub.spedran.requests.builders.embed.GameEmbedBuilder;
+import com.treescrub.spedran.requests.builders.embed.LevelEmbedBuilder;
 import kong.unirest.HttpMethod;
 
 import java.util.Map;
@@ -55,6 +58,56 @@ public class CategoryRecordsRequest extends ResourceCollectionRequest<Leaderboar
     @SuppressWarnings("unused")
     public CategoryRecordsRequest keepEmptyResults() {
         setParameter("skip-empty", false);
+        return this;
+    }
+
+    public CategoryRecordsRequest embedGame() {
+        addEmbed("game");
+        return this;
+    }
+
+    public CategoryRecordsRequest embedGame(GameEmbedBuilder builder) {
+        addEmbed(builder.getEmbedStrings(), "game");
+        return this;
+    }
+
+    public CategoryRecordsRequest embedCategory() {
+        addEmbed("category");
+        return this;
+    }
+
+    public CategoryRecordsRequest embedCategory(CategoryEmbedBuilder builder) {
+        addEmbed(builder.getEmbedStrings(), "category");
+        return this;
+    }
+
+    public CategoryRecordsRequest embedLevel() {
+        addEmbed("level");
+        return this;
+    }
+
+    public CategoryRecordsRequest embedLevel(LevelEmbedBuilder builder) {
+        addEmbed(builder.getEmbedStrings(), "level");
+        return this;
+    }
+
+    public CategoryRecordsRequest embedPlayers() {
+        addEmbed("players");
+        return this;
+    }
+
+    public CategoryRecordsRequest embedRegions() {
+        addEmbed("regions");
+        return this;
+    }
+
+    public CategoryRecordsRequest embedPlatforms() {
+        addEmbed("platforms");
+        return this;
+    }
+
+    public CategoryRecordsRequest embedVariables() {
+        addEmbed("variables");
         return this;
     }
 

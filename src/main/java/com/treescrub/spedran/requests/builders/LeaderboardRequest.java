@@ -2,6 +2,9 @@ package com.treescrub.spedran.requests.builders;
 
 import com.treescrub.spedran.SingleResourceRequest;
 import com.treescrub.spedran.data.*;
+import com.treescrub.spedran.requests.builders.embed.CategoryEmbedBuilder;
+import com.treescrub.spedran.requests.builders.embed.GameEmbedBuilder;
+import com.treescrub.spedran.requests.builders.embed.LevelEmbedBuilder;
 import kong.unirest.HttpMethod;
 
 import java.util.Map;
@@ -157,6 +160,56 @@ public class LeaderboardRequest extends SingleResourceRequest<Leaderboard> {
     @SuppressWarnings("unused")
     public LeaderboardRequest variable(Variable variable, String valueId) {
         return variable(variable.getId(), valueId);
+    }
+
+    public LeaderboardRequest embedGame() {
+        addEmbed("game");
+        return this;
+    }
+
+    public LeaderboardRequest embedGame(GameEmbedBuilder builder) {
+        addEmbed(builder.getEmbedStrings(), "game");
+        return this;
+    }
+
+    public LeaderboardRequest embedCategory() {
+        addEmbed("category");
+        return this;
+    }
+
+    public LeaderboardRequest embedCategory(CategoryEmbedBuilder builder) {
+        addEmbed(builder.getEmbedStrings(), "category");
+        return this;
+    }
+
+    public LeaderboardRequest embedLevel() {
+        addEmbed("level");
+        return this;
+    }
+
+    public LeaderboardRequest embedLevel(LevelEmbedBuilder builder) {
+        addEmbed(builder.getEmbedStrings(), "level");
+        return this;
+    }
+
+    public LeaderboardRequest embedPlayers() {
+        addEmbed("players");
+        return this;
+    }
+
+    public LeaderboardRequest embedRegions() {
+        addEmbed("regions");
+        return this;
+    }
+
+    public LeaderboardRequest embedPlatforms() {
+        addEmbed("platforms");
+        return this;
+    }
+
+    public LeaderboardRequest embedVariables() {
+        addEmbed("variables");
+        return this;
     }
 
     @Override

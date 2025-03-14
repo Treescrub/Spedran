@@ -2,6 +2,8 @@ package com.treescrub.spedran.requests.builders.series;
 
 import com.treescrub.spedran.ResourceCollectionRequest;
 import com.treescrub.spedran.requests.SortDirection;
+import com.treescrub.spedran.requests.builders.embed.CategoryEmbedBuilder;
+import com.treescrub.spedran.requests.builders.embed.LevelEmbedBuilder;
 import com.treescrub.spedran.requests.builders.game.GamesRequest;
 import com.treescrub.spedran.data.*;
 import kong.unirest.HttpMethod;
@@ -236,6 +238,66 @@ public class SeriesGamesRequest extends ResourceCollectionRequest<Game> {
 
     public SeriesGamesRequest asBulk() {
         setParameter("max", GamesRequest.MAX_ITEMS_BULK);
+        return this;
+    }
+
+    public SeriesGamesRequest embedLevel() {
+        addEmbed("level");
+        return this;
+    }
+
+    public SeriesGamesRequest embedLevel(LevelEmbedBuilder builder) {
+        addEmbed(builder.getEmbedStrings(), "level");
+        return this;
+    }
+
+    public SeriesGamesRequest embedCategories() {
+        addEmbed("categories");
+        return this;
+    }
+
+    public SeriesGamesRequest embedCategories(CategoryEmbedBuilder builder) {
+        addEmbed(builder.getEmbedStrings(), "categories");
+        return this;
+    }
+
+    public SeriesGamesRequest embedGametypes() {
+        addEmbed("gametypes");
+        return this;
+    }
+
+    public SeriesGamesRequest embedPlatforms() {
+        addEmbed("platforms");
+        return this;
+    }
+
+    public SeriesGamesRequest embedRegions() {
+        addEmbed("regions");
+        return this;
+    }
+
+    public SeriesGamesRequest embedGenres() {
+        addEmbed("genres");
+        return this;
+    }
+
+    public SeriesGamesRequest embedEngines() {
+        addEmbed("engines");
+        return this;
+    }
+
+    public SeriesGamesRequest embedDevelopers() {
+        addEmbed("developers");
+        return this;
+    }
+
+    public SeriesGamesRequest embedPublishers() {
+        addEmbed("publishers");
+        return this;
+    }
+
+    public SeriesGamesRequest embedVariables() {
+        addEmbed("variables");
         return this;
     }
 

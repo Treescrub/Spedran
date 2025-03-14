@@ -4,6 +4,7 @@ import com.treescrub.spedran.data.Category;
 import com.treescrub.spedran.data.Game;
 import com.treescrub.spedran.ResourceCollectionRequest;
 import com.treescrub.spedran.requests.SortDirection;
+import com.treescrub.spedran.requests.builders.embed.GameEmbedBuilder;
 import kong.unirest.HttpMethod;
 
 import java.util.Map;
@@ -32,6 +33,21 @@ public class GameCategoriesRequest extends ResourceCollectionRequest<Category> {
     @SuppressWarnings("unused")
     public GameCategoriesRequest miscellaneous(boolean includeMiscellaneous) {
         setParameter("miscellaneous", includeMiscellaneous);
+        return this;
+    }
+
+    public GameCategoriesRequest embedGame() {
+        addEmbed("game");
+        return this;
+    }
+
+    public GameCategoriesRequest embedGame(GameEmbedBuilder builder) {
+        addEmbed(builder.getEmbedStrings(), "game");
+        return this;
+    }
+
+    public GameCategoriesRequest embedVariables() {
+        addEmbed("variables");
         return this;
     }
 

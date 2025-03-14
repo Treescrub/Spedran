@@ -3,6 +3,8 @@ package com.treescrub.spedran.requests.builders.game;
 import com.treescrub.spedran.data.*;
 import com.treescrub.spedran.ResourceCollectionRequest;
 import com.treescrub.spedran.requests.SortDirection;
+import com.treescrub.spedran.requests.builders.embed.CategoryEmbedBuilder;
+import com.treescrub.spedran.requests.builders.embed.LevelEmbedBuilder;
 import kong.unirest.HttpMethod;
 
 /**
@@ -222,6 +224,66 @@ public class GamesRequest extends ResourceCollectionRequest<Game> {
 
     public GamesRequest asBulk() {
         setParameter("max", MAX_ITEMS_BULK);
+        return this;
+    }
+
+    public GamesRequest embedLevel() {
+        addEmbed("level");
+        return this;
+    }
+
+    public GamesRequest embedLevel(LevelEmbedBuilder builder) {
+        addEmbed(builder.getEmbedStrings(), "level");
+        return this;
+    }
+
+    public GamesRequest embedCategories() {
+        addEmbed("categories");
+        return this;
+    }
+
+    public GamesRequest embedCategories(CategoryEmbedBuilder builder) {
+        addEmbed(builder.getEmbedStrings(), "categories");
+        return this;
+    }
+
+    public GamesRequest embedGametypes() {
+        addEmbed("gametypes");
+        return this;
+    }
+
+    public GamesRequest embedPlatforms() {
+        addEmbed("platforms");
+        return this;
+    }
+
+    public GamesRequest embedRegions() {
+        addEmbed("regions");
+        return this;
+    }
+
+    public GamesRequest embedGenres() {
+        addEmbed("genres");
+        return this;
+    }
+
+    public GamesRequest embedEngines() {
+        addEmbed("engines");
+        return this;
+    }
+
+    public GamesRequest embedDevelopers() {
+        addEmbed("developers");
+        return this;
+    }
+
+    public GamesRequest embedPublishers() {
+        addEmbed("publishers");
+        return this;
+    }
+
+    public GamesRequest embedVariables() {
+        addEmbed("variables");
         return this;
     }
 
