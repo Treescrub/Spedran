@@ -235,13 +235,13 @@ public class GameRomhacksRequest extends ResourceCollectionRequest<Game> {
         return moderator(user.getId());
     }
 
-    public GameRomhacksRequest embedLevel() {
-        addEmbed("level");
+    public GameRomhacksRequest embedLevels() {
+        addEmbed("levels");
         return this;
     }
 
-    public GameRomhacksRequest embedLevel(LevelEmbedBuilder builder) {
-        addEmbed(builder.getEmbedStrings(), "level");
+    public GameRomhacksRequest embedLevels(LevelEmbedBuilder builder) {
+        addEmbed(builder.getEmbedStrings(), "levels");
         return this;
     }
 

@@ -241,13 +241,13 @@ public class SeriesGamesRequest extends ResourceCollectionRequest<Game> {
         return this;
     }
 
-    public SeriesGamesRequest embedLevel() {
-        addEmbed("level");
+    public SeriesGamesRequest embedLevels() {
+        addEmbed("levels");
         return this;
     }
 
-    public SeriesGamesRequest embedLevel(LevelEmbedBuilder builder) {
-        addEmbed(builder.getEmbedStrings(), "level");
+    public SeriesGamesRequest embedLevels(LevelEmbedBuilder builder) {
+        addEmbed(builder.getEmbedStrings(), "levels");
         return this;
     }
 

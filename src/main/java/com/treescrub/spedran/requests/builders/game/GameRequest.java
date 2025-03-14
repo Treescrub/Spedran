@@ -27,13 +27,13 @@ public class GameRequest extends SingleResourceRequest<Game> {
         return Game.class;
     }
 
-    public GameRequest embedLevel() {
-        addEmbed("level");
+    public GameRequest embedLevels() {
+        addEmbed("levels");
         return this;
     }
 
-    public GameRequest embedLevel(LevelEmbedBuilder builder) {
-        addEmbed(builder.getEmbedStrings(), "level");
+    public GameRequest embedLevels(LevelEmbedBuilder builder) {
+        addEmbed(builder.getEmbedStrings(), "levels");
         return this;
     }
 
