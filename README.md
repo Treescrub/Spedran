@@ -11,18 +11,18 @@ Here's a very simple example on how to use Spedran to get the name of a user by 
 
 ```java
 public class GetUserName {
-    
+
     public static void main(String[] args) {
         // Get a user with an ID
         User user = Spedran.getUser("zx721w08").join();
 
         // Print the user's name
         System.out.println(user.getNames().getInternationalName());
-        
+
         // Shut down the library to allow the application to exit
         Spedran.shutDown();
     }
-  
+
 }
 ```
 
@@ -52,10 +52,10 @@ public void foo() {
         return null;
     }
 
-   Game runGame = run.getGame().getEmbeddedResource().get();
+    Game runGame = run.getGame().getEmbeddedResource().get();
 
-   // Print the abbreviation of the game that the run belongs to
-   System.out.println(runGame.getAbbreviation());
+    // Print the abbreviation of the game that the run belongs to
+    System.out.println(runGame.getAbbreviation());
 }
 ```
 
@@ -105,7 +105,7 @@ See the [Javadocs](https://treescrub.github.io/Spedran/javadoc/) for documentati
     git clone https://github.com/Treescrub/Spedran.git
     ```
 2. Make changes in your preferred editor.
-3. Use `mvn test` in the project root to compile and test the library. 
+3. Use `mvn test` in the project root to compile and test the library.
 
 ## License
 
