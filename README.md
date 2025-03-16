@@ -26,6 +26,39 @@ public class GetUserName {
 }
 ```
 
+## Embedding
+
+Spedran (and the Speedrun.com API) is built on the idea of resources, which are essentially specific classes of data that can be requested from the API (.e.g. runs, games, users).
+
+Some resources contain IDs for other resources that the SRC API allows you to embed the full resource into.
+Spedran exposes these members as getters returning an `EmbeddableResource` which always contains an ID but may optionally contain the full resource.
+
+Resources may also have related resources that can be embedded.
+Spedran exposes these members as getters returning an `Optional` containing the full resource.
+
+Several request builders have options to specify which resources to embed, read the Javadocs for any methods of a `*Request` class that start with `embed` for more info.
+
+### Example
+
+```java
+public void foo() {
+    // Request a run by ID and embed info about the game
+    Run run = Spedran.getRun("y2qed49y")
+            .embedGame()
+            .complete().join();
+
+    // Check that the game was embedded
+    if(!run.getGame().isEmbedded()) {
+        return null;
+    }
+
+   Game runGame = run.getGame().getEmbeddedResource().get();
+
+   // Print the abbreviation of the game that the run belongs to
+   System.out.println(runGame.getAbbreviation());
+}
+```
+
 ## Installation
 
 ### Maven
