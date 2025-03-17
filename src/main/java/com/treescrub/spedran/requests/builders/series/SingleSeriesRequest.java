@@ -1,7 +1,7 @@
 package com.treescrub.spedran.requests.builders.series;
 
-import com.treescrub.spedran.data.Series;
 import com.treescrub.spedran.SingleResourceRequest;
+import com.treescrub.spedran.data.Series;
 import kong.unirest.HttpMethod;
 
 import java.util.Map;

@@ -1,8 +1,8 @@
 package com.treescrub.spedran.requests.builders;
 
+import com.treescrub.spedran.ResourceCollectionRequest;
 import com.treescrub.spedran.data.Gametype;
 import com.treescrub.spedran.data.Region;
-import com.treescrub.spedran.ResourceCollectionRequest;
 import com.treescrub.spedran.requests.SortDirection;
 import kong.unirest.HttpMethod;
 

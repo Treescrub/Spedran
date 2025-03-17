@@ -26,7 +26,7 @@ public class LeaderboardRequest extends SingleResourceRequest<Leaderboard> {
     /**
      * Creates and returns a new {@code LeaderboardRequest} builder.
      *
-     * @param game the game of the leaderboard to get
+     * @param game     the game of the leaderboard to get
      * @param category the category of the leaderboard to get
      * @return a {@code LeaderboardRequest} builder
      */
@@ -40,7 +40,7 @@ public class LeaderboardRequest extends SingleResourceRequest<Leaderboard> {
     /**
      * Creates and returns a new {@code LeaderboardRequest} builder.
      *
-     * @param gameId the game of the leaderboard to get
+     * @param gameId     the game of the leaderboard to get
      * @param categoryId the category of the leaderboard to get
      * @return a {@code LeaderboardRequest} builder
      */
@@ -54,9 +54,9 @@ public class LeaderboardRequest extends SingleResourceRequest<Leaderboard> {
     /**
      * Creates and returns a new {@code LeaderboardRequest} builder.
      *
-     * @param game the game of the leaderboard to get
+     * @param game     the game of the leaderboard to get
      * @param category the category of the leaderboard to get
-     * @param level the level of the leaderboard to get
+     * @param level    the level of the leaderboard to get
      * @return a {@code LeaderboardRequest} builder
      */
     public static LeaderboardRequest create(Game game, Category category, Level level) {
@@ -70,9 +70,9 @@ public class LeaderboardRequest extends SingleResourceRequest<Leaderboard> {
     /**
      * Creates and returns a new {@code LeaderboardRequest} builder.
      *
-     * @param gameId the game of the leaderboard to get
+     * @param gameId     the game of the leaderboard to get
      * @param categoryId the category of the leaderboard to get
-     * @param levelId the level of the leaderboard to get
+     * @param levelId    the level of the leaderboard to get
      * @return a {@code LeaderboardRequest} builder
      */
     public static LeaderboardRequest create(String gameId, String categoryId, String levelId) {
@@ -193,7 +193,7 @@ public class LeaderboardRequest extends SingleResourceRequest<Leaderboard> {
     /**
      * Restricts the results to runs with the given {@link Variable} set to the given variable value.
      *
-     * @param id the variable ID
+     * @param id    the variable ID
      * @param value the variable value ID
      * @return this {@code LeaderboardRequest} builder
      */
@@ -206,7 +206,7 @@ public class LeaderboardRequest extends SingleResourceRequest<Leaderboard> {
      * Restricts the results to runs with the given {@link Variable} set to the given variable value.
      *
      * @param variable the variable
-     * @param valueId the variable value ID
+     * @param valueId  the variable value ID
      * @return this {@code LeaderboardRequest} builder
      */
     @SuppressWarnings("unused")
@@ -218,7 +218,6 @@ public class LeaderboardRequest extends SingleResourceRequest<Leaderboard> {
      * Embeds the game used to filter this leaderboard.
      *
      * @return this object
-     *
      * @see Leaderboard#getGame()
      */
     public LeaderboardRequest embedGame() {
@@ -231,7 +230,6 @@ public class LeaderboardRequest extends SingleResourceRequest<Leaderboard> {
      *
      * @param builder the embed builder for the game
      * @return this object
-     *
      * @see Leaderboard#getGame()
      */
     public LeaderboardRequest embedGame(GameEmbedBuilder builder) {
@@ -243,7 +241,6 @@ public class LeaderboardRequest extends SingleResourceRequest<Leaderboard> {
      * Embeds the category used to filter this leaderboard.
      *
      * @return this object
-     *
      * @see Leaderboard#getCategory()
      */
     public LeaderboardRequest embedCategory() {
@@ -256,7 +253,6 @@ public class LeaderboardRequest extends SingleResourceRequest<Leaderboard> {
      *
      * @param builder the embed builder for the category
      * @return this object
-     *
      * @see Leaderboard#getCategory()
      */
     public LeaderboardRequest embedCategory(CategoryEmbedBuilder builder) {
@@ -268,7 +264,6 @@ public class LeaderboardRequest extends SingleResourceRequest<Leaderboard> {
      * Embeds the level used to filter this leaderboard.
      *
      * @return this object
-     *
      * @see Leaderboard#getLevel()
      */
     public LeaderboardRequest embedLevel() {
@@ -281,7 +276,6 @@ public class LeaderboardRequest extends SingleResourceRequest<Leaderboard> {
      *
      * @param builder the embed builder for the level
      * @return this object
-     *
      * @see Leaderboard#getLevel()
      */
     public LeaderboardRequest embedLevel(LevelEmbedBuilder builder) {
@@ -293,7 +287,6 @@ public class LeaderboardRequest extends SingleResourceRequest<Leaderboard> {
      * Embeds the players that participated in this leaderboard.
      *
      * @return this object
-     *
      * @see Leaderboard#getPlayers()
      */
     public LeaderboardRequest embedPlayers() {
@@ -305,7 +298,6 @@ public class LeaderboardRequest extends SingleResourceRequest<Leaderboard> {
      * Embeds the regions that were used in this leaderboard.
      *
      * @return this object
-     *
      * @see Leaderboard#getRegions()
      */
     public LeaderboardRequest embedRegions() {
@@ -317,7 +309,6 @@ public class LeaderboardRequest extends SingleResourceRequest<Leaderboard> {
      * Embeds the platforms that were used in this leaderboard.
      *
      * @return this object
-     *
      * @see Leaderboard#getPlatforms()
      */
     public LeaderboardRequest embedPlatforms() {
@@ -329,7 +320,6 @@ public class LeaderboardRequest extends SingleResourceRequest<Leaderboard> {
      * Embeds the applicable variables for the filtered levels/categories for this leaderboard.
      *
      * @return this object
-     *
      * @see Leaderboard#getVariables()
      */
     public LeaderboardRequest embedVariables() {

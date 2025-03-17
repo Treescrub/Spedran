@@ -1,7 +1,7 @@
 package com.treescrub.spedran.requests.builders.game;
 
-import com.treescrub.spedran.data.*;
 import com.treescrub.spedran.ResourceCollectionRequest;
+import com.treescrub.spedran.data.*;
 import com.treescrub.spedran.requests.SortDirection;
 import com.treescrub.spedran.requests.builders.embed.CategoryEmbedBuilder;
 import com.treescrub.spedran.requests.builders.embed.LevelEmbedBuilder;
@@ -240,7 +240,6 @@ public class GamesRequest extends ResourceCollectionRequest<Game> {
      * Embed the levels for each game.
      *
      * @return this object
-     *
      * @see Game#getLevels()
      */
     public GamesRequest embedLevels() {
@@ -253,7 +252,6 @@ public class GamesRequest extends ResourceCollectionRequest<Game> {
      *
      * @param builder the embed builder for the levels
      * @return this object
-     *
      * @see Game#getLevels()
      */
     public GamesRequest embedLevels(LevelEmbedBuilder builder) {
@@ -265,7 +263,6 @@ public class GamesRequest extends ResourceCollectionRequest<Game> {
      * Embed the categories for each game.
      *
      * @return this object
-     *
      * @see Game#getCategories()
      */
     public GamesRequest embedCategories() {
@@ -278,7 +275,6 @@ public class GamesRequest extends ResourceCollectionRequest<Game> {
      *
      * @param builder the embed builder for the categories
      * @return this object
-     *
      * @see Game#getCategories()
      */
     public GamesRequest embedCategories(CategoryEmbedBuilder builder) {
@@ -290,7 +286,6 @@ public class GamesRequest extends ResourceCollectionRequest<Game> {
      * Embed the gametypes for each game.
      *
      * @return this object
-     *
      * @see Game#getGametypes()
      */
     public GamesRequest embedGametypes() {
@@ -302,7 +297,6 @@ public class GamesRequest extends ResourceCollectionRequest<Game> {
      * Embed the platforms for each game.
      *
      * @return this object
-     *
      * @see Game#getPlatforms()
      */
     public GamesRequest embedPlatforms() {
@@ -314,7 +308,6 @@ public class GamesRequest extends ResourceCollectionRequest<Game> {
      * Embed the regions for each game.
      *
      * @return this object
-     *
      * @see Game#getRegions()
      */
     public GamesRequest embedRegions() {
@@ -326,7 +319,6 @@ public class GamesRequest extends ResourceCollectionRequest<Game> {
      * Embed the genres for each game.
      *
      * @return this object
-     *
      * @see Game#getGenres()
      */
     public GamesRequest embedGenres() {
@@ -338,7 +330,6 @@ public class GamesRequest extends ResourceCollectionRequest<Game> {
      * Embed the engines for each game.
      *
      * @return this object
-     *
      * @see Game#getEngines()
      */
     public GamesRequest embedEngines() {
@@ -350,7 +341,6 @@ public class GamesRequest extends ResourceCollectionRequest<Game> {
      * Embed the developers for each game.
      *
      * @return this object
-     *
      * @see Game#getDevelopers()
      */
     public GamesRequest embedDevelopers() {
@@ -362,7 +352,6 @@ public class GamesRequest extends ResourceCollectionRequest<Game> {
      * Embed the publishers for each game.
      *
      * @return this object
-     *
      * @see Game#getPublishers()
      */
     public GamesRequest embedPublishers() {
@@ -374,7 +363,6 @@ public class GamesRequest extends ResourceCollectionRequest<Game> {
      * Embed the variables for each game.
      *
      * @return this object
-     *
      * @see Game#getVariables()
      */
     public GamesRequest embedVariables() {

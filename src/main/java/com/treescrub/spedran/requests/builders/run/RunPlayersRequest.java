@@ -1,10 +1,10 @@
 package com.treescrub.spedran.requests.builders.run;
 
-import com.treescrub.spedran.requests.InvalidBuilderStateException;
 import com.treescrub.spedran.ModifyResourceRequest;
 import com.treescrub.spedran.data.Guest;
 import com.treescrub.spedran.data.Run;
 import com.treescrub.spedran.data.User;
+import com.treescrub.spedran.requests.InvalidBuilderStateException;
 import kong.unirest.HttpMethod;
 import kong.unirest.json.JSONArray;
 import kong.unirest.json.JSONElement;

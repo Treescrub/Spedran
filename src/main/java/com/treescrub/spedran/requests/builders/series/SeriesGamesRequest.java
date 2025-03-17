@@ -1,12 +1,11 @@
 package com.treescrub.spedran.requests.builders.series;
 
 import com.treescrub.spedran.ResourceCollectionRequest;
+import com.treescrub.spedran.data.*;
 import com.treescrub.spedran.requests.SortDirection;
 import com.treescrub.spedran.requests.builders.embed.CategoryEmbedBuilder;
 import com.treescrub.spedran.requests.builders.embed.LevelEmbedBuilder;
 import com.treescrub.spedran.requests.builders.game.GamesRequest;
-import com.treescrub.spedran.data.*;
-import com.treescrub.spedran.requests.builders.run.RunStatusRequest;
 import kong.unirest.HttpMethod;
 
 import java.util.Map;
@@ -108,7 +107,7 @@ public class SeriesGamesRequest extends ResourceCollectionRequest<Game> {
      * @param id the platform ID
      * @return this {@code GamesRequest} builder
      */
-    public SeriesGamesRequest  platform(String id) {
+    public SeriesGamesRequest platform(String id) {
         setParameter("platform", id);
         return this;
     }
@@ -265,7 +264,6 @@ public class SeriesGamesRequest extends ResourceCollectionRequest<Game> {
      * Embed the levels for each game.
      *
      * @return this object
-     *
      * @see Game#getLevels()
      */
     public SeriesGamesRequest embedLevels() {
@@ -278,7 +276,6 @@ public class SeriesGamesRequest extends ResourceCollectionRequest<Game> {
      *
      * @param builder the embed builder for the levels
      * @return this object
-     *
      * @see Game#getLevels()
      */
     public SeriesGamesRequest embedLevels(LevelEmbedBuilder builder) {
@@ -290,7 +287,6 @@ public class SeriesGamesRequest extends ResourceCollectionRequest<Game> {
      * Embed the categories for each game.
      *
      * @return this object
-     *
      * @see Game#getCategories()
      */
     public SeriesGamesRequest embedCategories() {
@@ -303,7 +299,6 @@ public class SeriesGamesRequest extends ResourceCollectionRequest<Game> {
      *
      * @param builder the embed builder for the categories
      * @return this object
-     *
      * @see Game#getCategories()
      */
     public SeriesGamesRequest embedCategories(CategoryEmbedBuilder builder) {
@@ -315,7 +310,6 @@ public class SeriesGamesRequest extends ResourceCollectionRequest<Game> {
      * Embed the gametypes for each game.
      *
      * @return this object
-     *
      * @see Game#getGametypes()
      */
     public SeriesGamesRequest embedGametypes() {
@@ -327,7 +321,6 @@ public class SeriesGamesRequest extends ResourceCollectionRequest<Game> {
      * Embed the platforms for each game.
      *
      * @return this object
-     *
      * @see Game#getPlatforms()
      */
     public SeriesGamesRequest embedPlatforms() {
@@ -339,7 +332,6 @@ public class SeriesGamesRequest extends ResourceCollectionRequest<Game> {
      * Embed the regions for each game.
      *
      * @return this object
-     *
      * @see Game#getRegions()
      */
     public SeriesGamesRequest embedRegions() {
@@ -351,7 +343,6 @@ public class SeriesGamesRequest extends ResourceCollectionRequest<Game> {
      * Embed the genres for each game.
      *
      * @return this object
-     *
      * @see Game#getGenres()
      */
     public SeriesGamesRequest embedGenres() {
@@ -363,7 +354,6 @@ public class SeriesGamesRequest extends ResourceCollectionRequest<Game> {
      * Embed the engines for each game.
      *
      * @return this object
-     *
      * @see Game#getEngines()
      */
     public SeriesGamesRequest embedEngines() {
@@ -375,7 +365,6 @@ public class SeriesGamesRequest extends ResourceCollectionRequest<Game> {
      * Embed the developers for each game.
      *
      * @return this object
-     *
      * @see Game#getDevelopers()
      */
     public SeriesGamesRequest embedDevelopers() {
@@ -387,7 +376,6 @@ public class SeriesGamesRequest extends ResourceCollectionRequest<Game> {
      * Embed the publishers for each game.
      *
      * @return this object
-     *
      * @see Game#getPublishers()
      */
     public SeriesGamesRequest embedPublishers() {
@@ -399,7 +387,6 @@ public class SeriesGamesRequest extends ResourceCollectionRequest<Game> {
      * Embed the variables for each game.
      *
      * @return this object
-     *
      * @see Game#getVariables()
      */
     public SeriesGamesRequest embedVariables() {

@@ -1,15 +1,8 @@
 package com.treescrub.spedran.requests.builders.run;
 
-import com.treescrub.spedran.requests.InvalidBuilderStateException;
 import com.treescrub.spedran.ModifyResourceRequest;
-import com.treescrub.spedran.data.Guest;
-import com.treescrub.spedran.data.Level;
-import com.treescrub.spedran.data.Platform;
-import com.treescrub.spedran.data.Region;
-import com.treescrub.spedran.data.Category;
-import com.treescrub.spedran.data.Run;
-import com.treescrub.spedran.data.User;
-import com.treescrub.spedran.data.Variable;
+import com.treescrub.spedran.data.*;
+import com.treescrub.spedran.requests.InvalidBuilderStateException;
 import kong.unirest.HttpMethod;
 import kong.unirest.json.JSONArray;
 import kong.unirest.json.JSONElement;
@@ -335,7 +328,7 @@ public class SubmitRunRequest extends ModifyResourceRequest<Run> {
      * Sets the value for a {@link Variable} with a predefined value ID.
      *
      * @param variable the variable to set for the run
-     * @param valueId the value ID to set for the variable
+     * @param valueId  the value ID to set for the variable
      * @return this builder object
      */
     @SuppressWarnings("unused")
@@ -347,7 +340,7 @@ public class SubmitRunRequest extends ModifyResourceRequest<Run> {
      * Sets the value for a {@link Variable} with a predefined value ID.
      *
      * @param variableId the variable ID to set for the run
-     * @param valueId the value ID to set for the variable
+     * @param valueId    the value ID to set for the variable
      * @return this builder object
      */
     public SubmitRunRequest variable(String variableId, String valueId) {
@@ -359,7 +352,7 @@ public class SubmitRunRequest extends ModifyResourceRequest<Run> {
     /**
      * Sets the value for a {@link Variable} with custom user defined text.
      *
-     * @param variable the variable to set for the run
+     * @param variable  the variable to set for the run
      * @param valueText the value to set for the variable
      * @return this builder object
      */
@@ -372,7 +365,7 @@ public class SubmitRunRequest extends ModifyResourceRequest<Run> {
      * Sets the value for a {@link Variable} with custom user defined text.
      *
      * @param variableId the variable ID to set for the run
-     * @param valueText the value to set for the variable
+     * @param valueText  the value to set for the variable
      * @return this builder object
      */
     public SubmitRunRequest customVariable(String variableId, String valueText) {

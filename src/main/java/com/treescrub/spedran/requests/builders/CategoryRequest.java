@@ -1,7 +1,7 @@
 package com.treescrub.spedran.requests.builders;
 
-import com.treescrub.spedran.data.Category;
 import com.treescrub.spedran.SingleResourceRequest;
+import com.treescrub.spedran.data.Category;
 import com.treescrub.spedran.requests.builders.embed.GameEmbedBuilder;
 import kong.unirest.HttpMethod;
 
@@ -49,7 +49,6 @@ public class CategoryRequest extends SingleResourceRequest<Category> {
      * Embed this category's game.
      *
      * @return this object
-     *
      * @see Category#getGame()
      */
     public CategoryRequest embedGame() {
@@ -62,7 +61,6 @@ public class CategoryRequest extends SingleResourceRequest<Category> {
      *
      * @param builder the embed builder for the game
      * @return this object
-     *
      * @see Category#getGame()
      */
     public CategoryRequest embedGame(GameEmbedBuilder builder) {
@@ -74,7 +72,6 @@ public class CategoryRequest extends SingleResourceRequest<Category> {
      * Embed this category's variables.
      *
      * @return this object
-     *
      * @see Category#getVariables()
      */
     public CategoryRequest embedVariables() {

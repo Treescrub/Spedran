@@ -1,6 +1,9 @@
 package com.treescrub.spedran.requests.builders.embed;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 /**
  * Builds a set of embed strings for a specific resource.

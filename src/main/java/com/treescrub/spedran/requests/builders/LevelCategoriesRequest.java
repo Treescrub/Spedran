@@ -1,9 +1,8 @@
 package com.treescrub.spedran.requests.builders;
 
-import com.treescrub.spedran.data.Genre;
-import com.treescrub.spedran.data.Level;
-import com.treescrub.spedran.data.Category;
 import com.treescrub.spedran.ResourceCollectionRequest;
+import com.treescrub.spedran.data.Category;
+import com.treescrub.spedran.data.Level;
 import com.treescrub.spedran.requests.SortDirection;
 import com.treescrub.spedran.requests.builders.embed.GameEmbedBuilder;
 import kong.unirest.HttpMethod;
@@ -59,7 +58,6 @@ public class LevelCategoriesRequest extends ResourceCollectionRequest<Category> 
      * Embed the game for each category.
      *
      * @return this object
-     *
      * @see Category#getGame()
      */
     public LevelCategoriesRequest embedGame() {
@@ -72,7 +70,6 @@ public class LevelCategoriesRequest extends ResourceCollectionRequest<Category> 
      *
      * @param builder the embed builder for the category
      * @return this object
-     *
      * @see Category#getGame()
      */
     public LevelCategoriesRequest embedGame(GameEmbedBuilder builder) {
@@ -84,7 +81,6 @@ public class LevelCategoriesRequest extends ResourceCollectionRequest<Category> 
      * Embed the applicable variables for each category.
      *
      * @return this object
-     *
      * @see Category#getVariables()
      */
     public LevelCategoriesRequest embedVariables() {

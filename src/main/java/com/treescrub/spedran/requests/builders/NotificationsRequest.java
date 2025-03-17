@@ -1,8 +1,8 @@
 package com.treescrub.spedran.requests.builders;
 
+import com.treescrub.spedran.ResourceCollectionRequest;
 import com.treescrub.spedran.data.Notification;
 import com.treescrub.spedran.data.User;
-import com.treescrub.spedran.ResourceCollectionRequest;
 import kong.unirest.HttpMethod;
 
 /**

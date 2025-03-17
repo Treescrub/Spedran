@@ -1,8 +1,7 @@
 package com.treescrub.spedran.requests.builders.run;
 
-import com.treescrub.spedran.data.Player;
-import com.treescrub.spedran.data.Run;
 import com.treescrub.spedran.SingleResourceRequest;
+import com.treescrub.spedran.data.Run;
 import com.treescrub.spedran.requests.builders.embed.CategoryEmbedBuilder;
 import com.treescrub.spedran.requests.builders.embed.GameEmbedBuilder;
 import com.treescrub.spedran.requests.builders.embed.LevelEmbedBuilder;
@@ -52,7 +51,6 @@ public class RunRequest extends SingleResourceRequest<Run> {
      * Embed this run's game.
      *
      * @return this object
-     *
      * @see Run#getGame()
      */
     public RunRequest embedGame() {
@@ -65,7 +63,6 @@ public class RunRequest extends SingleResourceRequest<Run> {
      *
      * @param builder the embed builder for the game
      * @return this object
-     *
      * @see Run#getGame()
      */
     public RunRequest embedGame(GameEmbedBuilder builder) {
@@ -77,7 +74,6 @@ public class RunRequest extends SingleResourceRequest<Run> {
      * Embed this run's category.
      *
      * @return this object
-     *
      * @see Run#getCategory()
      */
     public RunRequest embedCategory() {
@@ -90,7 +86,6 @@ public class RunRequest extends SingleResourceRequest<Run> {
      *
      * @param builder the embed builder for the category
      * @return this object
-     *
      * @see Run#getCategory()
      */
     public RunRequest embedCategory(CategoryEmbedBuilder builder) {
@@ -102,7 +97,6 @@ public class RunRequest extends SingleResourceRequest<Run> {
      * Embed this run's level.
      *
      * @return this object
-     *
      * @see Run#getLevel()
      */
     public RunRequest embedLevel() {
@@ -115,7 +109,6 @@ public class RunRequest extends SingleResourceRequest<Run> {
      *
      * @param builder the embed builder for the level
      * @return this object
-     *
      * @see Run#getLevel()
      */
     public RunRequest embedLevel(LevelEmbedBuilder builder) {
@@ -127,7 +120,6 @@ public class RunRequest extends SingleResourceRequest<Run> {
      * Embed this run's players.
      *
      * @return this object
-     *
      * @see Run#getPlayers()
      */
     public RunRequest embedPlayers() {
@@ -139,7 +131,6 @@ public class RunRequest extends SingleResourceRequest<Run> {
      * Embed this run's region.
      *
      * @return this object
-     *
      * @see Run#getRegion()
      */
     public RunRequest embedRegion() {
@@ -151,7 +142,6 @@ public class RunRequest extends SingleResourceRequest<Run> {
      * Embed this run's platform.
      *
      * @return this object
-     *
      * @see Run#getPlatform()
      */
     public RunRequest embedPlatform() {

@@ -1,16 +1,7 @@
 package com.treescrub.spedran.requests.builders.run;
 
-import com.treescrub.spedran.data.Guest;
-import com.treescrub.spedran.data.Level;
-import com.treescrub.spedran.data.Platform;
-import com.treescrub.spedran.data.Region;
-import com.treescrub.spedran.data.Category;
-import com.treescrub.spedran.data.Game;
-import com.treescrub.spedran.data.Run;
-import com.treescrub.spedran.data.RunSystem;
-import com.treescrub.spedran.data.SubmissionStatus;
-import com.treescrub.spedran.data.User;
 import com.treescrub.spedran.ResourceCollectionRequest;
+import com.treescrub.spedran.data.*;
 import com.treescrub.spedran.requests.SortDirection;
 import com.treescrub.spedran.requests.builders.embed.CategoryEmbedBuilder;
 import com.treescrub.spedran.requests.builders.embed.GameEmbedBuilder;
@@ -232,7 +223,6 @@ public class RunsRequest extends ResourceCollectionRequest<Run> {
      * Embed the game for each run.
      *
      * @return this object
-     *
      * @see Run#getGame()
      */
     public RunsRequest embedGame() {
@@ -245,7 +235,6 @@ public class RunsRequest extends ResourceCollectionRequest<Run> {
      *
      * @param builder the embed builder for the game
      * @return this object
-     *
      * @see Run#getGame()
      */
     public RunsRequest embedGame(GameEmbedBuilder builder) {
@@ -257,7 +246,6 @@ public class RunsRequest extends ResourceCollectionRequest<Run> {
      * Embed the category for each run.
      *
      * @return this object
-     *
      * @see Run#getCategory()
      */
     public RunsRequest embedCategory() {
@@ -270,7 +258,6 @@ public class RunsRequest extends ResourceCollectionRequest<Run> {
      *
      * @param builder the embed builder for the category
      * @return this object
-     *
      * @see Run#getCategory()
      */
     public RunsRequest embedCategory(CategoryEmbedBuilder builder) {
@@ -282,7 +269,6 @@ public class RunsRequest extends ResourceCollectionRequest<Run> {
      * Embed the level for each run.
      *
      * @return this object
-     *
      * @see Run#getLevel()
      */
     public RunsRequest embedLevel() {
@@ -295,7 +281,6 @@ public class RunsRequest extends ResourceCollectionRequest<Run> {
      *
      * @param builder the embed builder for the level
      * @return this object
-     *
      * @see Run#getLevel()
      */
     public RunsRequest embedLevel(LevelEmbedBuilder builder) {
@@ -307,7 +292,6 @@ public class RunsRequest extends ResourceCollectionRequest<Run> {
      * Embed the players for each run.
      *
      * @return this object
-     *
      * @see Run#getPlayers()
      */
     public RunsRequest embedPlayers() {
@@ -319,7 +303,6 @@ public class RunsRequest extends ResourceCollectionRequest<Run> {
      * Embed the region for each run.
      *
      * @return this object
-     *
      * @see Run#getRegion()
      */
     public RunsRequest embedRegion() {
@@ -331,7 +314,6 @@ public class RunsRequest extends ResourceCollectionRequest<Run> {
      * Embed the platform for each run.
      *
      * @return this object
-     *
      * @see Run#getPlatform()
      */
     public RunsRequest embedPlatform() {

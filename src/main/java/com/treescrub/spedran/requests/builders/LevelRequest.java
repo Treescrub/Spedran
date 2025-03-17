@@ -1,7 +1,7 @@
 package com.treescrub.spedran.requests.builders;
 
-import com.treescrub.spedran.data.Level;
 import com.treescrub.spedran.SingleResourceRequest;
+import com.treescrub.spedran.data.Level;
 import com.treescrub.spedran.requests.builders.embed.CategoryEmbedBuilder;
 import kong.unirest.HttpMethod;
 
@@ -49,7 +49,6 @@ public class LevelRequest extends SingleResourceRequest<Level> {
      * Embed this level's categories.
      *
      * @return this object
-     *
      * @see Level#getCategories()
      */
     public LevelRequest embedCategories() {
@@ -62,7 +61,6 @@ public class LevelRequest extends SingleResourceRequest<Level> {
      *
      * @param builder the embed builder for the categories
      * @return this object
-     *
      * @see Level#getCategories()
      */
     public LevelRequest embedCategories(CategoryEmbedBuilder builder) {
@@ -74,7 +72,6 @@ public class LevelRequest extends SingleResourceRequest<Level> {
      * Embed this level's applicable variables.
      *
      * @return this object
-     *
      * @see Level#getVariables()
      */
     public LevelRequest embedVariables() {
