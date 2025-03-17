@@ -18,13 +18,20 @@ public class RunStatusRequest extends ModifyResourceRequest<Run> {
     private String rejectionReason;
 
     @SuppressWarnings("unused")
-    public RunStatusRequest(String id) {
+    protected RunStatusRequest(String id) {
         super(HttpMethod.PUT, "runs/{id}/status", Map.of("id", id));
     }
 
-    @SuppressWarnings("unused")
-    public RunStatusRequest(Run run) {
-        this(run.getId());
+    public static RunStatusRequest create(Run run) {
+        checkResource(run, "run");
+
+        return new RunStatusRequest(run.getId());
+    }
+
+    public static RunStatusRequest create(String id) {
+        checkId(id);
+
+        return new RunStatusRequest(id);
     }
 
     /**

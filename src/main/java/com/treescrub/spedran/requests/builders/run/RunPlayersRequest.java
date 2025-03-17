@@ -24,15 +24,22 @@ public class RunPlayersRequest extends ModifyResourceRequest<Run> {
     private final Map<String, String> runPlayers;
 
     @SuppressWarnings("unused")
-    public RunPlayersRequest(String id) {
+    protected RunPlayersRequest(String id) {
         super(HttpMethod.PUT, "runs/{id}/players", Map.of("id", id));
 
         runPlayers = new LinkedHashMap<>();
     }
 
-    @SuppressWarnings("unused")
-    public RunPlayersRequest(Run run) {
-        this(run.getId());
+    public static RunPlayersRequest create(Run run) {
+        checkResource(run, "run");
+
+        return new RunPlayersRequest(run.getId());
+    }
+
+    public static RunPlayersRequest create(String id) {
+        checkId(id);
+
+        return new RunPlayersRequest(id);
     }
 
     /**

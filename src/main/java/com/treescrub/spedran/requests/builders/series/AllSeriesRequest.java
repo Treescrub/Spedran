@@ -11,8 +11,12 @@ import kong.unirest.HttpMethod;
  */
 public class AllSeriesRequest extends ResourceCollectionRequest<Series> {
     @SuppressWarnings("unused")
-    public AllSeriesRequest() {
+    protected AllSeriesRequest() {
         super(HttpMethod.GET, "series");
+    }
+
+    public static AllSeriesRequest create() {
+        return new AllSeriesRequest();
     }
 
     /**

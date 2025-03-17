@@ -10,8 +10,12 @@ import kong.unirest.HttpMethod;
  */
 public class UsersRequest extends ResourceCollectionRequest<User> {
     @SuppressWarnings("unused")
-    public UsersRequest() {
+    protected UsersRequest() {
         super(HttpMethod.GET, "users");
+    }
+
+    public static UsersRequest create() {
+        return new UsersRequest();
     }
 
     /**

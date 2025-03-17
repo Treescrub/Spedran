@@ -14,13 +14,20 @@ import java.util.Map;
  */
 public class GameRomhacksRequest extends ResourceCollectionRequest<Game> {
     @SuppressWarnings("unused")
-    public GameRomhacksRequest(String id) {
+    protected GameRomhacksRequest(String id) {
         super(HttpMethod.GET, "games/{id}/derived-games", Map.of("id", id));
     }
 
-    @SuppressWarnings("unused")
-    public GameRomhacksRequest(Game game) {
-        this(game.getId());
+    public static GameRomhacksRequest create(Game game) {
+        checkResource(game, "game");
+
+        return new GameRomhacksRequest(game.getId());
+    }
+
+    public static GameRomhacksRequest create(String id) {
+        checkId(id);
+
+        return new GameRomhacksRequest(id);
     }
 
     /**

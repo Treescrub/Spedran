@@ -14,21 +14,43 @@ import java.util.Map;
  */
 public class LeaderboardRequest extends SingleResourceRequest<Leaderboard> {
     @SuppressWarnings("unused")
-    public LeaderboardRequest(String game, String category) {
+    protected LeaderboardRequest(String game, String category) {
         super(HttpMethod.GET, "leaderboards/{game}/category/{category}", Map.of("game", game, "category", category));
     }
 
     @SuppressWarnings("unused")
-    public LeaderboardRequest(String game, String category, String level) {
+    protected LeaderboardRequest(String game, String category, String level) {
         super(HttpMethod.GET, "leaderboards/{game}/level/{level}/{category}", Map.of("game", game, "category", category, "level", level));
     }
 
-    public LeaderboardRequest(Game game, Category category) {
-        this(game.getId(), category.getId());
+    public static LeaderboardRequest create(Game game, Category category) {
+        checkResource(game, "game");
+        checkResource(category, "category");
+
+        return new LeaderboardRequest(game.getId(), category.getId());
     }
 
-    public LeaderboardRequest(Game game, Category category, Level level) {
-        this(game.getId(), category.getId(), level.getId());
+    public static LeaderboardRequest create(String gameId, String categoryId) {
+        checkId(gameId, "gameId");
+        checkId(categoryId, "categoryId");
+
+        return new LeaderboardRequest(gameId, categoryId);
+    }
+
+    public static LeaderboardRequest create(Game game, Category category, Level level) {
+        checkResource(game, "game");
+        checkResource(category, "category");
+        checkResource(level, "level");
+
+        return new LeaderboardRequest(game.getId(), category.getId(), level.getId());
+    }
+
+    public static LeaderboardRequest create(String gameId, String categoryId, String levelId) {
+        checkId(gameId, "gameId");
+        checkId(categoryId, "categoryId");
+        checkId(levelId, "levelId");
+
+        return new LeaderboardRequest(gameId, categoryId, levelId);
     }
 
     @SuppressWarnings("unused")

@@ -12,8 +12,12 @@ import kong.unirest.HttpMethod;
  */
 public class GenresRequest extends ResourceCollectionRequest<Genre> {
     @SuppressWarnings("unused")
-    public GenresRequest() {
+    protected GenresRequest() {
         super(HttpMethod.GET, "genres");
+    }
+
+    public static GenresRequest create() {
+        return new GenresRequest();
     }
 
     /**

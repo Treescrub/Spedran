@@ -6,6 +6,7 @@ import com.treescrub.spedran.requests.builders.embed.CategoryEmbedBuilder;
 import com.treescrub.spedran.requests.builders.embed.LevelEmbedBuilder;
 import com.treescrub.spedran.requests.builders.game.GamesRequest;
 import com.treescrub.spedran.data.*;
+import com.treescrub.spedran.requests.builders.run.RunStatusRequest;
 import kong.unirest.HttpMethod;
 
 import java.util.Map;
@@ -15,13 +16,20 @@ import java.util.Map;
  */
 public class SeriesGamesRequest extends ResourceCollectionRequest<Game> {
     @SuppressWarnings("unused")
-    public SeriesGamesRequest(String id) {
+    protected SeriesGamesRequest(String id) {
         super(HttpMethod.GET, "series/{id}/games", Map.of("id", id));
     }
 
-    @SuppressWarnings("unused")
-    public SeriesGamesRequest(Series series) {
-        this(series.getId());
+    public static SeriesGamesRequest create(Series series) {
+        checkResource(series, "series");
+
+        return new SeriesGamesRequest(series.getId());
+    }
+
+    public static SeriesGamesRequest create(String id) {
+        checkId(id);
+
+        return new SeriesGamesRequest(id);
     }
 
     /**

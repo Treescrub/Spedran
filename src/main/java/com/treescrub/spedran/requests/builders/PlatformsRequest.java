@@ -10,8 +10,12 @@ import kong.unirest.HttpMethod;
  */
 public class PlatformsRequest extends ResourceCollectionRequest<Platform> {
     @SuppressWarnings("unused")
-    public PlatformsRequest() {
+    protected PlatformsRequest() {
         super(HttpMethod.GET, "platforms");
+    }
+
+    public static PlatformsRequest create() {
+        return new PlatformsRequest();
     }
 
     /**

@@ -12,13 +12,20 @@ import java.util.Map;
  */
 public class CategoryRequest extends SingleResourceRequest<Category> {
     @SuppressWarnings("unused")
-    public CategoryRequest(String id) {
+    protected CategoryRequest(String id) {
         super(HttpMethod.GET, "categories/{id}", Map.of("id", id));
     }
 
-    @SuppressWarnings("unused")
-    public CategoryRequest(Category category) {
-        this(category.getId());
+    public static CategoryRequest create(Category category) {
+        checkResource(category, "category");
+
+        return new CategoryRequest(category.getId());
+    }
+
+    public static CategoryRequest create(String id) {
+        checkId(id);
+
+        return new CategoryRequest(id);
     }
 
     @Override

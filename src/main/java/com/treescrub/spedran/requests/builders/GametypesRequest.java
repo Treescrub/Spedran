@@ -12,8 +12,12 @@ import kong.unirest.HttpMethod;
  */
 public class GametypesRequest extends ResourceCollectionRequest<Gametype> {
     @SuppressWarnings("unused")
-    public GametypesRequest() {
+    protected GametypesRequest() {
         super(HttpMethod.GET, "gametypes");
+    }
+
+    public static GametypesRequest create() {
+        return new GametypesRequest();
     }
 
     /**

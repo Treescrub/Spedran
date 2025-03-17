@@ -15,12 +15,20 @@ import java.util.Map;
  */
 public class LevelRecordsRequest extends ResourceCollectionRequest<Leaderboard> {
     @SuppressWarnings("unused")
-    public LevelRecordsRequest(String id) {
+    protected LevelRecordsRequest(String id) {
         super(HttpMethod.GET, "levels/{id}/records", Map.of("id", id));
     }
 
-    public LevelRecordsRequest(Level level) {
-        this(level.getId());
+    public static LevelRecordsRequest create(Level level) {
+        checkResource(level, "level");
+
+        return new LevelRecordsRequest(level.getId());
+    }
+
+    public static LevelRecordsRequest create(String id) {
+        checkId(id);
+
+        return new LevelRecordsRequest(id);
     }
 
     /**

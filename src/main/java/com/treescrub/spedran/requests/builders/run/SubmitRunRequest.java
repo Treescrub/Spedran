@@ -56,7 +56,7 @@ public class SubmitRunRequest extends ModifyResourceRequest<Run> {
     private final Map<String, RunVariable> variables;
 
     @SuppressWarnings("unused")
-    public SubmitRunRequest() {
+    protected SubmitRunRequest() {
         super(HttpMethod.POST, "runs");
 
         verified = false;
@@ -64,6 +64,10 @@ public class SubmitRunRequest extends ModifyResourceRequest<Run> {
         players = new LinkedHashMap<>();
         isEmulated = false;
         variables = new HashMap<>();
+    }
+
+    public static SubmitRunRequest create() {
+        return new SubmitRunRequest();
     }
 
     /**

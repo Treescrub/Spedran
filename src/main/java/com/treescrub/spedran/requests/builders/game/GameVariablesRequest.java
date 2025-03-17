@@ -13,13 +13,20 @@ import java.util.Map;
  */
 public class GameVariablesRequest extends ResourceCollectionRequest<Variable> {
     @SuppressWarnings("unused")
-    public GameVariablesRequest(String id) {
+    protected GameVariablesRequest(String id) {
         super(HttpMethod.GET, "games/{id}/variables", Map.of("id", id));
     }
 
-    @SuppressWarnings("unused")
-    public GameVariablesRequest(Game game) {
-        this(game.getId());
+    public static GameVariablesRequest create(Game game) {
+        checkResource(game, "game");
+
+        return new GameVariablesRequest(game.getId());
+    }
+
+    public static GameVariablesRequest create(String id) {
+        checkId(id);
+
+        return new GameVariablesRequest(id);
     }
 
     /**

@@ -15,13 +15,20 @@ import java.util.Map;
  */
 public class RunRequest extends SingleResourceRequest<Run> {
     @SuppressWarnings("unused")
-    public RunRequest(String id) {
+    protected RunRequest(String id) {
         super(HttpMethod.GET, "runs/{id}", Map.of("id", id));
     }
 
-    @SuppressWarnings("unused")
-    public RunRequest(Run run) {
-        this(run.getId());
+    public static RunRequest create(Run run) {
+        checkResource(run, "run");
+
+        return new RunRequest(run.getId());
+    }
+
+    public static RunRequest create(String id) {
+        checkId(id);
+
+        return new RunRequest(id);
     }
 
     @Override

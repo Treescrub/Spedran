@@ -13,13 +13,20 @@ import java.util.Map;
  */
 public class CategoryVariablesRequest extends ResourceCollectionRequest<Variable> {
     @SuppressWarnings("unused")
-    public CategoryVariablesRequest(String id) {
+    protected CategoryVariablesRequest(String id) {
         super(HttpMethod.GET, "categories/{id}/variables", Map.of("id", id));
     }
 
-    @SuppressWarnings("unused")
-    public CategoryVariablesRequest(Category category) {
-        this(category.getId());
+    public static CategoryVariablesRequest create(Category category) {
+        checkResource(category, "category");
+
+        return new CategoryVariablesRequest(category.getId());
+    }
+
+    public static CategoryVariablesRequest create(String id) {
+        checkId(id);
+
+        return new CategoryVariablesRequest(id);
     }
 
     /**

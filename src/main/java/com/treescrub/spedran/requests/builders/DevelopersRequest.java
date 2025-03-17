@@ -12,8 +12,12 @@ import kong.unirest.HttpMethod;
  */
 public class DevelopersRequest extends ResourceCollectionRequest<Developer> {
     @SuppressWarnings("unused")
-    public DevelopersRequest() {
+    protected DevelopersRequest() {
         super(HttpMethod.GET, "developers");
+    }
+
+    public static DevelopersRequest create() {
+        return new DevelopersRequest();
     }
 
     /**

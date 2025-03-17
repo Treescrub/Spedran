@@ -11,13 +11,20 @@ import java.util.Map;
  */
 public class UserRequest extends SingleResourceRequest<User> {
     @SuppressWarnings("unused")
-    public UserRequest(String id) {
+    protected UserRequest(String id) {
         super(HttpMethod.GET, "users/{id}", Map.of("id", id));
     }
 
-    @SuppressWarnings("unused")
-    public UserRequest(User user) {
-        this(user.getId());
+    public static UserRequest create(User user) {
+        checkResource(user, "user");
+
+        return new UserRequest(user.getId());
+    }
+
+    public static UserRequest create(String id) {
+        checkId(id);
+
+        return new UserRequest(id);
     }
 
     @Override

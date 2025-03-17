@@ -12,8 +12,12 @@ import kong.unirest.HttpMethod;
  */
 public class EnginesRequest extends ResourceCollectionRequest<Engine> {
     @SuppressWarnings("unused")
-    public EnginesRequest() {
+    protected EnginesRequest() {
         super(HttpMethod.GET, "engines");
+    }
+
+    public static EnginesRequest create() {
+        return new EnginesRequest();
     }
 
     /**

@@ -14,8 +14,12 @@ public class GamesRequest extends ResourceCollectionRequest<Game> {
     public static final int MAX_ITEMS_BULK = 1000;
 
     @SuppressWarnings("unused")
-    public GamesRequest() {
+    protected GamesRequest() {
         super(HttpMethod.GET, "games");
+    }
+
+    public static GamesRequest create() {
+        return new GamesRequest();
     }
 
     /**

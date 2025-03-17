@@ -1,5 +1,6 @@
 package com.treescrub.spedran.requests.builders;
 
+import com.treescrub.spedran.data.Region;
 import com.treescrub.spedran.data.Variable;
 import com.treescrub.spedran.SingleResourceRequest;
 import kong.unirest.HttpMethod;
@@ -11,13 +12,20 @@ import java.util.Map;
  */
 public class VariableRequest extends SingleResourceRequest<Variable> {
     @SuppressWarnings("unused")
-    public VariableRequest(String id) {
+    protected VariableRequest(String id) {
         super(HttpMethod.GET, "variables/{id}", Map.of("id", id));
     }
 
-    @SuppressWarnings("unused")
-    public VariableRequest(Variable variable) {
-        this(variable.getId());
+    public static VariableRequest create(Variable variable) {
+        checkResource(variable, "variable");
+
+        return new VariableRequest(variable.getId());
+    }
+
+    public static VariableRequest create(String id) {
+        checkId(id);
+
+        return new VariableRequest(id);
     }
 
     @Override

@@ -15,13 +15,20 @@ import java.util.Map;
  */
 public class GameRecordsRequest extends ResourceCollectionRequest<Leaderboard> {
     @SuppressWarnings("unused")
-    public GameRecordsRequest(String id) {
+    protected GameRecordsRequest(String id) {
         super(HttpMethod.GET, "games/{id}/records", Map.of("id", id));
     }
 
-    @SuppressWarnings("unused")
-    public GameRecordsRequest(Game game) {
-        this(game.getId());
+    public static GameRecordsRequest create(Game game) {
+        checkResource(game, "game");
+
+        return new GameRecordsRequest(game.getId());
+    }
+
+    public static GameRecordsRequest create(String id) {
+        checkId(id);
+
+        return new GameRecordsRequest(id);
     }
 
     /**

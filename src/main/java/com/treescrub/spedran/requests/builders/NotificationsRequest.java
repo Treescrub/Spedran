@@ -10,8 +10,12 @@ import kong.unirest.HttpMethod;
  */
 public class NotificationsRequest extends ResourceCollectionRequest<Notification> {
     @SuppressWarnings("unused")
-    public NotificationsRequest() {
+    protected NotificationsRequest() {
         super(HttpMethod.GET, "notifications");
+    }
+
+    public static NotificationsRequest create() {
+        return new NotificationsRequest();
     }
 
     @Override

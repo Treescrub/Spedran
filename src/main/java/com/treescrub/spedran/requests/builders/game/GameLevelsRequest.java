@@ -15,13 +15,20 @@ import java.util.Map;
  */
 public class GameLevelsRequest extends ResourceCollectionRequest<Level> {
     @SuppressWarnings("unused")
-    public GameLevelsRequest(String id) {
+    protected GameLevelsRequest(String id) {
         super(HttpMethod.GET, "games/{id}/levels", Map.of("id", id));
     }
 
-    @SuppressWarnings("unused")
-    public GameLevelsRequest(Game game) {
-        this(game.getId());
+    public static GameLevelsRequest create(Game game) {
+        checkResource(game, "game");
+
+        return new GameLevelsRequest(game.getId());
+    }
+
+    public static GameLevelsRequest create(String id) {
+        checkId(id);
+
+        return new GameLevelsRequest(id);
     }
 
     /**

@@ -1,5 +1,6 @@
 package com.treescrub.spedran.requests.builders;
 
+import com.treescrub.spedran.data.Platform;
 import com.treescrub.spedran.data.Publisher;
 import com.treescrub.spedran.SingleResourceRequest;
 import kong.unirest.HttpMethod;
@@ -11,13 +12,20 @@ import java.util.Map;
  */
 public class PublisherRequest extends SingleResourceRequest<Publisher> {
     @SuppressWarnings("unused")
-    public PublisherRequest(String id) {
+    protected PublisherRequest(String id) {
         super(HttpMethod.GET, "publishers/{id}", Map.of("id", id));
     }
 
-    @SuppressWarnings("unused")
-    public PublisherRequest(Publisher publisher) {
-        this(publisher.getId());
+    public static PublisherRequest create(Publisher publisher) {
+        checkResource(publisher, "publisher");
+
+        return new PublisherRequest(publisher.getId());
+    }
+
+    public static PublisherRequest create(String id) {
+        checkId(id);
+
+        return new PublisherRequest(id);
     }
 
     @Override

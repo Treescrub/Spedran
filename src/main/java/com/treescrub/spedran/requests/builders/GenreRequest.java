@@ -1,5 +1,6 @@
 package com.treescrub.spedran.requests.builders;
 
+import com.treescrub.spedran.data.Gametype;
 import com.treescrub.spedran.data.Genre;
 import com.treescrub.spedran.SingleResourceRequest;
 import kong.unirest.HttpMethod;
@@ -11,13 +12,20 @@ import java.util.Map;
  */
 public class GenreRequest extends SingleResourceRequest<Genre> {
     @SuppressWarnings("unused")
-    public GenreRequest(String id) {
+    protected GenreRequest(String id) {
         super(HttpMethod.GET, "genres/{id}", Map.of("id", id));
     }
 
-    @SuppressWarnings("unused")
-    public GenreRequest(Genre genre) {
-        this(genre.getId());
+    public static GenreRequest create(Genre genre) {
+        checkResource(genre, "genre");
+
+        return new GenreRequest(genre.getId());
+    }
+
+    public static GenreRequest create(String id) {
+        checkId(id);
+
+        return new GenreRequest(id);
     }
 
     @Override

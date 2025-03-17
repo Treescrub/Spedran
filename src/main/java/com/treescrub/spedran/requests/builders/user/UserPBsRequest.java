@@ -5,6 +5,7 @@ import com.treescrub.spedran.ResourceCollectionRequest;
 import com.treescrub.spedran.requests.builders.embed.CategoryEmbedBuilder;
 import com.treescrub.spedran.requests.builders.embed.GameEmbedBuilder;
 import com.treescrub.spedran.requests.builders.embed.LevelEmbedBuilder;
+import com.treescrub.spedran.requests.builders.series.SingleSeriesRequest;
 import kong.unirest.HttpMethod;
 
 import java.util.Map;
@@ -14,13 +15,20 @@ import java.util.Map;
  */
 public class UserPBsRequest extends ResourceCollectionRequest<LeaderboardRun> {
     @SuppressWarnings("unused")
-    public UserPBsRequest(String id) {
+    protected UserPBsRequest(String id) {
         super(HttpMethod.GET, "users/{id}/personal-bests", Map.of("id", id));
     }
 
-    @SuppressWarnings("unused")
-    public UserPBsRequest(User user) {
-        this(user.getId());
+    public static UserPBsRequest create(User user) {
+        checkResource(user, "user");
+
+        return new UserPBsRequest(user.getId());
+    }
+
+    public static UserPBsRequest create(String id) {
+        checkId(id);
+
+        return new UserPBsRequest(id);
     }
 
     /**

@@ -11,8 +11,19 @@ import java.util.Map;
  */
 public class GuestRequest extends SingleResourceRequest<Guest> {
     @SuppressWarnings("unused")
-    public GuestRequest(String name) {
+    protected GuestRequest(String name) {
         super(HttpMethod.GET, "guests/{name}", Map.of("name", name));
+    }
+
+    public static GuestRequest create(String name) {
+        if(name == null) {
+            throw new IllegalArgumentException("name is null");
+        }
+        if(name.isEmpty()) {
+            throw new IllegalArgumentException("name is empty");
+        }
+
+        return new GuestRequest(name);
     }
 
     @Override

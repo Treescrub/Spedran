@@ -1,5 +1,6 @@
 package com.treescrub.spedran.requests.builders;
 
+import com.treescrub.spedran.data.Genre;
 import com.treescrub.spedran.data.Level;
 import com.treescrub.spedran.data.Category;
 import com.treescrub.spedran.ResourceCollectionRequest;
@@ -14,13 +15,20 @@ import java.util.Map;
  */
 public class LevelCategoriesRequest extends ResourceCollectionRequest<Category> {
     @SuppressWarnings("unused")
-    public LevelCategoriesRequest(String id) {
+    protected LevelCategoriesRequest(String id) {
         super(HttpMethod.GET, "levels/{id}/categories", Map.of("id", id));
     }
 
-    @SuppressWarnings("unused")
-    public LevelCategoriesRequest(Level level) {
-        this(level.getId());
+    public static LevelCategoriesRequest create(Level level) {
+        checkResource(level, "level");
+
+        return new LevelCategoriesRequest(level.getId());
+    }
+
+    public static LevelCategoriesRequest create(String id) {
+        checkId(id);
+
+        return new LevelCategoriesRequest(id);
     }
 
     /**

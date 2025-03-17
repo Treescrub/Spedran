@@ -13,8 +13,12 @@ import kong.unirest.HttpMethod;
  */
 public class RegionsRequest extends ResourceCollectionRequest<Region> {
     @SuppressWarnings("unused")
-    public RegionsRequest() {
+    protected RegionsRequest() {
         super(HttpMethod.GET, "regions");
+    }
+
+    public static RegionsRequest create() {
+        return new RegionsRequest();
     }
 
     /**

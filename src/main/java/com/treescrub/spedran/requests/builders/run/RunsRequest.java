@@ -22,8 +22,12 @@ import kong.unirest.HttpMethod;
  */
 public class RunsRequest extends ResourceCollectionRequest<Run> {
     @SuppressWarnings("unused")
-    public RunsRequest() {
+    protected RunsRequest() {
         super(HttpMethod.GET, "runs");
+    }
+
+    public static RunsRequest create() {
+        return new RunsRequest();
     }
 
     /**

@@ -14,13 +14,20 @@ import java.util.Map;
  */
 public class GameCategoriesRequest extends ResourceCollectionRequest<Category> {
     @SuppressWarnings("unused")
-    public GameCategoriesRequest(String id) {
+    protected GameCategoriesRequest(String id) {
         super(HttpMethod.GET, "games/{id}/categories", Map.of("id", id));
     }
 
-    @SuppressWarnings("unused")
-    public GameCategoriesRequest(Game game) {
-        this(game.getId());
+    public static GameCategoriesRequest create(Game game) {
+        checkResource(game, "game");
+
+        return new GameCategoriesRequest(game.getId());
+    }
+
+    public static GameCategoriesRequest create(String id) {
+        checkId(id);
+
+        return new GameCategoriesRequest(id);
     }
 
     /**

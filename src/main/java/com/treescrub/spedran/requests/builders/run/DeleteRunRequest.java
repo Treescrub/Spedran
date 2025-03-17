@@ -12,14 +12,22 @@ import java.util.Map;
  */
 public class DeleteRunRequest extends ModifyResourceRequest<Run> {
     @SuppressWarnings("unused")
-    public DeleteRunRequest(String id) {
+    protected DeleteRunRequest(String id) {
         super(HttpMethod.DELETE, "runs/{id}", Map.of("id", id));
     }
 
-    @SuppressWarnings("unused")
-    public DeleteRunRequest(Run run) {
-        this(run.getId());
+    public static DeleteRunRequest create(Run run) {
+        checkResource(run, "run");
+
+        return new DeleteRunRequest(run.getId());
     }
+
+    public static DeleteRunRequest create(String id) {
+        checkId(id);
+
+        return new DeleteRunRequest(id);
+    }
+
 
     @Override
     protected Class<Run> getDataClass() {

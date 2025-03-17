@@ -13,12 +13,20 @@ import java.util.Map;
  */
 public class LevelVariablesRequest extends ResourceCollectionRequest<Variable> {
     @SuppressWarnings("unused")
-    public LevelVariablesRequest(String id) {
+    protected LevelVariablesRequest(String id) {
         super(HttpMethod.GET, "levels/{id}/variables", Map.of("id", id));
     }
 
-    public LevelVariablesRequest(Level level) {
-        this(level.getId());
+    public static LevelVariablesRequest create(Level level) {
+        checkResource(level, "level");
+
+        return new LevelVariablesRequest(level.getId());
+    }
+
+    public static LevelVariablesRequest create(String id) {
+        checkId(id);
+
+        return new LevelVariablesRequest(id);
     }
 
     /**

@@ -3,9 +3,11 @@ package com.treescrub.spedran.requests.builders;
 import com.treescrub.spedran.data.Category;
 import com.treescrub.spedran.data.Leaderboard;
 import com.treescrub.spedran.ResourceCollectionRequest;
+import com.treescrub.spedran.data.User;
 import com.treescrub.spedran.requests.builders.embed.CategoryEmbedBuilder;
 import com.treescrub.spedran.requests.builders.embed.GameEmbedBuilder;
 import com.treescrub.spedran.requests.builders.embed.LevelEmbedBuilder;
+import com.treescrub.spedran.requests.builders.user.UserRequest;
 import kong.unirest.HttpMethod;
 
 import java.util.Map;
@@ -15,13 +17,20 @@ import java.util.Map;
  */
 public class CategoryRecordsRequest extends ResourceCollectionRequest<Leaderboard> {
     @SuppressWarnings("unused")
-    public CategoryRecordsRequest(String id) {
+    protected CategoryRecordsRequest(String id) {
         super(HttpMethod.GET, "categories/{id}/records", Map.of("id", id));
     }
 
-    @SuppressWarnings("unused")
-    public CategoryRecordsRequest(Category category) {
-        this(category.getId());
+    public static CategoryRecordsRequest create(Category category) {
+        checkResource(category, "category");
+
+        return new CategoryRecordsRequest(category.getId());
+    }
+
+    public static CategoryRecordsRequest create(String id) {
+        checkId(id);
+
+        return new CategoryRecordsRequest(id);
     }
 
     /**

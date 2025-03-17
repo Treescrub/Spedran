@@ -1,5 +1,6 @@
 package com.treescrub.spedran.requests.builders;
 
+import com.treescrub.spedran.data.Developer;
 import com.treescrub.spedran.data.Engine;
 import com.treescrub.spedran.SingleResourceRequest;
 import kong.unirest.HttpMethod;
@@ -11,13 +12,20 @@ import java.util.Map;
  */
 public class EngineRequest extends SingleResourceRequest<Engine> {
     @SuppressWarnings("unused")
-    public EngineRequest(String id) {
+    protected EngineRequest(String id) {
         super(HttpMethod.GET, "engines/{id}", Map.of("id", id));
     }
 
-    @SuppressWarnings("unused")
-    public EngineRequest(Engine engine) {
-        this(engine.getId());
+    public static EngineRequest create(Engine engine) {
+        checkResource(engine, "engine");
+
+        return new EngineRequest(engine.getId());
+    }
+
+    public static EngineRequest create(String id) {
+        checkId(id);
+
+        return new EngineRequest(id);
     }
 
     @Override

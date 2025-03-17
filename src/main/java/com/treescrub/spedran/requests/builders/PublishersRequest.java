@@ -13,8 +13,12 @@ import kong.unirest.HttpMethod;
  */
 public class PublishersRequest extends ResourceCollectionRequest<Publisher> {
     @SuppressWarnings("unused")
-    public PublishersRequest() {
+    protected PublishersRequest() {
         super(HttpMethod.GET, "publishers");
+    }
+
+    public static PublishersRequest create() {
+        return new PublishersRequest();
     }
 
     /**

@@ -11,13 +11,20 @@ import java.util.Map;
  */
 public class SingleSeriesRequest extends SingleResourceRequest<Series> {
     @SuppressWarnings("unused")
-    public SingleSeriesRequest(String id) {
+    protected SingleSeriesRequest(String id) {
         super(HttpMethod.GET, "series/{id}", Map.of("id", id));
     }
 
-    @SuppressWarnings("unused")
-    public SingleSeriesRequest(Series series) {
-        this(series.getId());
+    public static SingleSeriesRequest create(Series series) {
+        checkResource(series, "series");
+
+        return new SingleSeriesRequest(series.getId());
+    }
+
+    public static SingleSeriesRequest create(String id) {
+        checkId(id);
+
+        return new SingleSeriesRequest(id);
     }
 
     @Override

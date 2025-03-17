@@ -13,13 +13,20 @@ import java.util.Map;
  */
 public class GameRequest extends SingleResourceRequest<Game> {
     @SuppressWarnings("unused")
-    public GameRequest(String id) {
+    protected GameRequest(String id) {
         super(HttpMethod.GET, "games/{id}", Map.of("id", id));
     }
 
-    @SuppressWarnings("unused")
-    public GameRequest(Game game) {
-        this(game.getId());
+    public static GameRequest create(Game game) {
+        checkResource(game, "game");
+
+        return new GameRequest(game.getId());
+    }
+
+    public static GameRequest create(String id) {
+        checkId(id);
+
+        return new GameRequest(id);
     }
 
     @Override

@@ -12,8 +12,12 @@ import kong.unirest.HttpMethod;
  */
 public class ProfileRequest extends SingleResourceRequest<User> {
     @SuppressWarnings("unused")
-    public ProfileRequest() {
+    protected ProfileRequest() {
         super(HttpMethod.GET, "profile");
+    }
+
+    public static ProfileRequest create() {
+        return new ProfileRequest();
     }
 
     @Override
