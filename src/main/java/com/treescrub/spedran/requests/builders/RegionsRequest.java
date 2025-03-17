@@ -17,6 +17,11 @@ public class RegionsRequest extends ResourceCollectionRequest<Region> {
         super(HttpMethod.GET, "regions");
     }
 
+    /**
+     * Creates and returns a new {@code RegionsRequest} builder.
+     *
+     * @return a {@code RegionsRequest} builder
+     */
     public static RegionsRequest create() {
         return new RegionsRequest();
     }

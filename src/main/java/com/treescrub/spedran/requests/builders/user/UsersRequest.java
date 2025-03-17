@@ -14,6 +14,11 @@ public class UsersRequest extends ResourceCollectionRequest<User> {
         super(HttpMethod.GET, "users");
     }
 
+    /**
+     * Creates and returns a new {@code UsersRequest} builder.
+     *
+     * @return a {@code UsersRequest} builder
+     */
     public static UsersRequest create() {
         return new UsersRequest();
     }

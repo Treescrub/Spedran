@@ -18,12 +18,24 @@ public class GameCategoriesRequest extends ResourceCollectionRequest<Category> {
         super(HttpMethod.GET, "games/{id}/categories", Map.of("id", id));
     }
 
+    /**
+     * Creates and returns a new {@code GameCategoriesRequest} builder.
+     *
+     * @param game the game to get the categories for
+     * @return a {@code GameCategoriesRequest} builder
+     */
     public static GameCategoriesRequest create(Game game) {
         checkResource(game, "game");
 
         return new GameCategoriesRequest(game.getId());
     }
 
+    /**
+     * Creates and returns a new {@code GameCategoriesRequest} builder.
+     *
+     * @param id the game to get the categories for
+     * @return a {@code GameCategoriesRequest} builder
+     */
     public static GameCategoriesRequest create(String id) {
         checkId(id);
 

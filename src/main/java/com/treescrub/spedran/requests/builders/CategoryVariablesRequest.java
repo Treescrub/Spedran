@@ -17,12 +17,24 @@ public class CategoryVariablesRequest extends ResourceCollectionRequest<Variable
         super(HttpMethod.GET, "categories/{id}/variables", Map.of("id", id));
     }
 
+    /**
+     * Creates and returns a new {@code CategoryVariablesRequest} builder.
+     *
+     * @param category the category to get the variables for
+     * @return a {@code CategoryVariablesRequest} builder
+     */
     public static CategoryVariablesRequest create(Category category) {
         checkResource(category, "category");
 
         return new CategoryVariablesRequest(category.getId());
     }
 
+    /**
+     * Creates and returns a new {@code CategoryVariablesRequest} builder.
+     *
+     * @param id the category to get the variables for
+     * @return a {@code CategoryVariablesRequest} builder
+     */
     public static CategoryVariablesRequest create(String id) {
         checkId(id);
 

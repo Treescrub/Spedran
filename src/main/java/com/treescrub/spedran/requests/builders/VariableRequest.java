@@ -16,12 +16,24 @@ public class VariableRequest extends SingleResourceRequest<Variable> {
         super(HttpMethod.GET, "variables/{id}", Map.of("id", id));
     }
 
+    /**
+     * Creates and returns a new {@code VariableRequest} builder.
+     *
+     * @param variable the variable to get
+     * @return a {@code VariableRequest} builder
+     */
     public static VariableRequest create(Variable variable) {
         checkResource(variable, "variable");
 
         return new VariableRequest(variable.getId());
     }
 
+    /**
+     * Creates and returns a new {@code VariableRequest} builder.
+     *
+     * @param id the variable to get
+     * @return a {@code VariableRequest} builder
+     */
     public static VariableRequest create(String id) {
         checkId(id);
 

@@ -19,12 +19,24 @@ public class RunRequest extends SingleResourceRequest<Run> {
         super(HttpMethod.GET, "runs/{id}", Map.of("id", id));
     }
 
+    /**
+     * Creates and returns a new {@code RunRequest} builder.
+     *
+     * @param run the run to get
+     * @return a {@code RunRequest} builder
+     */
     public static RunRequest create(Run run) {
         checkResource(run, "run");
 
         return new RunRequest(run.getId());
     }
 
+    /**
+     * Creates and returns a new {@code RunRequest} builder.
+     *
+     * @param id the run to get
+     * @return a {@code RunRequest} builder
+     */
     public static RunRequest create(String id) {
         checkId(id);
 

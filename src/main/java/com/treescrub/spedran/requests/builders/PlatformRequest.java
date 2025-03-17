@@ -16,12 +16,24 @@ public class PlatformRequest extends SingleResourceRequest<Platform> {
         super(HttpMethod.GET, "platforms/{id}", Map.of("id", id));
     }
 
+    /**
+     * Creates and returns a new {@code PlatformRequest} builder.
+     *
+     * @param platform the platform to get
+     * @return a {@code PlatformRequest} builder
+     */
     public static PlatformRequest create(Platform platform) {
         checkResource(platform, "platform");
 
         return new PlatformRequest(platform.getId());
     }
 
+    /**
+     * Creates and returns a new {@code PlatformRequest} builder.
+     *
+     * @param id the platform to get
+     * @return a {@code PlatformRequest} builder
+     */
     public static PlatformRequest create(String id) {
         checkId(id);
 

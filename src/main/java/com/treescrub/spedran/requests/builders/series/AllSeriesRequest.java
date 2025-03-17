@@ -15,6 +15,11 @@ public class AllSeriesRequest extends ResourceCollectionRequest<Series> {
         super(HttpMethod.GET, "series");
     }
 
+    /**
+     * Creates and returns a new {@code AllSeriesRequest} builder.
+     *
+     * @return a {@code AllSeriesRequest} builder
+     */
     public static AllSeriesRequest create() {
         return new AllSeriesRequest();
     }

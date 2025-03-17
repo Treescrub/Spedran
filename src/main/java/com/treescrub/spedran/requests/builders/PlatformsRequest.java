@@ -14,6 +14,11 @@ public class PlatformsRequest extends ResourceCollectionRequest<Platform> {
         super(HttpMethod.GET, "platforms");
     }
 
+    /**
+     * Creates and returns a new {@code PlatformsRequest} builder.
+     *
+     * @return a {@code PlatformsRequest} builder
+     */
     public static PlatformsRequest create() {
         return new PlatformsRequest();
     }

@@ -17,12 +17,24 @@ public class LevelVariablesRequest extends ResourceCollectionRequest<Variable> {
         super(HttpMethod.GET, "levels/{id}/variables", Map.of("id", id));
     }
 
+    /**
+     * Creates and returns a new {@code LevelRequest} builder.
+     *
+     * @param level the level to get
+     * @return a {@code LevelRequest} builder
+     */
     public static LevelVariablesRequest create(Level level) {
         checkResource(level, "level");
 
         return new LevelVariablesRequest(level.getId());
     }
 
+    /**
+     * Creates and returns a new {@code LevelRequest} builder.
+     *
+     * @param id the level to get
+     * @return a {@code LevelRequest} builder
+     */
     public static LevelVariablesRequest create(String id) {
         checkId(id);
 

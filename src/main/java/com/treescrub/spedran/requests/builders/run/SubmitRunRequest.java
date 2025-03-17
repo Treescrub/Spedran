@@ -66,6 +66,11 @@ public class SubmitRunRequest extends ModifyResourceRequest<Run> {
         variables = new HashMap<>();
     }
 
+    /**
+     * Creates and returns a new {@code SubmitRunRequest} builder.
+     *
+     * @return a {@code SubmitRunRequest} builder
+     */
     public static SubmitRunRequest create() {
         return new SubmitRunRequest();
     }

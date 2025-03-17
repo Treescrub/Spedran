@@ -16,6 +16,11 @@ public class GenresRequest extends ResourceCollectionRequest<Genre> {
         super(HttpMethod.GET, "genres");
     }
 
+    /**
+     * Creates and returns a new {@code GenresRequest} builder.
+     *
+     * @return a {@code GenresRequest} builder
+     */
     public static GenresRequest create() {
         return new GenresRequest();
     }

@@ -22,12 +22,24 @@ public class RunStatusRequest extends ModifyResourceRequest<Run> {
         super(HttpMethod.PUT, "runs/{id}/status", Map.of("id", id));
     }
 
+    /**
+     * Creates and returns a new {@code RunStatusRequest} builder.
+     *
+     * @param run the run to change the status of
+     * @return a {@code RunStatusRequest} builder
+     */
     public static RunStatusRequest create(Run run) {
         checkResource(run, "run");
 
         return new RunStatusRequest(run.getId());
     }
 
+    /**
+     * Creates and returns a new {@code RunStatusRequest} builder.
+     *
+     * @param id the run to change the status of
+     * @return a {@code RunStatusRequest} builder
+     */
     public static RunStatusRequest create(String id) {
         checkId(id);
 

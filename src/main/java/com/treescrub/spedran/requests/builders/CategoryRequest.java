@@ -16,12 +16,24 @@ public class CategoryRequest extends SingleResourceRequest<Category> {
         super(HttpMethod.GET, "categories/{id}", Map.of("id", id));
     }
 
+    /**
+     * Creates and returns a new {@code CategoryRequest} builder.
+     *
+     * @param category the category to get
+     * @return a {@code CategoryRequest} builder
+     */
     public static CategoryRequest create(Category category) {
         checkResource(category, "category");
 
         return new CategoryRequest(category.getId());
     }
 
+    /**
+     * Creates and returns a new {@code CategoryRequest} builder.
+     *
+     * @param id the category to get
+     * @return a {@code CategoryRequest} builder
+     */
     public static CategoryRequest create(String id) {
         checkId(id);
 

@@ -23,6 +23,13 @@ public class LeaderboardRequest extends SingleResourceRequest<Leaderboard> {
         super(HttpMethod.GET, "leaderboards/{game}/level/{level}/{category}", Map.of("game", game, "category", category, "level", level));
     }
 
+    /**
+     * Creates and returns a new {@code LeaderboardRequest} builder.
+     *
+     * @param game the game of the leaderboard to get
+     * @param category the category of the leaderboard to get
+     * @return a {@code LeaderboardRequest} builder
+     */
     public static LeaderboardRequest create(Game game, Category category) {
         checkResource(game, "game");
         checkResource(category, "category");
@@ -30,6 +37,13 @@ public class LeaderboardRequest extends SingleResourceRequest<Leaderboard> {
         return new LeaderboardRequest(game.getId(), category.getId());
     }
 
+    /**
+     * Creates and returns a new {@code LeaderboardRequest} builder.
+     *
+     * @param gameId the game of the leaderboard to get
+     * @param categoryId the category of the leaderboard to get
+     * @return a {@code LeaderboardRequest} builder
+     */
     public static LeaderboardRequest create(String gameId, String categoryId) {
         checkId(gameId, "gameId");
         checkId(categoryId, "categoryId");
@@ -37,6 +51,14 @@ public class LeaderboardRequest extends SingleResourceRequest<Leaderboard> {
         return new LeaderboardRequest(gameId, categoryId);
     }
 
+    /**
+     * Creates and returns a new {@code LeaderboardRequest} builder.
+     *
+     * @param game the game of the leaderboard to get
+     * @param category the category of the leaderboard to get
+     * @param level the level of the leaderboard to get
+     * @return a {@code LeaderboardRequest} builder
+     */
     public static LeaderboardRequest create(Game game, Category category, Level level) {
         checkResource(game, "game");
         checkResource(category, "category");
@@ -45,6 +67,14 @@ public class LeaderboardRequest extends SingleResourceRequest<Leaderboard> {
         return new LeaderboardRequest(game.getId(), category.getId(), level.getId());
     }
 
+    /**
+     * Creates and returns a new {@code LeaderboardRequest} builder.
+     *
+     * @param gameId the game of the leaderboard to get
+     * @param categoryId the category of the leaderboard to get
+     * @param levelId the level of the leaderboard to get
+     * @return a {@code LeaderboardRequest} builder
+     */
     public static LeaderboardRequest create(String gameId, String categoryId, String levelId) {
         checkId(gameId, "gameId");
         checkId(categoryId, "categoryId");

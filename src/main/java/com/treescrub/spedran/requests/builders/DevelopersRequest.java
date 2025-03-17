@@ -16,6 +16,11 @@ public class DevelopersRequest extends ResourceCollectionRequest<Developer> {
         super(HttpMethod.GET, "developers");
     }
 
+    /**
+     * Creates and returns a new {@code DevelopersRequest} builder.
+     *
+     * @return a {@code DevelopersRequest} builder
+     */
     public static DevelopersRequest create() {
         return new DevelopersRequest();
     }

@@ -19,12 +19,24 @@ public class GameLevelsRequest extends ResourceCollectionRequest<Level> {
         super(HttpMethod.GET, "games/{id}/levels", Map.of("id", id));
     }
 
+    /**
+     * Creates and returns a new {@code GameLevelsRequest} builder.
+     *
+     * @param game the game to get the levels for
+     * @return a {@code GameLevelsRequest} builder
+     */
     public static GameLevelsRequest create(Game game) {
         checkResource(game, "game");
 
         return new GameLevelsRequest(game.getId());
     }
 
+    /**
+     * Creates and returns a new {@code GameLevelsRequest} builder.
+     *
+     * @param id the game to get the levels for
+     * @return a {@code GameLevelsRequest} builder
+     */
     public static GameLevelsRequest create(String id) {
         checkId(id);
 

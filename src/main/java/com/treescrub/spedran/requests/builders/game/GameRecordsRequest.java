@@ -19,12 +19,24 @@ public class GameRecordsRequest extends ResourceCollectionRequest<Leaderboard> {
         super(HttpMethod.GET, "games/{id}/records", Map.of("id", id));
     }
 
+    /**
+     * Creates and returns a new {@code GameRecordsRequest} builder.
+     *
+     * @param game the game to get the records for
+     * @return a {@code GameRecordsRequest} builder
+     */
     public static GameRecordsRequest create(Game game) {
         checkResource(game, "game");
 
         return new GameRecordsRequest(game.getId());
     }
 
+    /**
+     * Creates and returns a new {@code GameRecordsRequest} builder.
+     *
+     * @param id the game to get the records for
+     * @return a {@code GameRecordsRequest} builder
+     */
     public static GameRecordsRequest create(String id) {
         checkId(id);
 

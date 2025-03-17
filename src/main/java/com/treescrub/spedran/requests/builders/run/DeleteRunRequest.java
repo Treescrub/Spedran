@@ -16,12 +16,24 @@ public class DeleteRunRequest extends ModifyResourceRequest<Run> {
         super(HttpMethod.DELETE, "runs/{id}", Map.of("id", id));
     }
 
+    /**
+     * Creates and returns a new {@code DeleteRunRequest} builder.
+     *
+     * @param run the run to be deleted
+     * @return a {@code DeleteRunRequest} builder
+     */
     public static DeleteRunRequest create(Run run) {
         checkResource(run, "run");
 
         return new DeleteRunRequest(run.getId());
     }
 
+    /**
+     * Creates and returns a new {@code DeleteRunRequest} builder.
+     *
+     * @param id the run to be deleted
+     * @return a {@code DeleteRunRequest} builder
+     */
     public static DeleteRunRequest create(String id) {
         checkId(id);
 

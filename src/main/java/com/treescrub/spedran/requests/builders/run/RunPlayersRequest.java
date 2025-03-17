@@ -30,12 +30,24 @@ public class RunPlayersRequest extends ModifyResourceRequest<Run> {
         runPlayers = new LinkedHashMap<>();
     }
 
+    /**
+     * Creates and returns a new {@code RunPlayersRequest} builder.
+     *
+     * @param run the run to edit the players of
+     * @return a {@code RunPlayersRequest} builder
+     */
     public static RunPlayersRequest create(Run run) {
         checkResource(run, "run");
 
         return new RunPlayersRequest(run.getId());
     }
 
+    /**
+     * Creates and returns a new {@code RunPlayersRequest} builder.
+     *
+     * @param id the run to edit the players of
+     * @return a {@code RunPlayersRequest} builder
+     */
     public static RunPlayersRequest create(String id) {
         checkId(id);
 

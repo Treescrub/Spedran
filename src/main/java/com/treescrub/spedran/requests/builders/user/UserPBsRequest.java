@@ -19,12 +19,24 @@ public class UserPBsRequest extends ResourceCollectionRequest<LeaderboardRun> {
         super(HttpMethod.GET, "users/{id}/personal-bests", Map.of("id", id));
     }
 
+    /**
+     * Creates and returns a new {@code UserPBsRequest} builder.
+     *
+     * @param user the user to get the personal bests for
+     * @return a {@code UserPBsRequest} builder
+     */
     public static UserPBsRequest create(User user) {
         checkResource(user, "user");
 
         return new UserPBsRequest(user.getId());
     }
 
+    /**
+     * Creates and returns a new {@code UserPBsRequest} builder.
+     *
+     * @param id the user to get the personal bests for
+     * @return a {@code UserPBsRequest} builder
+     */
     public static UserPBsRequest create(String id) {
         checkId(id);
 

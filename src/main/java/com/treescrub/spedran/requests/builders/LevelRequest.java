@@ -16,12 +16,24 @@ public class LevelRequest extends SingleResourceRequest<Level> {
         super(HttpMethod.GET, "levels/{id}", Map.of("id", id));
     }
 
+    /**
+     * Creates and returns a new {@code LevelRequest} builder.
+     *
+     * @param level the level to get
+     * @return a {@code LevelRequest} builder
+     */
     public static LevelRequest create(Level level) {
         checkResource(level, "level");
 
         return new LevelRequest(level.getId());
     }
 
+    /**
+     * Creates and returns a new {@code LevelRequest} builder.
+     *
+     * @param id the level to get
+     * @return a {@code LevelRequest} builder
+     */
     public static LevelRequest create(String id) {
         checkId(id);
 

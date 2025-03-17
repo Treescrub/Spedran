@@ -16,6 +16,11 @@ public class ProfileRequest extends SingleResourceRequest<User> {
         super(HttpMethod.GET, "profile");
     }
 
+    /**
+     * Creates and returns a new {@code ProfileRequest} builder.
+     *
+     * @return a {@code ProfileRequest} builder
+     */
     public static ProfileRequest create() {
         return new ProfileRequest();
     }

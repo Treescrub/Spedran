@@ -15,6 +15,12 @@ public class GuestRequest extends SingleResourceRequest<Guest> {
         super(HttpMethod.GET, "guests/{name}", Map.of("name", name));
     }
 
+    /**
+     * Creates and returns a new {@code GuestRequest} builder.
+     *
+     * @param name the name of the guest to get
+     * @return a {@code GuestRequest} builder
+     */
     public static GuestRequest create(String name) {
         if(name == null) {
             throw new IllegalArgumentException("name is null");

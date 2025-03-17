@@ -16,12 +16,24 @@ public class GametypeRequest extends SingleResourceRequest<Gametype> {
         super(HttpMethod.GET, "gametypes/{id}", Map.of("id", id));
     }
 
+    /**
+     * Creates and returns a new {@code GametypeRequest} builder.
+     *
+     * @param gametype the gametype to get
+     * @return a {@code GametypeRequest} builder
+     */
     public static GametypeRequest create(Gametype gametype) {
         checkResource(gametype, "gametype");
 
         return new GametypeRequest(gametype.getId());
     }
 
+    /**
+     * Creates and returns a new {@code GametypeRequest} builder.
+     *
+     * @param id the gametype to get
+     * @return a {@code GametypeRequest} builder
+     */
     public static GametypeRequest create(String id) {
         checkId(id);
 

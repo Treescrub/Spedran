@@ -21,12 +21,24 @@ public class CategoryRecordsRequest extends ResourceCollectionRequest<Leaderboar
         super(HttpMethod.GET, "categories/{id}/records", Map.of("id", id));
     }
 
+    /**
+     * Creates and returns a new {@code CategoryRecordsRequest} builder.
+     *
+     * @param category the category to get the records for
+     * @return a {@code CategoryRecordsRequest} builder
+     */
     public static CategoryRecordsRequest create(Category category) {
         checkResource(category, "category");
 
         return new CategoryRecordsRequest(category.getId());
     }
 
+    /**
+     * Creates and returns a new {@code CategoryRecordsRequest} builder.
+     *
+     * @param id the category to get the records for
+     * @return a {@code CategoryRecordsRequest} builder
+     */
     public static CategoryRecordsRequest create(String id) {
         checkId(id);
 

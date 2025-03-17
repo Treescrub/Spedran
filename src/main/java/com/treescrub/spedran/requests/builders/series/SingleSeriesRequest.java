@@ -15,12 +15,24 @@ public class SingleSeriesRequest extends SingleResourceRequest<Series> {
         super(HttpMethod.GET, "series/{id}", Map.of("id", id));
     }
 
+    /**
+     * Creates and returns a new {@code SingleSeriesRequest} builder.
+     *
+     * @param series the series to get
+     * @return a {@code SingleSeriesRequest} builder
+     */
     public static SingleSeriesRequest create(Series series) {
         checkResource(series, "series");
 
         return new SingleSeriesRequest(series.getId());
     }
 
+    /**
+     * Creates and returns a new {@code SingleSeriesRequest} builder.
+     *
+     * @param id the series to get
+     * @return a {@code SingleSeriesRequest} builder
+     */
     public static SingleSeriesRequest create(String id) {
         checkId(id);
 

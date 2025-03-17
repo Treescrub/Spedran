@@ -20,12 +20,24 @@ public class SeriesGamesRequest extends ResourceCollectionRequest<Game> {
         super(HttpMethod.GET, "series/{id}/games", Map.of("id", id));
     }
 
+    /**
+     * Creates and returns a new {@code SeriesGamesRequest} builder.
+     *
+     * @param series the series to get the games for
+     * @return a {@code SeriesGamesRequest} builder
+     */
     public static SeriesGamesRequest create(Series series) {
         checkResource(series, "series");
 
         return new SeriesGamesRequest(series.getId());
     }
 
+    /**
+     * Creates and returns a new {@code SeriesGamesRequest} builder.
+     *
+     * @param id the series to get the games for
+     * @return a {@code SeriesGamesRequest} builder
+     */
     public static SeriesGamesRequest create(String id) {
         checkId(id);
 

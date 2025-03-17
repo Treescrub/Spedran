@@ -16,12 +16,24 @@ public class RegionRequest extends SingleResourceRequest<Region> {
         super(HttpMethod.GET, "regions/{id}", Map.of("id", id));
     }
 
+    /**
+     * Creates and returns a new {@code RegionRequest} builder.
+     *
+     * @param region the region to get
+     * @return a {@code RegionRequest} builder
+     */
     public static RegionRequest create(Region region) {
         checkResource(region, "region");
 
         return new RegionRequest(region.getId());
     }
 
+    /**
+     * Creates and returns a new {@code RegionRequest} builder.
+     *
+     * @param id the region to get
+     * @return a {@code RegionRequest} builder
+     */
     public static RegionRequest create(String id) {
         checkId(id);
 

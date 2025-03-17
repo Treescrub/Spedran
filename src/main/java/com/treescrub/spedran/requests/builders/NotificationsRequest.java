@@ -14,6 +14,11 @@ public class NotificationsRequest extends ResourceCollectionRequest<Notification
         super(HttpMethod.GET, "notifications");
     }
 
+    /**
+     * Creates and returns a new {@code NotificationsRequest} builder.
+     *
+     * @return a {@code NotificationsRequest} builder
+     */
     public static NotificationsRequest create() {
         return new NotificationsRequest();
     }

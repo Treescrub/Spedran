@@ -18,6 +18,11 @@ public class GamesRequest extends ResourceCollectionRequest<Game> {
         super(HttpMethod.GET, "games");
     }
 
+    /**
+     * Creates and returns a new {@code GamesRequest} builder.
+     *
+     * @return a {@code GamesRequest} builder
+     */
     public static GamesRequest create() {
         return new GamesRequest();
     }

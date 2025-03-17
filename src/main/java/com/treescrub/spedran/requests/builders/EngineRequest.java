@@ -16,12 +16,24 @@ public class EngineRequest extends SingleResourceRequest<Engine> {
         super(HttpMethod.GET, "engines/{id}", Map.of("id", id));
     }
 
+    /**
+     * Creates and returns a new {@code EngineRequest} builder.
+     *
+     * @param engine the engine to get
+     * @return a {@code EngineRequest} builder
+     */
     public static EngineRequest create(Engine engine) {
         checkResource(engine, "engine");
 
         return new EngineRequest(engine.getId());
     }
 
+    /**
+     * Creates and returns a new {@code EngineRequest} builder.
+     *
+     * @param id the engine to get
+     * @return a {@code EngineRequest} builder
+     */
     public static EngineRequest create(String id) {
         checkId(id);
 

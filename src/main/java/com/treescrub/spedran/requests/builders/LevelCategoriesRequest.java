@@ -19,12 +19,24 @@ public class LevelCategoriesRequest extends ResourceCollectionRequest<Category> 
         super(HttpMethod.GET, "levels/{id}/categories", Map.of("id", id));
     }
 
+    /**
+     * Creates and returns a new {@code LevelCategoriesRequest} builder.
+     *
+     * @param level the level to get categories for
+     * @return a {@code LevelCategoriesRequest} builder
+     */
     public static LevelCategoriesRequest create(Level level) {
         checkResource(level, "level");
 
         return new LevelCategoriesRequest(level.getId());
     }
 
+    /**
+     * Creates and returns a new {@code LevelCategoriesRequest} builder.
+     *
+     * @param id the level to get categories for
+     * @return a {@code LevelCategoriesRequest} builder
+     */
     public static LevelCategoriesRequest create(String id) {
         checkId(id);
 

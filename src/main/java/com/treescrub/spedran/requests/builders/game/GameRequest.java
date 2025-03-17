@@ -17,12 +17,24 @@ public class GameRequest extends SingleResourceRequest<Game> {
         super(HttpMethod.GET, "games/{id}", Map.of("id", id));
     }
 
+    /**
+     * Creates and returns a new {@code GameRequest} builder.
+     *
+     * @param game the game to get
+     * @return a {@code GameRequest} builder
+     */
     public static GameRequest create(Game game) {
         checkResource(game, "game");
 
         return new GameRequest(game.getId());
     }
 
+    /**
+     * Creates and returns a new {@code GameRequest} builder.
+     *
+     * @param id the game to get
+     * @return a {@code GameRequest} builder
+     */
     public static GameRequest create(String id) {
         checkId(id);
 

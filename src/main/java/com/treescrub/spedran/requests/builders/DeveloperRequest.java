@@ -16,12 +16,24 @@ public class DeveloperRequest extends SingleResourceRequest<Developer> {
         super(HttpMethod.GET, "developers/{id}", Map.of("id", id));
     }
 
+    /**
+     * Creates and returns a new {@code DeveloperRequest} builder.
+     *
+     * @param developer the developer to get
+     * @return a {@code DeveloperRequest} builder
+     */
     public static DeveloperRequest create(Developer developer) {
         checkResource(developer, "developer");
 
         return new DeveloperRequest(developer.getId());
     }
 
+    /**
+     * Creates and returns a new {@code DeveloperRequest} builder.
+     *
+     * @param id the developer to get
+     * @return a {@code DeveloperRequest} builder
+     */
     public static DeveloperRequest create(String id) {
         checkId(id);
 

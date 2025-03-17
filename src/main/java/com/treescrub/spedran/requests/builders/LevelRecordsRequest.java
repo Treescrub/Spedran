@@ -19,12 +19,24 @@ public class LevelRecordsRequest extends ResourceCollectionRequest<Leaderboard> 
         super(HttpMethod.GET, "levels/{id}/records", Map.of("id", id));
     }
 
+    /**
+     * Creates and returns a new {@code LevelRecordsRequest} builder.
+     *
+     * @param level the level to get the records for
+     * @return a {@code LevelRecordsRequest} builder
+     */
     public static LevelRecordsRequest create(Level level) {
         checkResource(level, "level");
 
         return new LevelRecordsRequest(level.getId());
     }
 
+    /**
+     * Creates and returns a new {@code LevelRecordsRequest} builder.
+     *
+     * @param id the level to get the records for
+     * @return a {@code LevelRecordsRequest} builder
+     */
     public static LevelRecordsRequest create(String id) {
         checkId(id);
 

@@ -17,6 +17,11 @@ public class PublishersRequest extends ResourceCollectionRequest<Publisher> {
         super(HttpMethod.GET, "publishers");
     }
 
+    /**
+     * Creates and returns a new {@code PublishersRequest} builder.
+     *
+     * @return a {@code PublishersRequest} builder
+     */
     public static PublishersRequest create() {
         return new PublishersRequest();
     }

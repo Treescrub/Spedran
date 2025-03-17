@@ -18,12 +18,24 @@ public class GameRomhacksRequest extends ResourceCollectionRequest<Game> {
         super(HttpMethod.GET, "games/{id}/derived-games", Map.of("id", id));
     }
 
+    /**
+     * Creates and returns a new {@code GameRomhacksRequest} builder.
+     *
+     * @param game the game to get the romhacks for
+     * @return a {@code GameRomhacksRequest} builder
+     */
     public static GameRomhacksRequest create(Game game) {
         checkResource(game, "game");
 
         return new GameRomhacksRequest(game.getId());
     }
 
+    /**
+     * Creates and returns a new {@code GameRomhacksRequest} builder.
+     *
+     * @param id the game to get the romhacks for
+     * @return a {@code GameRomhacksRequest} builder
+     */
     public static GameRomhacksRequest create(String id) {
         checkId(id);
 

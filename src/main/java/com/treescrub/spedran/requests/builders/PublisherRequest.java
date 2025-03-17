@@ -16,12 +16,24 @@ public class PublisherRequest extends SingleResourceRequest<Publisher> {
         super(HttpMethod.GET, "publishers/{id}", Map.of("id", id));
     }
 
+    /**
+     * Creates and returns a new {@code PublisherRequest} builder.
+     *
+     * @param publisher the publisher to get
+     * @return a {@code PublisherRequest} builder
+     */
     public static PublisherRequest create(Publisher publisher) {
         checkResource(publisher, "publisher");
 
         return new PublisherRequest(publisher.getId());
     }
 
+    /**
+     * Creates and returns a new {@code PublisherRequest} builder.
+     *
+     * @param id the publisher to get
+     * @return a {@code PublisherRequest} builder
+     */
     public static PublisherRequest create(String id) {
         checkId(id);
 

@@ -26,6 +26,11 @@ public class RunsRequest extends ResourceCollectionRequest<Run> {
         super(HttpMethod.GET, "runs");
     }
 
+    /**
+     * Creates and returns a new {@code RunsRequest} builder.
+     *
+     * @return a {@code RunsRequest} builder
+     */
     public static RunsRequest create() {
         return new RunsRequest();
     }

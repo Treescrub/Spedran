@@ -16,6 +16,11 @@ public class EnginesRequest extends ResourceCollectionRequest<Engine> {
         super(HttpMethod.GET, "engines");
     }
 
+    /**
+     * Creates and returns a new {@code EnginesRequest} builder.
+     *
+     * @return a {@code EnginesRequest} builder
+     */
     public static EnginesRequest create() {
         return new EnginesRequest();
     }
