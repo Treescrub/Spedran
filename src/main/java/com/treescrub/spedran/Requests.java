@@ -9,6 +9,7 @@ import java.util.Optional;
 import java.util.Properties;
 import java.util.concurrent.ForkJoinPool;
 import java.util.concurrent.ForkJoinWorkerThread;
+import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 
 /**
@@ -32,6 +33,7 @@ class Requests {
 
     private static String key;
     private static UnirestInstance unirestInstance;
+    private static AtomicBoolean isShutDown;
     private static final RequestCache cache = new RequestCache();
     private static final RequestQueue queue = new RequestQueue();
     private static final Logger logger = LoggerFactory.getLogger(Requests.class);
@@ -58,6 +60,8 @@ class Requests {
         unirestInstance.config().addDefaultHeader("User-Agent", "Spedran/" + version);
         unirestInstance.config().defaultBaseUrl(BASE_URL);
         unirestInstance.config().interceptor(new LoggingInterceptor());
+
+        isShutDown = new AtomicBoolean(false);
     }
 
     static HttpRequestWithBody request(HttpMethod method, String url) {
@@ -70,6 +74,11 @@ class Requests {
     }
 
     static void sendRequest(ResourceRequest<?> request) {
+        if(isShutDown.get()) {
+            request.failRequest(new SpedranStateException("Spedran is shut down"));
+            return;
+        }
+
         queue.queueRequest(request);
     }
 
@@ -96,6 +105,7 @@ class Requests {
         logger.info("Shutting Spedran down...");
         unirestInstance.shutDown();
         queue.shutDown();
+        isShutDown.set(true);
     }
 
     /**
