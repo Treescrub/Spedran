@@ -62,6 +62,7 @@ class RequestQueue {
     public void queueRequest(ResourceRequest<?> request) {
         if(isShutDown.get()) {
             logger.warn("Request queue is shut down, but a request was submitted");
+            request.failRequest(new SpedranStateException("Spedran is shut down"));
             return;
         }
 
@@ -77,14 +78,25 @@ class RequestQueue {
 
     /**
      * Shuts down this request queue.
-     * When shut down, requests already in the queue will be executed but new requests won't be accepted.
+     * <p>When shut down all requests already in the queue will be failed and new requests will fail immediately.</p>
      */
     public void shutDown() {
         logger.info("Shutting down");
 
-        synchronized(isShutDown) {
-            isShutDown.set(true);
-            queueExecutor.shutdown();
+        isShutDown.set(true);
+        queueExecutor.shutdown();
+        failAllShutdown();
+    }
+
+    /**
+     * Fails all requests currently in this queue with a {@link SpedranStateException}.
+     */
+    private void failAllShutdown() {
+        logger.info("Failing all requests in queue...");
+        synchronized(requestQueue) {
+            for(ResourceRequest<?> request : requestQueue) {
+                request.failRequest(new SpedranStateException("Spedran is shut down"));
+            }
         }
     }
 

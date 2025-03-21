@@ -65,6 +65,7 @@ public class Spedran {
 
     /**
      * Shuts down all work threads, allowing the application to exit.
+     * <p>All new requests and requests currently queued will fail with a {@link SpedranStateException}.</p>
      */
     @SuppressWarnings("unused")
     public static void shutDown() {
