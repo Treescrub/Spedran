@@ -9,6 +9,7 @@ import java.util.Optional;
 import java.util.Properties;
 import java.util.concurrent.ForkJoinPool;
 import java.util.concurrent.ForkJoinWorkerThread;
+import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 
 /**
@@ -32,6 +33,7 @@ class Requests {
 
     private static String key;
     private static UnirestInstance unirestInstance;
+    private static final AtomicBoolean isShutDown = new AtomicBoolean(false);
     private static final RequestCache cache = new RequestCache();
     private static final RequestQueue queue = new RequestQueue();
     private static final Logger logger = LoggerFactory.getLogger(Requests.class);
@@ -94,6 +96,11 @@ class Requests {
      */
     static void shutDown() {
         logger.info("Shutting Spedran down...");
+        if(isShutDown.get()) {
+            logger.warn("Spedran is already shut down");
+            return;
+        }
+        isShutDown.set(true);
         unirestInstance.shutDown();
         queue.shutDown();
     }
