@@ -1,10 +1,10 @@
 package com.treescrub.spedran.requests.builders.run;
 
-import com.treescrub.spedran.requests.InvalidBuilderStateException;
 import com.treescrub.spedran.ModifyResourceRequest;
 import com.treescrub.spedran.data.Guest;
 import com.treescrub.spedran.data.Run;
 import com.treescrub.spedran.data.User;
+import com.treescrub.spedran.requests.InvalidBuilderStateException;
 import kong.unirest.HttpMethod;
 import kong.unirest.json.JSONArray;
 import kong.unirest.json.JSONElement;
@@ -24,15 +24,34 @@ public class RunPlayersRequest extends ModifyResourceRequest<Run> {
     private final Map<String, String> runPlayers;
 
     @SuppressWarnings("unused")
-    public RunPlayersRequest(String id) {
+    protected RunPlayersRequest(String id) {
         super(HttpMethod.PUT, "runs/{id}/players", Map.of("id", id));
 
         runPlayers = new LinkedHashMap<>();
     }
 
-    @SuppressWarnings("unused")
-    public RunPlayersRequest(Run run) {
-        this(run.getId());
+    /**
+     * Creates and returns a new {@code RunPlayersRequest} builder.
+     *
+     * @param run the run to edit the players of
+     * @return a {@code RunPlayersRequest} builder
+     */
+    public static RunPlayersRequest create(Run run) {
+        checkResource(run, "run");
+
+        return new RunPlayersRequest(run.getId());
+    }
+
+    /**
+     * Creates and returns a new {@code RunPlayersRequest} builder.
+     *
+     * @param id the run to edit the players of
+     * @return a {@code RunPlayersRequest} builder
+     */
+    public static RunPlayersRequest create(String id) {
+        checkId(id);
+
+        return new RunPlayersRequest(id);
     }
 
     /**

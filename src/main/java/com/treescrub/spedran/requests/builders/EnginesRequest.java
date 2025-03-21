@@ -1,7 +1,7 @@
 package com.treescrub.spedran.requests.builders;
 
-import com.treescrub.spedran.data.Engine;
 import com.treescrub.spedran.ResourceCollectionRequest;
+import com.treescrub.spedran.data.Engine;
 import com.treescrub.spedran.requests.SortDirection;
 import kong.unirest.HttpMethod;
 
@@ -12,8 +12,17 @@ import kong.unirest.HttpMethod;
  */
 public class EnginesRequest extends ResourceCollectionRequest<Engine> {
     @SuppressWarnings("unused")
-    public EnginesRequest() {
+    protected EnginesRequest() {
         super(HttpMethod.GET, "engines");
+    }
+
+    /**
+     * Creates and returns a new {@code EnginesRequest} builder.
+     *
+     * @return a {@code EnginesRequest} builder
+     */
+    public static EnginesRequest create() {
+        return new EnginesRequest();
     }
 
     /**

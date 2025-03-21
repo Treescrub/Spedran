@@ -1,7 +1,7 @@
 package com.treescrub.spedran.requests.builders;
 
-import com.treescrub.spedran.data.Region;
 import com.treescrub.spedran.SingleResourceRequest;
+import com.treescrub.spedran.data.Region;
 import kong.unirest.HttpMethod;
 
 import java.util.Map;
@@ -11,13 +11,32 @@ import java.util.Map;
  */
 public class RegionRequest extends SingleResourceRequest<Region> {
     @SuppressWarnings("unused")
-    public RegionRequest(String id) {
+    protected RegionRequest(String id) {
         super(HttpMethod.GET, "regions/{id}", Map.of("id", id));
     }
 
-    @SuppressWarnings("unused")
-    public RegionRequest(Region region) {
-        this(region.getId());
+    /**
+     * Creates and returns a new {@code RegionRequest} builder.
+     *
+     * @param region the region to get
+     * @return a {@code RegionRequest} builder
+     */
+    public static RegionRequest create(Region region) {
+        checkResource(region, "region");
+
+        return new RegionRequest(region.getId());
+    }
+
+    /**
+     * Creates and returns a new {@code RegionRequest} builder.
+     *
+     * @param id the region to get
+     * @return a {@code RegionRequest} builder
+     */
+    public static RegionRequest create(String id) {
+        checkId(id);
+
+        return new RegionRequest(id);
     }
 
     @Override

@@ -1,7 +1,7 @@
 package com.treescrub.spedran.requests.builders.user;
 
-import com.treescrub.spedran.data.*;
 import com.treescrub.spedran.ResourceCollectionRequest;
+import com.treescrub.spedran.data.*;
 import com.treescrub.spedran.requests.builders.embed.CategoryEmbedBuilder;
 import com.treescrub.spedran.requests.builders.embed.GameEmbedBuilder;
 import com.treescrub.spedran.requests.builders.embed.LevelEmbedBuilder;
@@ -14,13 +14,32 @@ import java.util.Map;
  */
 public class UserPBsRequest extends ResourceCollectionRequest<LeaderboardRun> {
     @SuppressWarnings("unused")
-    public UserPBsRequest(String id) {
+    protected UserPBsRequest(String id) {
         super(HttpMethod.GET, "users/{id}/personal-bests", Map.of("id", id));
     }
 
-    @SuppressWarnings("unused")
-    public UserPBsRequest(User user) {
-        this(user.getId());
+    /**
+     * Creates and returns a new {@code UserPBsRequest} builder.
+     *
+     * @param user the user to get the personal bests for
+     * @return a {@code UserPBsRequest} builder
+     */
+    public static UserPBsRequest create(User user) {
+        checkResource(user, "user");
+
+        return new UserPBsRequest(user.getId());
+    }
+
+    /**
+     * Creates and returns a new {@code UserPBsRequest} builder.
+     *
+     * @param id the user to get the personal bests for
+     * @return a {@code UserPBsRequest} builder
+     */
+    public static UserPBsRequest create(String id) {
+        checkId(id);
+
+        return new UserPBsRequest(id);
     }
 
     /**
@@ -63,7 +82,6 @@ public class UserPBsRequest extends ResourceCollectionRequest<LeaderboardRun> {
      * Embeds the game used to filter this leaderboard.
      *
      * @return this object
-     *
      * @see Leaderboard#getGame()
      */
     public UserPBsRequest embedGame() {
@@ -76,7 +94,6 @@ public class UserPBsRequest extends ResourceCollectionRequest<LeaderboardRun> {
      *
      * @param builder the embed builder for the game
      * @return this object
-     *
      * @see Leaderboard#getGame()
      */
     public UserPBsRequest embedGame(GameEmbedBuilder builder) {
@@ -88,7 +105,6 @@ public class UserPBsRequest extends ResourceCollectionRequest<LeaderboardRun> {
      * Embeds the category used to filter this leaderboard.
      *
      * @return this object
-     *
      * @see Leaderboard#getCategory()
      */
     public UserPBsRequest embedCategory() {
@@ -101,7 +117,6 @@ public class UserPBsRequest extends ResourceCollectionRequest<LeaderboardRun> {
      *
      * @param builder the embed builder for the category
      * @return this object
-     *
      * @see Leaderboard#getCategory()
      */
     public UserPBsRequest embedCategory(CategoryEmbedBuilder builder) {
@@ -113,7 +128,6 @@ public class UserPBsRequest extends ResourceCollectionRequest<LeaderboardRun> {
      * Embeds the level used to filter this leaderboard.
      *
      * @return this object
-     *
      * @see Leaderboard#getLevel()
      */
     public UserPBsRequest embedLevel() {
@@ -126,7 +140,6 @@ public class UserPBsRequest extends ResourceCollectionRequest<LeaderboardRun> {
      *
      * @param builder the embed builder for the level
      * @return this object
-     *
      * @see Leaderboard#getLevel()
      */
     public UserPBsRequest embedLevel(LevelEmbedBuilder builder) {
@@ -138,7 +151,6 @@ public class UserPBsRequest extends ResourceCollectionRequest<LeaderboardRun> {
      * Embeds the players that participated in this leaderboard.
      *
      * @return this object
-     *
      * @see Leaderboard#getPlayers()
      */
     public UserPBsRequest embedPlayers() {
@@ -150,7 +162,6 @@ public class UserPBsRequest extends ResourceCollectionRequest<LeaderboardRun> {
      * Embeds the regions that were used in this leaderboard.
      *
      * @return this object
-     *
      * @see Leaderboard#getRegions()
      */
     public UserPBsRequest embedRegions() {
@@ -162,7 +173,6 @@ public class UserPBsRequest extends ResourceCollectionRequest<LeaderboardRun> {
      * Embeds the platforms that were used in this leaderboard.
      *
      * @return this object
-     *
      * @see Leaderboard#getPlatforms()
      */
     public UserPBsRequest embedPlatforms() {
@@ -174,7 +184,6 @@ public class UserPBsRequest extends ResourceCollectionRequest<LeaderboardRun> {
      * Embeds the applicable variables for the filtered levels/categories for this leaderboard.
      *
      * @return this object
-     *
      * @see Leaderboard#getVariables()
      */
     public UserPBsRequest embedVariables() {

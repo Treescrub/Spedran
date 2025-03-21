@@ -1,7 +1,7 @@
 package com.treescrub.spedran.requests.builders;
 
-import com.treescrub.spedran.data.Publisher;
 import com.treescrub.spedran.SingleResourceRequest;
+import com.treescrub.spedran.data.Publisher;
 import kong.unirest.HttpMethod;
 
 import java.util.Map;
@@ -11,13 +11,32 @@ import java.util.Map;
  */
 public class PublisherRequest extends SingleResourceRequest<Publisher> {
     @SuppressWarnings("unused")
-    public PublisherRequest(String id) {
+    protected PublisherRequest(String id) {
         super(HttpMethod.GET, "publishers/{id}", Map.of("id", id));
     }
 
-    @SuppressWarnings("unused")
-    public PublisherRequest(Publisher publisher) {
-        this(publisher.getId());
+    /**
+     * Creates and returns a new {@code PublisherRequest} builder.
+     *
+     * @param publisher the publisher to get
+     * @return a {@code PublisherRequest} builder
+     */
+    public static PublisherRequest create(Publisher publisher) {
+        checkResource(publisher, "publisher");
+
+        return new PublisherRequest(publisher.getId());
+    }
+
+    /**
+     * Creates and returns a new {@code PublisherRequest} builder.
+     *
+     * @param id the publisher to get
+     * @return a {@code PublisherRequest} builder
+     */
+    public static PublisherRequest create(String id) {
+        checkId(id);
+
+        return new PublisherRequest(id);
     }
 
     @Override

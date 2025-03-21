@@ -1,7 +1,7 @@
 package com.treescrub.spedran.requests.builders;
 
-import com.treescrub.spedran.data.Gametype;
 import com.treescrub.spedran.ResourceCollectionRequest;
+import com.treescrub.spedran.data.Gametype;
 import com.treescrub.spedran.requests.SortDirection;
 import kong.unirest.HttpMethod;
 
@@ -12,8 +12,17 @@ import kong.unirest.HttpMethod;
  */
 public class GametypesRequest extends ResourceCollectionRequest<Gametype> {
     @SuppressWarnings("unused")
-    public GametypesRequest() {
+    protected GametypesRequest() {
         super(HttpMethod.GET, "gametypes");
+    }
+
+    /**
+     * Creates and returns a new {@code GametypesRequest} builder.
+     *
+     * @return a {@code GametypesRequest} builder
+     */
+    public static GametypesRequest create() {
+        return new GametypesRequest();
     }
 
     /**

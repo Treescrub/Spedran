@@ -1,8 +1,8 @@
 package com.treescrub.spedran.requests.builders;
 
+import com.treescrub.spedran.ResourceCollectionRequest;
 import com.treescrub.spedran.data.Level;
 import com.treescrub.spedran.data.Variable;
-import com.treescrub.spedran.ResourceCollectionRequest;
 import com.treescrub.spedran.requests.SortDirection;
 import kong.unirest.HttpMethod;
 
@@ -13,12 +13,32 @@ import java.util.Map;
  */
 public class LevelVariablesRequest extends ResourceCollectionRequest<Variable> {
     @SuppressWarnings("unused")
-    public LevelVariablesRequest(String id) {
+    protected LevelVariablesRequest(String id) {
         super(HttpMethod.GET, "levels/{id}/variables", Map.of("id", id));
     }
 
-    public LevelVariablesRequest(Level level) {
-        this(level.getId());
+    /**
+     * Creates and returns a new {@code LevelRequest} builder.
+     *
+     * @param level the level to get
+     * @return a {@code LevelRequest} builder
+     */
+    public static LevelVariablesRequest create(Level level) {
+        checkResource(level, "level");
+
+        return new LevelVariablesRequest(level.getId());
+    }
+
+    /**
+     * Creates and returns a new {@code LevelRequest} builder.
+     *
+     * @param id the level to get
+     * @return a {@code LevelRequest} builder
+     */
+    public static LevelVariablesRequest create(String id) {
+        checkId(id);
+
+        return new LevelVariablesRequest(id);
     }
 
     /**

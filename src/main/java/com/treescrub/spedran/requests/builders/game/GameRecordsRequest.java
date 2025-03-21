@@ -1,8 +1,8 @@
 package com.treescrub.spedran.requests.builders.game;
 
+import com.treescrub.spedran.ResourceCollectionRequest;
 import com.treescrub.spedran.data.Game;
 import com.treescrub.spedran.data.Leaderboard;
-import com.treescrub.spedran.ResourceCollectionRequest;
 import com.treescrub.spedran.requests.builders.embed.CategoryEmbedBuilder;
 import com.treescrub.spedran.requests.builders.embed.GameEmbedBuilder;
 import com.treescrub.spedran.requests.builders.embed.LevelEmbedBuilder;
@@ -15,13 +15,32 @@ import java.util.Map;
  */
 public class GameRecordsRequest extends ResourceCollectionRequest<Leaderboard> {
     @SuppressWarnings("unused")
-    public GameRecordsRequest(String id) {
+    protected GameRecordsRequest(String id) {
         super(HttpMethod.GET, "games/{id}/records", Map.of("id", id));
     }
 
-    @SuppressWarnings("unused")
-    public GameRecordsRequest(Game game) {
-        this(game.getId());
+    /**
+     * Creates and returns a new {@code GameRecordsRequest} builder.
+     *
+     * @param game the game to get the records for
+     * @return a {@code GameRecordsRequest} builder
+     */
+    public static GameRecordsRequest create(Game game) {
+        checkResource(game, "game");
+
+        return new GameRecordsRequest(game.getId());
+    }
+
+    /**
+     * Creates and returns a new {@code GameRecordsRequest} builder.
+     *
+     * @param id the game to get the records for
+     * @return a {@code GameRecordsRequest} builder
+     */
+    public static GameRecordsRequest create(String id) {
+        checkId(id);
+
+        return new GameRecordsRequest(id);
     }
 
     /**
@@ -87,7 +106,6 @@ public class GameRecordsRequest extends ResourceCollectionRequest<Leaderboard> {
      * Embeds the game used to filter this leaderboard.
      *
      * @return this object
-     *
      * @see Leaderboard#getGame()
      */
     public GameRecordsRequest embedGame() {
@@ -100,7 +118,6 @@ public class GameRecordsRequest extends ResourceCollectionRequest<Leaderboard> {
      *
      * @param builder the embed builder for the game
      * @return this object
-     *
      * @see Leaderboard#getGame()
      */
     public GameRecordsRequest embedGame(GameEmbedBuilder builder) {
@@ -112,7 +129,6 @@ public class GameRecordsRequest extends ResourceCollectionRequest<Leaderboard> {
      * Embeds the category used to filter this leaderboard.
      *
      * @return this object
-     *
      * @see Leaderboard#getCategory()
      */
     public GameRecordsRequest embedCategory() {
@@ -125,7 +141,6 @@ public class GameRecordsRequest extends ResourceCollectionRequest<Leaderboard> {
      *
      * @param builder the embed builder for the category
      * @return this object
-     *
      * @see Leaderboard#getCategory()
      */
     public GameRecordsRequest embedCategory(CategoryEmbedBuilder builder) {
@@ -137,7 +152,6 @@ public class GameRecordsRequest extends ResourceCollectionRequest<Leaderboard> {
      * Embeds the level used to filter this leaderboard.
      *
      * @return this object
-     *
      * @see Leaderboard#getLevel()
      */
     public GameRecordsRequest embedLevel() {
@@ -150,7 +164,6 @@ public class GameRecordsRequest extends ResourceCollectionRequest<Leaderboard> {
      *
      * @param builder the embed builder for the level
      * @return this object
-     *
      * @see Leaderboard#getLevel()
      */
     public GameRecordsRequest embedLevel(LevelEmbedBuilder builder) {
@@ -162,7 +175,6 @@ public class GameRecordsRequest extends ResourceCollectionRequest<Leaderboard> {
      * Embeds the players that participated in this leaderboard.
      *
      * @return this object
-     *
      * @see Leaderboard#getPlayers()
      */
     public GameRecordsRequest embedPlayers() {
@@ -174,7 +186,6 @@ public class GameRecordsRequest extends ResourceCollectionRequest<Leaderboard> {
      * Embeds the regions that were used in this leaderboard.
      *
      * @return this object
-     *
      * @see Leaderboard#getRegions()
      */
     public GameRecordsRequest embedRegions() {
@@ -186,7 +197,6 @@ public class GameRecordsRequest extends ResourceCollectionRequest<Leaderboard> {
      * Embeds the platforms that were used in this leaderboard.
      *
      * @return this object
-     *
      * @see Leaderboard#getPlatforms()
      */
     public GameRecordsRequest embedPlatforms() {
@@ -198,7 +208,6 @@ public class GameRecordsRequest extends ResourceCollectionRequest<Leaderboard> {
      * Embeds the applicable variables for the filtered levels/categories for this leaderboard.
      *
      * @return this object
-     *
      * @see Leaderboard#getVariables()
      */
     public GameRecordsRequest embedVariables() {

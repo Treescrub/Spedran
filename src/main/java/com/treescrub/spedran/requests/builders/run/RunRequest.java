@@ -1,8 +1,7 @@
 package com.treescrub.spedran.requests.builders.run;
 
-import com.treescrub.spedran.data.Player;
-import com.treescrub.spedran.data.Run;
 import com.treescrub.spedran.SingleResourceRequest;
+import com.treescrub.spedran.data.Run;
 import com.treescrub.spedran.requests.builders.embed.CategoryEmbedBuilder;
 import com.treescrub.spedran.requests.builders.embed.GameEmbedBuilder;
 import com.treescrub.spedran.requests.builders.embed.LevelEmbedBuilder;
@@ -15,13 +14,32 @@ import java.util.Map;
  */
 public class RunRequest extends SingleResourceRequest<Run> {
     @SuppressWarnings("unused")
-    public RunRequest(String id) {
+    protected RunRequest(String id) {
         super(HttpMethod.GET, "runs/{id}", Map.of("id", id));
     }
 
-    @SuppressWarnings("unused")
-    public RunRequest(Run run) {
-        this(run.getId());
+    /**
+     * Creates and returns a new {@code RunRequest} builder.
+     *
+     * @param run the run to get
+     * @return a {@code RunRequest} builder
+     */
+    public static RunRequest create(Run run) {
+        checkResource(run, "run");
+
+        return new RunRequest(run.getId());
+    }
+
+    /**
+     * Creates and returns a new {@code RunRequest} builder.
+     *
+     * @param id the run to get
+     * @return a {@code RunRequest} builder
+     */
+    public static RunRequest create(String id) {
+        checkId(id);
+
+        return new RunRequest(id);
     }
 
     @Override
@@ -33,7 +51,6 @@ public class RunRequest extends SingleResourceRequest<Run> {
      * Embed this run's game.
      *
      * @return this object
-     *
      * @see Run#getGame()
      */
     public RunRequest embedGame() {
@@ -46,7 +63,6 @@ public class RunRequest extends SingleResourceRequest<Run> {
      *
      * @param builder the embed builder for the game
      * @return this object
-     *
      * @see Run#getGame()
      */
     public RunRequest embedGame(GameEmbedBuilder builder) {
@@ -58,7 +74,6 @@ public class RunRequest extends SingleResourceRequest<Run> {
      * Embed this run's category.
      *
      * @return this object
-     *
      * @see Run#getCategory()
      */
     public RunRequest embedCategory() {
@@ -71,7 +86,6 @@ public class RunRequest extends SingleResourceRequest<Run> {
      *
      * @param builder the embed builder for the category
      * @return this object
-     *
      * @see Run#getCategory()
      */
     public RunRequest embedCategory(CategoryEmbedBuilder builder) {
@@ -83,7 +97,6 @@ public class RunRequest extends SingleResourceRequest<Run> {
      * Embed this run's level.
      *
      * @return this object
-     *
      * @see Run#getLevel()
      */
     public RunRequest embedLevel() {
@@ -96,7 +109,6 @@ public class RunRequest extends SingleResourceRequest<Run> {
      *
      * @param builder the embed builder for the level
      * @return this object
-     *
      * @see Run#getLevel()
      */
     public RunRequest embedLevel(LevelEmbedBuilder builder) {
@@ -108,7 +120,6 @@ public class RunRequest extends SingleResourceRequest<Run> {
      * Embed this run's players.
      *
      * @return this object
-     *
      * @see Run#getPlayers()
      */
     public RunRequest embedPlayers() {
@@ -120,7 +131,6 @@ public class RunRequest extends SingleResourceRequest<Run> {
      * Embed this run's region.
      *
      * @return this object
-     *
      * @see Run#getRegion()
      */
     public RunRequest embedRegion() {
@@ -132,7 +142,6 @@ public class RunRequest extends SingleResourceRequest<Run> {
      * Embed this run's platform.
      *
      * @return this object
-     *
      * @see Run#getPlatform()
      */
     public RunRequest embedPlatform() {

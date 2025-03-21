@@ -1,8 +1,8 @@
 package com.treescrub.spedran.requests.builders.game;
 
 import com.treescrub.spedran.ResourceCollectionRequest;
-import com.treescrub.spedran.requests.SortDirection;
 import com.treescrub.spedran.data.*;
+import com.treescrub.spedran.requests.SortDirection;
 import com.treescrub.spedran.requests.builders.embed.CategoryEmbedBuilder;
 import com.treescrub.spedran.requests.builders.embed.LevelEmbedBuilder;
 import kong.unirest.HttpMethod;
@@ -14,13 +14,32 @@ import java.util.Map;
  */
 public class GameRomhacksRequest extends ResourceCollectionRequest<Game> {
     @SuppressWarnings("unused")
-    public GameRomhacksRequest(String id) {
+    protected GameRomhacksRequest(String id) {
         super(HttpMethod.GET, "games/{id}/derived-games", Map.of("id", id));
     }
 
-    @SuppressWarnings("unused")
-    public GameRomhacksRequest(Game game) {
-        this(game.getId());
+    /**
+     * Creates and returns a new {@code GameRomhacksRequest} builder.
+     *
+     * @param game the game to get the romhacks for
+     * @return a {@code GameRomhacksRequest} builder
+     */
+    public static GameRomhacksRequest create(Game game) {
+        checkResource(game, "game");
+
+        return new GameRomhacksRequest(game.getId());
+    }
+
+    /**
+     * Creates and returns a new {@code GameRomhacksRequest} builder.
+     *
+     * @param id the game to get the romhacks for
+     * @return a {@code GameRomhacksRequest} builder
+     */
+    public static GameRomhacksRequest create(String id) {
+        checkId(id);
+
+        return new GameRomhacksRequest(id);
     }
 
     /**
@@ -239,7 +258,6 @@ public class GameRomhacksRequest extends ResourceCollectionRequest<Game> {
      * Embed the levels for each game.
      *
      * @return this object
-     *
      * @see Game#getLevels()
      */
     public GameRomhacksRequest embedLevels() {
@@ -252,7 +270,6 @@ public class GameRomhacksRequest extends ResourceCollectionRequest<Game> {
      *
      * @param builder the embed builder for the levels
      * @return this object
-     *
      * @see Game#getLevels()
      */
     public GameRomhacksRequest embedLevels(LevelEmbedBuilder builder) {
@@ -264,7 +281,6 @@ public class GameRomhacksRequest extends ResourceCollectionRequest<Game> {
      * Embed the categories for each game.
      *
      * @return this object
-     *
      * @see Game#getCategories()
      */
     public GameRomhacksRequest embedCategories() {
@@ -277,7 +293,6 @@ public class GameRomhacksRequest extends ResourceCollectionRequest<Game> {
      *
      * @param builder the embed builder for the categories
      * @return this object
-     *
      * @see Game#getCategories()
      */
     public GameRomhacksRequest embedCategories(CategoryEmbedBuilder builder) {
@@ -289,7 +304,6 @@ public class GameRomhacksRequest extends ResourceCollectionRequest<Game> {
      * Embed the gametypes for each game.
      *
      * @return this object
-     *
      * @see Game#getGametypes()
      */
     public GameRomhacksRequest embedGametypes() {
@@ -301,7 +315,6 @@ public class GameRomhacksRequest extends ResourceCollectionRequest<Game> {
      * Embed the platforms for each game.
      *
      * @return this object
-     *
      * @see Game#getPlatforms()
      */
     public GameRomhacksRequest embedPlatforms() {
@@ -313,7 +326,6 @@ public class GameRomhacksRequest extends ResourceCollectionRequest<Game> {
      * Embed the regions for each game.
      *
      * @return this object
-     *
      * @see Game#getRegions()
      */
     public GameRomhacksRequest embedRegions() {
@@ -325,7 +337,6 @@ public class GameRomhacksRequest extends ResourceCollectionRequest<Game> {
      * Embed the genres for each game.
      *
      * @return this object
-     *
      * @see Game#getGenres()
      */
     public GameRomhacksRequest embedGenres() {
@@ -337,7 +348,6 @@ public class GameRomhacksRequest extends ResourceCollectionRequest<Game> {
      * Embed the engines for each game.
      *
      * @return this object
-     *
      * @see Game#getEngines()
      */
     public GameRomhacksRequest embedEngines() {
@@ -349,7 +359,6 @@ public class GameRomhacksRequest extends ResourceCollectionRequest<Game> {
      * Embed the developers for each game.
      *
      * @return this object
-     *
      * @see Game#getDevelopers()
      */
     public GameRomhacksRequest embedDevelopers() {
@@ -361,7 +370,6 @@ public class GameRomhacksRequest extends ResourceCollectionRequest<Game> {
      * Embed the publishers for each game.
      *
      * @return this object
-     *
      * @see Game#getPublishers()
      */
     public GameRomhacksRequest embedPublishers() {
@@ -373,7 +381,6 @@ public class GameRomhacksRequest extends ResourceCollectionRequest<Game> {
      * Embed the variables for each game.
      *
      * @return this object
-     *
      * @see Game#getVariables()
      */
     public GameRomhacksRequest embedVariables() {

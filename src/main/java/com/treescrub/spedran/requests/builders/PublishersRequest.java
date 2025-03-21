@@ -1,8 +1,8 @@
 package com.treescrub.spedran.requests.builders;
 
+import com.treescrub.spedran.ResourceCollectionRequest;
 import com.treescrub.spedran.data.Gametype;
 import com.treescrub.spedran.data.Publisher;
-import com.treescrub.spedran.ResourceCollectionRequest;
 import com.treescrub.spedran.requests.SortDirection;
 import kong.unirest.HttpMethod;
 
@@ -13,8 +13,17 @@ import kong.unirest.HttpMethod;
  */
 public class PublishersRequest extends ResourceCollectionRequest<Publisher> {
     @SuppressWarnings("unused")
-    public PublishersRequest() {
+    protected PublishersRequest() {
         super(HttpMethod.GET, "publishers");
+    }
+
+    /**
+     * Creates and returns a new {@code PublishersRequest} builder.
+     *
+     * @return a {@code PublishersRequest} builder
+     */
+    public static PublishersRequest create() {
+        return new PublishersRequest();
     }
 
     /**

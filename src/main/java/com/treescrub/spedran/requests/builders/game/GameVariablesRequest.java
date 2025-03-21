@@ -1,8 +1,8 @@
 package com.treescrub.spedran.requests.builders.game;
 
+import com.treescrub.spedran.ResourceCollectionRequest;
 import com.treescrub.spedran.data.Game;
 import com.treescrub.spedran.data.Variable;
-import com.treescrub.spedran.ResourceCollectionRequest;
 import com.treescrub.spedran.requests.SortDirection;
 import kong.unirest.HttpMethod;
 
@@ -13,13 +13,32 @@ import java.util.Map;
  */
 public class GameVariablesRequest extends ResourceCollectionRequest<Variable> {
     @SuppressWarnings("unused")
-    public GameVariablesRequest(String id) {
+    protected GameVariablesRequest(String id) {
         super(HttpMethod.GET, "games/{id}/variables", Map.of("id", id));
     }
 
-    @SuppressWarnings("unused")
-    public GameVariablesRequest(Game game) {
-        this(game.getId());
+    /**
+     * Creates and returns a new {@code GameVariablesRequest} builder.
+     *
+     * @param game the game to get the variables for
+     * @return a {@code GameVariablesRequest} builder
+     */
+    public static GameVariablesRequest create(Game game) {
+        checkResource(game, "game");
+
+        return new GameVariablesRequest(game.getId());
+    }
+
+    /**
+     * Creates and returns a new {@code GameVariablesRequest} builder.
+     *
+     * @param id the game to get the variables for
+     * @return a {@code GameVariablesRequest} builder
+     */
+    public static GameVariablesRequest create(String id) {
+        checkId(id);
+
+        return new GameVariablesRequest(id);
     }
 
     /**

@@ -38,7 +38,6 @@ Text in square brackets (`[` and `]`) are optional text that is recommended if a
  * Returns an {@link EmbeddableResource} containing this <THIS_LOWERCASE>'s <OTHER_RESOURCE_LOWERCASE>.
  *
  * @return the resource of the <OTHER_RESOURCE_LOWERCASE> this <THIS_LOWERCASE> belongs to. only an ID if not embedded, otherwise the full resource
- *
  * @see <OTHER_RESOURCE>
  * @see Spedran#get<OTHER_RESOURCE>(String)
  */
@@ -51,7 +50,6 @@ Text in square brackets (`[` and `]`) are optional text that is recommended if a
  * Gets a {@code List} of {@link EmbeddableResource} <OTHER_RESOURCE_LOWERCASE_PLURAL> that this <THIS_LOWERCASE> is <PART_OF/IN/INCLUDES>.
  *
  * @return an unmodifiable {@code List} of <OTHER_RESOURCE_LOWERCASE_PLURAL>
- *
  * @see <OTHER_RESOURCE>
  * @see Spedran#get<OTHER_RESOURCE>(String)
  */
@@ -67,7 +65,6 @@ Text in square brackets (`[` and `]`) are optional text that is recommended if a
  * The {@code Optional} is empty if the <OTHER_RESOURCE_LOWERCASE> was not embedded.
  *
  * @return an {@link Optional} containing the <OTHER_RESOURCE_LOWERCASE>
- *
  * @see <OTHER_RESOURCE>
  */
 ```
@@ -79,7 +76,6 @@ Text in square brackets (`[` and `]`) are optional text that is recommended if a
  * Gets a {@code List} of <OTHER_RESOURCE_LOWERCASE_PLURAL> applicable to this <THIS_LOWERCASE> as an {@link Optional}.
  *
  * @return an {@link Optional} containing the applicable <OTHER_RESOURCE_LOWERCASE_PLURAL>, empty if not embedded
- *
  * @see <OTHER_RESOURCE>
  */
 ```
@@ -103,7 +99,6 @@ Text in square brackets (`[` and `]`) are optional text that is recommended if a
  * Requires a set API key with sufficient permissions to <ACTIONS>.
  *
  * @return a {@code <RETURN>} builder to <ACTION>
- *
  * @see Spedran#setApiKey(String)
  */
 ```
@@ -115,7 +110,6 @@ Text in square brackets (`[` and `]`) are optional text that is recommended if a
  * Returns a String containing the ID of this <THIS_LOWERCASE>'s <OTHER_RESOURCE_LOWERCASE>.
  *
  * @return the id of the <OTHER_RESOURCE_LOWERCASE> this <THIS_LOWERCASE> belongs to
- *
  * @see <OTHER_RESOURCE>
  * @see Spedran#get<OTHER_RESOURCE>(String)
  */
@@ -129,7 +123,6 @@ Text in square brackets (`[` and `]`) are optional text that is recommended if a
  * If this run has no associated <OTHER_RESOURCE_LOWERCASE>, returns an empty Optional.
  *
  * @return an {@code Optional} with the ID of this <THIS_LOWERCASE>'s <OTHER_RESOURCE_LOWERCASE>
- *
  * @see <OTHER_RESOURCE>
  * @see Spedran#get<OTHER_RESOURCE>(String)
  */
@@ -148,7 +141,6 @@ Text in square brackets (`[` and `]`) are optional text that is recommended if a
  * Embed this <THIS_LOWERCASE>'s <OTHER_RESOURCE_LOWERCASE>.
  *
  * @return this object
- * 
  * @see <THIS>#get<OTHER_RESOURCE>()
  */
 ```
@@ -160,7 +152,6 @@ Text in square brackets (`[` and `]`) are optional text that is recommended if a
  * Embed the <OTHER_RESOURCE_LOWERCASE> for each <THIS_LOWERCASE>.
  *
  * @return this object
- *
  * @see <THIS>#get<OTHER_RESOURCE>()
  */
 ```
@@ -175,7 +166,6 @@ Text in square brackets (`[` and `]`) are optional text that is recommended if a
  *
  * @param builder the embed builder for the <OTHER_RESOURCE_LOWERCASE>
  * @return this object
- * 
  * @see <THIS>#get<OTHER_RESOURCE>()
  */
 ```
@@ -188,7 +178,6 @@ Text in square brackets (`[` and `]`) are optional text that is recommended if a
  *
  * @param builder the embed builder for the <OTHER_RESOURCE_LOWERCASE>
  * @return this object
- * 
  * @see <THIS>#get<OTHER_RESOURCE>()
  */
 ```
@@ -247,7 +236,6 @@ Text in square brackets (`[` and `]`) are optional text that is recommended if a
  * Gets the {@link <RESOURCE>} that corresponds to the provided {@code id} asynchronously.
  *
  * @param id the ID of the <RESOURCE_LOWERCASE> to get
- *
  * @return a {@link CompletableFuture} of a {@code <RESOURCE>}
  */
 ```
@@ -269,7 +257,6 @@ Text in square brackets (`[` and `]`) are optional text that is recommended if a
  * Gets a {@link <BUILDER_NAME>} builder to request the <OTHER_RESOURCE_LOWERCASE> for the specified {@link <RESOURCE>}.
  *
  * @param <RESOURCE_LOWERCASE>Id the ID of the <RESOURCE_LOWERCASE> to get the {@link <OTHER_RESOURCE>}s for
- *
  * @return a {@code <BUILDER_NAME>} builder
  */
 ```

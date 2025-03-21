@@ -1,7 +1,7 @@
 package com.treescrub.spedran.requests.builders;
 
-import com.treescrub.spedran.data.Level;
 import com.treescrub.spedran.SingleResourceRequest;
+import com.treescrub.spedran.data.Level;
 import com.treescrub.spedran.requests.builders.embed.CategoryEmbedBuilder;
 import kong.unirest.HttpMethod;
 
@@ -12,13 +12,32 @@ import java.util.Map;
  */
 public class LevelRequest extends SingleResourceRequest<Level> {
     @SuppressWarnings("unused")
-    public LevelRequest(String id) {
+    protected LevelRequest(String id) {
         super(HttpMethod.GET, "levels/{id}", Map.of("id", id));
     }
 
-    @SuppressWarnings("unused")
-    public LevelRequest(Level level) {
-        this(level.getId());
+    /**
+     * Creates and returns a new {@code LevelRequest} builder.
+     *
+     * @param level the level to get
+     * @return a {@code LevelRequest} builder
+     */
+    public static LevelRequest create(Level level) {
+        checkResource(level, "level");
+
+        return new LevelRequest(level.getId());
+    }
+
+    /**
+     * Creates and returns a new {@code LevelRequest} builder.
+     *
+     * @param id the level to get
+     * @return a {@code LevelRequest} builder
+     */
+    public static LevelRequest create(String id) {
+        checkId(id);
+
+        return new LevelRequest(id);
     }
 
     @Override
@@ -30,7 +49,6 @@ public class LevelRequest extends SingleResourceRequest<Level> {
      * Embed this level's categories.
      *
      * @return this object
-     *
      * @see Level#getCategories()
      */
     public LevelRequest embedCategories() {
@@ -43,7 +61,6 @@ public class LevelRequest extends SingleResourceRequest<Level> {
      *
      * @param builder the embed builder for the categories
      * @return this object
-     *
      * @see Level#getCategories()
      */
     public LevelRequest embedCategories(CategoryEmbedBuilder builder) {
@@ -55,7 +72,6 @@ public class LevelRequest extends SingleResourceRequest<Level> {
      * Embed this level's applicable variables.
      *
      * @return this object
-     *
      * @see Level#getVariables()
      */
     public LevelRequest embedVariables() {

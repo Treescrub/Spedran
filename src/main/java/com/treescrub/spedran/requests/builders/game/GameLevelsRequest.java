@@ -1,9 +1,8 @@
 package com.treescrub.spedran.requests.builders.game;
 
-import com.treescrub.spedran.data.Category;
-import com.treescrub.spedran.data.Level;
-import com.treescrub.spedran.data.Game;
 import com.treescrub.spedran.ResourceCollectionRequest;
+import com.treescrub.spedran.data.Game;
+import com.treescrub.spedran.data.Level;
 import com.treescrub.spedran.requests.SortDirection;
 import com.treescrub.spedran.requests.builders.embed.CategoryEmbedBuilder;
 import kong.unirest.HttpMethod;
@@ -15,20 +14,38 @@ import java.util.Map;
  */
 public class GameLevelsRequest extends ResourceCollectionRequest<Level> {
     @SuppressWarnings("unused")
-    public GameLevelsRequest(String id) {
+    protected GameLevelsRequest(String id) {
         super(HttpMethod.GET, "games/{id}/levels", Map.of("id", id));
     }
 
-    @SuppressWarnings("unused")
-    public GameLevelsRequest(Game game) {
-        this(game.getId());
+    /**
+     * Creates and returns a new {@code GameLevelsRequest} builder.
+     *
+     * @param game the game to get the levels for
+     * @return a {@code GameLevelsRequest} builder
+     */
+    public static GameLevelsRequest create(Game game) {
+        checkResource(game, "game");
+
+        return new GameLevelsRequest(game.getId());
+    }
+
+    /**
+     * Creates and returns a new {@code GameLevelsRequest} builder.
+     *
+     * @param id the game to get the levels for
+     * @return a {@code GameLevelsRequest} builder
+     */
+    public static GameLevelsRequest create(String id) {
+        checkId(id);
+
+        return new GameLevelsRequest(id);
     }
 
     /**
      * Embed the categories for each level.
      *
      * @return this object
-     *
      * @see Level#getCategories()
      */
     public GameLevelsRequest embedCategories() {
@@ -41,7 +58,6 @@ public class GameLevelsRequest extends ResourceCollectionRequest<Level> {
      *
      * @param builder the embed builder for the category
      * @return this object
-     *
      * @see Level#getCategories()
      */
     public GameLevelsRequest embedCategories(CategoryEmbedBuilder builder) {
@@ -53,7 +69,6 @@ public class GameLevelsRequest extends ResourceCollectionRequest<Level> {
      * Embed the applicable variables for each level.
      *
      * @return this object
-     *
      * @see Level#getVariables()
      */
     public GameLevelsRequest embedVariables() {

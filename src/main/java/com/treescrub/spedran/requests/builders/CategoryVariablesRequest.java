@@ -1,8 +1,8 @@
 package com.treescrub.spedran.requests.builders;
 
+import com.treescrub.spedran.ResourceCollectionRequest;
 import com.treescrub.spedran.data.Category;
 import com.treescrub.spedran.data.Variable;
-import com.treescrub.spedran.ResourceCollectionRequest;
 import com.treescrub.spedran.requests.SortDirection;
 import kong.unirest.HttpMethod;
 
@@ -13,13 +13,32 @@ import java.util.Map;
  */
 public class CategoryVariablesRequest extends ResourceCollectionRequest<Variable> {
     @SuppressWarnings("unused")
-    public CategoryVariablesRequest(String id) {
+    protected CategoryVariablesRequest(String id) {
         super(HttpMethod.GET, "categories/{id}/variables", Map.of("id", id));
     }
 
-    @SuppressWarnings("unused")
-    public CategoryVariablesRequest(Category category) {
-        this(category.getId());
+    /**
+     * Creates and returns a new {@code CategoryVariablesRequest} builder.
+     *
+     * @param category the category to get the variables for
+     * @return a {@code CategoryVariablesRequest} builder
+     */
+    public static CategoryVariablesRequest create(Category category) {
+        checkResource(category, "category");
+
+        return new CategoryVariablesRequest(category.getId());
+    }
+
+    /**
+     * Creates and returns a new {@code CategoryVariablesRequest} builder.
+     *
+     * @param id the category to get the variables for
+     * @return a {@code CategoryVariablesRequest} builder
+     */
+    public static CategoryVariablesRequest create(String id) {
+        checkId(id);
+
+        return new CategoryVariablesRequest(id);
     }
 
     /**

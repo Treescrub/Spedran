@@ -1,9 +1,9 @@
 package com.treescrub.spedran.requests.builders.run;
 
+import com.treescrub.spedran.ModifyResourceRequest;
 import com.treescrub.spedran.data.Run;
 import com.treescrub.spedran.data.SubmissionStatus;
 import com.treescrub.spedran.requests.InvalidBuilderStateException;
-import com.treescrub.spedran.ModifyResourceRequest;
 import kong.unirest.HttpMethod;
 import kong.unirest.json.JSONElement;
 import kong.unirest.json.JSONObject;
@@ -18,13 +18,32 @@ public class RunStatusRequest extends ModifyResourceRequest<Run> {
     private String rejectionReason;
 
     @SuppressWarnings("unused")
-    public RunStatusRequest(String id) {
+    protected RunStatusRequest(String id) {
         super(HttpMethod.PUT, "runs/{id}/status", Map.of("id", id));
     }
 
-    @SuppressWarnings("unused")
-    public RunStatusRequest(Run run) {
-        this(run.getId());
+    /**
+     * Creates and returns a new {@code RunStatusRequest} builder.
+     *
+     * @param run the run to change the status of
+     * @return a {@code RunStatusRequest} builder
+     */
+    public static RunStatusRequest create(Run run) {
+        checkResource(run, "run");
+
+        return new RunStatusRequest(run.getId());
+    }
+
+    /**
+     * Creates and returns a new {@code RunStatusRequest} builder.
+     *
+     * @param id the run to change the status of
+     * @return a {@code RunStatusRequest} builder
+     */
+    public static RunStatusRequest create(String id) {
+        checkId(id);
+
+        return new RunStatusRequest(id);
     }
 
     /**

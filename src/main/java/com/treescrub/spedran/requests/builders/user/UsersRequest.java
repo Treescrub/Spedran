@@ -1,7 +1,7 @@
 package com.treescrub.spedran.requests.builders.user;
 
-import com.treescrub.spedran.data.User;
 import com.treescrub.spedran.ResourceCollectionRequest;
+import com.treescrub.spedran.data.User;
 import com.treescrub.spedran.requests.SortDirection;
 import kong.unirest.HttpMethod;
 
@@ -10,8 +10,17 @@ import kong.unirest.HttpMethod;
  */
 public class UsersRequest extends ResourceCollectionRequest<User> {
     @SuppressWarnings("unused")
-    public UsersRequest() {
+    protected UsersRequest() {
         super(HttpMethod.GET, "users");
+    }
+
+    /**
+     * Creates and returns a new {@code UsersRequest} builder.
+     *
+     * @return a {@code UsersRequest} builder
+     */
+    public static UsersRequest create() {
+        return new UsersRequest();
     }
 
     /**

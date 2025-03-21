@@ -1,7 +1,7 @@
 package com.treescrub.spedran.requests.builders;
 
-import com.treescrub.spedran.data.Category;
 import com.treescrub.spedran.SingleResourceRequest;
+import com.treescrub.spedran.data.Category;
 import com.treescrub.spedran.requests.builders.embed.GameEmbedBuilder;
 import kong.unirest.HttpMethod;
 
@@ -12,13 +12,32 @@ import java.util.Map;
  */
 public class CategoryRequest extends SingleResourceRequest<Category> {
     @SuppressWarnings("unused")
-    public CategoryRequest(String id) {
+    protected CategoryRequest(String id) {
         super(HttpMethod.GET, "categories/{id}", Map.of("id", id));
     }
 
-    @SuppressWarnings("unused")
-    public CategoryRequest(Category category) {
-        this(category.getId());
+    /**
+     * Creates and returns a new {@code CategoryRequest} builder.
+     *
+     * @param category the category to get
+     * @return a {@code CategoryRequest} builder
+     */
+    public static CategoryRequest create(Category category) {
+        checkResource(category, "category");
+
+        return new CategoryRequest(category.getId());
+    }
+
+    /**
+     * Creates and returns a new {@code CategoryRequest} builder.
+     *
+     * @param id the category to get
+     * @return a {@code CategoryRequest} builder
+     */
+    public static CategoryRequest create(String id) {
+        checkId(id);
+
+        return new CategoryRequest(id);
     }
 
     @Override
@@ -30,7 +49,6 @@ public class CategoryRequest extends SingleResourceRequest<Category> {
      * Embed this category's game.
      *
      * @return this object
-     *
      * @see Category#getGame()
      */
     public CategoryRequest embedGame() {
@@ -43,7 +61,6 @@ public class CategoryRequest extends SingleResourceRequest<Category> {
      *
      * @param builder the embed builder for the game
      * @return this object
-     *
      * @see Category#getGame()
      */
     public CategoryRequest embedGame(GameEmbedBuilder builder) {
@@ -55,7 +72,6 @@ public class CategoryRequest extends SingleResourceRequest<Category> {
      * Embed this category's variables.
      *
      * @return this object
-     *
      * @see Category#getVariables()
      */
     public CategoryRequest embedVariables() {

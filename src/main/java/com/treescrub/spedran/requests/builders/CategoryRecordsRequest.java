@@ -1,8 +1,8 @@
 package com.treescrub.spedran.requests.builders;
 
+import com.treescrub.spedran.ResourceCollectionRequest;
 import com.treescrub.spedran.data.Category;
 import com.treescrub.spedran.data.Leaderboard;
-import com.treescrub.spedran.ResourceCollectionRequest;
 import com.treescrub.spedran.requests.builders.embed.CategoryEmbedBuilder;
 import com.treescrub.spedran.requests.builders.embed.GameEmbedBuilder;
 import com.treescrub.spedran.requests.builders.embed.LevelEmbedBuilder;
@@ -15,13 +15,32 @@ import java.util.Map;
  */
 public class CategoryRecordsRequest extends ResourceCollectionRequest<Leaderboard> {
     @SuppressWarnings("unused")
-    public CategoryRecordsRequest(String id) {
+    protected CategoryRecordsRequest(String id) {
         super(HttpMethod.GET, "categories/{id}/records", Map.of("id", id));
     }
 
-    @SuppressWarnings("unused")
-    public CategoryRecordsRequest(Category category) {
-        this(category.getId());
+    /**
+     * Creates and returns a new {@code CategoryRecordsRequest} builder.
+     *
+     * @param category the category to get the records for
+     * @return a {@code CategoryRecordsRequest} builder
+     */
+    public static CategoryRecordsRequest create(Category category) {
+        checkResource(category, "category");
+
+        return new CategoryRecordsRequest(category.getId());
+    }
+
+    /**
+     * Creates and returns a new {@code CategoryRecordsRequest} builder.
+     *
+     * @param id the category to get the records for
+     * @return a {@code CategoryRecordsRequest} builder
+     */
+    public static CategoryRecordsRequest create(String id) {
+        checkId(id);
+
+        return new CategoryRecordsRequest(id);
     }
 
     /**
@@ -65,7 +84,6 @@ public class CategoryRecordsRequest extends ResourceCollectionRequest<Leaderboar
      * Embeds the game used to filter this leaderboard.
      *
      * @return this object
-     *
      * @see Leaderboard#getGame()
      */
     public CategoryRecordsRequest embedGame() {
@@ -78,7 +96,6 @@ public class CategoryRecordsRequest extends ResourceCollectionRequest<Leaderboar
      *
      * @param builder the embed builder for the game
      * @return this object
-     *
      * @see Leaderboard#getGame()
      */
     public CategoryRecordsRequest embedGame(GameEmbedBuilder builder) {
@@ -90,7 +107,6 @@ public class CategoryRecordsRequest extends ResourceCollectionRequest<Leaderboar
      * Embeds the category used to filter this leaderboard.
      *
      * @return this object
-     *
      * @see Leaderboard#getCategory()
      */
     public CategoryRecordsRequest embedCategory() {
@@ -103,7 +119,6 @@ public class CategoryRecordsRequest extends ResourceCollectionRequest<Leaderboar
      *
      * @param builder the embed builder for the category
      * @return this object
-     *
      * @see Leaderboard#getCategory()
      */
     public CategoryRecordsRequest embedCategory(CategoryEmbedBuilder builder) {
@@ -115,7 +130,6 @@ public class CategoryRecordsRequest extends ResourceCollectionRequest<Leaderboar
      * Embeds the level used to filter this leaderboard.
      *
      * @return this object
-     *
      * @see Leaderboard#getLevel()
      */
     public CategoryRecordsRequest embedLevel() {
@@ -128,7 +142,6 @@ public class CategoryRecordsRequest extends ResourceCollectionRequest<Leaderboar
      *
      * @param builder the embed builder for the level
      * @return this object
-     *
      * @see Leaderboard#getLevel()
      */
     public CategoryRecordsRequest embedLevel(LevelEmbedBuilder builder) {
@@ -140,7 +153,6 @@ public class CategoryRecordsRequest extends ResourceCollectionRequest<Leaderboar
      * Embeds the players that participated in this leaderboard.
      *
      * @return this object
-     *
      * @see Leaderboard#getPlayers()
      */
     public CategoryRecordsRequest embedPlayers() {
@@ -152,7 +164,6 @@ public class CategoryRecordsRequest extends ResourceCollectionRequest<Leaderboar
      * Embeds the regions that were used in this leaderboard.
      *
      * @return this object
-     *
      * @see Leaderboard#getRegions()
      */
     public CategoryRecordsRequest embedRegions() {
@@ -164,7 +175,6 @@ public class CategoryRecordsRequest extends ResourceCollectionRequest<Leaderboar
      * Embeds the platforms that were used in this leaderboard.
      *
      * @return this object
-     *
      * @see Leaderboard#getPlatforms()
      */
     public CategoryRecordsRequest embedPlatforms() {
@@ -176,7 +186,6 @@ public class CategoryRecordsRequest extends ResourceCollectionRequest<Leaderboar
      * Embeds the applicable variables for the filtered levels/categories for this leaderboard.
      *
      * @return this object
-     *
      * @see Leaderboard#getVariables()
      */
     public CategoryRecordsRequest embedVariables() {

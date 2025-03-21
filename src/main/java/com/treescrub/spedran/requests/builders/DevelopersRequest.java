@@ -1,7 +1,7 @@
 package com.treescrub.spedran.requests.builders;
 
-import com.treescrub.spedran.data.Developer;
 import com.treescrub.spedran.ResourceCollectionRequest;
+import com.treescrub.spedran.data.Developer;
 import com.treescrub.spedran.requests.SortDirection;
 import kong.unirest.HttpMethod;
 
@@ -12,8 +12,17 @@ import kong.unirest.HttpMethod;
  */
 public class DevelopersRequest extends ResourceCollectionRequest<Developer> {
     @SuppressWarnings("unused")
-    public DevelopersRequest() {
+    protected DevelopersRequest() {
         super(HttpMethod.GET, "developers");
+    }
+
+    /**
+     * Creates and returns a new {@code DevelopersRequest} builder.
+     *
+     * @return a {@code DevelopersRequest} builder
+     */
+    public static DevelopersRequest create() {
+        return new DevelopersRequest();
     }
 
     /**

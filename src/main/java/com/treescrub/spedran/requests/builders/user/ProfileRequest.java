@@ -1,8 +1,8 @@
 package com.treescrub.spedran.requests.builders.user;
 
+import com.treescrub.spedran.SingleResourceRequest;
 import com.treescrub.spedran.Spedran;
 import com.treescrub.spedran.data.User;
-import com.treescrub.spedran.SingleResourceRequest;
 import kong.unirest.HttpMethod;
 
 /**
@@ -12,8 +12,17 @@ import kong.unirest.HttpMethod;
  */
 public class ProfileRequest extends SingleResourceRequest<User> {
     @SuppressWarnings("unused")
-    public ProfileRequest() {
+    protected ProfileRequest() {
         super(HttpMethod.GET, "profile");
+    }
+
+    /**
+     * Creates and returns a new {@code ProfileRequest} builder.
+     *
+     * @return a {@code ProfileRequest} builder
+     */
+    public static ProfileRequest create() {
+        return new ProfileRequest();
     }
 
     @Override

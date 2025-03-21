@@ -7,9 +7,13 @@ import kong.unirest.HttpResponse;
 
 import java.util.*;
 import java.util.concurrent.CompletableFuture;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
 abstract class ResourceRequest<T> {
+    private static final Pattern ID_PATTERN = Pattern.compile("^[a-z0-9]+$");
+
     protected HttpRequestWithBody request;
     protected final CompletableFuture<T> result;
     private final Map<String, Object> queryParameters;
@@ -77,6 +81,28 @@ abstract class ResourceRequest<T> {
         request.queryString(queryParameters);
         if(!embeds.isEmpty()) {
             request.queryString("embed", String.join(",", embeds));
+        }
+    }
+
+    protected static void checkId(String id) {
+        checkId(id, "id");
+    }
+
+    protected static void checkId(String id, String paramName) {
+        if(id == null) {
+            throw new IllegalArgumentException(paramName + " is null");
+        }
+        if(id.isEmpty()) {
+            throw new IllegalArgumentException(paramName + " is empty");
+        }
+        if(!ID_PATTERN.matcher(id).matches()) {
+            throw new IllegalArgumentException(paramName + " '" + id + "' is not lowercase alphanumeric");
+        }
+    }
+
+    protected static void checkResource(Object resource, String paramName) {
+        if(resource == null) {
+            throw new IllegalArgumentException(paramName + " is null");
         }
     }
 

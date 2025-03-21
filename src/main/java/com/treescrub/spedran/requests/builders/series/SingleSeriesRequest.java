@@ -1,7 +1,7 @@
 package com.treescrub.spedran.requests.builders.series;
 
-import com.treescrub.spedran.data.Series;
 import com.treescrub.spedran.SingleResourceRequest;
+import com.treescrub.spedran.data.Series;
 import kong.unirest.HttpMethod;
 
 import java.util.Map;
@@ -11,13 +11,32 @@ import java.util.Map;
  */
 public class SingleSeriesRequest extends SingleResourceRequest<Series> {
     @SuppressWarnings("unused")
-    public SingleSeriesRequest(String id) {
+    protected SingleSeriesRequest(String id) {
         super(HttpMethod.GET, "series/{id}", Map.of("id", id));
     }
 
-    @SuppressWarnings("unused")
-    public SingleSeriesRequest(Series series) {
-        this(series.getId());
+    /**
+     * Creates and returns a new {@code SingleSeriesRequest} builder.
+     *
+     * @param series the series to get
+     * @return a {@code SingleSeriesRequest} builder
+     */
+    public static SingleSeriesRequest create(Series series) {
+        checkResource(series, "series");
+
+        return new SingleSeriesRequest(series.getId());
+    }
+
+    /**
+     * Creates and returns a new {@code SingleSeriesRequest} builder.
+     *
+     * @param id the series to get
+     * @return a {@code SingleSeriesRequest} builder
+     */
+    public static SingleSeriesRequest create(String id) {
+        checkId(id);
+
+        return new SingleSeriesRequest(id);
     }
 
     @Override

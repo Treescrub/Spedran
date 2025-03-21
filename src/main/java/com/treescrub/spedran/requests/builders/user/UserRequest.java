@@ -1,7 +1,7 @@
 package com.treescrub.spedran.requests.builders.user;
 
-import com.treescrub.spedran.data.User;
 import com.treescrub.spedran.SingleResourceRequest;
+import com.treescrub.spedran.data.User;
 import kong.unirest.HttpMethod;
 
 import java.util.Map;
@@ -11,13 +11,32 @@ import java.util.Map;
  */
 public class UserRequest extends SingleResourceRequest<User> {
     @SuppressWarnings("unused")
-    public UserRequest(String id) {
+    protected UserRequest(String id) {
         super(HttpMethod.GET, "users/{id}", Map.of("id", id));
     }
 
-    @SuppressWarnings("unused")
-    public UserRequest(User user) {
-        this(user.getId());
+    /**
+     * Creates and returns a new {@code UserRequest} builder.
+     *
+     * @param user the user to get
+     * @return a {@code UserRequest} builder
+     */
+    public static UserRequest create(User user) {
+        checkResource(user, "user");
+
+        return new UserRequest(user.getId());
+    }
+
+    /**
+     * Creates and returns a new {@code UserRequest} builder.
+     *
+     * @param id the user to get
+     * @return a {@code UserRequest} builder
+     */
+    public static UserRequest create(String id) {
+        checkId(id);
+
+        return new UserRequest(id);
     }
 
     @Override

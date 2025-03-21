@@ -1,7 +1,7 @@
 package com.treescrub.spedran.requests.builders;
 
-import com.treescrub.spedran.data.Genre;
 import com.treescrub.spedran.ResourceCollectionRequest;
+import com.treescrub.spedran.data.Genre;
 import com.treescrub.spedran.requests.SortDirection;
 import kong.unirest.HttpMethod;
 
@@ -12,8 +12,17 @@ import kong.unirest.HttpMethod;
  */
 public class GenresRequest extends ResourceCollectionRequest<Genre> {
     @SuppressWarnings("unused")
-    public GenresRequest() {
+    protected GenresRequest() {
         super(HttpMethod.GET, "genres");
+    }
+
+    /**
+     * Creates and returns a new {@code GenresRequest} builder.
+     *
+     * @return a {@code GenresRequest} builder
+     */
+    public static GenresRequest create() {
+        return new GenresRequest();
     }
 
     /**

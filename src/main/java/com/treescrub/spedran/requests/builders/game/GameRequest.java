@@ -1,7 +1,7 @@
 package com.treescrub.spedran.requests.builders.game;
 
-import com.treescrub.spedran.data.Game;
 import com.treescrub.spedran.SingleResourceRequest;
+import com.treescrub.spedran.data.Game;
 import com.treescrub.spedran.requests.builders.embed.CategoryEmbedBuilder;
 import com.treescrub.spedran.requests.builders.embed.LevelEmbedBuilder;
 import kong.unirest.HttpMethod;
@@ -13,13 +13,32 @@ import java.util.Map;
  */
 public class GameRequest extends SingleResourceRequest<Game> {
     @SuppressWarnings("unused")
-    public GameRequest(String id) {
+    protected GameRequest(String id) {
         super(HttpMethod.GET, "games/{id}", Map.of("id", id));
     }
 
-    @SuppressWarnings("unused")
-    public GameRequest(Game game) {
-        this(game.getId());
+    /**
+     * Creates and returns a new {@code GameRequest} builder.
+     *
+     * @param game the game to get
+     * @return a {@code GameRequest} builder
+     */
+    public static GameRequest create(Game game) {
+        checkResource(game, "game");
+
+        return new GameRequest(game.getId());
+    }
+
+    /**
+     * Creates and returns a new {@code GameRequest} builder.
+     *
+     * @param id the game to get
+     * @return a {@code GameRequest} builder
+     */
+    public static GameRequest create(String id) {
+        checkId(id);
+
+        return new GameRequest(id);
     }
 
     @Override
@@ -31,7 +50,6 @@ public class GameRequest extends SingleResourceRequest<Game> {
      * Embed this game's levels.
      *
      * @return this object
-     *
      * @see Game#getLevels()
      */
     public GameRequest embedLevels() {
@@ -44,7 +62,6 @@ public class GameRequest extends SingleResourceRequest<Game> {
      *
      * @param builder the embed builder for the levels
      * @return this object
-     *
      * @see Game#getLevels()
      */
     public GameRequest embedLevels(LevelEmbedBuilder builder) {
@@ -56,7 +73,6 @@ public class GameRequest extends SingleResourceRequest<Game> {
      * Embed this game's categories.
      *
      * @return this object
-     *
      * @see Game#getCategories()
      */
     public GameRequest embedCategories() {
@@ -69,7 +85,6 @@ public class GameRequest extends SingleResourceRequest<Game> {
      *
      * @param builder the embed builder for the categories
      * @return this object
-     *
      * @see Game#getCategories()
      */
     public GameRequest embedCategories(CategoryEmbedBuilder builder) {
@@ -81,7 +96,6 @@ public class GameRequest extends SingleResourceRequest<Game> {
      * Embed this game's gametypes.
      *
      * @return this object
-     *
      * @see Game#getGametypes()
      */
     public GameRequest embedGametypes() {
@@ -93,7 +107,6 @@ public class GameRequest extends SingleResourceRequest<Game> {
      * Embed this game's platforms.
      *
      * @return this object
-     *
      * @see Game#getPlatforms()
      */
     public GameRequest embedPlatforms() {
@@ -105,7 +118,6 @@ public class GameRequest extends SingleResourceRequest<Game> {
      * Embed this game's regions.
      *
      * @return this object
-     *
      * @see Game#getRegions()
      */
     public GameRequest embedRegions() {
@@ -117,7 +129,6 @@ public class GameRequest extends SingleResourceRequest<Game> {
      * Embed this game's genres.
      *
      * @return this object
-     *
      * @see Game#getGenres()
      */
     public GameRequest embedGenres() {
@@ -129,7 +140,6 @@ public class GameRequest extends SingleResourceRequest<Game> {
      * Embed this game's engines.
      *
      * @return this object
-     *
      * @see Game#getEngines()
      */
     public GameRequest embedEngines() {
@@ -141,7 +151,6 @@ public class GameRequest extends SingleResourceRequest<Game> {
      * Embed this game's developers.
      *
      * @return this object
-     *
      * @see Game#getDevelopers()
      */
     public GameRequest embedDevelopers() {
@@ -153,7 +162,6 @@ public class GameRequest extends SingleResourceRequest<Game> {
      * Embed this game's publishers.
      *
      * @return this object
-     *
      * @see Game#getPublishers()
      */
     public GameRequest embedPublishers() {
@@ -165,7 +173,6 @@ public class GameRequest extends SingleResourceRequest<Game> {
      * Embed this game's variables.
      *
      * @return this object
-     *
      * @see Game#getVariables()
      */
     public GameRequest embedVariables() {

@@ -1,7 +1,7 @@
 package com.treescrub.spedran.requests.builders;
 
-import com.treescrub.spedran.data.Platform;
 import com.treescrub.spedran.ResourceCollectionRequest;
+import com.treescrub.spedran.data.Platform;
 import com.treescrub.spedran.requests.SortDirection;
 import kong.unirest.HttpMethod;
 
@@ -10,8 +10,17 @@ import kong.unirest.HttpMethod;
  */
 public class PlatformsRequest extends ResourceCollectionRequest<Platform> {
     @SuppressWarnings("unused")
-    public PlatformsRequest() {
+    protected PlatformsRequest() {
         super(HttpMethod.GET, "platforms");
+    }
+
+    /**
+     * Creates and returns a new {@code PlatformsRequest} builder.
+     *
+     * @return a {@code PlatformsRequest} builder
+     */
+    public static PlatformsRequest create() {
+        return new PlatformsRequest();
     }
 
     /**

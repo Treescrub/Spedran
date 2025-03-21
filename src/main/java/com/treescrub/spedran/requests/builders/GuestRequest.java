@@ -1,7 +1,7 @@
 package com.treescrub.spedran.requests.builders;
 
-import com.treescrub.spedran.data.Guest;
 import com.treescrub.spedran.SingleResourceRequest;
+import com.treescrub.spedran.data.Guest;
 import kong.unirest.HttpMethod;
 
 import java.util.Map;
@@ -11,8 +11,25 @@ import java.util.Map;
  */
 public class GuestRequest extends SingleResourceRequest<Guest> {
     @SuppressWarnings("unused")
-    public GuestRequest(String name) {
+    protected GuestRequest(String name) {
         super(HttpMethod.GET, "guests/{name}", Map.of("name", name));
+    }
+
+    /**
+     * Creates and returns a new {@code GuestRequest} builder.
+     *
+     * @param name the name of the guest to get
+     * @return a {@code GuestRequest} builder
+     */
+    public static GuestRequest create(String name) {
+        if(name == null) {
+            throw new IllegalArgumentException("name is null");
+        }
+        if(name.isEmpty()) {
+            throw new IllegalArgumentException("name is empty");
+        }
+
+        return new GuestRequest(name);
     }
 
     @Override
