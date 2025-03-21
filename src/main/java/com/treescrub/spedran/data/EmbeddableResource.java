@@ -12,12 +12,12 @@ public class EmbeddableResource<T extends IdentifiableResource> {
     private final String id;
     private final T embeddedResource;
 
-    public EmbeddableResource(String id) {
+    EmbeddableResource(String id) {
         this.id = id;
         this.embeddedResource = null;
     }
 
-    public EmbeddableResource(T embeddedResource) {
+    EmbeddableResource(T embeddedResource) {
         this.id = embeddedResource.getId();
         this.embeddedResource = embeddedResource;
     }
