@@ -57,7 +57,7 @@ public class Level extends IdentifiableNamedResource {
      */
     @SuppressWarnings("unused")
     public LevelRecordsRequest fetchRecords() {
-        return new LevelRecordsRequest(this);
+        return LevelRecordsRequest.create(this);
     }
 
     /**
@@ -67,7 +67,7 @@ public class Level extends IdentifiableNamedResource {
      */
     @SuppressWarnings("unused")
     public LevelVariablesRequest fetchVariables() {
-        return new LevelVariablesRequest(this);
+        return LevelVariablesRequest.create(this);
     }
 
     /**
